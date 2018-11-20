@@ -72,17 +72,17 @@ type Configuration struct {
 	DefaultHeader map[string]string 	`json:"defaultHeader,omitempty"`
 	UserAgent     string            	`json:"userAgent,omitempty"`
 	HTTPClient 	  *http.Client
-	AppKey        string
-	AppSid        string
+    AppKey        string
+    AppSid        string
 }
 
 func NewConfiguration(appSid string, appKey string) *Configuration {
-	cfg := &Configuration{
-		BasePath:      "https://api.aspose.cloud/v2.0",
-		DefaultHeader: make(map[string]string),
-		UserAgent:     "Swagger-Codegen/18.10.0/go",
-		AppKey: appKey,
-		AppSid: appSid,
+    cfg := &Configuration{
+        BasePath:      "https://api.aspose.cloud/v2.0",
+        DefaultHeader: make(map[string]string),
+        UserAgent:     "aspose pdf cloud go sdk",
+        AppKey: appKey,
+        AppSid: appSid,
 	}
 	return cfg
 }

@@ -44,15 +44,15 @@ var (
 type PdfApiService service
 
 /* Create Instance of PdfApiService
- @param appSid string Application SID 
+ @param appSid string Application SID
  @param appKey string Application Key
  @return *PdfApiService */
-func NewPdfApiService(appSid string, appKey string) *PdfApiService {
+ func NewPdfApiService(appSid string, appKey string) *PdfApiService {
 	config := NewConfiguration(appSid, appKey)
 	client := NewAPIClient(config)
 	return client.PdfApi
 }
-//func NewPdfApiService ()
+
 
 /* PdfApiService Delete document annotation by ID
  * @param ctx context.Context for authentication, logging, tracing, etc.
