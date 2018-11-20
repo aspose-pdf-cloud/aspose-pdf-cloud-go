@@ -30,15 +30,9 @@ import (
 	_url "net/url"
 	"net/http"
 	"strings"
-	"golang.org/x/net/context"
 	"os"
 	"encoding/json"
 	"fmt"
-)
-
-// Linger please
-var (
-	_ context.Context
 )
 
 type PdfApiService service
@@ -46,23 +40,23 @@ type PdfApiService service
 /* Create Instance of PdfApiService
  @param appSid string Application SID
  @param appKey string Application Key
+ @param basePath string Base service path. Set "" for default
  @return *PdfApiService */
- func NewPdfApiService(appSid string, appKey string) *PdfApiService {
-	config := NewConfiguration(appSid, appKey)
+ func NewPdfApiService(appSid string, appKey string, basePath string) *PdfApiService {
+	config := NewConfiguration(appSid, appKey, basePath)
 	client := NewAPIClient(config)
 	return client.PdfApi
 }
 
 
 /* PdfApiService Delete document annotation by ID
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) DeleteAnnotation(ctx context.Context, name string, annotationId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) DeleteAnnotation(name string, annotationId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -112,7 +106,7 @@ func (a *PdfApiService) DeleteAnnotation(ctx context.Context, name string, annot
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -136,13 +130,12 @@ func (a *PdfApiService) DeleteAnnotation(ctx context.Context, name string, annot
 }
 
 /* PdfApiService Delete all annotations from the document
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) DeleteDocumentAnnotations(ctx context.Context, name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) DeleteDocumentAnnotations(name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -191,7 +184,7 @@ func (a *PdfApiService) DeleteDocumentAnnotations(ctx context.Context, name stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -215,13 +208,12 @@ func (a *PdfApiService) DeleteDocumentAnnotations(ctx context.Context, name stri
 }
 
 /* PdfApiService Delete all link annotations from the document
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) DeleteDocumentLinkAnnotations(ctx context.Context, name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) DeleteDocumentLinkAnnotations(name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -270,7 +262,7 @@ func (a *PdfApiService) DeleteDocumentLinkAnnotations(ctx context.Context, name 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -294,14 +286,13 @@ func (a *PdfApiService) DeleteDocumentLinkAnnotations(ctx context.Context, name 
 }
 
 /* PdfApiService Delete document field by name.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param fieldName The field name/
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) DeleteField(ctx context.Context, name string, fieldName string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) DeleteField(name string, fieldName string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -351,7 +342,7 @@ func (a *PdfApiService) DeleteField(ctx context.Context, name string, fieldName 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -375,14 +366,13 @@ func (a *PdfApiService) DeleteField(ctx context.Context, name string, fieldName 
 }
 
 /* PdfApiService Delete image from document page.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param imageId Image ID.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) DeleteImage(ctx context.Context, name string, imageId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) DeleteImage(name string, imageId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -432,7 +422,7 @@ func (a *PdfApiService) DeleteImage(ctx context.Context, name string, imageId st
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -456,14 +446,13 @@ func (a *PdfApiService) DeleteImage(ctx context.Context, name string, imageId st
 }
 
 /* PdfApiService Delete document page link annotation by ID
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param linkId The link ID.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) DeleteLinkAnnotation(ctx context.Context, name string, linkId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) DeleteLinkAnnotation(name string, linkId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -513,7 +502,7 @@ func (a *PdfApiService) DeleteLinkAnnotation(ctx context.Context, name string, l
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -537,14 +526,13 @@ func (a *PdfApiService) DeleteLinkAnnotation(ctx context.Context, name string, l
 }
 
 /* PdfApiService Delete document page by its number.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) DeletePage(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) DeletePage(name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -594,7 +582,7 @@ func (a *PdfApiService) DeletePage(ctx context.Context, name string, pageNumber 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -618,14 +606,13 @@ func (a *PdfApiService) DeletePage(ctx context.Context, name string, pageNumber 
 }
 
 /* PdfApiService Delete all annotations from the page
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) DeletePageAnnotations(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) DeletePageAnnotations(name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -675,7 +662,7 @@ func (a *PdfApiService) DeletePageAnnotations(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -699,14 +686,13 @@ func (a *PdfApiService) DeletePageAnnotations(ctx context.Context, name string, 
 }
 
 /* PdfApiService Delete all link annotations from the page
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) DeletePageLinkAnnotations(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) DeletePageLinkAnnotations(name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -756,7 +742,7 @@ func (a *PdfApiService) DeletePageLinkAnnotations(ctx context.Context, name stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -780,13 +766,12 @@ func (a *PdfApiService) DeletePageLinkAnnotations(ctx context.Context, name stri
 }
 
 /* PdfApiService Delete custom document properties.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) 
      @param "folder" (string) 
  @return AsposeResponse*/
-func (a *PdfApiService) DeleteProperties(ctx context.Context, name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) DeleteProperties(name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -835,7 +820,7 @@ func (a *PdfApiService) DeleteProperties(ctx context.Context, name string, local
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -859,14 +844,13 @@ func (a *PdfApiService) DeleteProperties(ctx context.Context, name string, local
 }
 
 /* PdfApiService Delete document property.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name 
  @param propertyName 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) 
      @param "folder" (string) 
  @return AsposeResponse*/
-func (a *PdfApiService) DeleteProperty(ctx context.Context, name string, propertyName string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) DeleteProperty(name string, propertyName string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -916,7 +900,7 @@ func (a *PdfApiService) DeleteProperty(ctx context.Context, name string, propert
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -940,14 +924,13 @@ func (a *PdfApiService) DeleteProperty(ctx context.Context, name string, propert
 }
 
 /* PdfApiService Read document page circle annotation by ID.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return CircleAnnotationResponse*/
-func (a *PdfApiService) GetCircleAnnotation(ctx context.Context, name string, annotationId string, localVarOptionals map[string]interface{}) (CircleAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) GetCircleAnnotation(name string, annotationId string, localVarOptionals map[string]interface{}) (CircleAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -997,7 +980,7 @@ func (a *PdfApiService) GetCircleAnnotation(ctx context.Context, name string, an
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1021,13 +1004,12 @@ func (a *PdfApiService) GetCircleAnnotation(ctx context.Context, name string, an
 }
 
 /* PdfApiService Read common document info.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return DocumentResponse*/
-func (a *PdfApiService) GetDocument(ctx context.Context, name string, localVarOptionals map[string]interface{}) (DocumentResponse,  *http.Response, error) {
+func (a *PdfApiService) GetDocument(name string, localVarOptionals map[string]interface{}) (DocumentResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1076,7 +1058,7 @@ func (a *PdfApiService) GetDocument(ctx context.Context, name string, localVarOp
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1100,13 +1082,12 @@ func (a *PdfApiService) GetDocument(ctx context.Context, name string, localVarOp
 }
 
 /* PdfApiService Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AnnotationsInfoResponse*/
-func (a *PdfApiService) GetDocumentAnnotations(ctx context.Context, name string, localVarOptionals map[string]interface{}) (AnnotationsInfoResponse,  *http.Response, error) {
+func (a *PdfApiService) GetDocumentAnnotations(name string, localVarOptionals map[string]interface{}) (AnnotationsInfoResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1155,7 +1136,7 @@ func (a *PdfApiService) GetDocumentAnnotations(ctx context.Context, name string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1179,14 +1160,13 @@ func (a *PdfApiService) GetDocumentAnnotations(ctx context.Context, name string,
 }
 
 /* PdfApiService Read document attachment info by its index.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param attachmentIndex The attachment index.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AttachmentResponse*/
-func (a *PdfApiService) GetDocumentAttachmentByIndex(ctx context.Context, name string, attachmentIndex int32, localVarOptionals map[string]interface{}) (AttachmentResponse,  *http.Response, error) {
+func (a *PdfApiService) GetDocumentAttachmentByIndex(name string, attachmentIndex int32, localVarOptionals map[string]interface{}) (AttachmentResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1236,7 +1216,7 @@ func (a *PdfApiService) GetDocumentAttachmentByIndex(ctx context.Context, name s
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1260,13 +1240,12 @@ func (a *PdfApiService) GetDocumentAttachmentByIndex(ctx context.Context, name s
 }
 
 /* PdfApiService Read document attachments info.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AttachmentsResponse*/
-func (a *PdfApiService) GetDocumentAttachments(ctx context.Context, name string, localVarOptionals map[string]interface{}) (AttachmentsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetDocumentAttachments(name string, localVarOptionals map[string]interface{}) (AttachmentsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1315,7 +1294,7 @@ func (a *PdfApiService) GetDocumentAttachments(ctx context.Context, name string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1339,14 +1318,13 @@ func (a *PdfApiService) GetDocumentAttachments(ctx context.Context, name string,
 }
 
 /* PdfApiService Read document bookmark/bookmarks (including children).
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "bookmarkPath" (string) The bookmark path. Leave it empty if you want to get all the bookmarks in the document.
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return *os.File*/
-func (a *PdfApiService) GetDocumentBookmarks(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetDocumentBookmarks(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1401,7 +1379,7 @@ func (a *PdfApiService) GetDocumentBookmarks(ctx context.Context, name string, l
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1425,13 +1403,12 @@ func (a *PdfApiService) GetDocumentBookmarks(ctx context.Context, name string, l
 }
 
 /* PdfApiService Read document circle annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return CircleAnnotationsResponse*/
-func (a *PdfApiService) GetDocumentCircleAnnotations(ctx context.Context, name string, localVarOptionals map[string]interface{}) (CircleAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetDocumentCircleAnnotations(name string, localVarOptionals map[string]interface{}) (CircleAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1480,7 +1457,7 @@ func (a *PdfApiService) GetDocumentCircleAnnotations(ctx context.Context, name s
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1504,13 +1481,12 @@ func (a *PdfApiService) GetDocumentCircleAnnotations(ctx context.Context, name s
 }
 
 /* PdfApiService Read document free text annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return FreeTextAnnotationsResponse*/
-func (a *PdfApiService) GetDocumentFreeTextAnnotations(ctx context.Context, name string, localVarOptionals map[string]interface{}) (FreeTextAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetDocumentFreeTextAnnotations(name string, localVarOptionals map[string]interface{}) (FreeTextAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1559,7 +1535,7 @@ func (a *PdfApiService) GetDocumentFreeTextAnnotations(ctx context.Context, name
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1583,13 +1559,12 @@ func (a *PdfApiService) GetDocumentFreeTextAnnotations(ctx context.Context, name
 }
 
 /* PdfApiService Read document line annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return LineAnnotationsResponse*/
-func (a *PdfApiService) GetDocumentLineAnnotations(ctx context.Context, name string, localVarOptionals map[string]interface{}) (LineAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetDocumentLineAnnotations(name string, localVarOptionals map[string]interface{}) (LineAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1638,7 +1613,7 @@ func (a *PdfApiService) GetDocumentLineAnnotations(ctx context.Context, name str
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1662,13 +1637,12 @@ func (a *PdfApiService) GetDocumentLineAnnotations(ctx context.Context, name str
 }
 
 /* PdfApiService Read document polyline annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return PolyLineAnnotationsResponse*/
-func (a *PdfApiService) GetDocumentPolyLineAnnotations(ctx context.Context, name string, localVarOptionals map[string]interface{}) (PolyLineAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetDocumentPolyLineAnnotations(name string, localVarOptionals map[string]interface{}) (PolyLineAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1717,7 +1691,7 @@ func (a *PdfApiService) GetDocumentPolyLineAnnotations(ctx context.Context, name
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1741,13 +1715,12 @@ func (a *PdfApiService) GetDocumentPolyLineAnnotations(ctx context.Context, name
 }
 
 /* PdfApiService Read document polygon annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return PolygonAnnotationsResponse*/
-func (a *PdfApiService) GetDocumentPolygonAnnotations(ctx context.Context, name string, localVarOptionals map[string]interface{}) (PolygonAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetDocumentPolygonAnnotations(name string, localVarOptionals map[string]interface{}) (PolygonAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1796,7 +1769,7 @@ func (a *PdfApiService) GetDocumentPolygonAnnotations(ctx context.Context, name 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1820,13 +1793,12 @@ func (a *PdfApiService) GetDocumentPolygonAnnotations(ctx context.Context, name 
 }
 
 /* PdfApiService Read document properties.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) 
      @param "folder" (string) 
  @return DocumentPropertiesResponse*/
-func (a *PdfApiService) GetDocumentProperties(ctx context.Context, name string, localVarOptionals map[string]interface{}) (DocumentPropertiesResponse,  *http.Response, error) {
+func (a *PdfApiService) GetDocumentProperties(name string, localVarOptionals map[string]interface{}) (DocumentPropertiesResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1875,7 +1847,7 @@ func (a *PdfApiService) GetDocumentProperties(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1899,14 +1871,13 @@ func (a *PdfApiService) GetDocumentProperties(ctx context.Context, name string, 
 }
 
 /* PdfApiService Read document property by name.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name 
  @param propertyName 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) 
      @param "folder" (string) 
  @return DocumentPropertyResponse*/
-func (a *PdfApiService) GetDocumentProperty(ctx context.Context, name string, propertyName string, localVarOptionals map[string]interface{}) (DocumentPropertyResponse,  *http.Response, error) {
+func (a *PdfApiService) GetDocumentProperty(name string, propertyName string, localVarOptionals map[string]interface{}) (DocumentPropertyResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1956,7 +1927,7 @@ func (a *PdfApiService) GetDocumentProperty(ctx context.Context, name string, pr
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1980,13 +1951,12 @@ func (a *PdfApiService) GetDocumentProperty(ctx context.Context, name string, pr
 }
 
 /* PdfApiService Read document square annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return SquareAnnotationsResponse*/
-func (a *PdfApiService) GetDocumentSquareAnnotations(ctx context.Context, name string, localVarOptionals map[string]interface{}) (SquareAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetDocumentSquareAnnotations(name string, localVarOptionals map[string]interface{}) (SquareAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -2035,7 +2005,7 @@ func (a *PdfApiService) GetDocumentSquareAnnotations(ctx context.Context, name s
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2059,13 +2029,12 @@ func (a *PdfApiService) GetDocumentSquareAnnotations(ctx context.Context, name s
 }
 
 /* PdfApiService Read document text annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return TextAnnotationsResponse*/
-func (a *PdfApiService) GetDocumentTextAnnotations(ctx context.Context, name string, localVarOptionals map[string]interface{}) (TextAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetDocumentTextAnnotations(name string, localVarOptionals map[string]interface{}) (TextAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -2114,7 +2083,7 @@ func (a *PdfApiService) GetDocumentTextAnnotations(ctx context.Context, name str
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2138,13 +2107,12 @@ func (a *PdfApiService) GetDocumentTextAnnotations(ctx context.Context, name str
 }
 
 /* PdfApiService Download a specific file 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param path Path of the file including the file name and extension e.g. /file.ext
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "versionId" (string) File&#39;s version
      @param "storage" (string) User&#39;s storage name
  @return *os.File*/
-func (a *PdfApiService) GetDownload(ctx context.Context, path string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetDownload(path string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -2193,7 +2161,7 @@ func (a *PdfApiService) GetDownload(ctx context.Context, path string, localVarOp
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2217,14 +2185,13 @@ func (a *PdfApiService) GetDownload(ctx context.Context, path string, localVarOp
 }
 
 /* PdfApiService Download document attachment content by its index.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param attachmentIndex The attachment index.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return *os.File*/
-func (a *PdfApiService) GetDownloadDocumentAttachmentByIndex(ctx context.Context, name string, attachmentIndex int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetDownloadDocumentAttachmentByIndex(name string, attachmentIndex int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -2274,7 +2241,7 @@ func (a *PdfApiService) GetDownloadDocumentAttachmentByIndex(ctx context.Context
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2298,12 +2265,11 @@ func (a *PdfApiService) GetDownloadDocumentAttachmentByIndex(ctx context.Context
 }
 
 /* PdfApiService Convert EPUB file (located on storage) to PDF format and return resulting file in response. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param srcPath Full source filename (ex. /folder1/folder2/template.epub)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetEpubInStorageToPdf(ctx context.Context, srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetEpubInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -2346,7 +2312,7 @@ func (a *PdfApiService) GetEpubInStorageToPdf(ctx context.Context, srcPath strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2370,14 +2336,13 @@ func (a *PdfApiService) GetEpubInStorageToPdf(ctx context.Context, srcPath strin
 }
 
 /* PdfApiService Get document field by name.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param fieldName The field name/
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return FieldResponse*/
-func (a *PdfApiService) GetField(ctx context.Context, name string, fieldName string, localVarOptionals map[string]interface{}) (FieldResponse,  *http.Response, error) {
+func (a *PdfApiService) GetField(name string, fieldName string, localVarOptionals map[string]interface{}) (FieldResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -2427,7 +2392,7 @@ func (a *PdfApiService) GetField(ctx context.Context, name string, fieldName str
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2451,13 +2416,12 @@ func (a *PdfApiService) GetField(ctx context.Context, name string, fieldName str
 }
 
 /* PdfApiService Get document fields.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return FieldsResponse*/
-func (a *PdfApiService) GetFields(ctx context.Context, name string, localVarOptionals map[string]interface{}) (FieldsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetFields(name string, localVarOptionals map[string]interface{}) (FieldsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -2506,7 +2470,7 @@ func (a *PdfApiService) GetFields(ctx context.Context, name string, localVarOpti
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2530,14 +2494,13 @@ func (a *PdfApiService) GetFields(ctx context.Context, name string, localVarOpti
 }
 
 /* PdfApiService Read document page free text annotation by ID.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return FreeTextAnnotationResponse*/
-func (a *PdfApiService) GetFreeTextAnnotation(ctx context.Context, name string, annotationId string, localVarOptionals map[string]interface{}) (FreeTextAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) GetFreeTextAnnotation(name string, annotationId string, localVarOptionals map[string]interface{}) (FreeTextAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -2587,7 +2550,7 @@ func (a *PdfApiService) GetFreeTextAnnotation(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2611,7 +2574,6 @@ func (a *PdfApiService) GetFreeTextAnnotation(ctx context.Context, name string, 
 }
 
 /* PdfApiService Convert HTML file (located on storage) to PDF format and return resulting file in response. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param srcPath Full source filename (ex. /folder1/folder2/template.zip)
  @param htmlFileName Name of HTML file in ZIP.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -2624,7 +2586,7 @@ func (a *PdfApiService) GetFreeTextAnnotation(ctx context.Context, name string, 
      @param "marginTop" (float64) Page margin top
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetHtmlInStorageToPdf(ctx context.Context, srcPath string, htmlFileName string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetHtmlInStorageToPdf(srcPath string, htmlFileName string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -2710,7 +2672,7 @@ func (a *PdfApiService) GetHtmlInStorageToPdf(ctx context.Context, srcPath strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2734,14 +2696,13 @@ func (a *PdfApiService) GetHtmlInStorageToPdf(ctx context.Context, srcPath strin
 }
 
 /* PdfApiService Read document image by ID.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param imageId Image ID.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return ImageResponse*/
-func (a *PdfApiService) GetImage(ctx context.Context, name string, imageId string, localVarOptionals map[string]interface{}) (ImageResponse,  *http.Response, error) {
+func (a *PdfApiService) GetImage(name string, imageId string, localVarOptionals map[string]interface{}) (ImageResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -2791,7 +2752,7 @@ func (a *PdfApiService) GetImage(ctx context.Context, name string, imageId strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2815,7 +2776,6 @@ func (a *PdfApiService) GetImage(ctx context.Context, name string, imageId strin
 }
 
 /* PdfApiService Extract document image in GIF format
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param imageId Image ID.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -2824,7 +2784,7 @@ func (a *PdfApiService) GetImage(ctx context.Context, name string, imageId strin
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return *os.File*/
-func (a *PdfApiService) GetImageExtractAsGif(ctx context.Context, name string, imageId string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetImageExtractAsGif(name string, imageId string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -2886,7 +2846,7 @@ func (a *PdfApiService) GetImageExtractAsGif(ctx context.Context, name string, i
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2910,7 +2870,6 @@ func (a *PdfApiService) GetImageExtractAsGif(ctx context.Context, name string, i
 }
 
 /* PdfApiService Extract document image in JPEG format
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param imageId Image ID.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -2919,7 +2878,7 @@ func (a *PdfApiService) GetImageExtractAsGif(ctx context.Context, name string, i
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return *os.File*/
-func (a *PdfApiService) GetImageExtractAsJpeg(ctx context.Context, name string, imageId string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetImageExtractAsJpeg(name string, imageId string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -2981,7 +2940,7 @@ func (a *PdfApiService) GetImageExtractAsJpeg(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3005,7 +2964,6 @@ func (a *PdfApiService) GetImageExtractAsJpeg(ctx context.Context, name string, 
 }
 
 /* PdfApiService Extract document image in PNG format
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param imageId Image ID.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -3014,7 +2972,7 @@ func (a *PdfApiService) GetImageExtractAsJpeg(ctx context.Context, name string, 
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return *os.File*/
-func (a *PdfApiService) GetImageExtractAsPng(ctx context.Context, name string, imageId string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetImageExtractAsPng(name string, imageId string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -3076,7 +3034,7 @@ func (a *PdfApiService) GetImageExtractAsPng(ctx context.Context, name string, i
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3100,7 +3058,6 @@ func (a *PdfApiService) GetImageExtractAsPng(ctx context.Context, name string, i
 }
 
 /* PdfApiService Extract document image in TIFF format
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param imageId Image ID.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -3109,7 +3066,7 @@ func (a *PdfApiService) GetImageExtractAsPng(ctx context.Context, name string, i
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return *os.File*/
-func (a *PdfApiService) GetImageExtractAsTiff(ctx context.Context, name string, imageId string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetImageExtractAsTiff(name string, imageId string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -3171,7 +3128,7 @@ func (a *PdfApiService) GetImageExtractAsTiff(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3195,14 +3152,13 @@ func (a *PdfApiService) GetImageExtractAsTiff(ctx context.Context, name string, 
 }
 
 /* PdfApiService Read document images.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return ImagesResponse*/
-func (a *PdfApiService) GetImages(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (ImagesResponse,  *http.Response, error) {
+func (a *PdfApiService) GetImages(name string, pageNumber int32, localVarOptionals map[string]interface{}) (ImagesResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -3252,7 +3208,7 @@ func (a *PdfApiService) GetImages(ctx context.Context, name string, pageNumber i
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3276,12 +3232,11 @@ func (a *PdfApiService) GetImages(ctx context.Context, name string, pageNumber i
 }
 
 /* PdfApiService Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param srcPath Full source filename (ex. /folder1/folder2/template.tex)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetLaTeXInStorageToPdf(ctx context.Context, srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetLaTeXInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -3324,7 +3279,7 @@ func (a *PdfApiService) GetLaTeXInStorageToPdf(ctx context.Context, srcPath stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3348,14 +3303,13 @@ func (a *PdfApiService) GetLaTeXInStorageToPdf(ctx context.Context, srcPath stri
 }
 
 /* PdfApiService Read document page line annotation by ID.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return LineAnnotationResponse*/
-func (a *PdfApiService) GetLineAnnotation(ctx context.Context, name string, annotationId string, localVarOptionals map[string]interface{}) (LineAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) GetLineAnnotation(name string, annotationId string, localVarOptionals map[string]interface{}) (LineAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -3405,7 +3359,7 @@ func (a *PdfApiService) GetLineAnnotation(ctx context.Context, name string, anno
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3429,14 +3383,13 @@ func (a *PdfApiService) GetLineAnnotation(ctx context.Context, name string, anno
 }
 
 /* PdfApiService Read document link annotation by ID.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param linkId The link ID.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return LinkAnnotationResponse*/
-func (a *PdfApiService) GetLinkAnnotation(ctx context.Context, name string, linkId string, localVarOptionals map[string]interface{}) (LinkAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) GetLinkAnnotation(name string, linkId string, localVarOptionals map[string]interface{}) (LinkAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -3486,7 +3439,7 @@ func (a *PdfApiService) GetLinkAnnotation(ctx context.Context, name string, link
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3510,12 +3463,11 @@ func (a *PdfApiService) GetLinkAnnotation(ctx context.Context, name string, link
 }
 
 /* PdfApiService Get the file listing of a specific folder 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "path" (string) Start with name of storage e.g. root folder &#39;/&#39;or some folder &#39;/folder1/..&#39;
      @param "storage" (string) User&#39;s storage name
  @return FilesResponse*/
-func (a *PdfApiService) GetListFiles(ctx context.Context, localVarOptionals map[string]interface{}) (FilesResponse,  *http.Response, error) {
+func (a *PdfApiService) GetListFiles(localVarOptionals map[string]interface{}) (FilesResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -3563,7 +3515,7 @@ func (a *PdfApiService) GetListFiles(ctx context.Context, localVarOptionals map[
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3587,12 +3539,11 @@ func (a *PdfApiService) GetListFiles(ctx context.Context, localVarOptionals map[
 }
 
 /* PdfApiService Convert MHT file (located on storage) to PDF format and return resulting file in response. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param srcPath Full source filename (ex. /folder1/folder2/template.mht)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetMhtInStorageToPdf(ctx context.Context, srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetMhtInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -3635,7 +3586,7 @@ func (a *PdfApiService) GetMhtInStorageToPdf(ctx context.Context, srcPath string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3659,14 +3610,13 @@ func (a *PdfApiService) GetMhtInStorageToPdf(ctx context.Context, srcPath string
 }
 
 /* PdfApiService Read document page info.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return DocumentPageResponse*/
-func (a *PdfApiService) GetPage(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (DocumentPageResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPage(name string, pageNumber int32, localVarOptionals map[string]interface{}) (DocumentPageResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -3716,7 +3666,7 @@ func (a *PdfApiService) GetPage(ctx context.Context, name string, pageNumber int
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3740,14 +3690,13 @@ func (a *PdfApiService) GetPage(ctx context.Context, name string, pageNumber int
 }
 
 /* PdfApiService Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AnnotationsInfoResponse*/
-func (a *PdfApiService) GetPageAnnotations(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (AnnotationsInfoResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPageAnnotations(name string, pageNumber int32, localVarOptionals map[string]interface{}) (AnnotationsInfoResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -3797,7 +3746,7 @@ func (a *PdfApiService) GetPageAnnotations(ctx context.Context, name string, pag
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3821,14 +3770,13 @@ func (a *PdfApiService) GetPageAnnotations(ctx context.Context, name string, pag
 }
 
 /* PdfApiService Read document page circle annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return CircleAnnotationsResponse*/
-func (a *PdfApiService) GetPageCircleAnnotations(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (CircleAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPageCircleAnnotations(name string, pageNumber int32, localVarOptionals map[string]interface{}) (CircleAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -3878,7 +3826,7 @@ func (a *PdfApiService) GetPageCircleAnnotations(ctx context.Context, name strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3902,7 +3850,6 @@ func (a *PdfApiService) GetPageCircleAnnotations(ctx context.Context, name strin
 }
 
 /* PdfApiService Convert document page to Bmp image and return resulting file in response.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -3911,7 +3858,7 @@ func (a *PdfApiService) GetPageCircleAnnotations(ctx context.Context, name strin
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPageConvertToBmp(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPageConvertToBmp(name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -3973,7 +3920,7 @@ func (a *PdfApiService) GetPageConvertToBmp(ctx context.Context, name string, pa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3997,7 +3944,6 @@ func (a *PdfApiService) GetPageConvertToBmp(ctx context.Context, name string, pa
 }
 
 /* PdfApiService Convert document page to Emf image and return resulting file in response.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -4006,7 +3952,7 @@ func (a *PdfApiService) GetPageConvertToBmp(ctx context.Context, name string, pa
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPageConvertToEmf(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPageConvertToEmf(name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -4068,7 +4014,7 @@ func (a *PdfApiService) GetPageConvertToEmf(ctx context.Context, name string, pa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4092,7 +4038,6 @@ func (a *PdfApiService) GetPageConvertToEmf(ctx context.Context, name string, pa
 }
 
 /* PdfApiService Convert document page to Gif image and return resulting file in response.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -4101,7 +4046,7 @@ func (a *PdfApiService) GetPageConvertToEmf(ctx context.Context, name string, pa
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPageConvertToGif(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPageConvertToGif(name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -4163,7 +4108,7 @@ func (a *PdfApiService) GetPageConvertToGif(ctx context.Context, name string, pa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4187,7 +4132,6 @@ func (a *PdfApiService) GetPageConvertToGif(ctx context.Context, name string, pa
 }
 
 /* PdfApiService Convert document page to Jpeg image and return resulting file in response.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -4196,7 +4140,7 @@ func (a *PdfApiService) GetPageConvertToGif(ctx context.Context, name string, pa
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPageConvertToJpeg(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPageConvertToJpeg(name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -4258,7 +4202,7 @@ func (a *PdfApiService) GetPageConvertToJpeg(ctx context.Context, name string, p
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4282,7 +4226,6 @@ func (a *PdfApiService) GetPageConvertToJpeg(ctx context.Context, name string, p
 }
 
 /* PdfApiService Convert document page to Png image and return resulting file in response.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -4291,7 +4234,7 @@ func (a *PdfApiService) GetPageConvertToJpeg(ctx context.Context, name string, p
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPageConvertToPng(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPageConvertToPng(name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -4353,7 +4296,7 @@ func (a *PdfApiService) GetPageConvertToPng(ctx context.Context, name string, pa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4377,7 +4320,6 @@ func (a *PdfApiService) GetPageConvertToPng(ctx context.Context, name string, pa
 }
 
 /* PdfApiService Convert document page to Tiff image  and return resulting file in response.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -4386,7 +4328,7 @@ func (a *PdfApiService) GetPageConvertToPng(ctx context.Context, name string, pa
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPageConvertToTiff(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPageConvertToTiff(name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -4448,7 +4390,7 @@ func (a *PdfApiService) GetPageConvertToTiff(ctx context.Context, name string, p
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4472,14 +4414,13 @@ func (a *PdfApiService) GetPageConvertToTiff(ctx context.Context, name string, p
 }
 
 /* PdfApiService Read document page free text annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return FreeTextAnnotationsResponse*/
-func (a *PdfApiService) GetPageFreeTextAnnotations(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (FreeTextAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPageFreeTextAnnotations(name string, pageNumber int32, localVarOptionals map[string]interface{}) (FreeTextAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -4529,7 +4470,7 @@ func (a *PdfApiService) GetPageFreeTextAnnotations(ctx context.Context, name str
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4553,14 +4494,13 @@ func (a *PdfApiService) GetPageFreeTextAnnotations(ctx context.Context, name str
 }
 
 /* PdfApiService Read document page line annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return LineAnnotationsResponse*/
-func (a *PdfApiService) GetPageLineAnnotations(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (LineAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPageLineAnnotations(name string, pageNumber int32, localVarOptionals map[string]interface{}) (LineAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -4610,7 +4550,7 @@ func (a *PdfApiService) GetPageLineAnnotations(ctx context.Context, name string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4634,7 +4574,6 @@ func (a *PdfApiService) GetPageLineAnnotations(ctx context.Context, name string,
 }
 
 /* PdfApiService Read document page link annotation by ID.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param linkId The link ID.
@@ -4642,7 +4581,7 @@ func (a *PdfApiService) GetPageLineAnnotations(ctx context.Context, name string,
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return LinkAnnotationResponse*/
-func (a *PdfApiService) GetPageLinkAnnotation(ctx context.Context, name string, pageNumber int32, linkId string, localVarOptionals map[string]interface{}) (LinkAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPageLinkAnnotation(name string, pageNumber int32, linkId string, localVarOptionals map[string]interface{}) (LinkAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -4693,7 +4632,7 @@ func (a *PdfApiService) GetPageLinkAnnotation(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4717,14 +4656,13 @@ func (a *PdfApiService) GetPageLinkAnnotation(ctx context.Context, name string, 
 }
 
 /* PdfApiService Read document page link annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return LinkAnnotationsResponse*/
-func (a *PdfApiService) GetPageLinkAnnotations(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (LinkAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPageLinkAnnotations(name string, pageNumber int32, localVarOptionals map[string]interface{}) (LinkAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -4774,7 +4712,7 @@ func (a *PdfApiService) GetPageLinkAnnotations(ctx context.Context, name string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4798,14 +4736,13 @@ func (a *PdfApiService) GetPageLinkAnnotations(ctx context.Context, name string,
 }
 
 /* PdfApiService Read document page polyline annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return PolyLineAnnotationsResponse*/
-func (a *PdfApiService) GetPagePolyLineAnnotations(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (PolyLineAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPagePolyLineAnnotations(name string, pageNumber int32, localVarOptionals map[string]interface{}) (PolyLineAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -4855,7 +4792,7 @@ func (a *PdfApiService) GetPagePolyLineAnnotations(ctx context.Context, name str
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4879,14 +4816,13 @@ func (a *PdfApiService) GetPagePolyLineAnnotations(ctx context.Context, name str
 }
 
 /* PdfApiService Read document page polygon annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return PolygonAnnotationsResponse*/
-func (a *PdfApiService) GetPagePolygonAnnotations(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (PolygonAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPagePolygonAnnotations(name string, pageNumber int32, localVarOptionals map[string]interface{}) (PolygonAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -4936,7 +4872,7 @@ func (a *PdfApiService) GetPagePolygonAnnotations(ctx context.Context, name stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4960,14 +4896,13 @@ func (a *PdfApiService) GetPagePolygonAnnotations(ctx context.Context, name stri
 }
 
 /* PdfApiService Read document page square annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return SquareAnnotationsResponse*/
-func (a *PdfApiService) GetPageSquareAnnotations(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (SquareAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPageSquareAnnotations(name string, pageNumber int32, localVarOptionals map[string]interface{}) (SquareAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -5017,7 +4952,7 @@ func (a *PdfApiService) GetPageSquareAnnotations(ctx context.Context, name strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5041,7 +4976,6 @@ func (a *PdfApiService) GetPageSquareAnnotations(ctx context.Context, name strin
 }
 
 /* PdfApiService Read page text items.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber Number of page (starting from 1).
  @param lLX 
@@ -5055,7 +4989,7 @@ func (a *PdfApiService) GetPageSquareAnnotations(ctx context.Context, name strin
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return TextRectsResponse*/
-func (a *PdfApiService) GetPageText(ctx context.Context, name string, pageNumber int32, lLX float64, lLY float64, uRX float64, uRY float64, localVarOptionals map[string]interface{}) (TextRectsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPageText(name string, pageNumber int32, lLX float64, lLY float64, uRX float64, uRY float64, localVarOptionals map[string]interface{}) (TextRectsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -5124,7 +5058,7 @@ func (a *PdfApiService) GetPageText(ctx context.Context, name string, pageNumber
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5148,14 +5082,13 @@ func (a *PdfApiService) GetPageText(ctx context.Context, name string, pageNumber
 }
 
 /* PdfApiService Read document page text annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return TextAnnotationsResponse*/
-func (a *PdfApiService) GetPageTextAnnotations(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (TextAnnotationsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPageTextAnnotations(name string, pageNumber int32, localVarOptionals map[string]interface{}) (TextAnnotationsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -5205,7 +5138,7 @@ func (a *PdfApiService) GetPageTextAnnotations(ctx context.Context, name string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5229,13 +5162,12 @@ func (a *PdfApiService) GetPageTextAnnotations(ctx context.Context, name string,
 }
 
 /* PdfApiService Read document pages info.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return DocumentPagesResponse*/
-func (a *PdfApiService) GetPages(ctx context.Context, name string, localVarOptionals map[string]interface{}) (DocumentPagesResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPages(name string, localVarOptionals map[string]interface{}) (DocumentPagesResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -5284,7 +5216,7 @@ func (a *PdfApiService) GetPages(ctx context.Context, name string, localVarOptio
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5308,12 +5240,11 @@ func (a *PdfApiService) GetPages(ctx context.Context, name string, localVarOptio
 }
 
 /* PdfApiService Convert PCL file (located on storage) to PDF format and return resulting file in response. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param srcPath Full source filename (ex. /folder1/folder2/template.pcl)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPclInStorageToPdf(ctx context.Context, srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPclInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -5356,7 +5287,7 @@ func (a *PdfApiService) GetPclInStorageToPdf(ctx context.Context, srcPath string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5380,7 +5311,6 @@ func (a *PdfApiService) GetPclInStorageToPdf(ctx context.Context, srcPath string
 }
 
 /* PdfApiService Converts PDF document (located on storage) to DOC format and returns resulting file in response content
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "addReturnToLineEnd" (bool) Add return to line end.
@@ -5394,7 +5324,7 @@ func (a *PdfApiService) GetPclInStorageToPdf(ctx context.Context, srcPath string
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToDoc(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPdfInStorageToDoc(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -5491,7 +5421,7 @@ func (a *PdfApiService) GetPdfInStorageToDoc(ctx context.Context, name string, l
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5515,14 +5445,13 @@ func (a *PdfApiService) GetPdfInStorageToDoc(ctx context.Context, name string, l
 }
 
 /* PdfApiService Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "contentRecognitionMode" (string) ?roperty tunes conversion for this or that desirable method of recognition of content.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToEpub(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPdfInStorageToEpub(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -5577,7 +5506,7 @@ func (a *PdfApiService) GetPdfInStorageToEpub(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5601,7 +5530,6 @@ func (a *PdfApiService) GetPdfInStorageToEpub(ctx context.Context, name string, 
 }
 
 /* PdfApiService Converts PDF document (located on storage) to Html format and returns resulting file in response content
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "additionalMarginWidthInPoints" (int32) Defines width of margin that will be forcibly left around that output HTML-areas.
@@ -5635,7 +5563,7 @@ func (a *PdfApiService) GetPdfInStorageToEpub(ctx context.Context, name string, 
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToHtml(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPdfInStorageToHtml(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -5849,7 +5777,7 @@ func (a *PdfApiService) GetPdfInStorageToHtml(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5873,14 +5801,13 @@ func (a *PdfApiService) GetPdfInStorageToHtml(ctx context.Context, name string, 
 }
 
 /* PdfApiService Converts PDF document (located on storage) to LaTeX format and returns resulting file in response content
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "pagesCount" (int32) Pages count.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToLaTeX(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPdfInStorageToLaTeX(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -5935,7 +5862,7 @@ func (a *PdfApiService) GetPdfInStorageToLaTeX(ctx context.Context, name string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5959,13 +5886,12 @@ func (a *PdfApiService) GetPdfInStorageToLaTeX(ctx context.Context, name string,
 }
 
 /* PdfApiService Converts PDF document (located on storage) to MOBIXML format and returns resulting file in response content
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToMobiXml(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPdfInStorageToMobiXml(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -6014,7 +5940,7 @@ func (a *PdfApiService) GetPdfInStorageToMobiXml(ctx context.Context, name strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6038,14 +5964,13 @@ func (a *PdfApiService) GetPdfInStorageToMobiXml(ctx context.Context, name strin
 }
 
 /* PdfApiService Converts PDF document (located on storage) to PdfA format and returns resulting file in response content
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param type_ Type of PdfA format.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToPdfA(ctx context.Context, name string, type_ string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPdfInStorageToPdfA(name string, type_ string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -6095,7 +6020,7 @@ func (a *PdfApiService) GetPdfInStorageToPdfA(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6119,7 +6044,6 @@ func (a *PdfApiService) GetPdfInStorageToPdfA(ctx context.Context, name string, 
 }
 
 /* PdfApiService Converts PDF document (located on storage) to PPTX format and returns resulting file in response content
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "separateImages" (bool) Separate images.
@@ -6127,7 +6051,7 @@ func (a *PdfApiService) GetPdfInStorageToPdfA(ctx context.Context, name string, 
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToPptx(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPdfInStorageToPptx(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -6188,7 +6112,7 @@ func (a *PdfApiService) GetPdfInStorageToPptx(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6212,14 +6136,13 @@ func (a *PdfApiService) GetPdfInStorageToPptx(ctx context.Context, name string, 
 }
 
 /* PdfApiService Converts PDF document (located on storage) to SVG format and returns resulting file in response content
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "compressOutputToZipArchive" (bool) Specifies whether output will be created as one zip-archive.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToSvg(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPdfInStorageToSvg(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -6274,7 +6197,7 @@ func (a *PdfApiService) GetPdfInStorageToSvg(ctx context.Context, name string, l
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6298,7 +6221,6 @@ func (a *PdfApiService) GetPdfInStorageToSvg(ctx context.Context, name string, l
 }
 
 /* PdfApiService Converts PDF document (located on storage) to TIFF format and returns resulting file in response content
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "brightness" (float64) Image brightness.
@@ -6319,7 +6241,7 @@ func (a *PdfApiService) GetPdfInStorageToSvg(ctx context.Context, name string, l
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToTiff(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPdfInStorageToTiff(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -6458,7 +6380,7 @@ func (a *PdfApiService) GetPdfInStorageToTiff(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6482,7 +6404,6 @@ func (a *PdfApiService) GetPdfInStorageToTiff(ctx context.Context, name string, 
 }
 
 /* PdfApiService Converts PDF document (located on storage) to XLS format and returns resulting file in response content
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "insertBlankColumnAtFirst" (bool) Insert blank column at first
@@ -6492,7 +6413,7 @@ func (a *PdfApiService) GetPdfInStorageToTiff(ctx context.Context, name string, 
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToXls(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPdfInStorageToXls(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -6565,7 +6486,7 @@ func (a *PdfApiService) GetPdfInStorageToXls(ctx context.Context, name string, l
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6589,13 +6510,12 @@ func (a *PdfApiService) GetPdfInStorageToXls(ctx context.Context, name string, l
 }
 
 /* PdfApiService Converts PDF document (located on storage) to XML format and returns resulting file in response content
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToXml(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPdfInStorageToXml(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -6644,7 +6564,7 @@ func (a *PdfApiService) GetPdfInStorageToXml(ctx context.Context, name string, l
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6668,13 +6588,12 @@ func (a *PdfApiService) GetPdfInStorageToXml(ctx context.Context, name string, l
 }
 
 /* PdfApiService Converts PDF document (located on storage) to XPS format and returns resulting file in response content
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToXps(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPdfInStorageToXps(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -6723,7 +6642,7 @@ func (a *PdfApiService) GetPdfInStorageToXps(ctx context.Context, name string, l
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6747,14 +6666,13 @@ func (a *PdfApiService) GetPdfInStorageToXps(ctx context.Context, name string, l
 }
 
 /* PdfApiService Read document page polyline annotation by ID.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return PolyLineAnnotationResponse*/
-func (a *PdfApiService) GetPolyLineAnnotation(ctx context.Context, name string, annotationId string, localVarOptionals map[string]interface{}) (PolyLineAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPolyLineAnnotation(name string, annotationId string, localVarOptionals map[string]interface{}) (PolyLineAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -6804,7 +6722,7 @@ func (a *PdfApiService) GetPolyLineAnnotation(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6828,14 +6746,13 @@ func (a *PdfApiService) GetPolyLineAnnotation(ctx context.Context, name string, 
 }
 
 /* PdfApiService Read document page polygon annotation by ID.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return PolygonAnnotationResponse*/
-func (a *PdfApiService) GetPolygonAnnotation(ctx context.Context, name string, annotationId string, localVarOptionals map[string]interface{}) (PolygonAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) GetPolygonAnnotation(name string, annotationId string, localVarOptionals map[string]interface{}) (PolygonAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -6885,7 +6802,7 @@ func (a *PdfApiService) GetPolygonAnnotation(ctx context.Context, name string, a
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6909,12 +6826,11 @@ func (a *PdfApiService) GetPolygonAnnotation(ctx context.Context, name string, a
 }
 
 /* PdfApiService Convert PS file (located on storage) to PDF format and return resulting file in response. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param srcPath Full source filename (ex. /folder1/folder2/template.ps)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetPsInStorageToPdf(ctx context.Context, srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetPsInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -6957,7 +6873,7 @@ func (a *PdfApiService) GetPsInStorageToPdf(ctx context.Context, srcPath string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6981,14 +6897,13 @@ func (a *PdfApiService) GetPsInStorageToPdf(ctx context.Context, srcPath string,
 }
 
 /* PdfApiService Read document page square annotation by ID.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return SquareAnnotationResponse*/
-func (a *PdfApiService) GetSquareAnnotation(ctx context.Context, name string, annotationId string, localVarOptionals map[string]interface{}) (SquareAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) GetSquareAnnotation(name string, annotationId string, localVarOptionals map[string]interface{}) (SquareAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -7038,7 +6953,7 @@ func (a *PdfApiService) GetSquareAnnotation(ctx context.Context, name string, an
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7062,7 +6977,6 @@ func (a *PdfApiService) GetSquareAnnotation(ctx context.Context, name string, an
 }
 
 /* PdfApiService Convert SVG file (located on storage) to PDF format and return resulting file in response. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param srcPath Full source filename (ex. /folder1/folder2/template.svg)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "adjustPageSize" (bool) Adjust page size
@@ -7075,7 +6989,7 @@ func (a *PdfApiService) GetSquareAnnotation(ctx context.Context, name string, an
      @param "marginTop" (float64) Page margin top
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetSvgInStorageToPdf(ctx context.Context, srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetSvgInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -7166,7 +7080,7 @@ func (a *PdfApiService) GetSvgInStorageToPdf(ctx context.Context, srcPath string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7190,7 +7104,6 @@ func (a *PdfApiService) GetSvgInStorageToPdf(ctx context.Context, srcPath string
 }
 
 /* PdfApiService Read document text.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param lLX 
  @param lLY 
@@ -7203,7 +7116,7 @@ func (a *PdfApiService) GetSvgInStorageToPdf(ctx context.Context, srcPath string
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return TextRectsResponse*/
-func (a *PdfApiService) GetText(ctx context.Context, name string, lLX float64, lLY float64, uRX float64, uRY float64, localVarOptionals map[string]interface{}) (TextRectsResponse,  *http.Response, error) {
+func (a *PdfApiService) GetText(name string, lLX float64, lLY float64, uRX float64, uRY float64, localVarOptionals map[string]interface{}) (TextRectsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -7271,7 +7184,7 @@ func (a *PdfApiService) GetText(ctx context.Context, name string, lLX float64, l
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7295,14 +7208,13 @@ func (a *PdfApiService) GetText(ctx context.Context, name string, lLX float64, l
 }
 
 /* PdfApiService Read document page text annotation by ID.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return TextAnnotationResponse*/
-func (a *PdfApiService) GetTextAnnotation(ctx context.Context, name string, annotationId string, localVarOptionals map[string]interface{}) (TextAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) GetTextAnnotation(name string, annotationId string, localVarOptionals map[string]interface{}) (TextAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -7352,7 +7264,7 @@ func (a *PdfApiService) GetTextAnnotation(ctx context.Context, name string, anno
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7376,14 +7288,13 @@ func (a *PdfApiService) GetTextAnnotation(ctx context.Context, name string, anno
 }
 
 /* PdfApiService Verify signature document.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param signName Sign name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return SignatureVerifyResponse*/
-func (a *PdfApiService) GetVerifySignature(ctx context.Context, name string, signName string, localVarOptionals map[string]interface{}) (SignatureVerifyResponse,  *http.Response, error) {
+func (a *PdfApiService) GetVerifySignature(name string, signName string, localVarOptionals map[string]interface{}) (SignatureVerifyResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -7433,7 +7344,7 @@ func (a *PdfApiService) GetVerifySignature(ctx context.Context, name string, sig
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7457,7 +7368,6 @@ func (a *PdfApiService) GetVerifySignature(ctx context.Context, name string, sig
 }
 
 /* PdfApiService Convert web page to PDF format and return resulting file in response. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param url Source url
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "height" (float64) Page height
@@ -7469,7 +7379,7 @@ func (a *PdfApiService) GetVerifySignature(ctx context.Context, name string, sig
      @param "marginTop" (float64) Page margin top
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetWebInStorageToPdf(ctx context.Context, url string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetWebInStorageToPdf(url string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -7554,7 +7464,7 @@ func (a *PdfApiService) GetWebInStorageToPdf(ctx context.Context, url string, lo
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7578,13 +7488,12 @@ func (a *PdfApiService) GetWebInStorageToPdf(ctx context.Context, url string, lo
 }
 
 /* PdfApiService Get number of words per document page.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return WordCountResponse*/
-func (a *PdfApiService) GetWordsPerPage(ctx context.Context, name string, localVarOptionals map[string]interface{}) (WordCountResponse,  *http.Response, error) {
+func (a *PdfApiService) GetWordsPerPage(name string, localVarOptionals map[string]interface{}) (WordCountResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -7633,7 +7542,7 @@ func (a *PdfApiService) GetWordsPerPage(ctx context.Context, name string, localV
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7657,13 +7566,12 @@ func (a *PdfApiService) GetWordsPerPage(ctx context.Context, name string, localV
 }
 
 /* PdfApiService Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetXfaPdfInStorageToAcroForm(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetXfaPdfInStorageToAcroForm(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -7712,7 +7620,7 @@ func (a *PdfApiService) GetXfaPdfInStorageToAcroForm(ctx context.Context, name s
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7736,13 +7644,12 @@ func (a *PdfApiService) GetXfaPdfInStorageToAcroForm(ctx context.Context, name s
 }
 
 /* PdfApiService Convert XML file (located on storage) to PDF format and return resulting file in response. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param srcPath Full source filename (ex. /folder1/folder2/template.xml)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "xslFilePath" (string) Full XSL source filename (ex. /folder1/folder2/template.xsl)
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetXmlInStorageToPdf(ctx context.Context, srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetXmlInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -7791,7 +7698,7 @@ func (a *PdfApiService) GetXmlInStorageToPdf(ctx context.Context, srcPath string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7815,12 +7722,11 @@ func (a *PdfApiService) GetXmlInStorageToPdf(ctx context.Context, srcPath string
 }
 
 /* PdfApiService Convert XPS file (located on storage) to PDF format and return resulting file in response. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param srcPath Full source filename (ex. /folder1/folder2/template.xps)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetXpsInStorageToPdf(ctx context.Context, srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetXpsInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -7863,7 +7769,7 @@ func (a *PdfApiService) GetXpsInStorageToPdf(ctx context.Context, srcPath string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7887,12 +7793,11 @@ func (a *PdfApiService) GetXpsInStorageToPdf(ctx context.Context, srcPath string
 }
 
 /* PdfApiService Convert XslFo file (located on storage) to PDF format and return resulting file in response. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param srcPath Full source filename (ex. /folder1/folder2/template.xslfo)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
  @return *os.File*/
-func (a *PdfApiService) GetXslFoInStorageToPdf(ctx context.Context, srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) GetXslFoInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -7935,7 +7840,7 @@ func (a *PdfApiService) GetXslFoInStorageToPdf(ctx context.Context, srcPath stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7959,7 +7864,6 @@ func (a *PdfApiService) GetXslFoInStorageToPdf(ctx context.Context, srcPath stri
 }
 
 /* PdfApiService Append document to existing one.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The original document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "appendDocument" (AppendDocument) with the append document data.
@@ -7969,7 +7873,7 @@ func (a *PdfApiService) GetXslFoInStorageToPdf(ctx context.Context, srcPath stri
      @param "storage" (string) The documents storage.
      @param "folder" (string) The original document folder.
  @return DocumentResponse*/
-func (a *PdfApiService) PostAppendDocument(ctx context.Context, name string, localVarOptionals map[string]interface{}) (DocumentResponse,  *http.Response, error) {
+func (a *PdfApiService) PostAppendDocument(name string, localVarOptionals map[string]interface{}) (DocumentResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -8040,7 +7944,7 @@ func (a *PdfApiService) PostAppendDocument(ctx context.Context, name string, loc
 	if localVarTempParam, localVarOk := localVarOptionals["appendDocument"].(AppendDocument); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8064,7 +7968,6 @@ func (a *PdfApiService) PostAppendDocument(ctx context.Context, name string, loc
 }
 
 /* PdfApiService Create field.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param page Document page number.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -8072,7 +7975,7 @@ func (a *PdfApiService) PostAppendDocument(ctx context.Context, name string, loc
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PostCreateField(ctx context.Context, name string, page int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostCreateField(name string, page int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -8126,7 +8029,7 @@ func (a *PdfApiService) PostCreateField(ctx context.Context, name string, page i
 	if localVarTempParam, localVarOk := localVarOptionals["field"].(Field); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8150,14 +8053,13 @@ func (a *PdfApiService) PostCreateField(ctx context.Context, name string, page i
 }
 
 /* PdfApiService Document&#39;s replace text method.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name 
  @param textReplace 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) 
      @param "folder" (string) 
  @return TextReplaceResponse*/
-func (a *PdfApiService) PostDocumentTextReplace(ctx context.Context, name string, textReplace TextReplaceListRequest, localVarOptionals map[string]interface{}) (TextReplaceResponse,  *http.Response, error) {
+func (a *PdfApiService) PostDocumentTextReplace(name string, textReplace TextReplaceListRequest, localVarOptionals map[string]interface{}) (TextReplaceResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -8208,7 +8110,7 @@ func (a *PdfApiService) PostDocumentTextReplace(ctx context.Context, name string
 	}
 	// body params
 	localVarPostBody = &textReplace
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8232,7 +8134,6 @@ func (a *PdfApiService) PostDocumentTextReplace(ctx context.Context, name string
 }
 
 /* PdfApiService Insert image to document page.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param llx Coordinate lower left X.
@@ -8245,7 +8146,7 @@ func (a *PdfApiService) PostDocumentTextReplace(ctx context.Context, name string
      @param "folder" (string) The document folder.
      @param "image" (*os.File) Image file.
  @return AsposeResponse*/
-func (a *PdfApiService) PostInsertImage(ctx context.Context, name string, pageNumber int32, llx float64, lly float64, urx float64, ury float64, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostInsertImage(name string, pageNumber int32, llx float64, lly float64, urx float64, ury float64, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -8315,7 +8216,7 @@ func (a *PdfApiService) PostInsertImage(ctx context.Context, name string, pageNu
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8339,7 +8240,6 @@ func (a *PdfApiService) PostInsertImage(ctx context.Context, name string, pageNu
 }
 
 /* PdfApiService Move page to new position.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param newIndex The new page position/index.
@@ -8347,7 +8247,7 @@ func (a *PdfApiService) PostInsertImage(ctx context.Context, name string, pageNu
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PostMovePage(ctx context.Context, name string, pageNumber int32, newIndex int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostMovePage(name string, pageNumber int32, newIndex int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -8398,7 +8298,7 @@ func (a *PdfApiService) PostMovePage(ctx context.Context, name string, pageNumbe
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8422,14 +8322,13 @@ func (a *PdfApiService) PostMovePage(ctx context.Context, name string, pageNumbe
 }
 
 /* PdfApiService Optimize document.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "options" (OptimizeOptions) The optimization options.
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PostOptimizeDocument(ctx context.Context, name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostOptimizeDocument(name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -8482,7 +8381,7 @@ func (a *PdfApiService) PostOptimizeDocument(ctx context.Context, name string, l
 	if localVarTempParam, localVarOk := localVarOptionals["options"].(OptimizeOptions); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8506,7 +8405,6 @@ func (a *PdfApiService) PostOptimizeDocument(ctx context.Context, name string, l
 }
 
 /* PdfApiService Add document page circle annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param annotations The array of annotation.
@@ -8514,7 +8412,7 @@ func (a *PdfApiService) PostOptimizeDocument(ctx context.Context, name string, l
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PostPageCircleAnnotations(ctx context.Context, name string, pageNumber int32, annotations []CircleAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostPageCircleAnnotations(name string, pageNumber int32, annotations []CircleAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -8566,7 +8464,7 @@ func (a *PdfApiService) PostPageCircleAnnotations(ctx context.Context, name stri
 	}
 	// body params
 	localVarPostBody = &annotations
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8590,7 +8488,6 @@ func (a *PdfApiService) PostPageCircleAnnotations(ctx context.Context, name stri
 }
 
 /* PdfApiService Add document page free text annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param annotations The array of annotation.
@@ -8598,7 +8495,7 @@ func (a *PdfApiService) PostPageCircleAnnotations(ctx context.Context, name stri
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PostPageFreeTextAnnotations(ctx context.Context, name string, pageNumber int32, annotations []FreeTextAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostPageFreeTextAnnotations(name string, pageNumber int32, annotations []FreeTextAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -8650,7 +8547,7 @@ func (a *PdfApiService) PostPageFreeTextAnnotations(ctx context.Context, name st
 	}
 	// body params
 	localVarPostBody = &annotations
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8674,7 +8571,6 @@ func (a *PdfApiService) PostPageFreeTextAnnotations(ctx context.Context, name st
 }
 
 /* PdfApiService Add document page line annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param annotations The array of annotation.
@@ -8682,7 +8578,7 @@ func (a *PdfApiService) PostPageFreeTextAnnotations(ctx context.Context, name st
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PostPageLineAnnotations(ctx context.Context, name string, pageNumber int32, annotations []LineAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostPageLineAnnotations(name string, pageNumber int32, annotations []LineAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -8734,7 +8630,7 @@ func (a *PdfApiService) PostPageLineAnnotations(ctx context.Context, name string
 	}
 	// body params
 	localVarPostBody = &annotations
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8758,7 +8654,6 @@ func (a *PdfApiService) PostPageLineAnnotations(ctx context.Context, name string
 }
 
 /* PdfApiService Add document page link annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param links Array of link anotation.
@@ -8766,7 +8661,7 @@ func (a *PdfApiService) PostPageLineAnnotations(ctx context.Context, name string
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PostPageLinkAnnotations(ctx context.Context, name string, pageNumber int32, links []LinkAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostPageLinkAnnotations(name string, pageNumber int32, links []LinkAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -8818,7 +8713,7 @@ func (a *PdfApiService) PostPageLinkAnnotations(ctx context.Context, name string
 	}
 	// body params
 	localVarPostBody = &links
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8842,7 +8737,6 @@ func (a *PdfApiService) PostPageLinkAnnotations(ctx context.Context, name string
 }
 
 /* PdfApiService Add document page polyline annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param annotations The array of annotation.
@@ -8850,7 +8744,7 @@ func (a *PdfApiService) PostPageLinkAnnotations(ctx context.Context, name string
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PostPagePolyLineAnnotations(ctx context.Context, name string, pageNumber int32, annotations []PolyLineAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostPagePolyLineAnnotations(name string, pageNumber int32, annotations []PolyLineAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -8902,7 +8796,7 @@ func (a *PdfApiService) PostPagePolyLineAnnotations(ctx context.Context, name st
 	}
 	// body params
 	localVarPostBody = &annotations
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8926,7 +8820,6 @@ func (a *PdfApiService) PostPagePolyLineAnnotations(ctx context.Context, name st
 }
 
 /* PdfApiService Add document page polygon annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param annotations The array of annotation.
@@ -8934,7 +8827,7 @@ func (a *PdfApiService) PostPagePolyLineAnnotations(ctx context.Context, name st
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PostPagePolygonAnnotations(ctx context.Context, name string, pageNumber int32, annotations []PolygonAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostPagePolygonAnnotations(name string, pageNumber int32, annotations []PolygonAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -8986,7 +8879,7 @@ func (a *PdfApiService) PostPagePolygonAnnotations(ctx context.Context, name str
 	}
 	// body params
 	localVarPostBody = &annotations
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9010,7 +8903,6 @@ func (a *PdfApiService) PostPagePolygonAnnotations(ctx context.Context, name str
 }
 
 /* PdfApiService Add document page square annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param annotations The array of annotation.
@@ -9018,7 +8910,7 @@ func (a *PdfApiService) PostPagePolygonAnnotations(ctx context.Context, name str
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PostPageSquareAnnotations(ctx context.Context, name string, pageNumber int32, annotations []SquareAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostPageSquareAnnotations(name string, pageNumber int32, annotations []SquareAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -9070,7 +8962,7 @@ func (a *PdfApiService) PostPageSquareAnnotations(ctx context.Context, name stri
 	}
 	// body params
 	localVarPostBody = &annotations
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9094,7 +8986,6 @@ func (a *PdfApiService) PostPageSquareAnnotations(ctx context.Context, name stri
 }
 
 /* PdfApiService Add document page text annotations.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param annotations The array of annotation.
@@ -9102,7 +8993,7 @@ func (a *PdfApiService) PostPageSquareAnnotations(ctx context.Context, name stri
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PostPageTextAnnotations(ctx context.Context, name string, pageNumber int32, annotations []TextAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostPageTextAnnotations(name string, pageNumber int32, annotations []TextAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -9154,7 +9045,7 @@ func (a *PdfApiService) PostPageTextAnnotations(ctx context.Context, name string
 	}
 	// body params
 	localVarPostBody = &annotations
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9178,7 +9069,6 @@ func (a *PdfApiService) PostPageTextAnnotations(ctx context.Context, name string
 }
 
 /* PdfApiService Page&#39;s replace text method.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name 
  @param pageNumber 
  @param textReplaceListRequest 
@@ -9186,7 +9076,7 @@ func (a *PdfApiService) PostPageTextAnnotations(ctx context.Context, name string
      @param "storage" (string) 
      @param "folder" (string) 
  @return TextReplaceResponse*/
-func (a *PdfApiService) PostPageTextReplace(ctx context.Context, name string, pageNumber int32, textReplaceListRequest TextReplaceListRequest, localVarOptionals map[string]interface{}) (TextReplaceResponse,  *http.Response, error) {
+func (a *PdfApiService) PostPageTextReplace(name string, pageNumber int32, textReplaceListRequest TextReplaceListRequest, localVarOptionals map[string]interface{}) (TextReplaceResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -9238,7 +9128,7 @@ func (a *PdfApiService) PostPageTextReplace(ctx context.Context, name string, pa
 	}
 	// body params
 	localVarPostBody = &textReplaceListRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9262,14 +9152,13 @@ func (a *PdfApiService) PostPageTextReplace(ctx context.Context, name string, pa
 }
 
 /* PdfApiService Sign document.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "signature" (Signature) Signature object containing signature data.
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PostSignDocument(ctx context.Context, name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostSignDocument(name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -9322,7 +9211,7 @@ func (a *PdfApiService) PostSignDocument(ctx context.Context, name string, local
 	if localVarTempParam, localVarOk := localVarOptionals["signature"].(Signature); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9346,7 +9235,6 @@ func (a *PdfApiService) PostSignDocument(ctx context.Context, name string, local
 }
 
 /* PdfApiService Sign page.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -9354,7 +9242,7 @@ func (a *PdfApiService) PostSignDocument(ctx context.Context, name string, local
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PostSignPage(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PostSignPage(name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -9408,7 +9296,7 @@ func (a *PdfApiService) PostSignPage(ctx context.Context, name string, pageNumbe
 	if localVarTempParam, localVarOk := localVarOptionals["signature"].(Signature); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9432,7 +9320,6 @@ func (a *PdfApiService) PostSignPage(ctx context.Context, name string, pageNumbe
 }
 
 /* PdfApiService Split document to parts.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name Document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "format" (string) Resulting documents format.
@@ -9441,7 +9328,7 @@ func (a *PdfApiService) PostSignPage(ctx context.Context, name string, pageNumbe
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return SplitResultResponse*/
-func (a *PdfApiService) PostSplitDocument(ctx context.Context, name string, localVarOptionals map[string]interface{}) (SplitResultResponse,  *http.Response, error) {
+func (a *PdfApiService) PostSplitDocument(name string, localVarOptionals map[string]interface{}) (SplitResultResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -9508,7 +9395,7 @@ func (a *PdfApiService) PostSplitDocument(ctx context.Context, name string, loca
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9532,13 +9419,12 @@ func (a *PdfApiService) PostSplitDocument(ctx context.Context, name string, loca
 }
 
 /* PdfApiService Add new page to end of the document.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return DocumentPagesResponse*/
-func (a *PdfApiService) PutAddNewPage(ctx context.Context, name string, localVarOptionals map[string]interface{}) (DocumentPagesResponse,  *http.Response, error) {
+func (a *PdfApiService) PutAddNewPage(name string, localVarOptionals map[string]interface{}) (DocumentPagesResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -9587,7 +9473,7 @@ func (a *PdfApiService) PutAddNewPage(ctx context.Context, name string, localVar
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9611,7 +9497,6 @@ func (a *PdfApiService) PutAddNewPage(ctx context.Context, name string, localVar
 }
 
 /* PdfApiService Add text to PDF document page.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber Number of page (starting from 1).
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -9619,7 +9504,7 @@ func (a *PdfApiService) PutAddNewPage(ctx context.Context, name string, localVar
      @param "folder" (string) Document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutAddText(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutAddText(name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -9673,7 +9558,7 @@ func (a *PdfApiService) PutAddText(ctx context.Context, name string, pageNumber 
 	if localVarTempParam, localVarOk := localVarOptionals["paragraph"].(Paragraph); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9697,7 +9582,6 @@ func (a *PdfApiService) PutAddText(ctx context.Context, name string, pageNumber 
 }
 
 /* PdfApiService Replace document circle annotation
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param annotation Annotation.
@@ -9705,7 +9589,7 @@ func (a *PdfApiService) PutAddText(ctx context.Context, name string, pageNumber 
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return CircleAnnotationResponse*/
-func (a *PdfApiService) PutCircleAnnotation(ctx context.Context, name string, annotationId string, annotation CircleAnnotation, localVarOptionals map[string]interface{}) (CircleAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) PutCircleAnnotation(name string, annotationId string, annotation CircleAnnotation, localVarOptionals map[string]interface{}) (CircleAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -9757,7 +9641,7 @@ func (a *PdfApiService) PutCircleAnnotation(ctx context.Context, name string, an
 	}
 	// body params
 	localVarPostBody = &annotation
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9781,14 +9665,13 @@ func (a *PdfApiService) PutCircleAnnotation(ctx context.Context, name string, an
 }
 
 /* PdfApiService Upload a specific file 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext
  @param file File to upload
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "versionId" (string) Source file&#39;s version
      @param "storage" (string) User&#39;s storage name
  @return AsposeResponse*/
-func (a *PdfApiService) PutCreate(ctx context.Context, path string, file *os.File, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutCreate(path string, file *os.File, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -9844,7 +9727,7 @@ func (a *PdfApiService) PutCreate(ctx context.Context, path string, file *os.Fil
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9868,13 +9751,12 @@ func (a *PdfApiService) PutCreate(ctx context.Context, path string, file *os.Fil
 }
 
 /* PdfApiService Create empty document.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The new document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The new document folder.
  @return DocumentResponse*/
-func (a *PdfApiService) PutCreateDocument(ctx context.Context, name string, localVarOptionals map[string]interface{}) (DocumentResponse,  *http.Response, error) {
+func (a *PdfApiService) PutCreateDocument(name string, localVarOptionals map[string]interface{}) (DocumentResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -9923,7 +9805,7 @@ func (a *PdfApiService) PutCreateDocument(ctx context.Context, name string, loca
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9947,14 +9829,13 @@ func (a *PdfApiService) PutCreateDocument(ctx context.Context, name string, loca
 }
 
 /* PdfApiService Convert EPUB file (located on storage) to PDF format and upload resulting file to storage. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param srcPath Full source filename (ex. /folder1/folder2/template.epub)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "dstFolder" (string) The destination document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PutEpubInStorageToPdf(ctx context.Context, name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutEpubInStorageToPdf(name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -10004,7 +9885,7 @@ func (a *PdfApiService) PutEpubInStorageToPdf(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10028,13 +9909,12 @@ func (a *PdfApiService) PutEpubInStorageToPdf(ctx context.Context, name string, 
 }
 
 /* PdfApiService Flatten form fields in document.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PutFieldsFlatten(ctx context.Context, name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutFieldsFlatten(name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -10083,7 +9963,7 @@ func (a *PdfApiService) PutFieldsFlatten(ctx context.Context, name string, local
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10107,7 +9987,6 @@ func (a *PdfApiService) PutFieldsFlatten(ctx context.Context, name string, local
 }
 
 /* PdfApiService Replace document free text annotation
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param annotation Annotation.
@@ -10115,7 +9994,7 @@ func (a *PdfApiService) PutFieldsFlatten(ctx context.Context, name string, local
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return FreeTextAnnotationResponse*/
-func (a *PdfApiService) PutFreeTextAnnotation(ctx context.Context, name string, annotationId string, annotation FreeTextAnnotation, localVarOptionals map[string]interface{}) (FreeTextAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) PutFreeTextAnnotation(name string, annotationId string, annotation FreeTextAnnotation, localVarOptionals map[string]interface{}) (FreeTextAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -10167,7 +10046,7 @@ func (a *PdfApiService) PutFreeTextAnnotation(ctx context.Context, name string, 
 	}
 	// body params
 	localVarPostBody = &annotation
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10191,7 +10070,6 @@ func (a *PdfApiService) PutFreeTextAnnotation(ctx context.Context, name string, 
 }
 
 /* PdfApiService Convert HTML file (located on storage) to PDF format and upload resulting file to storage. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param srcPath Full source filename (ex. /folder1/folder2/template.zip)
  @param htmlFileName Name of HTML file in ZIP.
@@ -10206,7 +10084,7 @@ func (a *PdfApiService) PutFreeTextAnnotation(ctx context.Context, name string, 
      @param "dstFolder" (string) The destination document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutHtmlInStorageToPdf(ctx context.Context, name string, srcPath string, htmlFileName string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutHtmlInStorageToPdf(name string, srcPath string, htmlFileName string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -10299,7 +10177,7 @@ func (a *PdfApiService) PutHtmlInStorageToPdf(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10323,7 +10201,6 @@ func (a *PdfApiService) PutHtmlInStorageToPdf(ctx context.Context, name string, 
 }
 
 /* PdfApiService Extract document image in GIF format to folder
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param imageId Image ID.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -10333,7 +10210,7 @@ func (a *PdfApiService) PutHtmlInStorageToPdf(ctx context.Context, name string, 
      @param "folder" (string) The document folder.
      @param "destFolder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PutImageExtractAsGif(ctx context.Context, name string, imageId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutImageExtractAsGif(name string, imageId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -10401,7 +10278,7 @@ func (a *PdfApiService) PutImageExtractAsGif(ctx context.Context, name string, i
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10425,7 +10302,6 @@ func (a *PdfApiService) PutImageExtractAsGif(ctx context.Context, name string, i
 }
 
 /* PdfApiService Extract document image in JPEG format to folder
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param imageId Image ID.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -10435,7 +10311,7 @@ func (a *PdfApiService) PutImageExtractAsGif(ctx context.Context, name string, i
      @param "folder" (string) The document folder.
      @param "destFolder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PutImageExtractAsJpeg(ctx context.Context, name string, imageId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutImageExtractAsJpeg(name string, imageId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -10503,7 +10379,7 @@ func (a *PdfApiService) PutImageExtractAsJpeg(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10527,7 +10403,6 @@ func (a *PdfApiService) PutImageExtractAsJpeg(ctx context.Context, name string, 
 }
 
 /* PdfApiService Extract document image in PNG format to folder
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param imageId Image ID.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -10537,7 +10412,7 @@ func (a *PdfApiService) PutImageExtractAsJpeg(ctx context.Context, name string, 
      @param "folder" (string) The document folder.
      @param "destFolder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PutImageExtractAsPng(ctx context.Context, name string, imageId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutImageExtractAsPng(name string, imageId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -10605,7 +10480,7 @@ func (a *PdfApiService) PutImageExtractAsPng(ctx context.Context, name string, i
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10629,7 +10504,6 @@ func (a *PdfApiService) PutImageExtractAsPng(ctx context.Context, name string, i
 }
 
 /* PdfApiService Extract document image in TIFF format to folder
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param imageId Image ID.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -10639,7 +10513,7 @@ func (a *PdfApiService) PutImageExtractAsPng(ctx context.Context, name string, i
      @param "folder" (string) The document folder.
      @param "destFolder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PutImageExtractAsTiff(ctx context.Context, name string, imageId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutImageExtractAsTiff(name string, imageId string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -10707,7 +10581,7 @@ func (a *PdfApiService) PutImageExtractAsTiff(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10731,14 +10605,13 @@ func (a *PdfApiService) PutImageExtractAsTiff(ctx context.Context, name string, 
 }
 
 /* PdfApiService Convert image file (located on storage) to PDF format and upload resulting file to storage. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param imageTemplates Image templates
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "dstFolder" (string) The destination document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutImageInStorageToPdf(ctx context.Context, name string, imageTemplates ImageTemplatesRequest, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutImageInStorageToPdf(name string, imageTemplates ImageTemplatesRequest, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -10789,7 +10662,7 @@ func (a *PdfApiService) PutImageInStorageToPdf(ctx context.Context, name string,
 	}
 	// body params
 	localVarPostBody = &imageTemplates
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10813,7 +10686,6 @@ func (a *PdfApiService) PutImageInStorageToPdf(ctx context.Context, name string,
 }
 
 /* PdfApiService Extract document images in GIF format to folder.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -10823,7 +10695,7 @@ func (a *PdfApiService) PutImageInStorageToPdf(ctx context.Context, name string,
      @param "folder" (string) The document folder.
      @param "destFolder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PutImagesExtractAsGif(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutImagesExtractAsGif(name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -10891,7 +10763,7 @@ func (a *PdfApiService) PutImagesExtractAsGif(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10915,7 +10787,6 @@ func (a *PdfApiService) PutImagesExtractAsGif(ctx context.Context, name string, 
 }
 
 /* PdfApiService Extract document images in JPEG format to folder.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -10925,7 +10796,7 @@ func (a *PdfApiService) PutImagesExtractAsGif(ctx context.Context, name string, 
      @param "folder" (string) The document folder.
      @param "destFolder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PutImagesExtractAsJpeg(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutImagesExtractAsJpeg(name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -10993,7 +10864,7 @@ func (a *PdfApiService) PutImagesExtractAsJpeg(ctx context.Context, name string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11017,7 +10888,6 @@ func (a *PdfApiService) PutImagesExtractAsJpeg(ctx context.Context, name string,
 }
 
 /* PdfApiService Extract document images in PNG format to folder.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -11027,7 +10897,7 @@ func (a *PdfApiService) PutImagesExtractAsJpeg(ctx context.Context, name string,
      @param "folder" (string) The document folder.
      @param "destFolder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PutImagesExtractAsPng(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutImagesExtractAsPng(name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -11095,7 +10965,7 @@ func (a *PdfApiService) PutImagesExtractAsPng(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11119,7 +10989,6 @@ func (a *PdfApiService) PutImagesExtractAsPng(ctx context.Context, name string, 
 }
 
 /* PdfApiService Extract document images in TIFF format to folder.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -11129,7 +10998,7 @@ func (a *PdfApiService) PutImagesExtractAsPng(ctx context.Context, name string, 
      @param "folder" (string) The document folder.
      @param "destFolder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PutImagesExtractAsTiff(ctx context.Context, name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutImagesExtractAsTiff(name string, pageNumber int32, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -11197,7 +11066,7 @@ func (a *PdfApiService) PutImagesExtractAsTiff(ctx context.Context, name string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11221,14 +11090,13 @@ func (a *PdfApiService) PutImagesExtractAsTiff(ctx context.Context, name string,
 }
 
 /* PdfApiService Convert LaTeX file (located on storage) to PDF format and upload resulting file to storage. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param srcPath Full source filename (ex. /folder1/folder2/template.tex)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "dstFolder" (string) The destination document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutLaTeXInStorageToPdf(ctx context.Context, name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutLaTeXInStorageToPdf(name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -11278,7 +11146,7 @@ func (a *PdfApiService) PutLaTeXInStorageToPdf(ctx context.Context, name string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11302,7 +11170,6 @@ func (a *PdfApiService) PutLaTeXInStorageToPdf(ctx context.Context, name string,
 }
 
 /* PdfApiService Replace document line annotation
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param annotation Annotation.
@@ -11310,7 +11177,7 @@ func (a *PdfApiService) PutLaTeXInStorageToPdf(ctx context.Context, name string,
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return LineAnnotationResponse*/
-func (a *PdfApiService) PutLineAnnotation(ctx context.Context, name string, annotationId string, annotation LineAnnotation, localVarOptionals map[string]interface{}) (LineAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) PutLineAnnotation(name string, annotationId string, annotation LineAnnotation, localVarOptionals map[string]interface{}) (LineAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -11362,7 +11229,7 @@ func (a *PdfApiService) PutLineAnnotation(ctx context.Context, name string, anno
 	}
 	// body params
 	localVarPostBody = &annotation
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11386,7 +11253,6 @@ func (a *PdfApiService) PutLineAnnotation(ctx context.Context, name string, anno
 }
 
 /* PdfApiService Replace document page link annotations
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param linkId The link ID.
  @param link Link anotation.
@@ -11394,7 +11260,7 @@ func (a *PdfApiService) PutLineAnnotation(ctx context.Context, name string, anno
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return LinkAnnotationResponse*/
-func (a *PdfApiService) PutLinkAnnotation(ctx context.Context, name string, linkId string, link LinkAnnotation, localVarOptionals map[string]interface{}) (LinkAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) PutLinkAnnotation(name string, linkId string, link LinkAnnotation, localVarOptionals map[string]interface{}) (LinkAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -11446,7 +11312,7 @@ func (a *PdfApiService) PutLinkAnnotation(ctx context.Context, name string, link
 	}
 	// body params
 	localVarPostBody = &link
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11470,14 +11336,13 @@ func (a *PdfApiService) PutLinkAnnotation(ctx context.Context, name string, link
 }
 
 /* PdfApiService Merge a list of documents.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name Resulting documen name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "mergeDocuments" (MergeDocuments) with a list of documents.
      @param "storage" (string) Resulting document storage.
      @param "folder" (string) Resulting document folder.
  @return *os.File*/
-func (a *PdfApiService) PutMergeDocuments(ctx context.Context, name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+func (a *PdfApiService) PutMergeDocuments(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -11530,7 +11395,7 @@ func (a *PdfApiService) PutMergeDocuments(ctx context.Context, name string, loca
 	if localVarTempParam, localVarOk := localVarOptionals["mergeDocuments"].(MergeDocuments); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11554,14 +11419,13 @@ func (a *PdfApiService) PutMergeDocuments(ctx context.Context, name string, loca
 }
 
 /* PdfApiService Convert MHT file (located on storage) to PDF format and upload resulting file to storage. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param srcPath Full source filename (ex. /folder1/folder2/template.mht)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "dstFolder" (string) The destination document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutMhtInStorageToPdf(ctx context.Context, name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutMhtInStorageToPdf(name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -11611,7 +11475,7 @@ func (a *PdfApiService) PutMhtInStorageToPdf(ctx context.Context, name string, s
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11635,7 +11499,6 @@ func (a *PdfApiService) PutMhtInStorageToPdf(ctx context.Context, name string, s
 }
 
 /* PdfApiService Add page stamp.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param stamp with data.
@@ -11643,7 +11506,7 @@ func (a *PdfApiService) PutMhtInStorageToPdf(ctx context.Context, name string, s
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPageAddStamp(ctx context.Context, name string, pageNumber int32, stamp Stamp, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPageAddStamp(name string, pageNumber int32, stamp Stamp, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -11695,7 +11558,7 @@ func (a *PdfApiService) PutPageAddStamp(ctx context.Context, name string, pageNu
 	}
 	// body params
 	localVarPostBody = &stamp
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11719,7 +11582,6 @@ func (a *PdfApiService) PutPageAddStamp(ctx context.Context, name string, pageNu
 }
 
 /* PdfApiService Convert document page to bmp image and upload resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param outPath The out path of result image.
@@ -11729,7 +11591,7 @@ func (a *PdfApiService) PutPageAddStamp(ctx context.Context, name string, pageNu
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPageConvertToBmp(ctx context.Context, name string, pageNumber int32, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPageConvertToBmp(name string, pageNumber int32, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -11792,7 +11654,7 @@ func (a *PdfApiService) PutPageConvertToBmp(ctx context.Context, name string, pa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11816,7 +11678,6 @@ func (a *PdfApiService) PutPageConvertToBmp(ctx context.Context, name string, pa
 }
 
 /* PdfApiService Convert document page to emf image and upload resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param outPath The out path of result image.
@@ -11826,7 +11687,7 @@ func (a *PdfApiService) PutPageConvertToBmp(ctx context.Context, name string, pa
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPageConvertToEmf(ctx context.Context, name string, pageNumber int32, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPageConvertToEmf(name string, pageNumber int32, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -11889,7 +11750,7 @@ func (a *PdfApiService) PutPageConvertToEmf(ctx context.Context, name string, pa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11913,7 +11774,6 @@ func (a *PdfApiService) PutPageConvertToEmf(ctx context.Context, name string, pa
 }
 
 /* PdfApiService Convert document page to gif image and upload resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param outPath The out path of result image.
@@ -11923,7 +11783,7 @@ func (a *PdfApiService) PutPageConvertToEmf(ctx context.Context, name string, pa
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPageConvertToGif(ctx context.Context, name string, pageNumber int32, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPageConvertToGif(name string, pageNumber int32, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -11986,7 +11846,7 @@ func (a *PdfApiService) PutPageConvertToGif(ctx context.Context, name string, pa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12010,7 +11870,6 @@ func (a *PdfApiService) PutPageConvertToGif(ctx context.Context, name string, pa
 }
 
 /* PdfApiService Convert document page to Jpeg image and upload resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param outPath The out path of result image.
@@ -12020,7 +11879,7 @@ func (a *PdfApiService) PutPageConvertToGif(ctx context.Context, name string, pa
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPageConvertToJpeg(ctx context.Context, name string, pageNumber int32, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPageConvertToJpeg(name string, pageNumber int32, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -12083,7 +11942,7 @@ func (a *PdfApiService) PutPageConvertToJpeg(ctx context.Context, name string, p
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12107,7 +11966,6 @@ func (a *PdfApiService) PutPageConvertToJpeg(ctx context.Context, name string, p
 }
 
 /* PdfApiService Convert document page to png image and upload resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param outPath The out path of result image.
@@ -12117,7 +11975,7 @@ func (a *PdfApiService) PutPageConvertToJpeg(ctx context.Context, name string, p
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPageConvertToPng(ctx context.Context, name string, pageNumber int32, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPageConvertToPng(name string, pageNumber int32, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -12180,7 +12038,7 @@ func (a *PdfApiService) PutPageConvertToPng(ctx context.Context, name string, pa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12204,7 +12062,6 @@ func (a *PdfApiService) PutPageConvertToPng(ctx context.Context, name string, pa
 }
 
 /* PdfApiService Convert document page to Tiff image and upload resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param pageNumber The page number.
  @param outPath The out path of result image.
@@ -12214,7 +12071,7 @@ func (a *PdfApiService) PutPageConvertToPng(ctx context.Context, name string, pa
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPageConvertToTiff(ctx context.Context, name string, pageNumber int32, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPageConvertToTiff(name string, pageNumber int32, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -12277,7 +12134,7 @@ func (a *PdfApiService) PutPageConvertToTiff(ctx context.Context, name string, p
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12301,14 +12158,13 @@ func (a *PdfApiService) PutPageConvertToTiff(ctx context.Context, name string, p
 }
 
 /* PdfApiService Convert PCL file (located on storage) to PDF format and upload resulting file to storage. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param srcPath Full source filename (ex. /folder1/folder2/template.pcl)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "dstFolder" (string) The destination document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPclInStorageToPdf(ctx context.Context, name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPclInStorageToPdf(name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -12358,7 +12214,7 @@ func (a *PdfApiService) PutPclInStorageToPdf(ctx context.Context, name string, s
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12382,7 +12238,6 @@ func (a *PdfApiService) PutPclInStorageToPdf(ctx context.Context, name string, s
 }
 
 /* PdfApiService Converts PDF document (in request content) to DOC format and uploads resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.doc)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "addReturnToLineEnd" (bool) Add return to line end.
@@ -12396,7 +12251,7 @@ func (a *PdfApiService) PutPclInStorageToPdf(ctx context.Context, name string, s
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInRequestToDoc(ctx context.Context, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInRequestToDoc(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -12497,7 +12352,7 @@ func (a *PdfApiService) PutPdfInRequestToDoc(ctx context.Context, outPath string
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12521,14 +12376,13 @@ func (a *PdfApiService) PutPdfInRequestToDoc(ctx context.Context, outPath string
 }
 
 /* PdfApiService Converts PDF document (in request content) to EPUB format and uploads resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.epub)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "contentRecognitionMode" (string) ?roperty tunes conversion for this or that desirable method of recognition of content.
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInRequestToEpub(ctx context.Context, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInRequestToEpub(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -12587,7 +12441,7 @@ func (a *PdfApiService) PutPdfInRequestToEpub(ctx context.Context, outPath strin
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12611,7 +12465,6 @@ func (a *PdfApiService) PutPdfInRequestToEpub(ctx context.Context, outPath strin
 }
 
 /* PdfApiService Converts PDF document (in request content) to Html format and uploads resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.html)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "additionalMarginWidthInPoints" (int32) Defines width of margin that will be forcibly left around that output HTML-areas.
@@ -12645,7 +12498,7 @@ func (a *PdfApiService) PutPdfInRequestToEpub(ctx context.Context, outPath strin
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInRequestToHtml(ctx context.Context, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInRequestToHtml(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -12863,7 +12716,7 @@ func (a *PdfApiService) PutPdfInRequestToHtml(ctx context.Context, outPath strin
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12887,14 +12740,13 @@ func (a *PdfApiService) PutPdfInRequestToHtml(ctx context.Context, outPath strin
 }
 
 /* PdfApiService Converts PDF document (in request content) to LaTeX format and uploads resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.tex)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "pagesCount" (int32) Pages count.
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInRequestToLaTeX(ctx context.Context, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInRequestToLaTeX(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -12953,7 +12805,7 @@ func (a *PdfApiService) PutPdfInRequestToLaTeX(ctx context.Context, outPath stri
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12977,13 +12829,12 @@ func (a *PdfApiService) PutPdfInRequestToLaTeX(ctx context.Context, outPath stri
 }
 
 /* PdfApiService Converts PDF document (in request content) to MOBIXML format and uploads resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.mobixml)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInRequestToMobiXml(ctx context.Context, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInRequestToMobiXml(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -13036,7 +12887,7 @@ func (a *PdfApiService) PutPdfInRequestToMobiXml(ctx context.Context, outPath st
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13060,14 +12911,13 @@ func (a *PdfApiService) PutPdfInRequestToMobiXml(ctx context.Context, outPath st
 }
 
 /* PdfApiService Converts PDF document (in request content) to PdfA format and uploads resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.pdf)
  @param type_ Type of PdfA format.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInRequestToPdfA(ctx context.Context, outPath string, type_ string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInRequestToPdfA(outPath string, type_ string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -13121,7 +12971,7 @@ func (a *PdfApiService) PutPdfInRequestToPdfA(ctx context.Context, outPath strin
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13145,7 +12995,6 @@ func (a *PdfApiService) PutPdfInRequestToPdfA(ctx context.Context, outPath strin
 }
 
 /* PdfApiService Converts PDF document (in request content) to PPTX format and uploads resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.pptx)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "separateImages" (bool) Separate images.
@@ -13153,7 +13002,7 @@ func (a *PdfApiService) PutPdfInRequestToPdfA(ctx context.Context, outPath strin
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInRequestToPptx(ctx context.Context, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInRequestToPptx(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -13218,7 +13067,7 @@ func (a *PdfApiService) PutPdfInRequestToPptx(ctx context.Context, outPath strin
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13242,13 +13091,12 @@ func (a *PdfApiService) PutPdfInRequestToPptx(ctx context.Context, outPath strin
 }
 
 /* PdfApiService Converts PDF document (in request content) to SVG format and uploads resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.svg)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInRequestToSvg(ctx context.Context, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInRequestToSvg(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -13301,7 +13149,7 @@ func (a *PdfApiService) PutPdfInRequestToSvg(ctx context.Context, outPath string
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13325,7 +13173,6 @@ func (a *PdfApiService) PutPdfInRequestToSvg(ctx context.Context, outPath string
 }
 
 /* PdfApiService Converts PDF document (in request content) to TIFF format and uploads resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.tiff)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "brightness" (float64) Image brightness.
@@ -13346,7 +13193,7 @@ func (a *PdfApiService) PutPdfInRequestToSvg(ctx context.Context, outPath string
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInRequestToTiff(ctx context.Context, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInRequestToTiff(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -13489,7 +13336,7 @@ func (a *PdfApiService) PutPdfInRequestToTiff(ctx context.Context, outPath strin
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13513,7 +13360,6 @@ func (a *PdfApiService) PutPdfInRequestToTiff(ctx context.Context, outPath strin
 }
 
 /* PdfApiService Converts PDF document (in request content) to XLS format and uploads resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.xls)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "insertBlankColumnAtFirst" (bool) Insert blank column at first
@@ -13523,7 +13369,7 @@ func (a *PdfApiService) PutPdfInRequestToTiff(ctx context.Context, outPath strin
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInRequestToXls(ctx context.Context, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInRequestToXls(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -13600,7 +13446,7 @@ func (a *PdfApiService) PutPdfInRequestToXls(ctx context.Context, outPath string
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13624,13 +13470,12 @@ func (a *PdfApiService) PutPdfInRequestToXls(ctx context.Context, outPath string
 }
 
 /* PdfApiService Converts PDF document (in request content) to XML format and uploads resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.xml)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInRequestToXml(ctx context.Context, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInRequestToXml(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -13683,7 +13528,7 @@ func (a *PdfApiService) PutPdfInRequestToXml(ctx context.Context, outPath string
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13707,13 +13552,12 @@ func (a *PdfApiService) PutPdfInRequestToXml(ctx context.Context, outPath string
 }
 
 /* PdfApiService Converts PDF document (in request content) to XPS format and uploads resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.xps)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInRequestToXps(ctx context.Context, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInRequestToXps(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -13766,7 +13610,7 @@ func (a *PdfApiService) PutPdfInRequestToXps(ctx context.Context, outPath string
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13790,7 +13634,6 @@ func (a *PdfApiService) PutPdfInRequestToXps(ctx context.Context, outPath string
 }
 
 /* PdfApiService Converts PDF document (located on storage) to DOC format and uploads resulting file to storage
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.doc)
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -13805,7 +13648,7 @@ func (a *PdfApiService) PutPdfInRequestToXps(ctx context.Context, outPath string
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInStorageToDoc(ctx context.Context, name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInStorageToDoc(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -13903,7 +13746,7 @@ func (a *PdfApiService) PutPdfInStorageToDoc(ctx context.Context, name string, o
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13927,7 +13770,6 @@ func (a *PdfApiService) PutPdfInStorageToDoc(ctx context.Context, name string, o
 }
 
 /* PdfApiService Converts PDF document (located on storage) to EPUB format and uploads resulting file to storage
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.epub)
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -13935,7 +13777,7 @@ func (a *PdfApiService) PutPdfInStorageToDoc(ctx context.Context, name string, o
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInStorageToEpub(ctx context.Context, name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInStorageToEpub(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -13991,7 +13833,7 @@ func (a *PdfApiService) PutPdfInStorageToEpub(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14015,7 +13857,6 @@ func (a *PdfApiService) PutPdfInStorageToEpub(ctx context.Context, name string, 
 }
 
 /* PdfApiService Converts PDF document (located on storage) to Html format and uploads resulting file to storage
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.html)
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -14050,7 +13891,7 @@ func (a *PdfApiService) PutPdfInStorageToEpub(ctx context.Context, name string, 
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInStorageToHtml(ctx context.Context, name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInStorageToHtml(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -14265,7 +14106,7 @@ func (a *PdfApiService) PutPdfInStorageToHtml(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14289,7 +14130,6 @@ func (a *PdfApiService) PutPdfInStorageToHtml(ctx context.Context, name string, 
 }
 
 /* PdfApiService Converts PDF document (located on storage) to LaTeX format and uploads resulting file to storage
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.tex)
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -14297,7 +14137,7 @@ func (a *PdfApiService) PutPdfInStorageToHtml(ctx context.Context, name string, 
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInStorageToLaTeX(ctx context.Context, name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInStorageToLaTeX(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -14353,7 +14193,7 @@ func (a *PdfApiService) PutPdfInStorageToLaTeX(ctx context.Context, name string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14377,14 +14217,13 @@ func (a *PdfApiService) PutPdfInStorageToLaTeX(ctx context.Context, name string,
 }
 
 /* PdfApiService Converts PDF document (located on storage) to MOBIXML format and uploads resulting file to storage
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.mobixml)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInStorageToMobiXml(ctx context.Context, name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInStorageToMobiXml(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -14434,7 +14273,7 @@ func (a *PdfApiService) PutPdfInStorageToMobiXml(ctx context.Context, name strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14458,7 +14297,6 @@ func (a *PdfApiService) PutPdfInStorageToMobiXml(ctx context.Context, name strin
 }
 
 /* PdfApiService Converts PDF document (located on storage) to PdfA format and uploads resulting file to storage
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.pdf)
  @param type_ Type of PdfA format.
@@ -14466,7 +14304,7 @@ func (a *PdfApiService) PutPdfInStorageToMobiXml(ctx context.Context, name strin
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInStorageToPdfA(ctx context.Context, name string, outPath string, type_ string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInStorageToPdfA(name string, outPath string, type_ string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -14517,7 +14355,7 @@ func (a *PdfApiService) PutPdfInStorageToPdfA(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14541,7 +14379,6 @@ func (a *PdfApiService) PutPdfInStorageToPdfA(ctx context.Context, name string, 
 }
 
 /* PdfApiService Converts PDF document (located on storage) to PPTX format and uploads resulting file to storage
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.pptx)
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -14550,7 +14387,7 @@ func (a *PdfApiService) PutPdfInStorageToPdfA(ctx context.Context, name string, 
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInStorageToPptx(ctx context.Context, name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInStorageToPptx(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -14612,7 +14449,7 @@ func (a *PdfApiService) PutPdfInStorageToPptx(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14636,14 +14473,13 @@ func (a *PdfApiService) PutPdfInStorageToPptx(ctx context.Context, name string, 
 }
 
 /* PdfApiService Converts PDF document (located on storage) to SVG format and uploads resulting file to storage
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.svg)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInStorageToSvg(ctx context.Context, name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInStorageToSvg(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -14693,7 +14529,7 @@ func (a *PdfApiService) PutPdfInStorageToSvg(ctx context.Context, name string, o
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14717,7 +14553,6 @@ func (a *PdfApiService) PutPdfInStorageToSvg(ctx context.Context, name string, o
 }
 
 /* PdfApiService Converts PDF document (located on storage) to TIFF format and uploads resulting file to storage
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.tiff)
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -14739,7 +14574,7 @@ func (a *PdfApiService) PutPdfInStorageToSvg(ctx context.Context, name string, o
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInStorageToTiff(ctx context.Context, name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInStorageToTiff(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -14879,7 +14714,7 @@ func (a *PdfApiService) PutPdfInStorageToTiff(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14903,7 +14738,6 @@ func (a *PdfApiService) PutPdfInStorageToTiff(ctx context.Context, name string, 
 }
 
 /* PdfApiService Converts PDF document (located on storage) to XLS format and uploads resulting file to storage
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.xls)
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -14914,7 +14748,7 @@ func (a *PdfApiService) PutPdfInStorageToTiff(ctx context.Context, name string, 
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInStorageToXls(ctx context.Context, name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInStorageToXls(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -14988,7 +14822,7 @@ func (a *PdfApiService) PutPdfInStorageToXls(ctx context.Context, name string, o
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15012,14 +14846,13 @@ func (a *PdfApiService) PutPdfInStorageToXls(ctx context.Context, name string, o
 }
 
 /* PdfApiService Converts PDF document (located on storage) to XML format and uploads resulting file to storage
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.xml)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInStorageToXml(ctx context.Context, name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInStorageToXml(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -15069,7 +14902,7 @@ func (a *PdfApiService) PutPdfInStorageToXml(ctx context.Context, name string, o
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15093,14 +14926,13 @@ func (a *PdfApiService) PutPdfInStorageToXml(ctx context.Context, name string, o
 }
 
 /* PdfApiService Converts PDF document (located on storage) to XPS format and uploads resulting file to storage
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.xps)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPdfInStorageToXps(ctx context.Context, name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPdfInStorageToXps(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -15150,7 +14982,7 @@ func (a *PdfApiService) PutPdfInStorageToXps(ctx context.Context, name string, o
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15174,7 +15006,6 @@ func (a *PdfApiService) PutPdfInStorageToXps(ctx context.Context, name string, o
 }
 
 /* PdfApiService Replace document polyline annotation
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param annotation Annotation.
@@ -15182,7 +15013,7 @@ func (a *PdfApiService) PutPdfInStorageToXps(ctx context.Context, name string, o
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return PolyLineAnnotationResponse*/
-func (a *PdfApiService) PutPolyLineAnnotation(ctx context.Context, name string, annotationId string, annotation PolyLineAnnotation, localVarOptionals map[string]interface{}) (PolyLineAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPolyLineAnnotation(name string, annotationId string, annotation PolyLineAnnotation, localVarOptionals map[string]interface{}) (PolyLineAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -15234,7 +15065,7 @@ func (a *PdfApiService) PutPolyLineAnnotation(ctx context.Context, name string, 
 	}
 	// body params
 	localVarPostBody = &annotation
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15258,7 +15089,6 @@ func (a *PdfApiService) PutPolyLineAnnotation(ctx context.Context, name string, 
 }
 
 /* PdfApiService Replace document polygon annotation
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param annotation Annotation.
@@ -15266,7 +15096,7 @@ func (a *PdfApiService) PutPolyLineAnnotation(ctx context.Context, name string, 
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return PolygonAnnotationResponse*/
-func (a *PdfApiService) PutPolygonAnnotation(ctx context.Context, name string, annotationId string, annotation PolygonAnnotation, localVarOptionals map[string]interface{}) (PolygonAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPolygonAnnotation(name string, annotationId string, annotation PolygonAnnotation, localVarOptionals map[string]interface{}) (PolygonAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -15318,7 +15148,7 @@ func (a *PdfApiService) PutPolygonAnnotation(ctx context.Context, name string, a
 	}
 	// body params
 	localVarPostBody = &annotation
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15342,14 +15172,13 @@ func (a *PdfApiService) PutPolygonAnnotation(ctx context.Context, name string, a
 }
 
 /* PdfApiService Update privilege document.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "privileges" (DocumentPrivilege) Document privileges. 
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPrivileges(ctx context.Context, name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPrivileges(name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -15402,7 +15231,7 @@ func (a *PdfApiService) PutPrivileges(ctx context.Context, name string, localVar
 	if localVarTempParam, localVarOk := localVarOptionals["privileges"].(DocumentPrivilege); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15426,14 +15255,13 @@ func (a *PdfApiService) PutPrivileges(ctx context.Context, name string, localVar
 }
 
 /* PdfApiService Convert PS file (located on storage) to PDF format and upload resulting file to storage. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param srcPath Full source filename (ex. /folder1/folder2/template.ps)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "dstFolder" (string) The destination document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutPsInStorageToPdf(ctx context.Context, name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutPsInStorageToPdf(name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -15483,7 +15311,7 @@ func (a *PdfApiService) PutPsInStorageToPdf(ctx context.Context, name string, sr
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15507,7 +15335,6 @@ func (a *PdfApiService) PutPsInStorageToPdf(ctx context.Context, name string, sr
 }
 
 /* PdfApiService Replace document image.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param imageId The image ID.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -15516,7 +15343,7 @@ func (a *PdfApiService) PutPsInStorageToPdf(ctx context.Context, name string, sr
      @param "folder" (string) The document folder.
      @param "image" (*os.File) Image file.
  @return ImageResponse*/
-func (a *PdfApiService) PutReplaceImage(ctx context.Context, name string, imageId string, localVarOptionals map[string]interface{}) (ImageResponse,  *http.Response, error) {
+func (a *PdfApiService) PutReplaceImage(name string, imageId string, localVarOptionals map[string]interface{}) (ImageResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -15582,7 +15409,7 @@ func (a *PdfApiService) PutReplaceImage(ctx context.Context, name string, imageI
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15606,14 +15433,13 @@ func (a *PdfApiService) PutReplaceImage(ctx context.Context, name string, imageI
 }
 
 /* PdfApiService Create searchable PDF document. Generate OCR layer for images in input PDF document.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
      @param "lang" (string) language for OCR engine. Possible values: eng, ara, bel, ben, bul, ces, dan, deu, ell, fin, fra, heb, hin, ind, isl, ita, jpn, kor, nld, nor, pol, por, ron, rus, spa, swe, tha, tur, ukr, vie, chi_sim, chi_tra or thier combination e.g. eng,rus 
  @return AsposeResponse*/
-func (a *PdfApiService) PutSearchableDocument(ctx context.Context, name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutSearchableDocument(name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -15668,7 +15494,7 @@ func (a *PdfApiService) PutSearchableDocument(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15692,7 +15518,6 @@ func (a *PdfApiService) PutSearchableDocument(ctx context.Context, name string, 
 }
 
 /* PdfApiService Add/update document property.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name 
  @param propertyName 
  @param value 
@@ -15700,7 +15525,7 @@ func (a *PdfApiService) PutSearchableDocument(ctx context.Context, name string, 
      @param "storage" (string) 
      @param "folder" (string) 
  @return DocumentPropertyResponse*/
-func (a *PdfApiService) PutSetProperty(ctx context.Context, name string, propertyName string, value string, localVarOptionals map[string]interface{}) (DocumentPropertyResponse,  *http.Response, error) {
+func (a *PdfApiService) PutSetProperty(name string, propertyName string, value string, localVarOptionals map[string]interface{}) (DocumentPropertyResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -15751,7 +15576,7 @@ func (a *PdfApiService) PutSetProperty(ctx context.Context, name string, propert
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15775,7 +15600,6 @@ func (a *PdfApiService) PutSetProperty(ctx context.Context, name string, propert
 }
 
 /* PdfApiService Replace document square annotation
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param annotation Annotation.
@@ -15783,7 +15607,7 @@ func (a *PdfApiService) PutSetProperty(ctx context.Context, name string, propert
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return SquareAnnotationResponse*/
-func (a *PdfApiService) PutSquareAnnotation(ctx context.Context, name string, annotationId string, annotation SquareAnnotation, localVarOptionals map[string]interface{}) (SquareAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) PutSquareAnnotation(name string, annotationId string, annotation SquareAnnotation, localVarOptionals map[string]interface{}) (SquareAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -15835,7 +15659,7 @@ func (a *PdfApiService) PutSquareAnnotation(ctx context.Context, name string, an
 	}
 	// body params
 	localVarPostBody = &annotation
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15859,7 +15683,6 @@ func (a *PdfApiService) PutSquareAnnotation(ctx context.Context, name string, an
 }
 
 /* PdfApiService Convert SVG file (located on storage) to PDF format and upload resulting file to storage. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param srcPath Full source filename (ex. /folder1/folder2/template.svg)
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -15874,7 +15697,7 @@ func (a *PdfApiService) PutSquareAnnotation(ctx context.Context, name string, an
      @param "dstFolder" (string) The destination document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutSvgInStorageToPdf(ctx context.Context, name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutSvgInStorageToPdf(name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -15972,7 +15795,7 @@ func (a *PdfApiService) PutSvgInStorageToPdf(ctx context.Context, name string, s
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15996,7 +15819,6 @@ func (a *PdfApiService) PutSvgInStorageToPdf(ctx context.Context, name string, s
 }
 
 /* PdfApiService Replace document text annotation
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param annotationId The annotation ID.
  @param annotation Annotation.
@@ -16004,7 +15826,7 @@ func (a *PdfApiService) PutSvgInStorageToPdf(ctx context.Context, name string, s
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return TextAnnotationResponse*/
-func (a *PdfApiService) PutTextAnnotation(ctx context.Context, name string, annotationId string, annotation TextAnnotation, localVarOptionals map[string]interface{}) (TextAnnotationResponse,  *http.Response, error) {
+func (a *PdfApiService) PutTextAnnotation(name string, annotationId string, annotation TextAnnotation, localVarOptionals map[string]interface{}) (TextAnnotationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -16056,7 +15878,7 @@ func (a *PdfApiService) PutTextAnnotation(ctx context.Context, name string, anno
 	}
 	// body params
 	localVarPostBody = &annotation
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -16080,7 +15902,6 @@ func (a *PdfApiService) PutTextAnnotation(ctx context.Context, name string, anno
 }
 
 /* PdfApiService Update field.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param fieldName The name of a field to be updated.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -16088,7 +15909,7 @@ func (a *PdfApiService) PutTextAnnotation(ctx context.Context, name string, anno
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return FieldResponse*/
-func (a *PdfApiService) PutUpdateField(ctx context.Context, name string, fieldName string, localVarOptionals map[string]interface{}) (FieldResponse,  *http.Response, error) {
+func (a *PdfApiService) PutUpdateField(name string, fieldName string, localVarOptionals map[string]interface{}) (FieldResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -16142,7 +15963,7 @@ func (a *PdfApiService) PutUpdateField(ctx context.Context, name string, fieldNa
 	if localVarTempParam, localVarOk := localVarOptionals["field"].(Field); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -16166,14 +15987,13 @@ func (a *PdfApiService) PutUpdateField(ctx context.Context, name string, fieldNa
 }
 
 /* PdfApiService Update fields.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "fields" (Fields) with the fields data.
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
  @return FieldsResponse*/
-func (a *PdfApiService) PutUpdateFields(ctx context.Context, name string, localVarOptionals map[string]interface{}) (FieldsResponse,  *http.Response, error) {
+func (a *PdfApiService) PutUpdateFields(name string, localVarOptionals map[string]interface{}) (FieldsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -16226,7 +16046,7 @@ func (a *PdfApiService) PutUpdateFields(ctx context.Context, name string, localV
 	if localVarTempParam, localVarOk := localVarOptionals["fields"].(Fields); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -16250,7 +16070,6 @@ func (a *PdfApiService) PutUpdateFields(ctx context.Context, name string, localV
 }
 
 /* PdfApiService Convert web page to PDF format and upload resulting file to storage. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param url Source url
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -16264,7 +16083,7 @@ func (a *PdfApiService) PutUpdateFields(ctx context.Context, name string, localV
      @param "dstFolder" (string) The destination document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutWebInStorageToPdf(ctx context.Context, name string, url string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutWebInStorageToPdf(name string, url string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -16356,7 +16175,7 @@ func (a *PdfApiService) PutWebInStorageToPdf(ctx context.Context, name string, u
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -16380,13 +16199,12 @@ func (a *PdfApiService) PutWebInStorageToPdf(ctx context.Context, name string, u
 }
 
 /* PdfApiService Converts PDF document which contatins XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.pdf)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
-func (a *PdfApiService) PutXfaPdfInRequestToAcroForm(ctx context.Context, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutXfaPdfInRequestToAcroForm(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -16439,7 +16257,7 @@ func (a *PdfApiService) PutXfaPdfInRequestToAcroForm(ctx context.Context, outPat
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -16463,14 +16281,13 @@ func (a *PdfApiService) PutXfaPdfInRequestToAcroForm(ctx context.Context, outPat
 }
 
 /* PdfApiService Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.pdf)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutXfaPdfInStorageToAcroForm(ctx context.Context, name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutXfaPdfInStorageToAcroForm(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -16520,7 +16337,7 @@ func (a *PdfApiService) PutXfaPdfInStorageToAcroForm(ctx context.Context, name s
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -16544,7 +16361,6 @@ func (a *PdfApiService) PutXfaPdfInStorageToAcroForm(ctx context.Context, name s
 }
 
 /* PdfApiService Convert XML file (located on storage) to PDF format and upload resulting file to storage. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param srcPath Full source filename (ex. /folder1/folder2/template.xml)
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -16552,7 +16368,7 @@ func (a *PdfApiService) PutXfaPdfInStorageToAcroForm(ctx context.Context, name s
      @param "dstFolder" (string) The destination document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutXmlInStorageToPdf(ctx context.Context, name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutXmlInStorageToPdf(name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -16608,7 +16424,7 @@ func (a *PdfApiService) PutXmlInStorageToPdf(ctx context.Context, name string, s
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -16632,14 +16448,13 @@ func (a *PdfApiService) PutXmlInStorageToPdf(ctx context.Context, name string, s
 }
 
 /* PdfApiService Convert XPS file (located on storage) to PDF format and upload resulting file to storage. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param srcPath Full source filename (ex. /folder1/folder2/template.xps)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "dstFolder" (string) The destination document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutXpsInStorageToPdf(ctx context.Context, name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutXpsInStorageToPdf(name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -16689,7 +16504,7 @@ func (a *PdfApiService) PutXpsInStorageToPdf(ctx context.Context, name string, s
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -16713,14 +16528,13 @@ func (a *PdfApiService) PutXpsInStorageToPdf(ctx context.Context, name string, s
 }
 
 /* PdfApiService Convert XslFo file (located on storage) to PDF format and upload resulting file to storage. 
- * @param ctx context.Context for authentication, logging, tracing, etc.
  @param name The document name.
  @param srcPath Full source filename (ex. /folder1/folder2/template.xpsfo)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "dstFolder" (string) The destination document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutXslFoInStorageToPdf(ctx context.Context, name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutXslFoInStorageToPdf(name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -16770,7 +16584,7 @@ func (a *PdfApiService) PutXslFoInStorageToPdf(ctx context.Context, name string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

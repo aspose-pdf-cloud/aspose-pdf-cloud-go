@@ -33,8 +33,6 @@ import (
 	"errors"
 	"io"
 	"mime/multipart"
-    "golang.org/x/oauth2"
-    "golang.org/x/net/context"
 	"net/http"
 	"net/url"
 	"time"
@@ -170,7 +168,6 @@ func (c *APIClient) ChangeBasePath (path string) {
 
 // prepareRequest build the request
 func (c *APIClient) prepareRequest (
-	ctx context.Context,
 	path string, method string,
 	postBody interface{},
 	headerParams map[string]string,
@@ -279,7 +276,8 @@ func (c *APIClient) prepareRequest (
 	// Add the user agent to the request.
 	localVarRequest.Header.Add("User-Agent", c.cfg.UserAgent)
 	
-
+	_ = c.addAuth(localVarRequest)
+/*  TODO AUTH
 	if ctx != nil {
 		// add context to the request
 		localVarRequest = localVarRequest.WithContext(ctx)
@@ -306,7 +304,7 @@ func (c *APIClient) prepareRequest (
 		if auth, ok := ctx.Value(ContextAccessToken).(string); ok {
 			localVarRequest.Header.Add("Authorization", "Bearer " + auth)
 		}
-	}
+	}*/
 
 	for header, value := range c.cfg.DefaultHeader {
 		localVarRequest.Header.Add(header, value)
@@ -442,3 +440,47 @@ func strlen(s string) (int) {
 	return utf8.RuneCountInString(s)
 }
 
+// addAuth add Authorization header to request
+func (a *APIClient) addAuth(request *http.Request) (err error) {
+	if (a.cfg.AccessToken == "") {
+		if err := a.RequestOauthToken(); err != nil {
+			return err
+		} 
+	}
+	request.Header.Add("Authorization", "Bearer " + a.cfg.AccessToken)
+	return nil
+}
+
+// RequestOauthToken function for requests OAuth token
+func (a *APIClient) RequestOauthToken() (error) {
+
+	resp, err := http.PostForm(strings.Replace(a.cfg.BasePath, "/v2.0", "/oauth2/token", -1), url.Values{
+		"grant_type": {"client_credentials"},
+		"client_id": {a.cfg.AppSid},
+		"client_secret": {a.cfg.AppKey}})
+
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	
+	var tr TokenResp	
+	if err = json.NewDecoder(resp.Body).Decode(&tr); err != nil {
+		return err
+	}
+	a.cfg.AccessToken = tr.AccessToken
+	a.cfg.RefreshToken = tr.RefreshToken
+	return nil
+}
+
+// TokenResp represents data returned by GetAccessToken and RefreshToken as HTTP response body.
+type TokenResp struct {
+	AccessToken                         string `json:"access_token"`
+	TokenType                           string `json:"token_type"`
+	ExpiresIn                           int64  `json:"expires_in"`
+	RefreshToken                        string `json:"refresh_token"`
+	ClientID                            string `json:"client_id"`
+	ClientRefreshTokenLifeTimeInMinutes string `json:"clientRefreshTokenLifeTimeInMinutes"`
+	Issued                              string `json:".issued"`
+	Expires                             string `json:".expires"`
+}
