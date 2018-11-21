@@ -198,7 +198,6 @@ func (c *APIClient) prepareRequest (
             return nil, errors.New("Cannot specify postBody and multipart form at the same time.")
         }
         body = &bytes.Buffer{}
-        
         w := multipart.NewWriter(body)
 
         for k, v := range formParams {
@@ -215,18 +214,7 @@ func (c *APIClient) prepareRequest (
         }
         if len(fileBytes) > 0 && fileName != "" {
             body = bytes.NewBuffer(fileBytes)
-            /*
-            w.Boundary()
-            //_, fileNm := filepath.Split(fileName)
-            part, err := w.CreateFormFile("file", filepath.Base(fileName))
-            if err != nil {
-                return nil, err
-            }
-            _, err = part.Write(fileBytes)
-            if err != nil {
-                return nil, err
-            }
-            */
+            
             // Set the Boundary in the Content-Type
             headerParams["Content-Type"] = "application/octet-stream"
         }
