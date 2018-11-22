@@ -47,17 +47,17 @@ type TextAnnotation struct {
 	// Gets ZIndex of the annotation.
 	ZIndex int32 `json:"ZIndex,omitempty"`
 	// Gets HorizontalAlignment of the annotation.
-	HorizontalAlignment *HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
+	HorizontalAlignment HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
 	// Gets VerticalAlignment of the annotation.
-	VerticalAlignment *VerticalAlignment `json:"VerticalAlignment,omitempty"`
+	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
 	// Get the annotation RichText.
 	RichText string `json:"RichText,omitempty"`
 	// Gets or sets the state to which the original annotation should be set.
-	State *AnnotationState `json:"State,omitempty"`
+	State AnnotationState `json:"State,omitempty"`
 	// Gets or sets is the annotation open.
 	Open bool `json:"Open,omitempty"`
 	// Color of the annotation.
 	Color *Color `json:"Color,omitempty"`
 	// Gets or sets an icon to be used in displaying the annotation.
-	Icon *TextIcon `json:"Icon,omitempty"`
+	Icon TextIcon `json:"Icon,omitempty"`
 }

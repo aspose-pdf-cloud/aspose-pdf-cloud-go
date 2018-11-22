@@ -25,7 +25,7 @@ type ImageTemplate struct {
 	// A path for image.
 	ImagePath string `json:"ImagePath"`
 	// Image type.
-	ImageSrcType *ImageSrcType `json:"ImageSrcType"`
+	ImageSrcType ImageSrcType `json:"ImageSrcType"`
 	LeftMargin float64 `json:"LeftMargin,omitempty"`
 	RightMargin float64 `json:"RightMargin,omitempty"`
 	TopMargin float64 `json:"TopMargin,omitempty"`

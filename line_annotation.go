@@ -47,19 +47,19 @@ type LineAnnotation struct {
 	// Gets ZIndex of the annotation.
 	ZIndex int32 `json:"ZIndex,omitempty"`
 	// Gets HorizontalAlignment of the annotation.
-	HorizontalAlignment *HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
+	HorizontalAlignment HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
 	// Gets VerticalAlignment of the annotation.
-	VerticalAlignment *VerticalAlignment `json:"VerticalAlignment,omitempty"`
+	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
 	// Get the annotation RichText.
 	RichText string `json:"RichText,omitempty"`
 	// Gets or sets starting point of line.
 	Starting *Point `json:"Starting,omitempty"`
 	// Gets or sets line ending style for line starting point.
-	StartingStyle *LineEnding `json:"StartingStyle,omitempty"`
+	StartingStyle LineEnding `json:"StartingStyle,omitempty"`
 	// Gets or sets ending point of line.
 	Ending *Point `json:"Ending,omitempty"`
 	// Gets or sets ending style for end point of line.
-	EndingStyle *LineEnding `json:"EndingStyle,omitempty"`
+	EndingStyle LineEnding `json:"EndingStyle,omitempty"`
 	// Gets or sets interior color of the annotation.
 	InteriorColor *Color `json:"InteriorColor,omitempty"`
 	// Gets or sets leader line length.
@@ -73,9 +73,9 @@ type LineAnnotation struct {
 	// Gets or sets caption text offset from its normal position.
 	CaptionOffset *Point `json:"CaptionOffset,omitempty"`
 	// Gets or sets annotation caption position.
-	CaptionPosition *CaptionPosition `json:"CaptionPosition,omitempty"`
+	CaptionPosition CaptionPosition `json:"CaptionPosition,omitempty"`
 	// Color of the annotation.
 	Color *Color `json:"Color,omitempty"`
 	// Gets or sets the intent of the line annotation.
-	Intent *LineIntent `json:"Intent,omitempty"`
+	Intent LineIntent `json:"Intent,omitempty"`
 }

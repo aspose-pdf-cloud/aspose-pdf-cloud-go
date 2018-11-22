@@ -22,9 +22,9 @@ package asposepdfcloud
 
 // Paragraph DTO for add text functionality.
 type Paragraph struct {
-	LineSpacing *LineSpacing `json:"LineSpacing,omitempty"`
-	WrapMode *WrapMode `json:"WrapMode,omitempty"`
-	HorizontalAlignment *TextHorizontalAlignment `json:"HorizontalAlignment,omitempty"`
+	LineSpacing LineSpacing `json:"LineSpacing,omitempty"`
+	WrapMode WrapMode `json:"WrapMode,omitempty"`
+	HorizontalAlignment TextHorizontalAlignment `json:"HorizontalAlignment,omitempty"`
 	LeftMargin float64 `json:"LeftMargin,omitempty"`
 	RightMargin float64 `json:"RightMargin,omitempty"`
 	TopMargin float64 `json:"TopMargin,omitempty"`
@@ -32,6 +32,6 @@ type Paragraph struct {
 	Rectangle *RectanglePdf `json:"Rectangle,omitempty"`
 	Rotation float64 `json:"Rotation,omitempty"`
 	SubsequentLinesIndent float64 `json:"SubsequentLinesIndent,omitempty"`
-	VerticalAlignment *VerticalAlignment `json:"VerticalAlignment,omitempty"`
+	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
 	Lines []TextLine `json:"Lines"`
 }

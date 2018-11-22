@@ -31,5 +31,5 @@ type TextState struct {
 	// Sets background color of the text.
 	BackgroundColor *Color `json:"BackgroundColor,omitempty"`
 	// Sets font style of the text.
-	FontStyle *FontStyles `json:"FontStyle"`
+	FontStyle FontStyles `json:"FontStyle"`
 }

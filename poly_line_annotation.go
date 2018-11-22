@@ -47,19 +47,19 @@ type PolyLineAnnotation struct {
 	// Gets ZIndex of the annotation.
 	ZIndex int32 `json:"ZIndex,omitempty"`
 	// Gets HorizontalAlignment of the annotation.
-	HorizontalAlignment *HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
+	HorizontalAlignment HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
 	// Gets VerticalAlignment of the annotation.
-	VerticalAlignment *VerticalAlignment `json:"VerticalAlignment,omitempty"`
+	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
 	// Get the annotation RichText.
 	RichText string `json:"RichText,omitempty"`
 	// Gets or sets the interior color with which to fill the annotation?s line endings.
 	InteriorColor *Color `json:"InteriorColor,omitempty"`
 	// Gets or sets the style of first line ending.
-	StartingStyle *LineEnding `json:"StartingStyle,omitempty"`
+	StartingStyle LineEnding `json:"StartingStyle,omitempty"`
 	// Gets or sets the style of second line ending.
-	EndingStyle *LineEnding `json:"EndingStyle,omitempty"`
+	EndingStyle LineEnding `json:"EndingStyle,omitempty"`
 	// Gets or sets the intent of the polygon or polyline annotation.
-	Intent *PolyIntent `json:"Intent,omitempty"`
+	Intent PolyIntent `json:"Intent,omitempty"`
 	// Gets or sets an array of points representing the horizontal and vertical coordinates of each vertex.
 	Vertices []Point `json:"Vertices,omitempty"`
 	// Color of the annotation.

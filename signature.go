@@ -24,7 +24,7 @@ type Signature struct {
 	// Gets or sets the signature path.
 	SignaturePath string `json:"SignaturePath"`
 	// Gets or sets the type of the signature.
-	SignatureType *SignatureType `json:"SignatureType"`
+	SignatureType SignatureType `json:"SignatureType"`
 	// Gets or sets the signature password.
 	Password string `json:"Password,omitempty"`
 	// Sets or gets a graphic appearance for the signature. Property value represents an image file name.

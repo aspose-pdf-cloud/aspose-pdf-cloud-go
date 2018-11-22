@@ -29,7 +29,7 @@ type Field struct {
 	// Selected items.
 	SelectedItems []int32 `json:"SelectedItems,omitempty"`
 	// Field type.
-	Type_ *FieldType `json:"Type,omitempty"`
+	Type_ FieldType `json:"Type,omitempty"`
 	// Field rectangle.
 	Rect *RectanglePdf `json:"Rect,omitempty"`
 	// Field values.

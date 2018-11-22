@@ -23,7 +23,7 @@ package asposepdfcloud
 // A line of text to be inserted into .
 type TextLine struct {
 	// Line's horizontal alignment
-	HorizontalAlignment *TextHorizontalAlignment `json:"HorizontalAlignment,omitempty"`
+	HorizontalAlignment TextHorizontalAlignment `json:"HorizontalAlignment,omitempty"`
 	// Segments that form the line. Every segment has its own formatting.
 	Segments []Segment `json:"Segments"`
 }

@@ -109,13 +109,11 @@ func TestPostPageCircleAnnotations(t *testing.T) {
 		"folder":  GetBaseTest().remoteFolder,
 	}
 
-	hAligment := HorizontalAlignmentCenter
-
 	annotation := CircleAnnotation {
 		Name: "Name",
 		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
-		HorizontalAlignment: &hAligment,
+		HorizontalAlignment: HorizontalAlignmentCenter,
 		RichText: "Rich Text",
 		Subject: "Text Box Subj",
 		ZIndex: 1,
@@ -144,13 +142,11 @@ func TestPutCircleAnnotation(t *testing.T) {
 		"folder":  GetBaseTest().remoteFolder,
 	}
 
-	hAligment := HorizontalAlignmentCenter
-
 	annotation := CircleAnnotation {
 		Name: "Name Updated",
 		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
-		HorizontalAlignment: &hAligment,
+		HorizontalAlignment: HorizontalAlignmentCenter,
 		RichText: "Rich Text Updated",
 		Subject: "Text Box Subj Updated",
 		ZIndex: 1,

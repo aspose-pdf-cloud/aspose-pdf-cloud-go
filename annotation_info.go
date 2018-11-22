@@ -47,9 +47,9 @@ type AnnotationInfo struct {
 	// Gets ZIndex of the annotation.
 	ZIndex int32 `json:"ZIndex,omitempty"`
 	// Gets HorizontalAlignment of the annotation.
-	HorizontalAlignment *HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
+	HorizontalAlignment HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
 	// Gets VerticalAlignment of the annotation.
-	VerticalAlignment *VerticalAlignment `json:"VerticalAlignment,omitempty"`
+	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
 	// Gets annotation type.
-	AnnotationType *AnnotationType `json:"AnnotationType,omitempty"`
+	AnnotationType AnnotationType `json:"AnnotationType,omitempty"`
 }
