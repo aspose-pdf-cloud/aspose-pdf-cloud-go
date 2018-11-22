@@ -1,28 +1,23 @@
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="PdfApi.cs">
-//   Copyright (c) 2018 Aspose.PDF Cloud
-// </copyright>
-// <summary>
-//   Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-// 
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-// 
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
+ /**
+ *
+ *   Copyright (c) 2018 Aspose.PDF Cloud
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ */
 package asposepdfcloud
 
 import (
@@ -62,7 +57,7 @@ func (a *PdfApiService) DeleteAnnotation(name string, annotationId string, local
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -120,11 +115,10 @@ func (a *PdfApiService) DeleteAnnotation(name string, annotationId string, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -141,7 +135,7 @@ func (a *PdfApiService) DeleteDocumentAnnotations(name string, localVarOptionals
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -198,11 +192,10 @@ func (a *PdfApiService) DeleteDocumentAnnotations(name string, localVarOptionals
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -219,7 +212,7 @@ func (a *PdfApiService) DeleteDocumentLinkAnnotations(name string, localVarOptio
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -276,11 +269,10 @@ func (a *PdfApiService) DeleteDocumentLinkAnnotations(name string, localVarOptio
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -298,7 +290,7 @@ func (a *PdfApiService) DeleteField(name string, fieldName string, localVarOptio
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -356,11 +348,10 @@ func (a *PdfApiService) DeleteField(name string, fieldName string, localVarOptio
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -378,7 +369,7 @@ func (a *PdfApiService) DeleteImage(name string, imageId string, localVarOptiona
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -436,11 +427,10 @@ func (a *PdfApiService) DeleteImage(name string, imageId string, localVarOptiona
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -458,7 +448,7 @@ func (a *PdfApiService) DeleteLinkAnnotation(name string, linkId string, localVa
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -516,11 +506,10 @@ func (a *PdfApiService) DeleteLinkAnnotation(name string, linkId string, localVa
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -538,7 +527,7 @@ func (a *PdfApiService) DeletePage(name string, pageNumber int32, localVarOption
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -596,11 +585,10 @@ func (a *PdfApiService) DeletePage(name string, pageNumber int32, localVarOption
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -618,7 +606,7 @@ func (a *PdfApiService) DeletePageAnnotations(name string, pageNumber int32, loc
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -676,11 +664,10 @@ func (a *PdfApiService) DeletePageAnnotations(name string, pageNumber int32, loc
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -698,7 +685,7 @@ func (a *PdfApiService) DeletePageLinkAnnotations(name string, pageNumber int32,
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -756,11 +743,10 @@ func (a *PdfApiService) DeletePageLinkAnnotations(name string, pageNumber int32,
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -777,7 +763,7 @@ func (a *PdfApiService) DeleteProperties(name string, localVarOptionals map[stri
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -834,11 +820,10 @@ func (a *PdfApiService) DeleteProperties(name string, localVarOptionals map[stri
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -856,7 +841,7 @@ func (a *PdfApiService) DeleteProperty(name string, propertyName string, localVa
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -914,11 +899,10 @@ func (a *PdfApiService) DeleteProperty(name string, propertyName string, localVa
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -936,7 +920,7 @@ func (a *PdfApiService) GetCircleAnnotation(name string, annotationId string, lo
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  CircleAnnotationResponse
+	 	successPayload CircleAnnotationResponse
 	)
 
 	// create path and map variables
@@ -994,11 +978,10 @@ func (a *PdfApiService) GetCircleAnnotation(name string, annotationId string, lo
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -1015,7 +998,7 @@ func (a *PdfApiService) GetDocument(name string, localVarOptionals map[string]in
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentResponse
+	 	successPayload DocumentResponse
 	)
 
 	// create path and map variables
@@ -1072,11 +1055,10 @@ func (a *PdfApiService) GetDocument(name string, localVarOptionals map[string]in
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -1093,7 +1075,7 @@ func (a *PdfApiService) GetDocumentAnnotations(name string, localVarOptionals ma
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AnnotationsInfoResponse
+	 	successPayload AnnotationsInfoResponse
 	)
 
 	// create path and map variables
@@ -1150,11 +1132,10 @@ func (a *PdfApiService) GetDocumentAnnotations(name string, localVarOptionals ma
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -1172,7 +1153,7 @@ func (a *PdfApiService) GetDocumentAttachmentByIndex(name string, attachmentInde
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AttachmentResponse
+	 	successPayload AttachmentResponse
 	)
 
 	// create path and map variables
@@ -1230,11 +1211,10 @@ func (a *PdfApiService) GetDocumentAttachmentByIndex(name string, attachmentInde
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -1251,7 +1231,7 @@ func (a *PdfApiService) GetDocumentAttachments(name string, localVarOptionals ma
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AttachmentsResponse
+	 	successPayload AttachmentsResponse
 	)
 
 	// create path and map variables
@@ -1308,11 +1288,10 @@ func (a *PdfApiService) GetDocumentAttachments(name string, localVarOptionals ma
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -1323,14 +1302,14 @@ func (a *PdfApiService) GetDocumentAttachments(name string, localVarOptionals ma
      @param "bookmarkPath" (string) The bookmark path. Leave it empty if you want to get all the bookmarks in the document.
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
- @return *os.File*/
-func (a *PdfApiService) GetDocumentBookmarks(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetDocumentBookmarks(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -1393,11 +1372,10 @@ func (a *PdfApiService) GetDocumentBookmarks(name string, localVarOptionals map[
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -1414,7 +1392,7 @@ func (a *PdfApiService) GetDocumentCircleAnnotations(name string, localVarOption
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  CircleAnnotationsResponse
+	 	successPayload CircleAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -1471,11 +1449,10 @@ func (a *PdfApiService) GetDocumentCircleAnnotations(name string, localVarOption
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -1492,7 +1469,7 @@ func (a *PdfApiService) GetDocumentFreeTextAnnotations(name string, localVarOpti
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FreeTextAnnotationsResponse
+	 	successPayload FreeTextAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -1549,11 +1526,10 @@ func (a *PdfApiService) GetDocumentFreeTextAnnotations(name string, localVarOpti
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -1570,7 +1546,7 @@ func (a *PdfApiService) GetDocumentLineAnnotations(name string, localVarOptional
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  LineAnnotationsResponse
+	 	successPayload LineAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -1627,11 +1603,10 @@ func (a *PdfApiService) GetDocumentLineAnnotations(name string, localVarOptional
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -1648,7 +1623,7 @@ func (a *PdfApiService) GetDocumentPolyLineAnnotations(name string, localVarOpti
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  PolyLineAnnotationsResponse
+	 	successPayload PolyLineAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -1705,11 +1680,10 @@ func (a *PdfApiService) GetDocumentPolyLineAnnotations(name string, localVarOpti
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -1726,7 +1700,7 @@ func (a *PdfApiService) GetDocumentPolygonAnnotations(name string, localVarOptio
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  PolygonAnnotationsResponse
+	 	successPayload PolygonAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -1783,11 +1757,10 @@ func (a *PdfApiService) GetDocumentPolygonAnnotations(name string, localVarOptio
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -1804,7 +1777,7 @@ func (a *PdfApiService) GetDocumentProperties(name string, localVarOptionals map
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentPropertiesResponse
+	 	successPayload DocumentPropertiesResponse
 	)
 
 	// create path and map variables
@@ -1861,11 +1834,10 @@ func (a *PdfApiService) GetDocumentProperties(name string, localVarOptionals map
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -1883,7 +1855,7 @@ func (a *PdfApiService) GetDocumentProperty(name string, propertyName string, lo
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentPropertyResponse
+	 	successPayload DocumentPropertyResponse
 	)
 
 	// create path and map variables
@@ -1941,11 +1913,10 @@ func (a *PdfApiService) GetDocumentProperty(name string, propertyName string, lo
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -1962,7 +1933,7 @@ func (a *PdfApiService) GetDocumentSquareAnnotations(name string, localVarOption
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SquareAnnotationsResponse
+	 	successPayload SquareAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -2019,11 +1990,10 @@ func (a *PdfApiService) GetDocumentSquareAnnotations(name string, localVarOption
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -2040,7 +2010,7 @@ func (a *PdfApiService) GetDocumentTextAnnotations(name string, localVarOptional
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  TextAnnotationsResponse
+	 	successPayload TextAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -2097,11 +2067,10 @@ func (a *PdfApiService) GetDocumentTextAnnotations(name string, localVarOptional
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -2111,14 +2080,14 @@ func (a *PdfApiService) GetDocumentTextAnnotations(name string, localVarOptional
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "versionId" (string) File&#39;s version
      @param "storage" (string) User&#39;s storage name
- @return *os.File*/
-func (a *PdfApiService) GetDownload(path string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetDownload(path string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -2175,11 +2144,10 @@ func (a *PdfApiService) GetDownload(path string, localVarOptionals map[string]in
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -2190,14 +2158,14 @@ func (a *PdfApiService) GetDownload(path string, localVarOptionals map[string]in
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
- @return *os.File*/
-func (a *PdfApiService) GetDownloadDocumentAttachmentByIndex(name string, attachmentIndex int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetDownloadDocumentAttachmentByIndex(name string, attachmentIndex int32, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -2255,11 +2223,10 @@ func (a *PdfApiService) GetDownloadDocumentAttachmentByIndex(name string, attach
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -2268,14 +2235,14 @@ func (a *PdfApiService) GetDownloadDocumentAttachmentByIndex(name string, attach
  @param srcPath Full source filename (ex. /folder1/folder2/template.epub)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetEpubInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetEpubInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -2326,11 +2293,10 @@ func (a *PdfApiService) GetEpubInStorageToPdf(srcPath string, localVarOptionals 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -2348,7 +2314,7 @@ func (a *PdfApiService) GetField(name string, fieldName string, localVarOptional
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FieldResponse
+	 	successPayload FieldResponse
 	)
 
 	// create path and map variables
@@ -2406,11 +2372,10 @@ func (a *PdfApiService) GetField(name string, fieldName string, localVarOptional
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -2427,7 +2392,7 @@ func (a *PdfApiService) GetFields(name string, localVarOptionals map[string]inte
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FieldsResponse
+	 	successPayload FieldsResponse
 	)
 
 	// create path and map variables
@@ -2484,11 +2449,10 @@ func (a *PdfApiService) GetFields(name string, localVarOptionals map[string]inte
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -2506,7 +2470,7 @@ func (a *PdfApiService) GetFreeTextAnnotation(name string, annotationId string, 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FreeTextAnnotationResponse
+	 	successPayload FreeTextAnnotationResponse
 	)
 
 	// create path and map variables
@@ -2564,11 +2528,10 @@ func (a *PdfApiService) GetFreeTextAnnotation(name string, annotationId string, 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -2585,14 +2548,14 @@ func (a *PdfApiService) GetFreeTextAnnotation(name string, annotationId string, 
      @param "marginRight" (float64) Page margin right
      @param "marginTop" (float64) Page margin top
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetHtmlInStorageToPdf(srcPath string, htmlFileName string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetHtmlInStorageToPdf(srcPath string, htmlFileName string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -2686,11 +2649,10 @@ func (a *PdfApiService) GetHtmlInStorageToPdf(srcPath string, htmlFileName strin
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -2708,7 +2670,7 @@ func (a *PdfApiService) GetImage(name string, imageId string, localVarOptionals 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  ImageResponse
+	 	successPayload ImageResponse
 	)
 
 	// create path and map variables
@@ -2766,11 +2728,10 @@ func (a *PdfApiService) GetImage(name string, imageId string, localVarOptionals 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -2783,14 +2744,14 @@ func (a *PdfApiService) GetImage(name string, imageId string, localVarOptionals 
      @param "height" (int32) The converted image height.
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
- @return *os.File*/
-func (a *PdfApiService) GetImageExtractAsGif(name string, imageId string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetImageExtractAsGif(name string, imageId string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -2860,11 +2821,10 @@ func (a *PdfApiService) GetImageExtractAsGif(name string, imageId string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -2877,14 +2837,14 @@ func (a *PdfApiService) GetImageExtractAsGif(name string, imageId string, localV
      @param "height" (int32) The converted image height.
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
- @return *os.File*/
-func (a *PdfApiService) GetImageExtractAsJpeg(name string, imageId string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetImageExtractAsJpeg(name string, imageId string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -2954,11 +2914,10 @@ func (a *PdfApiService) GetImageExtractAsJpeg(name string, imageId string, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -2971,14 +2930,14 @@ func (a *PdfApiService) GetImageExtractAsJpeg(name string, imageId string, local
      @param "height" (int32) The converted image height.
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
- @return *os.File*/
-func (a *PdfApiService) GetImageExtractAsPng(name string, imageId string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetImageExtractAsPng(name string, imageId string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -3048,11 +3007,10 @@ func (a *PdfApiService) GetImageExtractAsPng(name string, imageId string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -3065,14 +3023,14 @@ func (a *PdfApiService) GetImageExtractAsPng(name string, imageId string, localV
      @param "height" (int32) The converted image height.
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
- @return *os.File*/
-func (a *PdfApiService) GetImageExtractAsTiff(name string, imageId string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetImageExtractAsTiff(name string, imageId string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -3142,11 +3100,10 @@ func (a *PdfApiService) GetImageExtractAsTiff(name string, imageId string, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -3164,7 +3121,7 @@ func (a *PdfApiService) GetImages(name string, pageNumber int32, localVarOptiona
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  ImagesResponse
+	 	successPayload ImagesResponse
 	)
 
 	// create path and map variables
@@ -3222,11 +3179,10 @@ func (a *PdfApiService) GetImages(name string, pageNumber int32, localVarOptiona
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -3235,14 +3191,14 @@ func (a *PdfApiService) GetImages(name string, pageNumber int32, localVarOptiona
  @param srcPath Full source filename (ex. /folder1/folder2/template.tex)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetLaTeXInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetLaTeXInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -3293,11 +3249,10 @@ func (a *PdfApiService) GetLaTeXInStorageToPdf(srcPath string, localVarOptionals
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -3315,7 +3270,7 @@ func (a *PdfApiService) GetLineAnnotation(name string, annotationId string, loca
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  LineAnnotationResponse
+	 	successPayload LineAnnotationResponse
 	)
 
 	// create path and map variables
@@ -3373,11 +3328,10 @@ func (a *PdfApiService) GetLineAnnotation(name string, annotationId string, loca
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -3395,7 +3349,7 @@ func (a *PdfApiService) GetLinkAnnotation(name string, linkId string, localVarOp
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  LinkAnnotationResponse
+	 	successPayload LinkAnnotationResponse
 	)
 
 	// create path and map variables
@@ -3453,11 +3407,10 @@ func (a *PdfApiService) GetLinkAnnotation(name string, linkId string, localVarOp
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -3473,7 +3426,7 @@ func (a *PdfApiService) GetListFiles(localVarOptionals map[string]interface{}) (
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FilesResponse
+	 	successPayload FilesResponse
 	)
 
 	// create path and map variables
@@ -3529,11 +3482,10 @@ func (a *PdfApiService) GetListFiles(localVarOptionals map[string]interface{}) (
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -3542,14 +3494,14 @@ func (a *PdfApiService) GetListFiles(localVarOptionals map[string]interface{}) (
  @param srcPath Full source filename (ex. /folder1/folder2/template.mht)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetMhtInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetMhtInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -3600,11 +3552,10 @@ func (a *PdfApiService) GetMhtInStorageToPdf(srcPath string, localVarOptionals m
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -3622,7 +3573,7 @@ func (a *PdfApiService) GetPage(name string, pageNumber int32, localVarOptionals
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentPageResponse
+	 	successPayload DocumentPageResponse
 	)
 
 	// create path and map variables
@@ -3680,11 +3631,10 @@ func (a *PdfApiService) GetPage(name string, pageNumber int32, localVarOptionals
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -3702,7 +3652,7 @@ func (a *PdfApiService) GetPageAnnotations(name string, pageNumber int32, localV
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AnnotationsInfoResponse
+	 	successPayload AnnotationsInfoResponse
 	)
 
 	// create path and map variables
@@ -3760,11 +3710,10 @@ func (a *PdfApiService) GetPageAnnotations(name string, pageNumber int32, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -3782,7 +3731,7 @@ func (a *PdfApiService) GetPageCircleAnnotations(name string, pageNumber int32, 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  CircleAnnotationsResponse
+	 	successPayload CircleAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -3840,11 +3789,10 @@ func (a *PdfApiService) GetPageCircleAnnotations(name string, pageNumber int32, 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -3857,14 +3805,14 @@ func (a *PdfApiService) GetPageCircleAnnotations(name string, pageNumber int32, 
      @param "height" (int32) The converted image height.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPageConvertToBmp(name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPageConvertToBmp(name string, pageNumber int32, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -3934,11 +3882,10 @@ func (a *PdfApiService) GetPageConvertToBmp(name string, pageNumber int32, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -3951,14 +3898,14 @@ func (a *PdfApiService) GetPageConvertToBmp(name string, pageNumber int32, local
      @param "height" (int32) The converted image height.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPageConvertToEmf(name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPageConvertToEmf(name string, pageNumber int32, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -4028,11 +3975,10 @@ func (a *PdfApiService) GetPageConvertToEmf(name string, pageNumber int32, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -4045,14 +3991,14 @@ func (a *PdfApiService) GetPageConvertToEmf(name string, pageNumber int32, local
      @param "height" (int32) The converted image height.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPageConvertToGif(name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPageConvertToGif(name string, pageNumber int32, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -4122,11 +4068,10 @@ func (a *PdfApiService) GetPageConvertToGif(name string, pageNumber int32, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -4139,14 +4084,14 @@ func (a *PdfApiService) GetPageConvertToGif(name string, pageNumber int32, local
      @param "height" (int32) The converted image height.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPageConvertToJpeg(name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPageConvertToJpeg(name string, pageNumber int32, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -4216,11 +4161,10 @@ func (a *PdfApiService) GetPageConvertToJpeg(name string, pageNumber int32, loca
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -4233,14 +4177,14 @@ func (a *PdfApiService) GetPageConvertToJpeg(name string, pageNumber int32, loca
      @param "height" (int32) The converted image height.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPageConvertToPng(name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPageConvertToPng(name string, pageNumber int32, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -4310,11 +4254,10 @@ func (a *PdfApiService) GetPageConvertToPng(name string, pageNumber int32, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -4327,14 +4270,14 @@ func (a *PdfApiService) GetPageConvertToPng(name string, pageNumber int32, local
      @param "height" (int32) The converted image height.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPageConvertToTiff(name string, pageNumber int32, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPageConvertToTiff(name string, pageNumber int32, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -4404,11 +4347,10 @@ func (a *PdfApiService) GetPageConvertToTiff(name string, pageNumber int32, loca
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -4426,7 +4368,7 @@ func (a *PdfApiService) GetPageFreeTextAnnotations(name string, pageNumber int32
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FreeTextAnnotationsResponse
+	 	successPayload FreeTextAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -4484,11 +4426,10 @@ func (a *PdfApiService) GetPageFreeTextAnnotations(name string, pageNumber int32
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -4506,7 +4447,7 @@ func (a *PdfApiService) GetPageLineAnnotations(name string, pageNumber int32, lo
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  LineAnnotationsResponse
+	 	successPayload LineAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -4564,11 +4505,10 @@ func (a *PdfApiService) GetPageLineAnnotations(name string, pageNumber int32, lo
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -4587,7 +4527,7 @@ func (a *PdfApiService) GetPageLinkAnnotation(name string, pageNumber int32, lin
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  LinkAnnotationResponse
+	 	successPayload LinkAnnotationResponse
 	)
 
 	// create path and map variables
@@ -4646,11 +4586,10 @@ func (a *PdfApiService) GetPageLinkAnnotation(name string, pageNumber int32, lin
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -4668,7 +4607,7 @@ func (a *PdfApiService) GetPageLinkAnnotations(name string, pageNumber int32, lo
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  LinkAnnotationsResponse
+	 	successPayload LinkAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -4726,11 +4665,10 @@ func (a *PdfApiService) GetPageLinkAnnotations(name string, pageNumber int32, lo
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -4748,7 +4686,7 @@ func (a *PdfApiService) GetPagePolyLineAnnotations(name string, pageNumber int32
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  PolyLineAnnotationsResponse
+	 	successPayload PolyLineAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -4806,11 +4744,10 @@ func (a *PdfApiService) GetPagePolyLineAnnotations(name string, pageNumber int32
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -4828,7 +4765,7 @@ func (a *PdfApiService) GetPagePolygonAnnotations(name string, pageNumber int32,
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  PolygonAnnotationsResponse
+	 	successPayload PolygonAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -4886,11 +4823,10 @@ func (a *PdfApiService) GetPagePolygonAnnotations(name string, pageNumber int32,
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -4908,7 +4844,7 @@ func (a *PdfApiService) GetPageSquareAnnotations(name string, pageNumber int32, 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SquareAnnotationsResponse
+	 	successPayload SquareAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -4966,11 +4902,10 @@ func (a *PdfApiService) GetPageSquareAnnotations(name string, pageNumber int32, 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -4995,7 +4930,7 @@ func (a *PdfApiService) GetPageText(name string, pageNumber int32, lLX float64, 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  TextRectsResponse
+	 	successPayload TextRectsResponse
 	)
 
 	// create path and map variables
@@ -5072,11 +5007,10 @@ func (a *PdfApiService) GetPageText(name string, pageNumber int32, lLX float64, 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -5094,7 +5028,7 @@ func (a *PdfApiService) GetPageTextAnnotations(name string, pageNumber int32, lo
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  TextAnnotationsResponse
+	 	successPayload TextAnnotationsResponse
 	)
 
 	// create path and map variables
@@ -5152,11 +5086,10 @@ func (a *PdfApiService) GetPageTextAnnotations(name string, pageNumber int32, lo
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -5173,7 +5106,7 @@ func (a *PdfApiService) GetPages(name string, localVarOptionals map[string]inter
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentPagesResponse
+	 	successPayload DocumentPagesResponse
 	)
 
 	// create path and map variables
@@ -5230,11 +5163,10 @@ func (a *PdfApiService) GetPages(name string, localVarOptionals map[string]inter
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -5243,14 +5175,14 @@ func (a *PdfApiService) GetPages(name string, localVarOptionals map[string]inter
  @param srcPath Full source filename (ex. /folder1/folder2/template.pcl)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPclInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPclInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -5301,11 +5233,10 @@ func (a *PdfApiService) GetPclInStorageToPdf(srcPath string, localVarOptionals m
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -5323,14 +5254,14 @@ func (a *PdfApiService) GetPclInStorageToPdf(srcPath string, localVarOptionals m
      @param "relativeHorizontalProximity" (float64) Relative horizontal proximity.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToDoc(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPdfInStorageToDoc(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -5435,11 +5366,10 @@ func (a *PdfApiService) GetPdfInStorageToDoc(name string, localVarOptionals map[
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -5450,14 +5380,14 @@ func (a *PdfApiService) GetPdfInStorageToDoc(name string, localVarOptionals map[
      @param "contentRecognitionMode" (string) ?roperty tunes conversion for this or that desirable method of recognition of content.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToEpub(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPdfInStorageToEpub(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -5520,11 +5450,10 @@ func (a *PdfApiService) GetPdfInStorageToEpub(name string, localVarOptionals map
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -5562,14 +5491,14 @@ func (a *PdfApiService) GetPdfInStorageToEpub(name string, localVarOptionals map
      @param "trySaveTextUnderliningAndStrikeoutingInCss" (bool) PDF itself does not contain underlining markers for texts. It emulated with line situated under text. This option allows converter try guess that this or that line is a text&#39;s underlining and put this info into CSS instead of drawing of underlining graphically.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToHtml(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPdfInStorageToHtml(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -5791,11 +5720,10 @@ func (a *PdfApiService) GetPdfInStorageToHtml(name string, localVarOptionals map
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -5806,14 +5734,14 @@ func (a *PdfApiService) GetPdfInStorageToHtml(name string, localVarOptionals map
      @param "pagesCount" (int32) Pages count.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToLaTeX(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPdfInStorageToLaTeX(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -5876,11 +5804,10 @@ func (a *PdfApiService) GetPdfInStorageToLaTeX(name string, localVarOptionals ma
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -5890,14 +5817,14 @@ func (a *PdfApiService) GetPdfInStorageToLaTeX(name string, localVarOptionals ma
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToMobiXml(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPdfInStorageToMobiXml(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -5954,11 +5881,10 @@ func (a *PdfApiService) GetPdfInStorageToMobiXml(name string, localVarOptionals 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -5969,14 +5895,14 @@ func (a *PdfApiService) GetPdfInStorageToMobiXml(name string, localVarOptionals 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToPdfA(name string, type_ string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPdfInStorageToPdfA(name string, type_ string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -6034,11 +5960,10 @@ func (a *PdfApiService) GetPdfInStorageToPdfA(name string, type_ string, localVa
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -6050,14 +5975,14 @@ func (a *PdfApiService) GetPdfInStorageToPdfA(name string, type_ string, localVa
      @param "slidesAsImages" (bool) Slides as images.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToPptx(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPdfInStorageToPptx(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -6126,11 +6051,10 @@ func (a *PdfApiService) GetPdfInStorageToPptx(name string, localVarOptionals map
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -6141,14 +6065,14 @@ func (a *PdfApiService) GetPdfInStorageToPptx(name string, localVarOptionals map
      @param "compressOutputToZipArchive" (bool) Specifies whether output will be created as one zip-archive.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToSvg(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPdfInStorageToSvg(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -6211,11 +6135,10 @@ func (a *PdfApiService) GetPdfInStorageToSvg(name string, localVarOptionals map[
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -6240,14 +6163,14 @@ func (a *PdfApiService) GetPdfInStorageToSvg(name string, localVarOptionals map[
      @param "pageCount" (int32) Number of pages to export.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToTiff(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPdfInStorageToTiff(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -6394,11 +6317,10 @@ func (a *PdfApiService) GetPdfInStorageToTiff(name string, localVarOptionals map
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -6412,14 +6334,14 @@ func (a *PdfApiService) GetPdfInStorageToTiff(name string, localVarOptionals map
      @param "uniformWorksheets" (bool) Uniform worksheets
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToXls(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPdfInStorageToXls(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -6500,11 +6422,10 @@ func (a *PdfApiService) GetPdfInStorageToXls(name string, localVarOptionals map[
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -6514,14 +6435,14 @@ func (a *PdfApiService) GetPdfInStorageToXls(name string, localVarOptionals map[
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToXml(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPdfInStorageToXml(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -6578,11 +6499,10 @@ func (a *PdfApiService) GetPdfInStorageToXml(name string, localVarOptionals map[
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -6592,14 +6512,14 @@ func (a *PdfApiService) GetPdfInStorageToXml(name string, localVarOptionals map[
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPdfInStorageToXps(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPdfInStorageToXps(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -6656,11 +6576,10 @@ func (a *PdfApiService) GetPdfInStorageToXps(name string, localVarOptionals map[
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -6678,7 +6597,7 @@ func (a *PdfApiService) GetPolyLineAnnotation(name string, annotationId string, 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  PolyLineAnnotationResponse
+	 	successPayload PolyLineAnnotationResponse
 	)
 
 	// create path and map variables
@@ -6736,11 +6655,10 @@ func (a *PdfApiService) GetPolyLineAnnotation(name string, annotationId string, 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -6758,7 +6676,7 @@ func (a *PdfApiService) GetPolygonAnnotation(name string, annotationId string, l
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  PolygonAnnotationResponse
+	 	successPayload PolygonAnnotationResponse
 	)
 
 	// create path and map variables
@@ -6816,11 +6734,10 @@ func (a *PdfApiService) GetPolygonAnnotation(name string, annotationId string, l
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -6829,14 +6746,14 @@ func (a *PdfApiService) GetPolygonAnnotation(name string, annotationId string, l
  @param srcPath Full source filename (ex. /folder1/folder2/template.ps)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetPsInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetPsInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -6887,11 +6804,10 @@ func (a *PdfApiService) GetPsInStorageToPdf(srcPath string, localVarOptionals ma
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -6909,7 +6825,7 @@ func (a *PdfApiService) GetSquareAnnotation(name string, annotationId string, lo
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SquareAnnotationResponse
+	 	successPayload SquareAnnotationResponse
 	)
 
 	// create path and map variables
@@ -6967,11 +6883,10 @@ func (a *PdfApiService) GetSquareAnnotation(name string, annotationId string, lo
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -6988,14 +6903,14 @@ func (a *PdfApiService) GetSquareAnnotation(name string, annotationId string, lo
      @param "marginRight" (float64) Page margin right
      @param "marginTop" (float64) Page margin top
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetSvgInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetSvgInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -7094,11 +7009,10 @@ func (a *PdfApiService) GetSvgInStorageToPdf(srcPath string, localVarOptionals m
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -7122,7 +7036,7 @@ func (a *PdfApiService) GetText(name string, lLX float64, lLY float64, uRX float
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  TextRectsResponse
+	 	successPayload TextRectsResponse
 	)
 
 	// create path and map variables
@@ -7198,11 +7112,10 @@ func (a *PdfApiService) GetText(name string, lLX float64, lLY float64, uRX float
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -7220,7 +7133,7 @@ func (a *PdfApiService) GetTextAnnotation(name string, annotationId string, loca
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  TextAnnotationResponse
+	 	successPayload TextAnnotationResponse
 	)
 
 	// create path and map variables
@@ -7278,11 +7191,10 @@ func (a *PdfApiService) GetTextAnnotation(name string, annotationId string, loca
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -7300,7 +7212,7 @@ func (a *PdfApiService) GetVerifySignature(name string, signName string, localVa
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SignatureVerifyResponse
+	 	successPayload SignatureVerifyResponse
 	)
 
 	// create path and map variables
@@ -7358,11 +7270,10 @@ func (a *PdfApiService) GetVerifySignature(name string, signName string, localVa
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -7378,14 +7289,14 @@ func (a *PdfApiService) GetVerifySignature(name string, signName string, localVa
      @param "marginRight" (float64) Page margin right
      @param "marginTop" (float64) Page margin top
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetWebInStorageToPdf(url string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetWebInStorageToPdf(url string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -7478,11 +7389,10 @@ func (a *PdfApiService) GetWebInStorageToPdf(url string, localVarOptionals map[s
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -7499,7 +7409,7 @@ func (a *PdfApiService) GetWordsPerPage(name string, localVarOptionals map[strin
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  WordCountResponse
+	 	successPayload WordCountResponse
 	)
 
 	// create path and map variables
@@ -7556,11 +7466,10 @@ func (a *PdfApiService) GetWordsPerPage(name string, localVarOptionals map[strin
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -7570,14 +7479,14 @@ func (a *PdfApiService) GetWordsPerPage(name string, localVarOptionals map[strin
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetXfaPdfInStorageToAcroForm(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetXfaPdfInStorageToAcroForm(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -7634,11 +7543,10 @@ func (a *PdfApiService) GetXfaPdfInStorageToAcroForm(name string, localVarOption
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -7648,14 +7556,14 @@ func (a *PdfApiService) GetXfaPdfInStorageToAcroForm(name string, localVarOption
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "xslFilePath" (string) Full XSL source filename (ex. /folder1/folder2/template.xsl)
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetXmlInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetXmlInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -7712,11 +7620,10 @@ func (a *PdfApiService) GetXmlInStorageToPdf(srcPath string, localVarOptionals m
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -7725,14 +7632,14 @@ func (a *PdfApiService) GetXmlInStorageToPdf(srcPath string, localVarOptionals m
  @param srcPath Full source filename (ex. /folder1/folder2/template.xps)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetXpsInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetXpsInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -7783,11 +7690,10 @@ func (a *PdfApiService) GetXpsInStorageToPdf(srcPath string, localVarOptionals m
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -7796,14 +7702,14 @@ func (a *PdfApiService) GetXpsInStorageToPdf(srcPath string, localVarOptionals m
  @param srcPath Full source filename (ex. /folder1/folder2/template.xslfo)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
- @return *os.File*/
-func (a *PdfApiService) GetXslFoInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) GetXslFoInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -7854,11 +7760,10 @@ func (a *PdfApiService) GetXslFoInStorageToPdf(srcPath string, localVarOptionals
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -7879,7 +7784,7 @@ func (a *PdfApiService) PostAppendDocument(name string, localVarOptionals map[st
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentResponse
+	 	successPayload DocumentResponse
 	)
 
 	// create path and map variables
@@ -7958,11 +7863,10 @@ func (a *PdfApiService) PostAppendDocument(name string, localVarOptionals map[st
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -7981,7 +7885,7 @@ func (a *PdfApiService) PostCreateField(name string, page int32, localVarOptiona
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -8043,11 +7947,10 @@ func (a *PdfApiService) PostCreateField(name string, page int32, localVarOptiona
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -8065,7 +7968,7 @@ func (a *PdfApiService) PostDocumentTextReplace(name string, textReplace TextRep
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  TextReplaceResponse
+	 	successPayload TextReplaceResponse
 	)
 
 	// create path and map variables
@@ -8124,11 +8027,10 @@ func (a *PdfApiService) PostDocumentTextReplace(name string, textReplace TextRep
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -8152,7 +8054,7 @@ func (a *PdfApiService) PostInsertImage(name string, pageNumber int32, llx float
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -8230,11 +8132,10 @@ func (a *PdfApiService) PostInsertImage(name string, pageNumber int32, llx float
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -8253,7 +8154,7 @@ func (a *PdfApiService) PostMovePage(name string, pageNumber int32, newIndex int
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -8312,11 +8213,10 @@ func (a *PdfApiService) PostMovePage(name string, pageNumber int32, newIndex int
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -8334,7 +8234,7 @@ func (a *PdfApiService) PostOptimizeDocument(name string, localVarOptionals map[
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -8395,11 +8295,10 @@ func (a *PdfApiService) PostOptimizeDocument(name string, localVarOptionals map[
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -8418,7 +8317,7 @@ func (a *PdfApiService) PostPageCircleAnnotations(name string, pageNumber int32,
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -8478,11 +8377,10 @@ func (a *PdfApiService) PostPageCircleAnnotations(name string, pageNumber int32,
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -8501,7 +8399,7 @@ func (a *PdfApiService) PostPageFreeTextAnnotations(name string, pageNumber int3
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -8561,11 +8459,10 @@ func (a *PdfApiService) PostPageFreeTextAnnotations(name string, pageNumber int3
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -8584,7 +8481,7 @@ func (a *PdfApiService) PostPageLineAnnotations(name string, pageNumber int32, a
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -8644,11 +8541,10 @@ func (a *PdfApiService) PostPageLineAnnotations(name string, pageNumber int32, a
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -8667,7 +8563,7 @@ func (a *PdfApiService) PostPageLinkAnnotations(name string, pageNumber int32, l
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -8727,11 +8623,10 @@ func (a *PdfApiService) PostPageLinkAnnotations(name string, pageNumber int32, l
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -8750,7 +8645,7 @@ func (a *PdfApiService) PostPagePolyLineAnnotations(name string, pageNumber int3
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -8810,11 +8705,10 @@ func (a *PdfApiService) PostPagePolyLineAnnotations(name string, pageNumber int3
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -8833,7 +8727,7 @@ func (a *PdfApiService) PostPagePolygonAnnotations(name string, pageNumber int32
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -8893,11 +8787,10 @@ func (a *PdfApiService) PostPagePolygonAnnotations(name string, pageNumber int32
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -8916,7 +8809,7 @@ func (a *PdfApiService) PostPageSquareAnnotations(name string, pageNumber int32,
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -8976,11 +8869,10 @@ func (a *PdfApiService) PostPageSquareAnnotations(name string, pageNumber int32,
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -8999,7 +8891,7 @@ func (a *PdfApiService) PostPageTextAnnotations(name string, pageNumber int32, a
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -9059,11 +8951,10 @@ func (a *PdfApiService) PostPageTextAnnotations(name string, pageNumber int32, a
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -9082,7 +8973,7 @@ func (a *PdfApiService) PostPageTextReplace(name string, pageNumber int32, textR
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  TextReplaceResponse
+	 	successPayload TextReplaceResponse
 	)
 
 	// create path and map variables
@@ -9142,11 +9033,10 @@ func (a *PdfApiService) PostPageTextReplace(name string, pageNumber int32, textR
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -9164,7 +9054,7 @@ func (a *PdfApiService) PostSignDocument(name string, localVarOptionals map[stri
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -9225,11 +9115,10 @@ func (a *PdfApiService) PostSignDocument(name string, localVarOptionals map[stri
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -9248,7 +9137,7 @@ func (a *PdfApiService) PostSignPage(name string, pageNumber int32, localVarOpti
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -9310,11 +9199,10 @@ func (a *PdfApiService) PostSignPage(name string, pageNumber int32, localVarOpti
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -9334,7 +9222,7 @@ func (a *PdfApiService) PostSplitDocument(name string, localVarOptionals map[str
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SplitResultResponse
+	 	successPayload SplitResultResponse
 	)
 
 	// create path and map variables
@@ -9409,11 +9297,10 @@ func (a *PdfApiService) PostSplitDocument(name string, localVarOptionals map[str
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -9430,7 +9317,7 @@ func (a *PdfApiService) PutAddNewPage(name string, localVarOptionals map[string]
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentPagesResponse
+	 	successPayload DocumentPagesResponse
 	)
 
 	// create path and map variables
@@ -9487,11 +9374,10 @@ func (a *PdfApiService) PutAddNewPage(name string, localVarOptionals map[string]
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -9510,7 +9396,7 @@ func (a *PdfApiService) PutAddText(name string, pageNumber int32, localVarOption
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -9572,11 +9458,10 @@ func (a *PdfApiService) PutAddText(name string, pageNumber int32, localVarOption
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -9595,7 +9480,7 @@ func (a *PdfApiService) PutCircleAnnotation(name string, annotationId string, an
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  CircleAnnotationResponse
+	 	successPayload CircleAnnotationResponse
 	)
 
 	// create path and map variables
@@ -9655,11 +9540,10 @@ func (a *PdfApiService) PutCircleAnnotation(name string, annotationId string, an
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -9677,7 +9561,7 @@ func (a *PdfApiService) PutCreate(path string, file *os.File, localVarOptionals 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -9741,11 +9625,10 @@ func (a *PdfApiService) PutCreate(path string, file *os.File, localVarOptionals 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -9762,7 +9645,7 @@ func (a *PdfApiService) PutCreateDocument(name string, localVarOptionals map[str
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentResponse
+	 	successPayload DocumentResponse
 	)
 
 	// create path and map variables
@@ -9819,11 +9702,10 @@ func (a *PdfApiService) PutCreateDocument(name string, localVarOptionals map[str
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -9841,7 +9723,7 @@ func (a *PdfApiService) PutEpubInStorageToPdf(name string, srcPath string, local
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -9899,11 +9781,10 @@ func (a *PdfApiService) PutEpubInStorageToPdf(name string, srcPath string, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -9920,7 +9801,7 @@ func (a *PdfApiService) PutFieldsFlatten(name string, localVarOptionals map[stri
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -9977,11 +9858,10 @@ func (a *PdfApiService) PutFieldsFlatten(name string, localVarOptionals map[stri
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -10000,7 +9880,7 @@ func (a *PdfApiService) PutFreeTextAnnotation(name string, annotationId string, 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FreeTextAnnotationResponse
+	 	successPayload FreeTextAnnotationResponse
 	)
 
 	// create path and map variables
@@ -10060,11 +9940,10 @@ func (a *PdfApiService) PutFreeTextAnnotation(name string, annotationId string, 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -10090,7 +9969,7 @@ func (a *PdfApiService) PutHtmlInStorageToPdf(name string, srcPath string, htmlF
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -10191,11 +10070,10 @@ func (a *PdfApiService) PutHtmlInStorageToPdf(name string, srcPath string, htmlF
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -10216,7 +10094,7 @@ func (a *PdfApiService) PutImageExtractAsGif(name string, imageId string, localV
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -10292,11 +10170,10 @@ func (a *PdfApiService) PutImageExtractAsGif(name string, imageId string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -10317,7 +10194,7 @@ func (a *PdfApiService) PutImageExtractAsJpeg(name string, imageId string, local
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -10393,11 +10270,10 @@ func (a *PdfApiService) PutImageExtractAsJpeg(name string, imageId string, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -10418,7 +10294,7 @@ func (a *PdfApiService) PutImageExtractAsPng(name string, imageId string, localV
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -10494,11 +10370,10 @@ func (a *PdfApiService) PutImageExtractAsPng(name string, imageId string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -10519,7 +10394,7 @@ func (a *PdfApiService) PutImageExtractAsTiff(name string, imageId string, local
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -10595,11 +10470,10 @@ func (a *PdfApiService) PutImageExtractAsTiff(name string, imageId string, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -10617,7 +10491,7 @@ func (a *PdfApiService) PutImageInStorageToPdf(name string, imageTemplates Image
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -10676,11 +10550,10 @@ func (a *PdfApiService) PutImageInStorageToPdf(name string, imageTemplates Image
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -10701,7 +10574,7 @@ func (a *PdfApiService) PutImagesExtractAsGif(name string, pageNumber int32, loc
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -10777,11 +10650,10 @@ func (a *PdfApiService) PutImagesExtractAsGif(name string, pageNumber int32, loc
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -10802,7 +10674,7 @@ func (a *PdfApiService) PutImagesExtractAsJpeg(name string, pageNumber int32, lo
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -10878,11 +10750,10 @@ func (a *PdfApiService) PutImagesExtractAsJpeg(name string, pageNumber int32, lo
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -10903,7 +10774,7 @@ func (a *PdfApiService) PutImagesExtractAsPng(name string, pageNumber int32, loc
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -10979,11 +10850,10 @@ func (a *PdfApiService) PutImagesExtractAsPng(name string, pageNumber int32, loc
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -11004,7 +10874,7 @@ func (a *PdfApiService) PutImagesExtractAsTiff(name string, pageNumber int32, lo
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -11080,11 +10950,10 @@ func (a *PdfApiService) PutImagesExtractAsTiff(name string, pageNumber int32, lo
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -11102,7 +10971,7 @@ func (a *PdfApiService) PutLaTeXInStorageToPdf(name string, srcPath string, loca
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -11160,11 +11029,10 @@ func (a *PdfApiService) PutLaTeXInStorageToPdf(name string, srcPath string, loca
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -11183,7 +11051,7 @@ func (a *PdfApiService) PutLineAnnotation(name string, annotationId string, anno
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  LineAnnotationResponse
+	 	successPayload LineAnnotationResponse
 	)
 
 	// create path and map variables
@@ -11243,11 +11111,10 @@ func (a *PdfApiService) PutLineAnnotation(name string, annotationId string, anno
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -11266,7 +11133,7 @@ func (a *PdfApiService) PutLinkAnnotation(name string, linkId string, link LinkA
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  LinkAnnotationResponse
+	 	successPayload LinkAnnotationResponse
 	)
 
 	// create path and map variables
@@ -11326,11 +11193,10 @@ func (a *PdfApiService) PutLinkAnnotation(name string, linkId string, link LinkA
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -11341,14 +11207,14 @@ func (a *PdfApiService) PutLinkAnnotation(name string, linkId string, link LinkA
      @param "mergeDocuments" (MergeDocuments) with a list of documents.
      @param "storage" (string) Resulting document storage.
      @param "folder" (string) Resulting document folder.
- @return *os.File*/
-func (a *PdfApiService) PutMergeDocuments(name string, localVarOptionals map[string]interface{}) (*os.File,  *http.Response, error) {
+ @return []byte*/
+func (a *PdfApiService) PutMergeDocuments(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload []byte
 	)
 
 	// create path and map variables
@@ -11409,11 +11275,10 @@ func (a *PdfApiService) PutMergeDocuments(name string, localVarOptionals map[str
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -11431,7 +11296,7 @@ func (a *PdfApiService) PutMhtInStorageToPdf(name string, srcPath string, localV
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -11489,11 +11354,10 @@ func (a *PdfApiService) PutMhtInStorageToPdf(name string, srcPath string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -11512,7 +11376,7 @@ func (a *PdfApiService) PutPageAddStamp(name string, pageNumber int32, stamp Sta
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -11572,11 +11436,10 @@ func (a *PdfApiService) PutPageAddStamp(name string, pageNumber int32, stamp Sta
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -11597,7 +11460,7 @@ func (a *PdfApiService) PutPageConvertToBmp(name string, pageNumber int32, outPa
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -11668,11 +11531,10 @@ func (a *PdfApiService) PutPageConvertToBmp(name string, pageNumber int32, outPa
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -11693,7 +11555,7 @@ func (a *PdfApiService) PutPageConvertToEmf(name string, pageNumber int32, outPa
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -11764,11 +11626,10 @@ func (a *PdfApiService) PutPageConvertToEmf(name string, pageNumber int32, outPa
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -11789,7 +11650,7 @@ func (a *PdfApiService) PutPageConvertToGif(name string, pageNumber int32, outPa
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -11860,11 +11721,10 @@ func (a *PdfApiService) PutPageConvertToGif(name string, pageNumber int32, outPa
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -11885,7 +11745,7 @@ func (a *PdfApiService) PutPageConvertToJpeg(name string, pageNumber int32, outP
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -11956,11 +11816,10 @@ func (a *PdfApiService) PutPageConvertToJpeg(name string, pageNumber int32, outP
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -11981,7 +11840,7 @@ func (a *PdfApiService) PutPageConvertToPng(name string, pageNumber int32, outPa
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -12052,11 +11911,10 @@ func (a *PdfApiService) PutPageConvertToPng(name string, pageNumber int32, outPa
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -12077,7 +11935,7 @@ func (a *PdfApiService) PutPageConvertToTiff(name string, pageNumber int32, outP
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -12148,11 +12006,10 @@ func (a *PdfApiService) PutPageConvertToTiff(name string, pageNumber int32, outP
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -12170,7 +12027,7 @@ func (a *PdfApiService) PutPclInStorageToPdf(name string, srcPath string, localV
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -12228,11 +12085,10 @@ func (a *PdfApiService) PutPclInStorageToPdf(name string, srcPath string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -12257,7 +12113,7 @@ func (a *PdfApiService) PutPdfInRequestToDoc(outPath string, localVarOptionals m
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -12366,11 +12222,10 @@ func (a *PdfApiService) PutPdfInRequestToDoc(outPath string, localVarOptionals m
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -12388,7 +12243,7 @@ func (a *PdfApiService) PutPdfInRequestToEpub(outPath string, localVarOptionals 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -12455,11 +12310,10 @@ func (a *PdfApiService) PutPdfInRequestToEpub(outPath string, localVarOptionals 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -12504,7 +12358,7 @@ func (a *PdfApiService) PutPdfInRequestToHtml(outPath string, localVarOptionals 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -12730,11 +12584,10 @@ func (a *PdfApiService) PutPdfInRequestToHtml(outPath string, localVarOptionals 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -12752,7 +12605,7 @@ func (a *PdfApiService) PutPdfInRequestToLaTeX(outPath string, localVarOptionals
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -12819,11 +12672,10 @@ func (a *PdfApiService) PutPdfInRequestToLaTeX(outPath string, localVarOptionals
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -12840,7 +12692,7 @@ func (a *PdfApiService) PutPdfInRequestToMobiXml(outPath string, localVarOptiona
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -12901,11 +12753,10 @@ func (a *PdfApiService) PutPdfInRequestToMobiXml(outPath string, localVarOptiona
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -12923,7 +12774,7 @@ func (a *PdfApiService) PutPdfInRequestToPdfA(outPath string, type_ string, loca
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -12985,11 +12836,10 @@ func (a *PdfApiService) PutPdfInRequestToPdfA(outPath string, type_ string, loca
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -13008,7 +12858,7 @@ func (a *PdfApiService) PutPdfInRequestToPptx(outPath string, localVarOptionals 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -13081,11 +12931,10 @@ func (a *PdfApiService) PutPdfInRequestToPptx(outPath string, localVarOptionals 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -13102,7 +12951,7 @@ func (a *PdfApiService) PutPdfInRequestToSvg(outPath string, localVarOptionals m
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -13163,11 +13012,10 @@ func (a *PdfApiService) PutPdfInRequestToSvg(outPath string, localVarOptionals m
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -13199,7 +13047,7 @@ func (a *PdfApiService) PutPdfInRequestToTiff(outPath string, localVarOptionals 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -13350,11 +13198,10 @@ func (a *PdfApiService) PutPdfInRequestToTiff(outPath string, localVarOptionals 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -13375,7 +13222,7 @@ func (a *PdfApiService) PutPdfInRequestToXls(outPath string, localVarOptionals m
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -13460,11 +13307,10 @@ func (a *PdfApiService) PutPdfInRequestToXls(outPath string, localVarOptionals m
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -13481,7 +13327,7 @@ func (a *PdfApiService) PutPdfInRequestToXml(outPath string, localVarOptionals m
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -13542,11 +13388,10 @@ func (a *PdfApiService) PutPdfInRequestToXml(outPath string, localVarOptionals m
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -13563,7 +13408,7 @@ func (a *PdfApiService) PutPdfInRequestToXps(outPath string, localVarOptionals m
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -13624,11 +13469,10 @@ func (a *PdfApiService) PutPdfInRequestToXps(outPath string, localVarOptionals m
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -13654,7 +13498,7 @@ func (a *PdfApiService) PutPdfInStorageToDoc(name string, outPath string, localV
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -13760,11 +13604,10 @@ func (a *PdfApiService) PutPdfInStorageToDoc(name string, outPath string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -13783,7 +13626,7 @@ func (a *PdfApiService) PutPdfInStorageToEpub(name string, outPath string, local
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -13847,11 +13690,10 @@ func (a *PdfApiService) PutPdfInStorageToEpub(name string, outPath string, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -13897,7 +13739,7 @@ func (a *PdfApiService) PutPdfInStorageToHtml(name string, outPath string, local
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -14120,11 +13962,10 @@ func (a *PdfApiService) PutPdfInStorageToHtml(name string, outPath string, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -14143,7 +13984,7 @@ func (a *PdfApiService) PutPdfInStorageToLaTeX(name string, outPath string, loca
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -14207,11 +14048,10 @@ func (a *PdfApiService) PutPdfInStorageToLaTeX(name string, outPath string, loca
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -14229,7 +14069,7 @@ func (a *PdfApiService) PutPdfInStorageToMobiXml(name string, outPath string, lo
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -14287,11 +14127,10 @@ func (a *PdfApiService) PutPdfInStorageToMobiXml(name string, outPath string, lo
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -14310,7 +14149,7 @@ func (a *PdfApiService) PutPdfInStorageToPdfA(name string, outPath string, type_
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -14369,11 +14208,10 @@ func (a *PdfApiService) PutPdfInStorageToPdfA(name string, outPath string, type_
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -14393,7 +14231,7 @@ func (a *PdfApiService) PutPdfInStorageToPptx(name string, outPath string, local
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -14463,11 +14301,10 @@ func (a *PdfApiService) PutPdfInStorageToPptx(name string, outPath string, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -14485,7 +14322,7 @@ func (a *PdfApiService) PutPdfInStorageToSvg(name string, outPath string, localV
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -14543,11 +14380,10 @@ func (a *PdfApiService) PutPdfInStorageToSvg(name string, outPath string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -14580,7 +14416,7 @@ func (a *PdfApiService) PutPdfInStorageToTiff(name string, outPath string, local
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -14728,11 +14564,10 @@ func (a *PdfApiService) PutPdfInStorageToTiff(name string, outPath string, local
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -14754,7 +14589,7 @@ func (a *PdfApiService) PutPdfInStorageToXls(name string, outPath string, localV
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -14836,11 +14671,10 @@ func (a *PdfApiService) PutPdfInStorageToXls(name string, outPath string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -14858,7 +14692,7 @@ func (a *PdfApiService) PutPdfInStorageToXml(name string, outPath string, localV
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -14916,11 +14750,10 @@ func (a *PdfApiService) PutPdfInStorageToXml(name string, outPath string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -14938,7 +14771,7 @@ func (a *PdfApiService) PutPdfInStorageToXps(name string, outPath string, localV
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -14996,11 +14829,10 @@ func (a *PdfApiService) PutPdfInStorageToXps(name string, outPath string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -15019,7 +14851,7 @@ func (a *PdfApiService) PutPolyLineAnnotation(name string, annotationId string, 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  PolyLineAnnotationResponse
+	 	successPayload PolyLineAnnotationResponse
 	)
 
 	// create path and map variables
@@ -15079,11 +14911,10 @@ func (a *PdfApiService) PutPolyLineAnnotation(name string, annotationId string, 
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -15102,7 +14933,7 @@ func (a *PdfApiService) PutPolygonAnnotation(name string, annotationId string, a
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  PolygonAnnotationResponse
+	 	successPayload PolygonAnnotationResponse
 	)
 
 	// create path and map variables
@@ -15162,11 +14993,10 @@ func (a *PdfApiService) PutPolygonAnnotation(name string, annotationId string, a
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -15184,7 +15014,7 @@ func (a *PdfApiService) PutPrivileges(name string, localVarOptionals map[string]
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -15245,11 +15075,10 @@ func (a *PdfApiService) PutPrivileges(name string, localVarOptionals map[string]
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -15267,7 +15096,7 @@ func (a *PdfApiService) PutPsInStorageToPdf(name string, srcPath string, localVa
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -15325,11 +15154,10 @@ func (a *PdfApiService) PutPsInStorageToPdf(name string, srcPath string, localVa
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -15349,7 +15177,7 @@ func (a *PdfApiService) PutReplaceImage(name string, imageId string, localVarOpt
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  ImageResponse
+	 	successPayload ImageResponse
 	)
 
 	// create path and map variables
@@ -15423,11 +15251,10 @@ func (a *PdfApiService) PutReplaceImage(name string, imageId string, localVarOpt
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -15445,7 +15272,7 @@ func (a *PdfApiService) PutSearchableDocument(name string, localVarOptionals map
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -15508,11 +15335,10 @@ func (a *PdfApiService) PutSearchableDocument(name string, localVarOptionals map
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -15531,7 +15357,7 @@ func (a *PdfApiService) PutSetProperty(name string, propertyName string, value s
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentPropertyResponse
+	 	successPayload DocumentPropertyResponse
 	)
 
 	// create path and map variables
@@ -15590,11 +15416,10 @@ func (a *PdfApiService) PutSetProperty(name string, propertyName string, value s
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -15613,7 +15438,7 @@ func (a *PdfApiService) PutSquareAnnotation(name string, annotationId string, an
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SquareAnnotationResponse
+	 	successPayload SquareAnnotationResponse
 	)
 
 	// create path and map variables
@@ -15673,11 +15498,10 @@ func (a *PdfApiService) PutSquareAnnotation(name string, annotationId string, an
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -15703,7 +15527,7 @@ func (a *PdfApiService) PutSvgInStorageToPdf(name string, srcPath string, localV
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -15809,11 +15633,10 @@ func (a *PdfApiService) PutSvgInStorageToPdf(name string, srcPath string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -15832,7 +15655,7 @@ func (a *PdfApiService) PutTextAnnotation(name string, annotationId string, anno
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  TextAnnotationResponse
+	 	successPayload TextAnnotationResponse
 	)
 
 	// create path and map variables
@@ -15892,11 +15715,10 @@ func (a *PdfApiService) PutTextAnnotation(name string, annotationId string, anno
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -15915,7 +15737,7 @@ func (a *PdfApiService) PutUpdateField(name string, fieldName string, localVarOp
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FieldResponse
+	 	successPayload FieldResponse
 	)
 
 	// create path and map variables
@@ -15977,11 +15799,10 @@ func (a *PdfApiService) PutUpdateField(name string, fieldName string, localVarOp
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -15999,7 +15820,7 @@ func (a *PdfApiService) PutUpdateFields(name string, localVarOptionals map[strin
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FieldsResponse
+	 	successPayload FieldsResponse
 	)
 
 	// create path and map variables
@@ -16060,11 +15881,10 @@ func (a *PdfApiService) PutUpdateFields(name string, localVarOptionals map[strin
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -16089,7 +15909,7 @@ func (a *PdfApiService) PutWebInStorageToPdf(name string, url string, localVarOp
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -16189,11 +16009,10 @@ func (a *PdfApiService) PutWebInStorageToPdf(name string, url string, localVarOp
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -16210,7 +16029,7 @@ func (a *PdfApiService) PutXfaPdfInRequestToAcroForm(outPath string, localVarOpt
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -16271,11 +16090,10 @@ func (a *PdfApiService) PutXfaPdfInRequestToAcroForm(outPath string, localVarOpt
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -16293,7 +16111,7 @@ func (a *PdfApiService) PutXfaPdfInStorageToAcroForm(name string, outPath string
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -16351,11 +16169,10 @@ func (a *PdfApiService) PutXfaPdfInStorageToAcroForm(name string, outPath string
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -16374,7 +16191,7 @@ func (a *PdfApiService) PutXmlInStorageToPdf(name string, srcPath string, localV
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -16438,11 +16255,10 @@ func (a *PdfApiService) PutXmlInStorageToPdf(name string, srcPath string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -16460,7 +16276,7 @@ func (a *PdfApiService) PutXpsInStorageToPdf(name string, srcPath string, localV
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -16518,11 +16334,10 @@ func (a *PdfApiService) PutXpsInStorageToPdf(name string, srcPath string, localV
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -16540,7 +16355,7 @@ func (a *PdfApiService) PutXslFoInStorageToPdf(name string, srcPath string, loca
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  AsposeResponse
+	 	successPayload AsposeResponse
 	)
 
 	// create path and map variables
@@ -16598,11 +16413,10 @@ func (a *PdfApiService) PutXslFoInStorageToPdf(name string, srcPath string, loca
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-
+    
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
-
 
 	return successPayload, localVarHttpResponse, err
 }
