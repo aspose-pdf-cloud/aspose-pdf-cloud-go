@@ -37,7 +37,6 @@ func TestGetPdfInStorageToDoc(t *testing.T) {
 
 	args := map[string]interface{} {
 		"folder":  GetBaseTest().remoteFolder,
-
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPdfInStorageToDoc(name, args)
@@ -689,5 +688,301 @@ func TestPutPdfInRequestToPptx(t *testing.T) {
 		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPutPdfInRequestToPptx - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+// To LaTeX
+func TestGetPdfInStorageToLaTeX(t *testing.T) {
+
+	name := "4pages.pdf"	
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetPdfInStorageToLaTeX(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetPdfInStorageToLaTeX - %db\n", GetBaseTest().GetTestNumber(), len(response))
+	}
+}
+
+func TestPutPdfInStorageToLaTeX(t *testing.T) {
+
+	name := "4pages.pdf"	
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	resFileName := "result.tex";
+    outPath := GetBaseTest().remoteFolder + "/" + resFileName;
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInStorageToLaTeX(name, outPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutPdfInStorageToLaTeX - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPutPdfInRequestToLaTeX(t *testing.T) {
+	name := "4pages.pdf"
+	resFileName := "result.tex";
+    outPath := GetBaseTest().remoteFolder + "/" + resFileName;
+
+	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + name) 
+	if err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+		"file": file,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInRequestToLaTeX(outPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutPdfInRequestToLaTeX - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+// To  MOBI XML
+func TestGetPdfInStorageToMobiXml(t *testing.T) {
+
+	name := "4pages.pdf"	
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetPdfInStorageToMobiXml(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetPdfInStorageToMobiXml - %db\n", GetBaseTest().GetTestNumber(), len(response))
+	}
+}
+
+func TestPutPdfInStorageToMobiXml(t *testing.T) {
+
+	name := "4pages.pdf"	
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	resFileName := "result.mobi";
+    outPath := GetBaseTest().remoteFolder + "/" + resFileName;
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInStorageToMobiXml(name, outPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutPdfInStorageToMobiXml - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPutPdfInRequestToMobiXml(t *testing.T) {
+	name := "4pages.pdf"
+	resFileName := "result.mobi";
+    outPath := GetBaseTest().remoteFolder + "/" + resFileName;
+
+	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + name) 
+	if err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+		"file": file,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInRequestToMobiXml(outPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutPdfInRequestToMobiXml - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+// PDF XFA To PDF ACRO FORM
+func TestGetXfaPdfInStorageToAcroForm(t *testing.T) {
+
+	name := "PdfWithXfaForm.pdf"	
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetXfaPdfInStorageToAcroForm(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetXfaPdfInStorageToAcroForm - %db\n", GetBaseTest().GetTestNumber(), len(response))
+	}
+}
+
+func TestPutXfaPdfInStorageToAcroForm(t *testing.T) {
+
+	name := "PdfWithXfaForm.pdf"	
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	resFileName := "result.pdf";
+    outPath := GetBaseTest().remoteFolder + "/" + resFileName;
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutXfaPdfInStorageToAcroForm(name, outPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutXfaPdfInStorageToAcroForm - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPutXfaPdfInRequestToAcroForm(t *testing.T) {
+	name := "PdfWithXfaForm.pdf"
+	resFileName := "result.pdf";
+    outPath := GetBaseTest().remoteFolder + "/" + resFileName;
+
+	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + name) 
+	if err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+		"file": file,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutXfaPdfInRequestToAcroForm(outPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutXfaPdfInRequestToAcroForm - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+// To  XML
+func TestGetPdfInStorageToXml(t *testing.T) {
+
+	name := "4pages.pdf"	
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetPdfInStorageToXml(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetPdfInStorageToXml - %db\n", GetBaseTest().GetTestNumber(), len(response))
+	}
+}
+
+func TestPutPdfInStorageToXml(t *testing.T) {
+
+	name := "4pages.pdf"	
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	resFileName := "result.xml";
+    outPath := GetBaseTest().remoteFolder + "/" + resFileName;
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInStorageToXml(name, outPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutPdfInStorageToXml - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPutPdfInRequestToXml(t *testing.T) {
+	name := "4pages.pdf"
+	resFileName := "result.xml";
+    outPath := GetBaseTest().remoteFolder + "/" + resFileName;
+
+	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + name) 
+	if err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+		"file": file,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInRequestToXml(outPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutPdfInRequestToXml - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
