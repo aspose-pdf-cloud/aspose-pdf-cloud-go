@@ -26,23 +26,6 @@ import (
 	"testing"
 )
 
-/*
-func TestPutCreateDocument(t *testing.T) {
-	
-	args := map[string]interface{} {
-		"folder": GetBaseTest().remoteFolder,
-	}
-
-	response, httpResponse, err := GetBaseTest().PdfAPI.PutCreateDocument("pdf_go.pdf", args)
-	if err != nil {
-		t.Error(err)
-	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
-	} else {
-		fmt.Printf("%d\TestPutCreateDocument - %d\n", GetBaseTest().GetTestNumber(), response.Code)
-	}
-}
-*/
 func TestPutCreate(t *testing.T) {
 	name := "PdfWithBookmarks.pdf"
 
