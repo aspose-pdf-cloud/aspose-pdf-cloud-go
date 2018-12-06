@@ -46,3 +46,39 @@ func TestPutCreate(t *testing.T) {
 	}
 	
 }
+
+func TestGetDownload(t *testing.T) {
+	name := "PdfWithBookmarks.pdf"
+
+	args := make(map[string]interface{})
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetDownload(GetBaseTest().remoteFolder + "/" + name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		 t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetDownload - %db\n", GetBaseTest().GetTestNumber(), len(response))
+	}
+	
+}
+
+func TestGetListFiles(t *testing.T) {
+
+	args := map[string]interface{} {
+		"path":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetListFiles(args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		 t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetListFiles - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}

@@ -26,12 +26,6 @@ type AnnotationInfo struct {
 	Links []Link `json:"Links,omitempty"`
 	// Get the annotation content.
 	Contents string `json:"Contents,omitempty"`
-	// The date and time when the annotation was created.
-	CreationDate string `json:"CreationDate,omitempty"`
-	// Get the annotation subject.
-	Subject string `json:"Subject,omitempty"`
-	// Get the annotation title.
-	Title string `json:"Title,omitempty"`
 	// The date and time when the annotation was last modified.
 	Modified string `json:"Modified,omitempty"`
 	// Gets ID of the annotation.

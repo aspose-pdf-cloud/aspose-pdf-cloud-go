@@ -26,12 +26,6 @@ type PolygonAnnotation struct {
 	Links []Link `json:"Links,omitempty"`
 	// Get the annotation content.
 	Contents string `json:"Contents,omitempty"`
-	// The date and time when the annotation was created.
-	CreationDate string `json:"CreationDate,omitempty"`
-	// Get the annotation subject.
-	Subject string `json:"Subject,omitempty"`
-	// Get the annotation title.
-	Title string `json:"Title,omitempty"`
 	// The date and time when the annotation was last modified.
 	Modified string `json:"Modified,omitempty"`
 	// Gets ID of the annotation.
@@ -50,6 +44,12 @@ type PolygonAnnotation struct {
 	HorizontalAlignment HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
 	// Gets VerticalAlignment of the annotation.
 	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
+	// The date and time when the annotation was created.
+	CreationDate string `json:"CreationDate,omitempty"`
+	// Get the annotation subject.
+	Subject string `json:"Subject,omitempty"`
+	// Get the annotation title.
+	Title string `json:"Title,omitempty"`
 	// Get the annotation RichText.
 	RichText string `json:"RichText,omitempty"`
 	// Gets or sets the interior color with which to fill the annotation?s line endings.

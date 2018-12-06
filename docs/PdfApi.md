@@ -15,27 +15,37 @@ Method | HTTP request | Description
 [**DeletePageLinkAnnotations**](PdfApi.md#DeletePageLinkAnnotations) | **Delete** /pdf/{name}/pages/{pageNumber}/links | Delete all link annotations from the page
 [**DeleteProperties**](PdfApi.md#DeleteProperties) | **Delete** /pdf/{name}/documentproperties | Delete custom document properties.
 [**DeleteProperty**](PdfApi.md#DeleteProperty) | **Delete** /pdf/{name}/documentproperties/{propertyName} | Delete document property.
+[**GetCaretAnnotation**](PdfApi.md#GetCaretAnnotation) | **Get** /pdf/{name}/annotations/caret/{annotationId} | Read document page caret annotation by ID.
 [**GetCircleAnnotation**](PdfApi.md#GetCircleAnnotation) | **Get** /pdf/{name}/annotations/circle/{annotationId} | Read document page circle annotation by ID.
 [**GetDocument**](PdfApi.md#GetDocument) | **Get** /pdf/{name} | Read common document info.
 [**GetDocumentAnnotations**](PdfApi.md#GetDocumentAnnotations) | **Get** /pdf/{name}/annotations | Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
 [**GetDocumentAttachmentByIndex**](PdfApi.md#GetDocumentAttachmentByIndex) | **Get** /pdf/{name}/attachments/{attachmentIndex} | Read document attachment info by its index.
 [**GetDocumentAttachments**](PdfApi.md#GetDocumentAttachments) | **Get** /pdf/{name}/attachments | Read document attachments info.
 [**GetDocumentBookmarks**](PdfApi.md#GetDocumentBookmarks) | **Get** /pdf/{name}/bookmarks | Read document bookmark/bookmarks (including children).
+[**GetDocumentCaretAnnotations**](PdfApi.md#GetDocumentCaretAnnotations) | **Get** /pdf/{name}/annotations/caret | Read document caret annotations.
 [**GetDocumentCircleAnnotations**](PdfApi.md#GetDocumentCircleAnnotations) | **Get** /pdf/{name}/annotations/circle | Read document circle annotations.
 [**GetDocumentFreeTextAnnotations**](PdfApi.md#GetDocumentFreeTextAnnotations) | **Get** /pdf/{name}/annotations/freetext | Read document free text annotations.
+[**GetDocumentHighlightAnnotations**](PdfApi.md#GetDocumentHighlightAnnotations) | **Get** /pdf/{name}/annotations/highlight | Read document highlight annotations.
+[**GetDocumentInkAnnotations**](PdfApi.md#GetDocumentInkAnnotations) | **Get** /pdf/{name}/annotations/ink | Read document ink annotations.
 [**GetDocumentLineAnnotations**](PdfApi.md#GetDocumentLineAnnotations) | **Get** /pdf/{name}/annotations/line | Read document line annotations.
 [**GetDocumentPolyLineAnnotations**](PdfApi.md#GetDocumentPolyLineAnnotations) | **Get** /pdf/{name}/annotations/polyline | Read document polyline annotations.
 [**GetDocumentPolygonAnnotations**](PdfApi.md#GetDocumentPolygonAnnotations) | **Get** /pdf/{name}/annotations/polygon | Read document polygon annotations.
+[**GetDocumentPopupAnnotations**](PdfApi.md#GetDocumentPopupAnnotations) | **Get** /pdf/{name}/annotations/popup | Read document popup annotations.
+[**GetDocumentPopupAnnotationsByParent**](PdfApi.md#GetDocumentPopupAnnotationsByParent) | **Get** /pdf/{name}/annotations/{annotationId}/popup | Read document popup annotations by parent id.
 [**GetDocumentProperties**](PdfApi.md#GetDocumentProperties) | **Get** /pdf/{name}/documentproperties | Read document properties.
 [**GetDocumentProperty**](PdfApi.md#GetDocumentProperty) | **Get** /pdf/{name}/documentproperties/{propertyName} | Read document property by name.
 [**GetDocumentSquareAnnotations**](PdfApi.md#GetDocumentSquareAnnotations) | **Get** /pdf/{name}/annotations/square | Read document square annotations.
+[**GetDocumentSquigglyAnnotations**](PdfApi.md#GetDocumentSquigglyAnnotations) | **Get** /pdf/{name}/annotations/squiggly | Read document squiggly annotations.
+[**GetDocumentStrikeOutAnnotations**](PdfApi.md#GetDocumentStrikeOutAnnotations) | **Get** /pdf/{name}/annotations/strikeout | Read document StrikeOut annotations.
 [**GetDocumentTextAnnotations**](PdfApi.md#GetDocumentTextAnnotations) | **Get** /pdf/{name}/annotations/text | Read document text annotations.
+[**GetDocumentUnderlineAnnotations**](PdfApi.md#GetDocumentUnderlineAnnotations) | **Get** /pdf/{name}/annotations/underline | Read document underline annotations.
 [**GetDownload**](PdfApi.md#GetDownload) | **Get** /storage/file | Download a specific file 
 [**GetDownloadDocumentAttachmentByIndex**](PdfApi.md#GetDownloadDocumentAttachmentByIndex) | **Get** /pdf/{name}/attachments/{attachmentIndex}/download | Download document attachment content by its index.
 [**GetEpubInStorageToPdf**](PdfApi.md#GetEpubInStorageToPdf) | **Get** /pdf/create/epub | Convert EPUB file (located on storage) to PDF format and return resulting file in response. 
 [**GetField**](PdfApi.md#GetField) | **Get** /pdf/{name}/fields/{fieldName} | Get document field by name.
 [**GetFields**](PdfApi.md#GetFields) | **Get** /pdf/{name}/fields | Get document fields.
 [**GetFreeTextAnnotation**](PdfApi.md#GetFreeTextAnnotation) | **Get** /pdf/{name}/annotations/freetext/{annotationId} | Read document page free text annotation by ID.
+[**GetHighlightAnnotation**](PdfApi.md#GetHighlightAnnotation) | **Get** /pdf/{name}/annotations/highlight/{annotationId} | Read document page highlight annotation by ID.
 [**GetHtmlInStorageToPdf**](PdfApi.md#GetHtmlInStorageToPdf) | **Get** /pdf/create/html | Convert HTML file (located on storage) to PDF format and return resulting file in response. 
 [**GetImage**](PdfApi.md#GetImage) | **Get** /pdf/{name}/images/{imageId} | Read document image by ID.
 [**GetImageExtractAsGif**](PdfApi.md#GetImageExtractAsGif) | **Get** /pdf/{name}/images/{imageId}/extract/gif | Extract document image in GIF format
@@ -43,6 +53,7 @@ Method | HTTP request | Description
 [**GetImageExtractAsPng**](PdfApi.md#GetImageExtractAsPng) | **Get** /pdf/{name}/images/{imageId}/extract/png | Extract document image in PNG format
 [**GetImageExtractAsTiff**](PdfApi.md#GetImageExtractAsTiff) | **Get** /pdf/{name}/images/{imageId}/extract/tiff | Extract document image in TIFF format
 [**GetImages**](PdfApi.md#GetImages) | **Get** /pdf/{name}/pages/{pageNumber}/images | Read document images.
+[**GetInkAnnotation**](PdfApi.md#GetInkAnnotation) | **Get** /pdf/{name}/annotations/ink/{annotationId} | Read document page ink annotation by ID.
 [**GetLaTeXInStorageToPdf**](PdfApi.md#GetLaTeXInStorageToPdf) | **Get** /pdf/create/latex | Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
 [**GetLineAnnotation**](PdfApi.md#GetLineAnnotation) | **Get** /pdf/{name}/annotations/line/{annotationId} | Read document page line annotation by ID.
 [**GetLinkAnnotation**](PdfApi.md#GetLinkAnnotation) | **Get** /pdf/{name}/links/{linkId} | Read document link annotation by ID.
@@ -50,6 +61,7 @@ Method | HTTP request | Description
 [**GetMhtInStorageToPdf**](PdfApi.md#GetMhtInStorageToPdf) | **Get** /pdf/create/mht | Convert MHT file (located on storage) to PDF format and return resulting file in response. 
 [**GetPage**](PdfApi.md#GetPage) | **Get** /pdf/{name}/pages/{pageNumber} | Read document page info.
 [**GetPageAnnotations**](PdfApi.md#GetPageAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations | Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
+[**GetPageCaretAnnotations**](PdfApi.md#GetPageCaretAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/caret | Read document page caret annotations.
 [**GetPageCircleAnnotations**](PdfApi.md#GetPageCircleAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/circle | Read document page circle annotations.
 [**GetPageConvertToBmp**](PdfApi.md#GetPageConvertToBmp) | **Get** /pdf/{name}/pages/{pageNumber}/convert/bmp | Convert document page to Bmp image and return resulting file in response.
 [**GetPageConvertToEmf**](PdfApi.md#GetPageConvertToEmf) | **Get** /pdf/{name}/pages/{pageNumber}/convert/emf | Convert document page to Emf image and return resulting file in response.
@@ -58,14 +70,20 @@ Method | HTTP request | Description
 [**GetPageConvertToPng**](PdfApi.md#GetPageConvertToPng) | **Get** /pdf/{name}/pages/{pageNumber}/convert/png | Convert document page to Png image and return resulting file in response.
 [**GetPageConvertToTiff**](PdfApi.md#GetPageConvertToTiff) | **Get** /pdf/{name}/pages/{pageNumber}/convert/tiff | Convert document page to Tiff image  and return resulting file in response.
 [**GetPageFreeTextAnnotations**](PdfApi.md#GetPageFreeTextAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/freetext | Read document page free text annotations.
+[**GetPageHighlightAnnotations**](PdfApi.md#GetPageHighlightAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/highlight | Read document page highlight annotations.
+[**GetPageInkAnnotations**](PdfApi.md#GetPageInkAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/ink | Read document page ink annotations.
 [**GetPageLineAnnotations**](PdfApi.md#GetPageLineAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/line | Read document page line annotations.
 [**GetPageLinkAnnotation**](PdfApi.md#GetPageLinkAnnotation) | **Get** /pdf/{name}/pages/{pageNumber}/links/{linkId} | Read document page link annotation by ID.
 [**GetPageLinkAnnotations**](PdfApi.md#GetPageLinkAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/links | Read document page link annotations.
 [**GetPagePolyLineAnnotations**](PdfApi.md#GetPagePolyLineAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/polyline | Read document page polyline annotations.
 [**GetPagePolygonAnnotations**](PdfApi.md#GetPagePolygonAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/polygon | Read document page polygon annotations.
+[**GetPagePopupAnnotations**](PdfApi.md#GetPagePopupAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/popup | Read document page popup annotations.
 [**GetPageSquareAnnotations**](PdfApi.md#GetPageSquareAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/square | Read document page square annotations.
+[**GetPageSquigglyAnnotations**](PdfApi.md#GetPageSquigglyAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/squiggly | Read document page squiggly annotations.
+[**GetPageStrikeOutAnnotations**](PdfApi.md#GetPageStrikeOutAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/strikeout | Read document page StrikeOut annotations.
 [**GetPageText**](PdfApi.md#GetPageText) | **Get** /pdf/{name}/pages/{pageNumber}/text | Read page text items.
 [**GetPageTextAnnotations**](PdfApi.md#GetPageTextAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/text | Read document page text annotations.
+[**GetPageUnderlineAnnotations**](PdfApi.md#GetPageUnderlineAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/underline | Read document page underline annotations.
 [**GetPages**](PdfApi.md#GetPages) | **Get** /pdf/{name}/pages | Read document pages info.
 [**GetPclInStorageToPdf**](PdfApi.md#GetPclInStorageToPdf) | **Get** /pdf/create/pcl | Convert PCL file (located on storage) to PDF format and return resulting file in response. 
 [**GetPdfInStorageToDoc**](PdfApi.md#GetPdfInStorageToDoc) | **Get** /pdf/{name}/convert/doc | Converts PDF document (located on storage) to DOC format and returns resulting file in response content
@@ -82,11 +100,15 @@ Method | HTTP request | Description
 [**GetPdfInStorageToXps**](PdfApi.md#GetPdfInStorageToXps) | **Get** /pdf/{name}/convert/xps | Converts PDF document (located on storage) to XPS format and returns resulting file in response content
 [**GetPolyLineAnnotation**](PdfApi.md#GetPolyLineAnnotation) | **Get** /pdf/{name}/annotations/polyline/{annotationId} | Read document page polyline annotation by ID.
 [**GetPolygonAnnotation**](PdfApi.md#GetPolygonAnnotation) | **Get** /pdf/{name}/annotations/polygon/{annotationId} | Read document page polygon annotation by ID.
+[**GetPopupAnnotation**](PdfApi.md#GetPopupAnnotation) | **Get** /pdf/{name}/annotations/popup/{annotationId} | Read document page popup annotation by ID.
 [**GetPsInStorageToPdf**](PdfApi.md#GetPsInStorageToPdf) | **Get** /pdf/create/ps | Convert PS file (located on storage) to PDF format and return resulting file in response. 
 [**GetSquareAnnotation**](PdfApi.md#GetSquareAnnotation) | **Get** /pdf/{name}/annotations/square/{annotationId} | Read document page square annotation by ID.
+[**GetSquigglyAnnotation**](PdfApi.md#GetSquigglyAnnotation) | **Get** /pdf/{name}/annotations/squiggly/{annotationId} | Read document page squiggly annotation by ID.
+[**GetStrikeOutAnnotation**](PdfApi.md#GetStrikeOutAnnotation) | **Get** /pdf/{name}/annotations/strikeout/{annotationId} | Read document page StrikeOut annotation by ID.
 [**GetSvgInStorageToPdf**](PdfApi.md#GetSvgInStorageToPdf) | **Get** /pdf/create/svg | Convert SVG file (located on storage) to PDF format and return resulting file in response. 
 [**GetText**](PdfApi.md#GetText) | **Get** /pdf/{name}/text | Read document text.
 [**GetTextAnnotation**](PdfApi.md#GetTextAnnotation) | **Get** /pdf/{name}/annotations/text/{annotationId} | Read document page text annotation by ID.
+[**GetUnderlineAnnotation**](PdfApi.md#GetUnderlineAnnotation) | **Get** /pdf/{name}/annotations/underline/{annotationId} | Read document page underline annotation by ID.
 [**GetVerifySignature**](PdfApi.md#GetVerifySignature) | **Get** /pdf/{name}/verifySignature | Verify signature document.
 [**GetWebInStorageToPdf**](PdfApi.md#GetWebInStorageToPdf) | **Get** /pdf/create/web | Convert web page to PDF format and return resulting file in response. 
 [**GetWordsPerPage**](PdfApi.md#GetWordsPerPage) | **Get** /pdf/{name}/pages/wordCount | Get number of words per document page.
@@ -100,26 +122,35 @@ Method | HTTP request | Description
 [**PostInsertImage**](PdfApi.md#PostInsertImage) | **Post** /pdf/{name}/pages/{pageNumber}/images | Insert image to document page.
 [**PostMovePage**](PdfApi.md#PostMovePage) | **Post** /pdf/{name}/pages/{pageNumber}/movePage | Move page to new position.
 [**PostOptimizeDocument**](PdfApi.md#PostOptimizeDocument) | **Post** /pdf/{name}/optimize | Optimize document.
+[**PostPageCaretAnnotations**](PdfApi.md#PostPageCaretAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/caret | Add document page caret annotations.
 [**PostPageCircleAnnotations**](PdfApi.md#PostPageCircleAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/circle | Add document page circle annotations.
 [**PostPageFreeTextAnnotations**](PdfApi.md#PostPageFreeTextAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/freetext | Add document page free text annotations.
+[**PostPageHighlightAnnotations**](PdfApi.md#PostPageHighlightAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/highlight | Add document page highlight annotations.
+[**PostPageInkAnnotations**](PdfApi.md#PostPageInkAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/ink | Add document page ink annotations.
 [**PostPageLineAnnotations**](PdfApi.md#PostPageLineAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/line | Add document page line annotations.
 [**PostPageLinkAnnotations**](PdfApi.md#PostPageLinkAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/links | Add document page link annotations.
 [**PostPagePolyLineAnnotations**](PdfApi.md#PostPagePolyLineAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/polyline | Add document page polyline annotations.
 [**PostPagePolygonAnnotations**](PdfApi.md#PostPagePolygonAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/polygon | Add document page polygon annotations.
 [**PostPageSquareAnnotations**](PdfApi.md#PostPageSquareAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/square | Add document page square annotations.
+[**PostPageSquigglyAnnotations**](PdfApi.md#PostPageSquigglyAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/squiggly | Add document page squiggly annotations.
+[**PostPageStrikeOutAnnotations**](PdfApi.md#PostPageStrikeOutAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/strikeout | Add document page StrikeOut annotations.
 [**PostPageTextAnnotations**](PdfApi.md#PostPageTextAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/text | Add document page text annotations.
 [**PostPageTextReplace**](PdfApi.md#PostPageTextReplace) | **Post** /pdf/{name}/pages/{pageNumber}/text/replace | Page&#39;s replace text method.
+[**PostPageUnderlineAnnotations**](PdfApi.md#PostPageUnderlineAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/underline | Add document page underline annotations.
+[**PostPopupAnnotation**](PdfApi.md#PostPopupAnnotation) | **Post** /pdf/{name}/annotations/{annotationId}/popup | Add document popup annotations.
 [**PostSignDocument**](PdfApi.md#PostSignDocument) | **Post** /pdf/{name}/sign | Sign document.
 [**PostSignPage**](PdfApi.md#PostSignPage) | **Post** /pdf/{name}/pages/{pageNumber}/sign | Sign page.
 [**PostSplitDocument**](PdfApi.md#PostSplitDocument) | **Post** /pdf/{name}/split | Split document to parts.
 [**PutAddNewPage**](PdfApi.md#PutAddNewPage) | **Put** /pdf/{name}/pages | Add new page to end of the document.
 [**PutAddText**](PdfApi.md#PutAddText) | **Put** /pdf/{name}/pages/{pageNumber}/text | Add text to PDF document page.
+[**PutCaretAnnotation**](PdfApi.md#PutCaretAnnotation) | **Put** /pdf/{name}/annotations/caret/{annotationId} | Replace document caret annotation
 [**PutCircleAnnotation**](PdfApi.md#PutCircleAnnotation) | **Put** /pdf/{name}/annotations/circle/{annotationId} | Replace document circle annotation
 [**PutCreate**](PdfApi.md#PutCreate) | **Put** /storage/file | Upload a specific file 
 [**PutCreateDocument**](PdfApi.md#PutCreateDocument) | **Put** /pdf/{name} | Create empty document.
 [**PutEpubInStorageToPdf**](PdfApi.md#PutEpubInStorageToPdf) | **Put** /pdf/{name}/create/epub | Convert EPUB file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutFieldsFlatten**](PdfApi.md#PutFieldsFlatten) | **Put** /pdf/{name}/fields/flatten | Flatten form fields in document.
 [**PutFreeTextAnnotation**](PdfApi.md#PutFreeTextAnnotation) | **Put** /pdf/{name}/annotations/freetext/{annotationId} | Replace document free text annotation
+[**PutHighlightAnnotation**](PdfApi.md#PutHighlightAnnotation) | **Put** /pdf/{name}/annotations/highlight/{annotationId} | Replace document highlight annotation
 [**PutHtmlInStorageToPdf**](PdfApi.md#PutHtmlInStorageToPdf) | **Put** /pdf/{name}/create/html | Convert HTML file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutImageExtractAsGif**](PdfApi.md#PutImageExtractAsGif) | **Put** /pdf/{name}/images/{imageId}/extract/gif | Extract document image in GIF format to folder
 [**PutImageExtractAsJpeg**](PdfApi.md#PutImageExtractAsJpeg) | **Put** /pdf/{name}/images/{imageId}/extract/jpeg | Extract document image in JPEG format to folder
@@ -130,6 +161,7 @@ Method | HTTP request | Description
 [**PutImagesExtractAsJpeg**](PdfApi.md#PutImagesExtractAsJpeg) | **Put** /pdf/{name}/pages/{pageNumber}/images/extract/jpeg | Extract document images in JPEG format to folder.
 [**PutImagesExtractAsPng**](PdfApi.md#PutImagesExtractAsPng) | **Put** /pdf/{name}/pages/{pageNumber}/images/extract/png | Extract document images in PNG format to folder.
 [**PutImagesExtractAsTiff**](PdfApi.md#PutImagesExtractAsTiff) | **Put** /pdf/{name}/pages/{pageNumber}/images/extract/tiff | Extract document images in TIFF format to folder.
+[**PutInkAnnotation**](PdfApi.md#PutInkAnnotation) | **Put** /pdf/{name}/annotations/ink/{annotationId} | Replace document ink annotation
 [**PutLaTeXInStorageToPdf**](PdfApi.md#PutLaTeXInStorageToPdf) | **Put** /pdf/{name}/create/latex | Convert LaTeX file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutLineAnnotation**](PdfApi.md#PutLineAnnotation) | **Put** /pdf/{name}/annotations/line/{annotationId} | Replace document line annotation
 [**PutLinkAnnotation**](PdfApi.md#PutLinkAnnotation) | **Put** /pdf/{name}/links/{linkId} | Replace document page link annotations
@@ -169,14 +201,18 @@ Method | HTTP request | Description
 [**PutPdfInStorageToXps**](PdfApi.md#PutPdfInStorageToXps) | **Put** /pdf/{name}/convert/xps | Converts PDF document (located on storage) to XPS format and uploads resulting file to storage
 [**PutPolyLineAnnotation**](PdfApi.md#PutPolyLineAnnotation) | **Put** /pdf/{name}/annotations/polyline/{annotationId} | Replace document polyline annotation
 [**PutPolygonAnnotation**](PdfApi.md#PutPolygonAnnotation) | **Put** /pdf/{name}/annotations/polygon/{annotationId} | Replace document polygon annotation
+[**PutPopupAnnotation**](PdfApi.md#PutPopupAnnotation) | **Put** /pdf/{name}/annotations/popup/{annotationId} | Replace document popup annotation
 [**PutPrivileges**](PdfApi.md#PutPrivileges) | **Put** /pdf/{name}/privileges | Update privilege document.
 [**PutPsInStorageToPdf**](PdfApi.md#PutPsInStorageToPdf) | **Put** /pdf/{name}/create/ps | Convert PS file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutReplaceImage**](PdfApi.md#PutReplaceImage) | **Put** /pdf/{name}/images/{imageId} | Replace document image.
 [**PutSearchableDocument**](PdfApi.md#PutSearchableDocument) | **Put** /pdf/{name}/ocr | Create searchable PDF document. Generate OCR layer for images in input PDF document.
 [**PutSetProperty**](PdfApi.md#PutSetProperty) | **Put** /pdf/{name}/documentproperties/{propertyName} | Add/update document property.
 [**PutSquareAnnotation**](PdfApi.md#PutSquareAnnotation) | **Put** /pdf/{name}/annotations/square/{annotationId} | Replace document square annotation
+[**PutSquigglyAnnotation**](PdfApi.md#PutSquigglyAnnotation) | **Put** /pdf/{name}/annotations/squiggly/{annotationId} | Replace document squiggly annotation
+[**PutStrikeOutAnnotation**](PdfApi.md#PutStrikeOutAnnotation) | **Put** /pdf/{name}/annotations/strikeout/{annotationId} | Replace document StrikeOut annotation
 [**PutSvgInStorageToPdf**](PdfApi.md#PutSvgInStorageToPdf) | **Put** /pdf/{name}/create/svg | Convert SVG file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutTextAnnotation**](PdfApi.md#PutTextAnnotation) | **Put** /pdf/{name}/annotations/text/{annotationId} | Replace document text annotation
+[**PutUnderlineAnnotation**](PdfApi.md#PutUnderlineAnnotation) | **Put** /pdf/{name}/annotations/underline/{annotationId} | Replace document underline annotation
 [**PutUpdateField**](PdfApi.md#PutUpdateField) | **Put** /pdf/{name}/fields/{fieldName} | Update field.
 [**PutUpdateFields**](PdfApi.md#PutUpdateFields) | **Put** /pdf/{name}/fields | Update fields.
 [**PutWebInStorageToPdf**](PdfApi.md#PutWebInStorageToPdf) | **Put** /pdf/{name}/create/web | Convert web page to PDF format and upload resulting file to storage. 
@@ -599,6 +635,44 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetCaretAnnotation**
+> CaretAnnotationResponse GetCaretAnnotation(ctx, name, annotationId, optional)
+Read document page caret annotation by ID.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**CaretAnnotationResponse**](CaretAnnotationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetCircleAnnotation**
 > CircleAnnotationResponse GetCircleAnnotation(ctx, name, annotationId, optional)
 Read document page circle annotation by ID.
@@ -820,6 +894,42 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetDocumentCaretAnnotations**
+> CaretAnnotationsResponse GetDocumentCaretAnnotations(ctx, name, optional)
+Read document caret annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**CaretAnnotationsResponse**](CaretAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetDocumentCircleAnnotations**
 > CircleAnnotationsResponse GetDocumentCircleAnnotations(ctx, name, optional)
 Read document circle annotations.
@@ -880,6 +990,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FreeTextAnnotationsResponse**](FreeTextAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDocumentHighlightAnnotations**
+> HighlightAnnotationsResponse GetDocumentHighlightAnnotations(ctx, name, optional)
+Read document highlight annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**HighlightAnnotationsResponse**](HighlightAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDocumentInkAnnotations**
+> InkAnnotationsResponse GetDocumentInkAnnotations(ctx, name, optional)
+Read document ink annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**InkAnnotationsResponse**](InkAnnotationsResponse.md)
 
 ### Authorization
 
@@ -988,6 +1170,80 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PolygonAnnotationsResponse**](PolygonAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDocumentPopupAnnotations**
+> PopupAnnotationsResponse GetDocumentPopupAnnotations(ctx, name, optional)
+Read document popup annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**PopupAnnotationsResponse**](PopupAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDocumentPopupAnnotationsByParent**
+> PopupAnnotationsResponse GetDocumentPopupAnnotationsByParent(ctx, name, annotationId, optional)
+Read document popup annotations by parent id.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The parent annotation ID. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The parent annotation ID. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**PopupAnnotationsResponse**](PopupAnnotationsResponse.md)
 
 ### Authorization
 
@@ -1110,6 +1366,78 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetDocumentSquigglyAnnotations**
+> SquigglyAnnotationsResponse GetDocumentSquigglyAnnotations(ctx, name, optional)
+Read document squiggly annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**SquigglyAnnotationsResponse**](SquigglyAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDocumentStrikeOutAnnotations**
+> StrikeOutAnnotationsResponse GetDocumentStrikeOutAnnotations(ctx, name, optional)
+Read document StrikeOut annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**StrikeOutAnnotationsResponse**](StrikeOutAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetDocumentTextAnnotations**
 > TextAnnotationsResponse GetDocumentTextAnnotations(ctx, name, optional)
 Read document text annotations.
@@ -1134,6 +1462,42 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TextAnnotationsResponse**](TextAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDocumentUnderlineAnnotations**
+> UnderlineAnnotationsResponse GetDocumentUnderlineAnnotations(ctx, name, optional)
+Read document underline annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**UnderlineAnnotationsResponse**](UnderlineAnnotationsResponse.md)
 
 ### Authorization
 
@@ -1367,8 +1731,46 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetHighlightAnnotation**
+> HighlightAnnotationResponse GetHighlightAnnotation(ctx, name, annotationId, optional)
+Read document page highlight annotation by ID.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**HighlightAnnotationResponse**](HighlightAnnotationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetHtmlInStorageToPdf**
-> *os.File GetHtmlInStorageToPdf(ctx, srcPath, htmlFileName, optional)
+> *os.File GetHtmlInStorageToPdf(ctx, srcPath, optional)
 Convert HTML file (located on storage) to PDF format and return resulting file in response. 
 
 ### Required Parameters
@@ -1377,7 +1779,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.zip) | 
-  **htmlFileName** | **string**| Name of HTML file in ZIP. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1647,6 +2048,44 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetInkAnnotation**
+> InkAnnotationResponse GetInkAnnotation(ctx, name, annotationId, optional)
+Read document page ink annotation by ID.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**InkAnnotationResponse**](InkAnnotationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetLaTeXInStorageToPdf**
 > *os.File GetLaTeXInStorageToPdf(ctx, srcPath, optional)
 Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
@@ -1891,6 +2330,44 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AnnotationsInfoResponse**](AnnotationsInfoResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetPageCaretAnnotations**
+> CaretAnnotationsResponse GetPageCaretAnnotations(ctx, name, pageNumber, optional)
+Read document page caret annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**CaretAnnotationsResponse**](CaretAnnotationsResponse.md)
 
 ### Authorization
 
@@ -2219,6 +2696,82 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetPageHighlightAnnotations**
+> HighlightAnnotationsResponse GetPageHighlightAnnotations(ctx, name, pageNumber, optional)
+Read document page highlight annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**HighlightAnnotationsResponse**](HighlightAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetPageInkAnnotations**
+> InkAnnotationsResponse GetPageInkAnnotations(ctx, name, pageNumber, optional)
+Read document page ink annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**InkAnnotationsResponse**](InkAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetPageLineAnnotations**
 > LineAnnotationsResponse GetPageLineAnnotations(ctx, name, pageNumber, optional)
 Read document page line annotations.
@@ -2411,6 +2964,44 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetPagePopupAnnotations**
+> PopupAnnotationsResponse GetPagePopupAnnotations(ctx, name, pageNumber, optional)
+Read document page popup annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**PopupAnnotationsResponse**](PopupAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetPageSquareAnnotations**
 > SquareAnnotationsResponse GetPageSquareAnnotations(ctx, name, pageNumber, optional)
 Read document page square annotations.
@@ -2437,6 +3028,82 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SquareAnnotationsResponse**](SquareAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetPageSquigglyAnnotations**
+> SquigglyAnnotationsResponse GetPageSquigglyAnnotations(ctx, name, pageNumber, optional)
+Read document page squiggly annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**SquigglyAnnotationsResponse**](SquigglyAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetPageStrikeOutAnnotations**
+> StrikeOutAnnotationsResponse GetPageStrikeOutAnnotations(ctx, name, pageNumber, optional)
+Read document page StrikeOut annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**StrikeOutAnnotationsResponse**](StrikeOutAnnotationsResponse.md)
 
 ### Authorization
 
@@ -2524,6 +3191,44 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TextAnnotationsResponse**](TextAnnotationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetPageUnderlineAnnotations**
+> UnderlineAnnotationsResponse GetPageUnderlineAnnotations(ctx, name, pageNumber, optional)
+Read document page underline annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**UnderlineAnnotationsResponse**](UnderlineAnnotationsResponse.md)
 
 ### Authorization
 
@@ -3177,6 +3882,44 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetPopupAnnotation**
+> PopupAnnotationResponse GetPopupAnnotation(ctx, name, annotationId, optional)
+Read document page popup annotation by ID.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**PopupAnnotationResponse**](PopupAnnotationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetPsInStorageToPdf**
 > *os.File GetPsInStorageToPdf(ctx, srcPath, optional)
 Convert PS file (located on storage) to PDF format and return resulting file in response. 
@@ -3238,6 +3981,82 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SquareAnnotationResponse**](SquareAnnotationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetSquigglyAnnotation**
+> SquigglyAnnotationResponse GetSquigglyAnnotation(ctx, name, annotationId, optional)
+Read document page squiggly annotation by ID.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**SquigglyAnnotationResponse**](SquigglyAnnotationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetStrikeOutAnnotation**
+> StrikeOutAnnotationResponse GetStrikeOutAnnotation(ctx, name, annotationId, optional)
+Read document page StrikeOut annotation by ID.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**StrikeOutAnnotationResponse**](StrikeOutAnnotationResponse.md)
 
 ### Authorization
 
@@ -3366,6 +4185,44 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TextAnnotationResponse**](TextAnnotationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetUnderlineAnnotation**
+> UnderlineAnnotationResponse GetUnderlineAnnotation(ctx, name, annotationId, optional)
+Read document page underline annotation by ID.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**UnderlineAnnotationResponse**](UnderlineAnnotationResponse.md)
 
 ### Authorization
 
@@ -3878,6 +4735,46 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PostPageCaretAnnotations**
+> AsposeResponse PostPageCaretAnnotations(ctx, name, pageNumber, annotations, optional)
+Add document page caret annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+  **annotations** | [**[]CaretAnnotation**](CaretAnnotation.md)| The array of annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **annotations** | [**[]CaretAnnotation**](CaretAnnotation.md)| The array of annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PostPageCircleAnnotations**
 > AsposeResponse PostPageCircleAnnotations(ctx, name, pageNumber, annotations, optional)
 Add document page circle annotations.
@@ -3940,6 +4837,86 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
  **annotations** | [**[]FreeTextAnnotation**](FreeTextAnnotation.md)| The array of annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostPageHighlightAnnotations**
+> AsposeResponse PostPageHighlightAnnotations(ctx, name, pageNumber, annotations, optional)
+Add document page highlight annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+  **annotations** | [**[]HighlightAnnotation**](HighlightAnnotation.md)| The array of annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **annotations** | [**[]HighlightAnnotation**](HighlightAnnotation.md)| The array of annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostPageInkAnnotations**
+> AsposeResponse PostPageInkAnnotations(ctx, name, pageNumber, annotations, optional)
+Add document page ink annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+  **annotations** | [**[]InkAnnotation**](InkAnnotation.md)| The array of annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **annotations** | [**[]InkAnnotation**](InkAnnotation.md)| The array of annotation. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -4158,6 +5135,86 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PostPageSquigglyAnnotations**
+> AsposeResponse PostPageSquigglyAnnotations(ctx, name, pageNumber, annotations, optional)
+Add document page squiggly annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+  **annotations** | [**[]SquigglyAnnotation**](SquigglyAnnotation.md)| The array of annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **annotations** | [**[]SquigglyAnnotation**](SquigglyAnnotation.md)| The array of annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostPageStrikeOutAnnotations**
+> AsposeResponse PostPageStrikeOutAnnotations(ctx, name, pageNumber, annotations, optional)
+Add document page StrikeOut annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+  **annotations** | [**[]StrikeOutAnnotation**](StrikeOutAnnotation.md)| The array of annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **annotations** | [**[]StrikeOutAnnotation**](StrikeOutAnnotation.md)| The array of annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PostPageTextAnnotations**
 > AsposeResponse PostPageTextAnnotations(ctx, name, pageNumber, annotations, optional)
 Add document page text annotations.
@@ -4226,6 +5283,86 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TextReplaceResponse**](TextReplaceResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostPageUnderlineAnnotations**
+> AsposeResponse PostPageUnderlineAnnotations(ctx, name, pageNumber, annotations, optional)
+Add document page underline annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+  **annotations** | [**[]UnderlineAnnotation**](UnderlineAnnotation.md)| The array of annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **annotations** | [**[]UnderlineAnnotation**](UnderlineAnnotation.md)| The array of annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostPopupAnnotation**
+> AsposeResponse PostPopupAnnotation(ctx, name, annotationId, annotation, optional)
+Add document popup annotations.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The parent annotation ID. | 
+  **annotation** | [**PopupAnnotation**](PopupAnnotation.md)| The annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The parent annotation ID. | 
+ **annotation** | [**PopupAnnotation**](PopupAnnotation.md)| The annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
 
 ### Authorization
 
@@ -4416,6 +5553,46 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutCaretAnnotation**
+> CaretAnnotationResponse PutCaretAnnotation(ctx, name, annotationId, annotation, optional)
+Replace document caret annotation
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+  **annotation** | [**CaretAnnotation**](CaretAnnotation.md)| Annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **annotation** | [**CaretAnnotation**](CaretAnnotation.md)| Annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**CaretAnnotationResponse**](CaretAnnotationResponse.md)
 
 ### Authorization
 
@@ -4656,8 +5833,48 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PutHighlightAnnotation**
+> HighlightAnnotationResponse PutHighlightAnnotation(ctx, name, annotationId, annotation, optional)
+Replace document highlight annotation
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+  **annotation** | [**HighlightAnnotation**](HighlightAnnotation.md)| Annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **annotation** | [**HighlightAnnotation**](HighlightAnnotation.md)| Annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**HighlightAnnotationResponse**](HighlightAnnotationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PutHtmlInStorageToPdf**
-> AsposeResponse PutHtmlInStorageToPdf(ctx, name, srcPath, htmlFileName, optional)
+> AsposeResponse PutHtmlInStorageToPdf(ctx, name, srcPath, optional)
 Convert HTML file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
@@ -4667,7 +5884,6 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **name** | **string**| The document name. | 
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.zip) | 
-  **htmlFileName** | **string**| Name of HTML file in ZIP. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -5057,6 +6273,46 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutInkAnnotation**
+> InkAnnotationResponse PutInkAnnotation(ctx, name, annotationId, annotation, optional)
+Replace document ink annotation
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+  **annotation** | [**InkAnnotation**](InkAnnotation.md)| Annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **annotation** | [**InkAnnotation**](InkAnnotation.md)| Annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**InkAnnotationResponse**](InkAnnotationResponse.md)
 
 ### Authorization
 
@@ -6682,6 +7938,46 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PutPopupAnnotation**
+> PopupAnnotationResponse PutPopupAnnotation(ctx, name, annotationId, annotation, optional)
+Replace document popup annotation
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+  **annotation** | [**PopupAnnotation**](PopupAnnotation.md)| Annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **annotation** | [**PopupAnnotation**](PopupAnnotation.md)| Annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**PopupAnnotationResponse**](PopupAnnotationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PutPrivileges**
 > AsposeResponse PutPrivileges(ctx, name, optional)
 Update privilege document.
@@ -6914,6 +8210,86 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PutSquigglyAnnotation**
+> SquigglyAnnotationResponse PutSquigglyAnnotation(ctx, name, annotationId, annotation, optional)
+Replace document squiggly annotation
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+  **annotation** | [**SquigglyAnnotation**](SquigglyAnnotation.md)| Annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **annotation** | [**SquigglyAnnotation**](SquigglyAnnotation.md)| Annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**SquigglyAnnotationResponse**](SquigglyAnnotationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutStrikeOutAnnotation**
+> StrikeOutAnnotationResponse PutStrikeOutAnnotation(ctx, name, annotationId, annotation, optional)
+Replace document StrikeOut annotation
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+  **annotation** | [**StrikeOutAnnotation**](StrikeOutAnnotation.md)| Annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **annotation** | [**StrikeOutAnnotation**](StrikeOutAnnotation.md)| Annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**StrikeOutAnnotationResponse**](StrikeOutAnnotationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PutSvgInStorageToPdf**
 > AsposeResponse PutSvgInStorageToPdf(ctx, name, srcPath, optional)
 Convert SVG file (located on storage) to PDF format and upload resulting file to storage. 
@@ -6988,6 +8364,46 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TextAnnotationResponse**](TextAnnotationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutUnderlineAnnotation**
+> UnderlineAnnotationResponse PutUnderlineAnnotation(ctx, name, annotationId, annotation, optional)
+Replace document underline annotation
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **name** | **string**| The document name. | 
+  **annotationId** | **string**| The annotation ID. | 
+  **annotation** | [**UnderlineAnnotation**](UnderlineAnnotation.md)| Annotation. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **annotationId** | **string**| The annotation ID. | 
+ **annotation** | [**UnderlineAnnotation**](UnderlineAnnotation.md)| Annotation. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**UnderlineAnnotationResponse**](UnderlineAnnotationResponse.md)
 
 ### Authorization
 

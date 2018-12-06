@@ -214,9 +214,10 @@ func TestGetHtmlInStorageToPdf(t *testing.T) {
 	args := map[string]interface{} {
 		"height": height,
 		"width": width,
+		"htmlFileName": htmlFileName,
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.GetHtmlInStorageToPdf(srcPath, htmlFileName, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetHtmlInStorageToPdf(srcPath, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
@@ -243,9 +244,10 @@ func TestPutHtmlInStorageToPdf(t *testing.T) {
 		"folder":  GetBaseTest().remoteFolder,
 		"height": height,
 		"width": width,
+		"htmlFileName": htmlFileName,
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PutHtmlInStorageToPdf(resFileName, srcPath, htmlFileName, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutHtmlInStorageToPdf(resFileName, srcPath, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {

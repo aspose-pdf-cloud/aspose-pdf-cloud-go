@@ -5,9 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Links** | [**[]Link**](Link.md) | Link to the document. | [optional] [default to null]
 **Contents** | **string** | Get the annotation content. | [optional] [default to null]
-**CreationDate** | **string** | The date and time when the annotation was created. | [optional] [default to null]
-**Subject** | **string** | Get the annotation subject. | [optional] [default to null]
-**Title** | **string** | Get the annotation title. | [optional] [default to null]
 **Modified** | **string** | The date and time when the annotation was last modified. | [optional] [default to null]
 **Id** | **string** | Gets ID of the annotation. | [optional] [default to null]
 **Flags** | [**[]AnnotationFlags**](AnnotationFlags.md) | Gets Flags of the annotation. | [optional] [default to null]
