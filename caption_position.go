@@ -19,7 +19,7 @@
  *
  */
 package asposepdfcloud
-// CaptionPosition : Enumeration of the annotation?s caption positioning.
+// CaptionPosition : Enumeration of the annotation’s caption positioning.
 type CaptionPosition string
 
 // List of CaptionPosition

@@ -26,7 +26,6 @@ import (
 	"net/http"
 	"strings"
 	"os"
-	"encoding/json"
 	"fmt"
 )
 
@@ -116,7 +115,7 @@ func (a *PdfApiService) DeleteAnnotation(name string, annotationId string, local
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -193,7 +192,7 @@ func (a *PdfApiService) DeleteDocumentAnnotations(name string, localVarOptionals
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -270,7 +269,7 @@ func (a *PdfApiService) DeleteDocumentLinkAnnotations(name string, localVarOptio
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -349,7 +348,7 @@ func (a *PdfApiService) DeleteField(name string, fieldName string, localVarOptio
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -428,7 +427,7 @@ func (a *PdfApiService) DeleteImage(name string, imageId string, localVarOptiona
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -507,7 +506,7 @@ func (a *PdfApiService) DeleteLinkAnnotation(name string, linkId string, localVa
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -586,7 +585,7 @@ func (a *PdfApiService) DeletePage(name string, pageNumber int32, localVarOption
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -665,7 +664,7 @@ func (a *PdfApiService) DeletePageAnnotations(name string, pageNumber int32, loc
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -744,7 +743,7 @@ func (a *PdfApiService) DeletePageLinkAnnotations(name string, pageNumber int32,
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -821,7 +820,7 @@ func (a *PdfApiService) DeleteProperties(name string, localVarOptionals map[stri
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -900,7 +899,7 @@ func (a *PdfApiService) DeleteProperty(name string, propertyName string, localVa
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -979,7 +978,7 @@ func (a *PdfApiService) GetCaretAnnotation(name string, annotationId string, loc
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -1058,7 +1057,7 @@ func (a *PdfApiService) GetCircleAnnotation(name string, annotationId string, lo
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -1135,7 +1134,7 @@ func (a *PdfApiService) GetDocument(name string, localVarOptionals map[string]in
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -1212,7 +1211,7 @@ func (a *PdfApiService) GetDocumentAnnotations(name string, localVarOptionals ma
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -1291,7 +1290,7 @@ func (a *PdfApiService) GetDocumentAttachmentByIndex(name string, attachmentInde
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -1368,7 +1367,7 @@ func (a *PdfApiService) GetDocumentAttachments(name string, localVarOptionals ma
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -1529,7 +1528,7 @@ func (a *PdfApiService) GetDocumentCaretAnnotations(name string, localVarOptiona
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -1606,7 +1605,7 @@ func (a *PdfApiService) GetDocumentCircleAnnotations(name string, localVarOption
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -1683,7 +1682,7 @@ func (a *PdfApiService) GetDocumentFreeTextAnnotations(name string, localVarOpti
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -1760,7 +1759,7 @@ func (a *PdfApiService) GetDocumentHighlightAnnotations(name string, localVarOpt
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -1837,7 +1836,7 @@ func (a *PdfApiService) GetDocumentInkAnnotations(name string, localVarOptionals
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -1914,7 +1913,7 @@ func (a *PdfApiService) GetDocumentLineAnnotations(name string, localVarOptional
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -1991,7 +1990,7 @@ func (a *PdfApiService) GetDocumentPolyLineAnnotations(name string, localVarOpti
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -2068,7 +2067,7 @@ func (a *PdfApiService) GetDocumentPolygonAnnotations(name string, localVarOptio
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -2145,7 +2144,7 @@ func (a *PdfApiService) GetDocumentPopupAnnotations(name string, localVarOptiona
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -2224,7 +2223,7 @@ func (a *PdfApiService) GetDocumentPopupAnnotationsByParent(name string, annotat
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -2301,7 +2300,7 @@ func (a *PdfApiService) GetDocumentProperties(name string, localVarOptionals map
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -2380,7 +2379,7 @@ func (a *PdfApiService) GetDocumentProperty(name string, propertyName string, lo
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -2457,7 +2456,7 @@ func (a *PdfApiService) GetDocumentSquareAnnotations(name string, localVarOption
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -2534,7 +2533,7 @@ func (a *PdfApiService) GetDocumentSquigglyAnnotations(name string, localVarOpti
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -2611,7 +2610,7 @@ func (a *PdfApiService) GetDocumentStrikeOutAnnotations(name string, localVarOpt
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -2688,7 +2687,7 @@ func (a *PdfApiService) GetDocumentTextAnnotations(name string, localVarOptional
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -2765,7 +2764,7 @@ func (a *PdfApiService) GetDocumentUnderlineAnnotations(name string, localVarOpt
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -3070,7 +3069,7 @@ func (a *PdfApiService) GetField(name string, fieldName string, localVarOptional
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -3147,7 +3146,7 @@ func (a *PdfApiService) GetFields(name string, localVarOptionals map[string]inte
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -3226,7 +3225,7 @@ func (a *PdfApiService) GetFreeTextAnnotation(name string, annotationId string, 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -3305,7 +3304,7 @@ func (a *PdfApiService) GetHighlightAnnotation(name string, annotationId string,
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -3510,7 +3509,7 @@ func (a *PdfApiService) GetImage(name string, imageId string, localVarOptionals 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -3961,7 +3960,7 @@ func (a *PdfApiService) GetImages(name string, pageNumber int32, localVarOptiona
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -4040,7 +4039,7 @@ func (a *PdfApiService) GetInkAnnotation(name string, annotationId string, local
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -4189,7 +4188,7 @@ func (a *PdfApiService) GetLineAnnotation(name string, annotationId string, loca
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -4268,7 +4267,7 @@ func (a *PdfApiService) GetLinkAnnotation(name string, linkId string, localVarOp
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -4343,7 +4342,7 @@ func (a *PdfApiService) GetListFiles(localVarOptionals map[string]interface{}) (
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -4492,7 +4491,7 @@ func (a *PdfApiService) GetPage(name string, pageNumber int32, localVarOptionals
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -4571,7 +4570,7 @@ func (a *PdfApiService) GetPageAnnotations(name string, pageNumber int32, localV
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -4650,7 +4649,7 @@ func (a *PdfApiService) GetPageCaretAnnotations(name string, pageNumber int32, l
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -4729,7 +4728,7 @@ func (a *PdfApiService) GetPageCircleAnnotations(name string, pageNumber int32, 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -5366,7 +5365,7 @@ func (a *PdfApiService) GetPageFreeTextAnnotations(name string, pageNumber int32
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -5445,7 +5444,7 @@ func (a *PdfApiService) GetPageHighlightAnnotations(name string, pageNumber int3
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -5524,7 +5523,7 @@ func (a *PdfApiService) GetPageInkAnnotations(name string, pageNumber int32, loc
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -5603,7 +5602,7 @@ func (a *PdfApiService) GetPageLineAnnotations(name string, pageNumber int32, lo
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -5684,7 +5683,7 @@ func (a *PdfApiService) GetPageLinkAnnotation(name string, pageNumber int32, lin
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -5763,7 +5762,7 @@ func (a *PdfApiService) GetPageLinkAnnotations(name string, pageNumber int32, lo
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -5842,7 +5841,7 @@ func (a *PdfApiService) GetPagePolyLineAnnotations(name string, pageNumber int32
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -5921,7 +5920,7 @@ func (a *PdfApiService) GetPagePolygonAnnotations(name string, pageNumber int32,
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -6000,7 +5999,7 @@ func (a *PdfApiService) GetPagePopupAnnotations(name string, pageNumber int32, l
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -6079,7 +6078,7 @@ func (a *PdfApiService) GetPageSquareAnnotations(name string, pageNumber int32, 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -6158,7 +6157,7 @@ func (a *PdfApiService) GetPageSquigglyAnnotations(name string, pageNumber int32
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -6237,7 +6236,7 @@ func (a *PdfApiService) GetPageStrikeOutAnnotations(name string, pageNumber int3
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -6342,7 +6341,7 @@ func (a *PdfApiService) GetPageText(name string, pageNumber int32, lLX float64, 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -6421,7 +6420,7 @@ func (a *PdfApiService) GetPageTextAnnotations(name string, pageNumber int32, lo
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -6500,7 +6499,7 @@ func (a *PdfApiService) GetPageUnderlineAnnotations(name string, pageNumber int3
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -6577,7 +6576,7 @@ func (a *PdfApiService) GetPages(name string, localVarOptionals map[string]inter
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -6790,7 +6789,7 @@ func (a *PdfApiService) GetPdfInStorageToDoc(name string, localVarOptionals map[
 /* PdfApiService Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "contentRecognitionMode" (string) ?roperty tunes conversion for this or that desirable method of recognition of content.
+     @param "contentRecognitionMode" (string) ??roperty tunes conversion for this or that desirable method of recognition of content.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return []byte*/
@@ -8069,7 +8068,7 @@ func (a *PdfApiService) GetPolyLineAnnotation(name string, annotationId string, 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -8148,7 +8147,7 @@ func (a *PdfApiService) GetPolygonAnnotation(name string, annotationId string, l
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -8227,7 +8226,7 @@ func (a *PdfApiService) GetPopupAnnotation(name string, annotationId string, loc
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -8376,7 +8375,7 @@ func (a *PdfApiService) GetSquareAnnotation(name string, annotationId string, lo
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -8455,7 +8454,7 @@ func (a *PdfApiService) GetSquigglyAnnotation(name string, annotationId string, 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -8534,7 +8533,7 @@ func (a *PdfApiService) GetStrikeOutAnnotation(name string, annotationId string,
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -8763,7 +8762,7 @@ func (a *PdfApiService) GetText(name string, lLX float64, lLY float64, uRX float
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -8842,7 +8841,7 @@ func (a *PdfApiService) GetTextAnnotation(name string, annotationId string, loca
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -8921,7 +8920,7 @@ func (a *PdfApiService) GetUnderlineAnnotation(name string, annotationId string,
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -9000,7 +8999,7 @@ func (a *PdfApiService) GetVerifySignature(name string, signName string, localVa
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -9196,7 +9195,7 @@ func (a *PdfApiService) GetWordsPerPage(name string, localVarOptionals map[strin
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -9593,7 +9592,7 @@ func (a *PdfApiService) PostAppendDocument(name string, localVarOptionals map[st
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -9677,7 +9676,7 @@ func (a *PdfApiService) PostCreateField(name string, page int32, localVarOptiona
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -9757,7 +9756,7 @@ func (a *PdfApiService) PostDocumentTextReplace(name string, textReplace TextRep
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -9862,7 +9861,7 @@ func (a *PdfApiService) PostInsertImage(name string, pageNumber int32, llx float
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -9943,7 +9942,7 @@ func (a *PdfApiService) PostMovePage(name string, pageNumber int32, newIndex int
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -10025,7 +10024,7 @@ func (a *PdfApiService) PostOptimizeDocument(name string, localVarOptionals map[
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -10107,7 +10106,7 @@ func (a *PdfApiService) PostPageCaretAnnotations(name string, pageNumber int32, 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -10189,7 +10188,7 @@ func (a *PdfApiService) PostPageCircleAnnotations(name string, pageNumber int32,
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -10271,7 +10270,7 @@ func (a *PdfApiService) PostPageFreeTextAnnotations(name string, pageNumber int3
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -10353,7 +10352,7 @@ func (a *PdfApiService) PostPageHighlightAnnotations(name string, pageNumber int
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -10435,7 +10434,7 @@ func (a *PdfApiService) PostPageInkAnnotations(name string, pageNumber int32, an
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -10517,7 +10516,7 @@ func (a *PdfApiService) PostPageLineAnnotations(name string, pageNumber int32, a
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -10599,7 +10598,7 @@ func (a *PdfApiService) PostPageLinkAnnotations(name string, pageNumber int32, l
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -10681,7 +10680,7 @@ func (a *PdfApiService) PostPagePolyLineAnnotations(name string, pageNumber int3
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -10763,7 +10762,7 @@ func (a *PdfApiService) PostPagePolygonAnnotations(name string, pageNumber int32
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -10845,7 +10844,7 @@ func (a *PdfApiService) PostPageSquareAnnotations(name string, pageNumber int32,
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -10927,7 +10926,7 @@ func (a *PdfApiService) PostPageSquigglyAnnotations(name string, pageNumber int3
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -11009,7 +11008,7 @@ func (a *PdfApiService) PostPageStrikeOutAnnotations(name string, pageNumber int
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -11091,7 +11090,7 @@ func (a *PdfApiService) PostPageTextAnnotations(name string, pageNumber int32, a
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -11173,7 +11172,7 @@ func (a *PdfApiService) PostPageTextReplace(name string, pageNumber int32, textR
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -11255,7 +11254,7 @@ func (a *PdfApiService) PostPageUnderlineAnnotations(name string, pageNumber int
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -11337,7 +11336,7 @@ func (a *PdfApiService) PostPopupAnnotation(name string, annotationId string, an
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -11419,7 +11418,7 @@ func (a *PdfApiService) PostSignDocument(name string, localVarOptionals map[stri
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -11503,7 +11502,7 @@ func (a *PdfApiService) PostSignPage(name string, pageNumber int32, localVarOpti
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -11601,7 +11600,7 @@ func (a *PdfApiService) PostSplitDocument(name string, localVarOptionals map[str
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -11678,7 +11677,7 @@ func (a *PdfApiService) PutAddNewPage(name string, localVarOptionals map[string]
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -11762,7 +11761,7 @@ func (a *PdfApiService) PutAddText(name string, pageNumber int32, localVarOption
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -11844,7 +11843,7 @@ func (a *PdfApiService) PutCaretAnnotation(name string, annotationId string, ann
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -11926,7 +11925,7 @@ func (a *PdfApiService) PutCircleAnnotation(name string, annotationId string, an
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -12011,7 +12010,7 @@ func (a *PdfApiService) PutCreate(path string, file *os.File, localVarOptionals 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -12088,7 +12087,7 @@ func (a *PdfApiService) PutCreateDocument(name string, localVarOptionals map[str
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -12167,7 +12166,7 @@ func (a *PdfApiService) PutEpubInStorageToPdf(name string, srcPath string, local
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -12244,7 +12243,7 @@ func (a *PdfApiService) PutFieldsFlatten(name string, localVarOptionals map[stri
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -12326,7 +12325,7 @@ func (a *PdfApiService) PutFreeTextAnnotation(name string, annotationId string, 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -12408,7 +12407,7 @@ func (a *PdfApiService) PutHighlightAnnotation(name string, annotationId string,
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -12543,7 +12542,7 @@ func (a *PdfApiService) PutHtmlInStorageToPdf(name string, srcPath string, local
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -12643,7 +12642,7 @@ func (a *PdfApiService) PutImageExtractAsGif(name string, imageId string, localV
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -12743,7 +12742,7 @@ func (a *PdfApiService) PutImageExtractAsJpeg(name string, imageId string, local
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -12843,7 +12842,7 @@ func (a *PdfApiService) PutImageExtractAsPng(name string, imageId string, localV
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -12943,7 +12942,7 @@ func (a *PdfApiService) PutImageExtractAsTiff(name string, imageId string, local
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -13023,7 +13022,7 @@ func (a *PdfApiService) PutImageInStorageToPdf(name string, imageTemplates Image
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -13123,7 +13122,7 @@ func (a *PdfApiService) PutImagesExtractAsGif(name string, pageNumber int32, loc
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -13223,7 +13222,7 @@ func (a *PdfApiService) PutImagesExtractAsJpeg(name string, pageNumber int32, lo
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -13323,7 +13322,7 @@ func (a *PdfApiService) PutImagesExtractAsPng(name string, pageNumber int32, loc
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -13423,7 +13422,7 @@ func (a *PdfApiService) PutImagesExtractAsTiff(name string, pageNumber int32, lo
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -13505,7 +13504,7 @@ func (a *PdfApiService) PutInkAnnotation(name string, annotationId string, annot
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -13584,7 +13583,7 @@ func (a *PdfApiService) PutLaTeXInStorageToPdf(name string, srcPath string, loca
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -13666,7 +13665,7 @@ func (a *PdfApiService) PutLineAnnotation(name string, annotationId string, anno
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -13748,7 +13747,7 @@ func (a *PdfApiService) PutLinkAnnotation(name string, linkId string, link LinkA
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -13909,7 +13908,7 @@ func (a *PdfApiService) PutMhtInStorageToPdf(name string, srcPath string, localV
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -13991,7 +13990,7 @@ func (a *PdfApiService) PutPageAddStamp(name string, pageNumber int32, stamp Sta
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -14086,7 +14085,7 @@ func (a *PdfApiService) PutPageConvertToBmp(name string, pageNumber int32, outPa
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -14181,7 +14180,7 @@ func (a *PdfApiService) PutPageConvertToEmf(name string, pageNumber int32, outPa
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -14276,7 +14275,7 @@ func (a *PdfApiService) PutPageConvertToGif(name string, pageNumber int32, outPa
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -14371,7 +14370,7 @@ func (a *PdfApiService) PutPageConvertToJpeg(name string, pageNumber int32, outP
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -14466,7 +14465,7 @@ func (a *PdfApiService) PutPageConvertToPng(name string, pageNumber int32, outPa
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -14561,7 +14560,7 @@ func (a *PdfApiService) PutPageConvertToTiff(name string, pageNumber int32, outP
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -14640,7 +14639,7 @@ func (a *PdfApiService) PutPclInStorageToPdf(name string, srcPath string, localV
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -14777,7 +14776,7 @@ func (a *PdfApiService) PutPdfInRequestToDoc(outPath string, localVarOptionals m
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -14787,7 +14786,7 @@ func (a *PdfApiService) PutPdfInRequestToDoc(outPath string, localVarOptionals m
 /* PdfApiService Converts PDF document (in request content) to EPUB format and uploads resulting file to storage.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.epub)
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "contentRecognitionMode" (string) ?roperty tunes conversion for this or that desirable method of recognition of content.
+     @param "contentRecognitionMode" (string) ??roperty tunes conversion for this or that desirable method of recognition of content.
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
@@ -14865,7 +14864,7 @@ func (a *PdfApiService) PutPdfInRequestToEpub(outPath string, localVarOptionals 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -15139,7 +15138,7 @@ func (a *PdfApiService) PutPdfInRequestToHtml(outPath string, localVarOptionals 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -15227,7 +15226,7 @@ func (a *PdfApiService) PutPdfInRequestToLaTeX(outPath string, localVarOptionals
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -15308,7 +15307,7 @@ func (a *PdfApiService) PutPdfInRequestToMobiXml(outPath string, localVarOptiona
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -15391,7 +15390,7 @@ func (a *PdfApiService) PutPdfInRequestToPdfA(outPath string, type_ string, loca
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -15486,7 +15485,7 @@ func (a *PdfApiService) PutPdfInRequestToPptx(outPath string, localVarOptionals 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -15567,7 +15566,7 @@ func (a *PdfApiService) PutPdfInRequestToSvg(outPath string, localVarOptionals m
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -15753,7 +15752,7 @@ func (a *PdfApiService) PutPdfInRequestToTiff(outPath string, localVarOptionals 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -15862,7 +15861,7 @@ func (a *PdfApiService) PutPdfInRequestToXls(outPath string, localVarOptionals m
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -15943,7 +15942,7 @@ func (a *PdfApiService) PutPdfInRequestToXml(outPath string, localVarOptionals m
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -16024,7 +16023,7 @@ func (a *PdfApiService) PutPdfInRequestToXps(outPath string, localVarOptionals m
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -16159,7 +16158,7 @@ func (a *PdfApiService) PutPdfInStorageToDoc(name string, outPath string, localV
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -16170,7 +16169,7 @@ func (a *PdfApiService) PutPdfInStorageToDoc(name string, outPath string, localV
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.epub)
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "contentRecognitionMode" (string) ?roperty tunes conversion for this or that desirable method of recognition of content.
+     @param "contentRecognitionMode" (string) ??roperty tunes conversion for this or that desirable method of recognition of content.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
@@ -16245,7 +16244,7 @@ func (a *PdfApiService) PutPdfInStorageToEpub(name string, outPath string, local
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -16517,7 +16516,7 @@ func (a *PdfApiService) PutPdfInStorageToHtml(name string, outPath string, local
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -16603,7 +16602,7 @@ func (a *PdfApiService) PutPdfInStorageToLaTeX(name string, outPath string, loca
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -16682,7 +16681,7 @@ func (a *PdfApiService) PutPdfInStorageToMobiXml(name string, outPath string, lo
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -16763,7 +16762,7 @@ func (a *PdfApiService) PutPdfInStorageToPdfA(name string, outPath string, type_
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -16856,7 +16855,7 @@ func (a *PdfApiService) PutPdfInStorageToPptx(name string, outPath string, local
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -16935,7 +16934,7 @@ func (a *PdfApiService) PutPdfInStorageToSvg(name string, outPath string, localV
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -17119,7 +17118,7 @@ func (a *PdfApiService) PutPdfInStorageToTiff(name string, outPath string, local
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -17226,7 +17225,7 @@ func (a *PdfApiService) PutPdfInStorageToXls(name string, outPath string, localV
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -17305,7 +17304,7 @@ func (a *PdfApiService) PutPdfInStorageToXml(name string, outPath string, localV
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -17384,7 +17383,7 @@ func (a *PdfApiService) PutPdfInStorageToXps(name string, outPath string, localV
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -17466,7 +17465,7 @@ func (a *PdfApiService) PutPolyLineAnnotation(name string, annotationId string, 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -17548,7 +17547,7 @@ func (a *PdfApiService) PutPolygonAnnotation(name string, annotationId string, a
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -17630,7 +17629,7 @@ func (a *PdfApiService) PutPopupAnnotation(name string, annotationId string, ann
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -17712,7 +17711,7 @@ func (a *PdfApiService) PutPrivileges(name string, localVarOptionals map[string]
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -17791,7 +17790,7 @@ func (a *PdfApiService) PutPsInStorageToPdf(name string, srcPath string, localVa
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -17888,7 +17887,7 @@ func (a *PdfApiService) PutReplaceImage(name string, imageId string, localVarOpt
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -17972,7 +17971,7 @@ func (a *PdfApiService) PutSearchableDocument(name string, localVarOptionals map
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -18053,7 +18052,7 @@ func (a *PdfApiService) PutSetProperty(name string, propertyName string, value s
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -18135,7 +18134,7 @@ func (a *PdfApiService) PutSquareAnnotation(name string, annotationId string, an
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -18217,7 +18216,7 @@ func (a *PdfApiService) PutSquigglyAnnotation(name string, annotationId string, 
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -18299,7 +18298,7 @@ func (a *PdfApiService) PutStrikeOutAnnotation(name string, annotationId string,
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -18434,7 +18433,7 @@ func (a *PdfApiService) PutSvgInStorageToPdf(name string, srcPath string, localV
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -18516,7 +18515,7 @@ func (a *PdfApiService) PutTextAnnotation(name string, annotationId string, anno
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -18598,7 +18597,7 @@ func (a *PdfApiService) PutUnderlineAnnotation(name string, annotationId string,
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -18682,7 +18681,7 @@ func (a *PdfApiService) PutUpdateField(name string, fieldName string, localVarOp
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -18764,7 +18763,7 @@ func (a *PdfApiService) PutUpdateFields(name string, localVarOptionals map[strin
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -18892,7 +18891,7 @@ func (a *PdfApiService) PutWebInStorageToPdf(name string, url string, localVarOp
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -18973,7 +18972,7 @@ func (a *PdfApiService) PutXfaPdfInRequestToAcroForm(outPath string, localVarOpt
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -19052,7 +19051,7 @@ func (a *PdfApiService) PutXfaPdfInStorageToAcroForm(name string, outPath string
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -19138,7 +19137,7 @@ func (a *PdfApiService) PutXmlInStorageToPdf(name string, srcPath string, localV
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -19217,7 +19216,7 @@ func (a *PdfApiService) PutXpsInStorageToPdf(name string, srcPath string, localV
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 
@@ -19296,7 +19295,7 @@ func (a *PdfApiService) PutXslFoInStorageToPdf(name string, srcPath string, loca
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 

@@ -436,6 +436,57 @@ func (a *APIClient) RequestOauthToken() (error) {
        return nil
 }
 
+func deserializeDTO(readCloser io.Reader, successPayload interface{}) error {
+    dtoType := reflect.TypeOf(successPayload).String()
+    if strings.Contains(dtoType, "FilesResponse") {
+        var temp FilesResponse_
+        ret := successPayload.(*FilesResponse)
+        if err := json.NewDecoder(readCloser).Decode(&temp); err != nil {
+            return err
+        }
+        ret.Code = temp.Code
+        ret.Status = temp.Status
+        ret.Files = make([]File,  len(temp.Files))
+        re := regexp.MustCompile("\\/Date\\((\\d+?)000\\+0000\\)\\/")
+        
+        for index, file := range temp.Files {
+            res := re.FindAllStringSubmatch(file.ModifiedDate, -1)
+            var f File
+            f.Name = file.Name
+            f.IsFolder = file.IsFolder
+            f.Size = file.Size
+            f.Path = file.Path
+	        if res != nil {
+		        i, err := strconv.ParseInt(res[0][1], 10, 64)
+    	        if err == nil {
+			        f.ModifiedDate = time.Unix(i, 0)
+    	        }
+            }
+            ret.Files[index] = f
+        }
+
+    } else {
+        return json.NewDecoder(readCloser).Decode(&successPayload)
+    }
+    return nil
+}
+
+type FilesResponse_ struct {
+	// Response status code.
+	Code int32 `json:"Code"`
+	// Response status.
+	Status string `json:"Status,omitempty"`
+	Files []File_ `json:"Files,omitempty"`
+}
+
+type File_ struct {
+	Name string `json:"Name,omitempty"`
+	IsFolder bool `json:"IsFolder"`
+	ModifiedDate string `json:"ModifiedDate,omitempty"`
+	Size int64 `json:"Size"`
+	Path string `json:"Path,omitempty"`
+}
+
 // TokenResp represents data returned by GetAccessToken and RefreshToken as HTTP response body.
 type TokenResp struct {
        AccessToken                         string `json:"access_token"`

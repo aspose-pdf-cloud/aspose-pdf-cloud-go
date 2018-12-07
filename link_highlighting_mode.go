@@ -19,7 +19,7 @@
  *
  */
 package asposepdfcloud
-// LinkHighlightingMode : Enumerates the annotation?s highlighting mode, the visual effect to be used when the mouse button is pressed or held down inside its active area.
+// LinkHighlightingMode : Enumerates the annotation’s highlighting mode, the visual effect to be used when the mouse button is pressed or held down inside its active area.
 type LinkHighlightingMode string
 
 // List of LinkHighlightingMode

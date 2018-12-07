@@ -19,7 +19,7 @@
  *
  */
 package asposepdfcloud
-// Justification : Enumerates the forms of quadding (justification) to be used in displaying the annotation?s text.
+// Justification : Enumerates the forms of quadding (justification) to be used in displaying the annotation’s text.
 type Justification string
 
 // List of Justification

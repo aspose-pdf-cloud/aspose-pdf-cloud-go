@@ -3374,7 +3374,7 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
- **contentRecognitionMode** | **string**| ?roperty tunes conversion for this or that desirable method of recognition of content. | 
+ **contentRecognitionMode** | **string**| Рroperty tunes conversion for this or that desirable method of recognition of content. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -6910,7 +6910,7 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.epub) | 
- **contentRecognitionMode** | **string**| ?roperty tunes conversion for this or that desirable method of recognition of content. | 
+ **contentRecognitionMode** | **string**| Рroperty tunes conversion for this or that desirable method of recognition of content. | 
  **storage** | **string**| The document storage. | 
  **file** | ***os.File**| A file to be converted. | 
 
@@ -7407,7 +7407,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.epub) | 
- **contentRecognitionMode** | **string**| ?roperty tunes conversion for this or that desirable method of recognition of content. | 
+ **contentRecognitionMode** | **string**| Рroperty tunes conversion for this or that desirable method of recognition of content. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 

@@ -52,7 +52,7 @@ type PolygonAnnotation struct {
 	Title string `json:"Title,omitempty"`
 	// Get the annotation RichText.
 	RichText string `json:"RichText,omitempty"`
-	// Gets or sets the interior color with which to fill the annotation?s line endings.
+	// Gets or sets the interior color with which to fill the annotation???s line endings.
 	InteriorColor *Color `json:"InteriorColor,omitempty"`
 	// Gets or sets the style of first line ending.
 	StartingStyle LineEnding `json:"StartingStyle,omitempty"`

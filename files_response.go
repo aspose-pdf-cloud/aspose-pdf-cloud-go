@@ -20,14 +20,10 @@
  */
 package asposepdfcloud
 
-import (
-	"os"
-)
-
 type FilesResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
-	Files []*os.File `json:"Files,omitempty"`
+	Files []File `json:"Files,omitempty"`
 }
