@@ -1,4 +1,4 @@
-# \PdfApi
+﻿# \PdfApi
 
 All URIs are relative to *https://api.aspose.cloud/v2.0*
 
@@ -224,15 +224,14 @@ Method | HTTP request | Description
 
 
 # **DeleteAnnotation**
-> AsposeResponse DeleteAnnotation(ctx, name, annotationId, optional)
+> AsposeResponse DeleteAnnotation(name, annotationId, optional)
 Delete document annotation by ID
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -262,15 +261,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteDocumentAnnotations**
-> AsposeResponse DeleteDocumentAnnotations(ctx, name, optional)
+> AsposeResponse DeleteDocumentAnnotations(name, optional)
 Delete all annotations from the document
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -298,15 +296,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteDocumentLinkAnnotations**
-> AsposeResponse DeleteDocumentLinkAnnotations(ctx, name, optional)
+> AsposeResponse DeleteDocumentLinkAnnotations(name, optional)
 Delete all link annotations from the document
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -334,15 +331,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteField**
-> AsposeResponse DeleteField(ctx, name, fieldName, optional)
+> AsposeResponse DeleteField(name, fieldName, optional)
 Delete document field by name.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **fieldName** | **string**| The field name/ | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -372,15 +368,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteImage**
-> AsposeResponse DeleteImage(ctx, name, imageId, optional)
+> AsposeResponse DeleteImage(name, imageId, optional)
 Delete image from document page.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **imageId** | **string**| Image ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -410,15 +405,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteLinkAnnotation**
-> AsposeResponse DeleteLinkAnnotation(ctx, name, linkId, optional)
+> AsposeResponse DeleteLinkAnnotation(name, linkId, optional)
 Delete document page link annotation by ID
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **linkId** | **string**| The link ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -448,15 +442,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeletePage**
-> AsposeResponse DeletePage(ctx, name, pageNumber, optional)
+> AsposeResponse DeletePage(name, pageNumber, optional)
 Delete document page by its number.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -486,15 +479,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeletePageAnnotations**
-> AsposeResponse DeletePageAnnotations(ctx, name, pageNumber, optional)
+> AsposeResponse DeletePageAnnotations(name, pageNumber, optional)
 Delete all annotations from the page
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -524,15 +516,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeletePageLinkAnnotations**
-> AsposeResponse DeletePageLinkAnnotations(ctx, name, pageNumber, optional)
+> AsposeResponse DeletePageLinkAnnotations(name, pageNumber, optional)
 Delete all link annotations from the page
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -562,15 +553,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteProperties**
-> AsposeResponse DeleteProperties(ctx, name, optional)
+> AsposeResponse DeleteProperties(name, optional)
 Delete custom document properties.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**|  | 
+ **name** | **string**|  | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -598,15 +588,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteProperty**
-> AsposeResponse DeleteProperty(ctx, name, propertyName, optional)
+> AsposeResponse DeleteProperty(name, propertyName, optional)
 Delete document property.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**|  | 
+ **name** | **string**|  | 
   **propertyName** | **string**|  | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -636,15 +625,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetCaretAnnotation**
-> CaretAnnotationResponse GetCaretAnnotation(ctx, name, annotationId, optional)
+> CaretAnnotationResponse GetCaretAnnotation(name, annotationId, optional)
 Read document page caret annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -674,15 +662,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetCircleAnnotation**
-> CircleAnnotationResponse GetCircleAnnotation(ctx, name, annotationId, optional)
+> CircleAnnotationResponse GetCircleAnnotation(name, annotationId, optional)
 Read document page circle annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -712,15 +699,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocument**
-> DocumentResponse GetDocument(ctx, name, optional)
+> DocumentResponse GetDocument(name, optional)
 Read common document info.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -748,15 +734,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentAnnotations**
-> AnnotationsInfoResponse GetDocumentAnnotations(ctx, name, optional)
+> AnnotationsInfoResponse GetDocumentAnnotations(name, optional)
 Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -784,15 +769,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentAttachmentByIndex**
-> AttachmentResponse GetDocumentAttachmentByIndex(ctx, name, attachmentIndex, optional)
+> AttachmentResponse GetDocumentAttachmentByIndex(name, attachmentIndex, optional)
 Read document attachment info by its index.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **attachmentIndex** | **int32**| The attachment index. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -822,15 +806,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentAttachments**
-> AttachmentsResponse GetDocumentAttachments(ctx, name, optional)
+> AttachmentsResponse GetDocumentAttachments(name, optional)
 Read document attachments info.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -858,15 +841,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentBookmarks**
-> *os.File GetDocumentBookmarks(ctx, name, optional)
+> []byte GetDocumentBookmarks(name, optional)
 Read document bookmark/bookmarks (including children).
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -881,7 +863,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -895,15 +877,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentCaretAnnotations**
-> CaretAnnotationsResponse GetDocumentCaretAnnotations(ctx, name, optional)
+> CaretAnnotationsResponse GetDocumentCaretAnnotations(name, optional)
 Read document caret annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -931,15 +912,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentCircleAnnotations**
-> CircleAnnotationsResponse GetDocumentCircleAnnotations(ctx, name, optional)
+> CircleAnnotationsResponse GetDocumentCircleAnnotations(name, optional)
 Read document circle annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -967,15 +947,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentFreeTextAnnotations**
-> FreeTextAnnotationsResponse GetDocumentFreeTextAnnotations(ctx, name, optional)
+> FreeTextAnnotationsResponse GetDocumentFreeTextAnnotations(name, optional)
 Read document free text annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1003,15 +982,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentHighlightAnnotations**
-> HighlightAnnotationsResponse GetDocumentHighlightAnnotations(ctx, name, optional)
+> HighlightAnnotationsResponse GetDocumentHighlightAnnotations(name, optional)
 Read document highlight annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1039,15 +1017,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentInkAnnotations**
-> InkAnnotationsResponse GetDocumentInkAnnotations(ctx, name, optional)
+> InkAnnotationsResponse GetDocumentInkAnnotations(name, optional)
 Read document ink annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1075,15 +1052,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentLineAnnotations**
-> LineAnnotationsResponse GetDocumentLineAnnotations(ctx, name, optional)
+> LineAnnotationsResponse GetDocumentLineAnnotations(name, optional)
 Read document line annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1111,15 +1087,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentPolyLineAnnotations**
-> PolyLineAnnotationsResponse GetDocumentPolyLineAnnotations(ctx, name, optional)
+> PolyLineAnnotationsResponse GetDocumentPolyLineAnnotations(name, optional)
 Read document polyline annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1147,15 +1122,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentPolygonAnnotations**
-> PolygonAnnotationsResponse GetDocumentPolygonAnnotations(ctx, name, optional)
+> PolygonAnnotationsResponse GetDocumentPolygonAnnotations(name, optional)
 Read document polygon annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1183,15 +1157,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentPopupAnnotations**
-> PopupAnnotationsResponse GetDocumentPopupAnnotations(ctx, name, optional)
+> PopupAnnotationsResponse GetDocumentPopupAnnotations(name, optional)
 Read document popup annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1219,15 +1192,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentPopupAnnotationsByParent**
-> PopupAnnotationsResponse GetDocumentPopupAnnotationsByParent(ctx, name, annotationId, optional)
+> PopupAnnotationsResponse GetDocumentPopupAnnotationsByParent(name, annotationId, optional)
 Read document popup annotations by parent id.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The parent annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1257,15 +1229,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentProperties**
-> DocumentPropertiesResponse GetDocumentProperties(ctx, name, optional)
+> DocumentPropertiesResponse GetDocumentProperties(name, optional)
 Read document properties.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**|  | 
+ **name** | **string**|  | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1293,15 +1264,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentProperty**
-> DocumentPropertyResponse GetDocumentProperty(ctx, name, propertyName, optional)
+> DocumentPropertyResponse GetDocumentProperty(name, propertyName, optional)
 Read document property by name.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**|  | 
+ **name** | **string**|  | 
   **propertyName** | **string**|  | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1331,15 +1301,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentSquareAnnotations**
-> SquareAnnotationsResponse GetDocumentSquareAnnotations(ctx, name, optional)
+> SquareAnnotationsResponse GetDocumentSquareAnnotations(name, optional)
 Read document square annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1367,15 +1336,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentSquigglyAnnotations**
-> SquigglyAnnotationsResponse GetDocumentSquigglyAnnotations(ctx, name, optional)
+> SquigglyAnnotationsResponse GetDocumentSquigglyAnnotations(name, optional)
 Read document squiggly annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1403,15 +1371,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentStrikeOutAnnotations**
-> StrikeOutAnnotationsResponse GetDocumentStrikeOutAnnotations(ctx, name, optional)
+> StrikeOutAnnotationsResponse GetDocumentStrikeOutAnnotations(name, optional)
 Read document StrikeOut annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1439,15 +1406,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentTextAnnotations**
-> TextAnnotationsResponse GetDocumentTextAnnotations(ctx, name, optional)
+> TextAnnotationsResponse GetDocumentTextAnnotations(name, optional)
 Read document text annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1475,15 +1441,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDocumentUnderlineAnnotations**
-> UnderlineAnnotationsResponse GetDocumentUnderlineAnnotations(ctx, name, optional)
+> UnderlineAnnotationsResponse GetDocumentUnderlineAnnotations(name, optional)
 Read document underline annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1511,15 +1476,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDownload**
-> *os.File GetDownload(ctx, path, optional)
+> []byte GetDownload(path, optional)
 Download a specific file 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **path** | **string**| Path of the file including the file name and extension e.g. /file.ext | 
+ **path** | **string**| Path of the file including the file name and extension e.g. /file.ext | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1533,7 +1497,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -1547,15 +1511,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDownloadDocumentAttachmentByIndex**
-> *os.File GetDownloadDocumentAttachmentByIndex(ctx, name, attachmentIndex, optional)
+> []byte GetDownloadDocumentAttachmentByIndex(name, attachmentIndex, optional)
 Download document attachment content by its index.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **attachmentIndex** | **int32**| The attachment index. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1571,7 +1534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -1585,15 +1548,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetEpubInStorageToPdf**
-> *os.File GetEpubInStorageToPdf(ctx, srcPath, optional)
+> []byte GetEpubInStorageToPdf(srcPath, optional)
 Convert EPUB file (located on storage) to PDF format and return resulting file in response. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.epub) | 
+ **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.epub) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1606,7 +1568,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -1620,15 +1582,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetField**
-> FieldResponse GetField(ctx, name, fieldName, optional)
+> FieldResponse GetField(name, fieldName, optional)
 Get document field by name.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **fieldName** | **string**| The field name/ | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1658,15 +1619,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetFields**
-> FieldsResponse GetFields(ctx, name, optional)
+> FieldsResponse GetFields(name, optional)
 Get document fields.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1694,15 +1654,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetFreeTextAnnotation**
-> FreeTextAnnotationResponse GetFreeTextAnnotation(ctx, name, annotationId, optional)
+> FreeTextAnnotationResponse GetFreeTextAnnotation(name, annotationId, optional)
 Read document page free text annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1732,15 +1691,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetHighlightAnnotation**
-> HighlightAnnotationResponse GetHighlightAnnotation(ctx, name, annotationId, optional)
+> HighlightAnnotationResponse GetHighlightAnnotation(name, annotationId, optional)
 Read document page highlight annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1770,15 +1728,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetHtmlInStorageToPdf**
-> *os.File GetHtmlInStorageToPdf(ctx, srcPath, optional)
+> []byte GetHtmlInStorageToPdf(srcPath, optional)
 Convert HTML file (located on storage) to PDF format and return resulting file in response. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.zip) | 
+ **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.zip) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1799,7 +1756,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -1813,15 +1770,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetImage**
-> ImageResponse GetImage(ctx, name, imageId, optional)
+> ImageResponse GetImage(name, imageId, optional)
 Read document image by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **imageId** | **string**| Image ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1851,15 +1807,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetImageExtractAsGif**
-> *os.File GetImageExtractAsGif(ctx, name, imageId, optional)
+> []byte GetImageExtractAsGif(name, imageId, optional)
 Extract document image in GIF format
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **imageId** | **string**| Image ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1877,7 +1832,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -1891,15 +1846,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetImageExtractAsJpeg**
-> *os.File GetImageExtractAsJpeg(ctx, name, imageId, optional)
+> []byte GetImageExtractAsJpeg(name, imageId, optional)
 Extract document image in JPEG format
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **imageId** | **string**| Image ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1917,7 +1871,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -1931,15 +1885,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetImageExtractAsPng**
-> *os.File GetImageExtractAsPng(ctx, name, imageId, optional)
+> []byte GetImageExtractAsPng(name, imageId, optional)
 Extract document image in PNG format
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **imageId** | **string**| Image ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1957,7 +1910,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -1971,15 +1924,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetImageExtractAsTiff**
-> *os.File GetImageExtractAsTiff(ctx, name, imageId, optional)
+> []byte GetImageExtractAsTiff(name, imageId, optional)
 Extract document image in TIFF format
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **imageId** | **string**| Image ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -1997,7 +1949,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -2011,15 +1963,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetImages**
-> ImagesResponse GetImages(ctx, name, pageNumber, optional)
+> ImagesResponse GetImages(name, pageNumber, optional)
 Read document images.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2049,15 +2000,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetInkAnnotation**
-> InkAnnotationResponse GetInkAnnotation(ctx, name, annotationId, optional)
+> InkAnnotationResponse GetInkAnnotation(name, annotationId, optional)
 Read document page ink annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2087,15 +2037,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetLaTeXInStorageToPdf**
-> *os.File GetLaTeXInStorageToPdf(ctx, srcPath, optional)
+> []byte GetLaTeXInStorageToPdf(srcPath, optional)
 Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.tex) | 
+ **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.tex) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -2108,7 +2057,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -2122,15 +2071,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetLineAnnotation**
-> LineAnnotationResponse GetLineAnnotation(ctx, name, annotationId, optional)
+> LineAnnotationResponse GetLineAnnotation(name, annotationId, optional)
 Read document page line annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2160,15 +2108,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetLinkAnnotation**
-> LinkAnnotationResponse GetLinkAnnotation(ctx, name, linkId, optional)
+> LinkAnnotationResponse GetLinkAnnotation(name, linkId, optional)
 Read document link annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **linkId** | **string**| The link ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2198,14 +2145,13 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetListFiles**
-> FilesResponse GetListFiles(ctx, optional)
+> FilesResponse GetListFiles(optional)
 Get the file listing of a specific folder 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -2232,15 +2178,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetMhtInStorageToPdf**
-> *os.File GetMhtInStorageToPdf(ctx, srcPath, optional)
+> []byte GetMhtInStorageToPdf(srcPath, optional)
 Convert MHT file (located on storage) to PDF format and return resulting file in response. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.mht) | 
+ **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.mht) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -2253,7 +2198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -2267,15 +2212,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPage**
-> DocumentPageResponse GetPage(ctx, name, pageNumber, optional)
+> DocumentPageResponse GetPage(name, pageNumber, optional)
 Read document page info.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2305,15 +2249,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageAnnotations**
-> AnnotationsInfoResponse GetPageAnnotations(ctx, name, pageNumber, optional)
+> AnnotationsInfoResponse GetPageAnnotations(name, pageNumber, optional)
 Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2343,15 +2286,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageCaretAnnotations**
-> CaretAnnotationsResponse GetPageCaretAnnotations(ctx, name, pageNumber, optional)
+> CaretAnnotationsResponse GetPageCaretAnnotations(name, pageNumber, optional)
 Read document page caret annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2381,15 +2323,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageCircleAnnotations**
-> CircleAnnotationsResponse GetPageCircleAnnotations(ctx, name, pageNumber, optional)
+> CircleAnnotationsResponse GetPageCircleAnnotations(name, pageNumber, optional)
 Read document page circle annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2419,15 +2360,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageConvertToBmp**
-> *os.File GetPageConvertToBmp(ctx, name, pageNumber, optional)
+> []byte GetPageConvertToBmp(name, pageNumber, optional)
 Convert document page to Bmp image and return resulting file in response.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2445,7 +2385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -2459,15 +2399,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageConvertToEmf**
-> *os.File GetPageConvertToEmf(ctx, name, pageNumber, optional)
+> []byte GetPageConvertToEmf(name, pageNumber, optional)
 Convert document page to Emf image and return resulting file in response.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2485,7 +2424,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -2499,15 +2438,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageConvertToGif**
-> *os.File GetPageConvertToGif(ctx, name, pageNumber, optional)
+> []byte GetPageConvertToGif(name, pageNumber, optional)
 Convert document page to Gif image and return resulting file in response.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2525,7 +2463,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -2539,15 +2477,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageConvertToJpeg**
-> *os.File GetPageConvertToJpeg(ctx, name, pageNumber, optional)
+> []byte GetPageConvertToJpeg(name, pageNumber, optional)
 Convert document page to Jpeg image and return resulting file in response.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2565,7 +2502,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -2579,15 +2516,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageConvertToPng**
-> *os.File GetPageConvertToPng(ctx, name, pageNumber, optional)
+> []byte GetPageConvertToPng(name, pageNumber, optional)
 Convert document page to Png image and return resulting file in response.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2605,7 +2541,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -2619,15 +2555,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageConvertToTiff**
-> *os.File GetPageConvertToTiff(ctx, name, pageNumber, optional)
+> []byte GetPageConvertToTiff(name, pageNumber, optional)
 Convert document page to Tiff image  and return resulting file in response.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2645,7 +2580,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -2659,15 +2594,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageFreeTextAnnotations**
-> FreeTextAnnotationsResponse GetPageFreeTextAnnotations(ctx, name, pageNumber, optional)
+> FreeTextAnnotationsResponse GetPageFreeTextAnnotations(name, pageNumber, optional)
 Read document page free text annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2697,15 +2631,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageHighlightAnnotations**
-> HighlightAnnotationsResponse GetPageHighlightAnnotations(ctx, name, pageNumber, optional)
+> HighlightAnnotationsResponse GetPageHighlightAnnotations(name, pageNumber, optional)
 Read document page highlight annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2735,15 +2668,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageInkAnnotations**
-> InkAnnotationsResponse GetPageInkAnnotations(ctx, name, pageNumber, optional)
+> InkAnnotationsResponse GetPageInkAnnotations(name, pageNumber, optional)
 Read document page ink annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2773,15 +2705,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageLineAnnotations**
-> LineAnnotationsResponse GetPageLineAnnotations(ctx, name, pageNumber, optional)
+> LineAnnotationsResponse GetPageLineAnnotations(name, pageNumber, optional)
 Read document page line annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2811,15 +2742,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageLinkAnnotation**
-> LinkAnnotationResponse GetPageLinkAnnotation(ctx, name, pageNumber, linkId, optional)
+> LinkAnnotationResponse GetPageLinkAnnotation(name, pageNumber, linkId, optional)
 Read document page link annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **linkId** | **string**| The link ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -2851,15 +2781,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageLinkAnnotations**
-> LinkAnnotationsResponse GetPageLinkAnnotations(ctx, name, pageNumber, optional)
+> LinkAnnotationsResponse GetPageLinkAnnotations(name, pageNumber, optional)
 Read document page link annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2889,15 +2818,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPagePolyLineAnnotations**
-> PolyLineAnnotationsResponse GetPagePolyLineAnnotations(ctx, name, pageNumber, optional)
+> PolyLineAnnotationsResponse GetPagePolyLineAnnotations(name, pageNumber, optional)
 Read document page polyline annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2927,15 +2855,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPagePolygonAnnotations**
-> PolygonAnnotationsResponse GetPagePolygonAnnotations(ctx, name, pageNumber, optional)
+> PolygonAnnotationsResponse GetPagePolygonAnnotations(name, pageNumber, optional)
 Read document page polygon annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -2965,15 +2892,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPagePopupAnnotations**
-> PopupAnnotationsResponse GetPagePopupAnnotations(ctx, name, pageNumber, optional)
+> PopupAnnotationsResponse GetPagePopupAnnotations(name, pageNumber, optional)
 Read document page popup annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -3003,15 +2929,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageSquareAnnotations**
-> SquareAnnotationsResponse GetPageSquareAnnotations(ctx, name, pageNumber, optional)
+> SquareAnnotationsResponse GetPageSquareAnnotations(name, pageNumber, optional)
 Read document page square annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -3041,15 +2966,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageSquigglyAnnotations**
-> SquigglyAnnotationsResponse GetPageSquigglyAnnotations(ctx, name, pageNumber, optional)
+> SquigglyAnnotationsResponse GetPageSquigglyAnnotations(name, pageNumber, optional)
 Read document page squiggly annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -3079,15 +3003,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageStrikeOutAnnotations**
-> StrikeOutAnnotationsResponse GetPageStrikeOutAnnotations(ctx, name, pageNumber, optional)
+> StrikeOutAnnotationsResponse GetPageStrikeOutAnnotations(name, pageNumber, optional)
 Read document page StrikeOut annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -3117,15 +3040,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageText**
-> TextRectsResponse GetPageText(ctx, name, pageNumber, lLX, lLY, uRX, uRY, optional)
+> TextRectsResponse GetPageText(name, pageNumber, lLX, lLY, uRX, uRY, optional)
 Read page text items.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| Number of page (starting from 1). | 
   **lLX** | **float64**|  | 
   **lLY** | **float64**|  | 
@@ -3166,15 +3088,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageTextAnnotations**
-> TextAnnotationsResponse GetPageTextAnnotations(ctx, name, pageNumber, optional)
+> TextAnnotationsResponse GetPageTextAnnotations(name, pageNumber, optional)
 Read document page text annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -3204,15 +3125,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPageUnderlineAnnotations**
-> UnderlineAnnotationsResponse GetPageUnderlineAnnotations(ctx, name, pageNumber, optional)
+> UnderlineAnnotationsResponse GetPageUnderlineAnnotations(name, pageNumber, optional)
 Read document page underline annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -3242,15 +3162,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPages**
-> DocumentPagesResponse GetPages(ctx, name, optional)
+> DocumentPagesResponse GetPages(name, optional)
 Read document pages info.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3278,15 +3197,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPclInStorageToPdf**
-> *os.File GetPclInStorageToPdf(ctx, srcPath, optional)
+> []byte GetPclInStorageToPdf(srcPath, optional)
 Convert PCL file (located on storage) to PDF format and return resulting file in response. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.pcl) | 
+ **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.pcl) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3299,7 +3217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3313,15 +3231,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPdfInStorageToDoc**
-> *os.File GetPdfInStorageToDoc(ctx, name, optional)
+> []byte GetPdfInStorageToDoc(name, optional)
 Converts PDF document (located on storage) to DOC format and returns resulting file in response content
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3343,7 +3260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3357,15 +3274,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPdfInStorageToEpub**
-> *os.File GetPdfInStorageToEpub(ctx, name, optional)
+> []byte GetPdfInStorageToEpub(name, optional)
 Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3380,7 +3296,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3394,15 +3310,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPdfInStorageToHtml**
-> *os.File GetPdfInStorageToHtml(ctx, name, optional)
+> []byte GetPdfInStorageToHtml(name, optional)
 Converts PDF document (located on storage) to Html format and returns resulting file in response content
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3444,7 +3359,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3458,15 +3373,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPdfInStorageToLaTeX**
-> *os.File GetPdfInStorageToLaTeX(ctx, name, optional)
+> []byte GetPdfInStorageToLaTeX(name, optional)
 Converts PDF document (located on storage) to LaTeX format and returns resulting file in response content
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3481,7 +3395,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3495,15 +3409,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPdfInStorageToMobiXml**
-> *os.File GetPdfInStorageToMobiXml(ctx, name, optional)
+> []byte GetPdfInStorageToMobiXml(name, optional)
 Converts PDF document (located on storage) to MOBIXML format and returns resulting file in response content
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3517,7 +3430,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3531,15 +3444,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPdfInStorageToPdfA**
-> *os.File GetPdfInStorageToPdfA(ctx, name, type_, optional)
+> []byte GetPdfInStorageToPdfA(name, type_, optional)
 Converts PDF document (located on storage) to PdfA format and returns resulting file in response content
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **type_** | **string**| Type of PdfA format. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -3555,7 +3467,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3569,15 +3481,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPdfInStorageToPptx**
-> *os.File GetPdfInStorageToPptx(ctx, name, optional)
+> []byte GetPdfInStorageToPptx(name, optional)
 Converts PDF document (located on storage) to PPTX format and returns resulting file in response content
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3593,7 +3504,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3607,15 +3518,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPdfInStorageToSvg**
-> *os.File GetPdfInStorageToSvg(ctx, name, optional)
+> []byte GetPdfInStorageToSvg(name, optional)
 Converts PDF document (located on storage) to SVG format and returns resulting file in response content
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3630,7 +3540,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3644,15 +3554,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPdfInStorageToTiff**
-> *os.File GetPdfInStorageToTiff(ctx, name, optional)
+> []byte GetPdfInStorageToTiff(name, optional)
 Converts PDF document (located on storage) to TIFF format and returns resulting file in response content
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3681,7 +3590,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3695,15 +3604,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPdfInStorageToXls**
-> *os.File GetPdfInStorageToXls(ctx, name, optional)
+> []byte GetPdfInStorageToXls(name, optional)
 Converts PDF document (located on storage) to XLS format and returns resulting file in response content
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3721,7 +3629,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3735,15 +3643,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPdfInStorageToXml**
-> *os.File GetPdfInStorageToXml(ctx, name, optional)
+> []byte GetPdfInStorageToXml(name, optional)
 Converts PDF document (located on storage) to XML format and returns resulting file in response content
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3757,7 +3664,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3771,15 +3678,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPdfInStorageToXps**
-> *os.File GetPdfInStorageToXps(ctx, name, optional)
+> []byte GetPdfInStorageToXps(name, optional)
 Converts PDF document (located on storage) to XPS format and returns resulting file in response content
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3793,7 +3699,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3807,15 +3713,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPolyLineAnnotation**
-> PolyLineAnnotationResponse GetPolyLineAnnotation(ctx, name, annotationId, optional)
+> PolyLineAnnotationResponse GetPolyLineAnnotation(name, annotationId, optional)
 Read document page polyline annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -3845,15 +3750,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPolygonAnnotation**
-> PolygonAnnotationResponse GetPolygonAnnotation(ctx, name, annotationId, optional)
+> PolygonAnnotationResponse GetPolygonAnnotation(name, annotationId, optional)
 Read document page polygon annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -3883,15 +3787,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPopupAnnotation**
-> PopupAnnotationResponse GetPopupAnnotation(ctx, name, annotationId, optional)
+> PopupAnnotationResponse GetPopupAnnotation(name, annotationId, optional)
 Read document page popup annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -3921,15 +3824,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPsInStorageToPdf**
-> *os.File GetPsInStorageToPdf(ctx, srcPath, optional)
+> []byte GetPsInStorageToPdf(srcPath, optional)
 Convert PS file (located on storage) to PDF format and return resulting file in response. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.ps) | 
+ **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.ps) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3942,7 +3844,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -3956,15 +3858,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetSquareAnnotation**
-> SquareAnnotationResponse GetSquareAnnotation(ctx, name, annotationId, optional)
+> SquareAnnotationResponse GetSquareAnnotation(name, annotationId, optional)
 Read document page square annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -3994,15 +3895,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetSquigglyAnnotation**
-> SquigglyAnnotationResponse GetSquigglyAnnotation(ctx, name, annotationId, optional)
+> SquigglyAnnotationResponse GetSquigglyAnnotation(name, annotationId, optional)
 Read document page squiggly annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -4032,15 +3932,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetStrikeOutAnnotation**
-> StrikeOutAnnotationResponse GetStrikeOutAnnotation(ctx, name, annotationId, optional)
+> StrikeOutAnnotationResponse GetStrikeOutAnnotation(name, annotationId, optional)
 Read document page StrikeOut annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -4070,15 +3969,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetSvgInStorageToPdf**
-> *os.File GetSvgInStorageToPdf(ctx, srcPath, optional)
+> []byte GetSvgInStorageToPdf(srcPath, optional)
 Convert SVG file (located on storage) to PDF format and return resulting file in response. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.svg) | 
+ **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.svg) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -4099,7 +3997,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -4113,15 +4011,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetText**
-> TextRectsResponse GetText(ctx, name, lLX, lLY, uRX, uRY, optional)
+> TextRectsResponse GetText(name, lLX, lLY, uRX, uRY, optional)
 Read document text.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **lLX** | **float64**|  | 
   **lLY** | **float64**|  | 
   **uRX** | **float64**|  | 
@@ -4160,15 +4057,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetTextAnnotation**
-> TextAnnotationResponse GetTextAnnotation(ctx, name, annotationId, optional)
+> TextAnnotationResponse GetTextAnnotation(name, annotationId, optional)
 Read document page text annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -4198,15 +4094,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUnderlineAnnotation**
-> UnderlineAnnotationResponse GetUnderlineAnnotation(ctx, name, annotationId, optional)
+> UnderlineAnnotationResponse GetUnderlineAnnotation(name, annotationId, optional)
 Read document page underline annotation by ID.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -4236,15 +4131,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetVerifySignature**
-> SignatureVerifyResponse GetVerifySignature(ctx, name, signName, optional)
+> SignatureVerifyResponse GetVerifySignature(name, signName, optional)
 Verify signature document.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **signName** | **string**| Sign name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -4274,15 +4168,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetWebInStorageToPdf**
-> *os.File GetWebInStorageToPdf(ctx, url, optional)
+> []byte GetWebInStorageToPdf(url, optional)
 Convert web page to PDF format and return resulting file in response. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **url** | **string**| Source url | 
+ **url** | **string**| Source url | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -4302,7 +4195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -4316,15 +4209,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetWordsPerPage**
-> WordCountResponse GetWordsPerPage(ctx, name, optional)
+> WordCountResponse GetWordsPerPage(name, optional)
 Get number of words per document page.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -4352,15 +4244,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetXfaPdfInStorageToAcroForm**
-> *os.File GetXfaPdfInStorageToAcroForm(ctx, name, optional)
+> []byte GetXfaPdfInStorageToAcroForm(name, optional)
 Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -4374,7 +4265,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -4388,15 +4279,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetXmlInStorageToPdf**
-> *os.File GetXmlInStorageToPdf(ctx, srcPath, optional)
+> []byte GetXmlInStorageToPdf(srcPath, optional)
 Convert XML file (located on storage) to PDF format and return resulting file in response. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.xml) | 
+ **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.xml) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -4410,7 +4300,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -4424,15 +4314,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetXpsInStorageToPdf**
-> *os.File GetXpsInStorageToPdf(ctx, srcPath, optional)
+> []byte GetXpsInStorageToPdf(srcPath, optional)
 Convert XPS file (located on storage) to PDF format and return resulting file in response. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.xps) | 
+ **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.xps) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -4445,7 +4334,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -4459,15 +4348,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetXslFoInStorageToPdf**
-> *os.File GetXslFoInStorageToPdf(ctx, srcPath, optional)
+> []byte GetXslFoInStorageToPdf(srcPath, optional)
 Convert XslFo file (located on storage) to PDF format and return resulting file in response. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.xslfo) | 
+ **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.xslfo) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -4480,7 +4368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -4494,15 +4382,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostAppendDocument**
-> DocumentResponse PostAppendDocument(ctx, name, optional)
+> DocumentResponse PostAppendDocument(name, optional)
 Append document to existing one.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The original document name. | 
+ **name** | **string**| The original document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -4534,15 +4421,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostCreateField**
-> AsposeResponse PostCreateField(ctx, name, page, optional)
+> AsposeResponse PostCreateField(name, page, optional)
 Create field.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **page** | **int32**| Document page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -4573,15 +4459,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostDocumentTextReplace**
-> TextReplaceResponse PostDocumentTextReplace(ctx, name, textReplace, optional)
+> TextReplaceResponse PostDocumentTextReplace(name, textReplace, optional)
 Document's replace text method.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**|  | 
+ **name** | **string**|  | 
   **textReplace** | [**TextReplaceListRequest**](TextReplaceListRequest.md)|  | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -4611,15 +4496,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostInsertImage**
-> AsposeResponse PostInsertImage(ctx, name, pageNumber, llx, lly, urx, ury, optional)
+> AsposeResponse PostInsertImage(name, pageNumber, llx, lly, urx, ury, optional)
 Insert image to document page.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **llx** | **float64**| Coordinate lower left X. | 
   **lly** | **float64**| Coordinate lower left Y. | 
@@ -4659,15 +4543,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostMovePage**
-> AsposeResponse PostMovePage(ctx, name, pageNumber, newIndex, optional)
+> AsposeResponse PostMovePage(name, pageNumber, newIndex, optional)
 Move page to new position.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **newIndex** | **int32**| The new page position/index. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -4699,15 +4582,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostOptimizeDocument**
-> AsposeResponse PostOptimizeDocument(ctx, name, optional)
+> AsposeResponse PostOptimizeDocument(name, optional)
 Optimize document.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -4736,15 +4618,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPageCaretAnnotations**
-> AsposeResponse PostPageCaretAnnotations(ctx, name, pageNumber, annotations, optional)
+> AsposeResponse PostPageCaretAnnotations(name, pageNumber, annotations, optional)
 Add document page caret annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **annotations** | [**[]CaretAnnotation**](CaretAnnotation.md)| The array of annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -4776,15 +4657,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPageCircleAnnotations**
-> AsposeResponse PostPageCircleAnnotations(ctx, name, pageNumber, annotations, optional)
+> AsposeResponse PostPageCircleAnnotations(name, pageNumber, annotations, optional)
 Add document page circle annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **annotations** | [**[]CircleAnnotation**](CircleAnnotation.md)| The array of annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -4816,15 +4696,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPageFreeTextAnnotations**
-> AsposeResponse PostPageFreeTextAnnotations(ctx, name, pageNumber, annotations, optional)
+> AsposeResponse PostPageFreeTextAnnotations(name, pageNumber, annotations, optional)
 Add document page free text annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **annotations** | [**[]FreeTextAnnotation**](FreeTextAnnotation.md)| The array of annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -4856,15 +4735,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPageHighlightAnnotations**
-> AsposeResponse PostPageHighlightAnnotations(ctx, name, pageNumber, annotations, optional)
+> AsposeResponse PostPageHighlightAnnotations(name, pageNumber, annotations, optional)
 Add document page highlight annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **annotations** | [**[]HighlightAnnotation**](HighlightAnnotation.md)| The array of annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -4896,15 +4774,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPageInkAnnotations**
-> AsposeResponse PostPageInkAnnotations(ctx, name, pageNumber, annotations, optional)
+> AsposeResponse PostPageInkAnnotations(name, pageNumber, annotations, optional)
 Add document page ink annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **annotations** | [**[]InkAnnotation**](InkAnnotation.md)| The array of annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -4936,15 +4813,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPageLineAnnotations**
-> AsposeResponse PostPageLineAnnotations(ctx, name, pageNumber, annotations, optional)
+> AsposeResponse PostPageLineAnnotations(name, pageNumber, annotations, optional)
 Add document page line annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **annotations** | [**[]LineAnnotation**](LineAnnotation.md)| The array of annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -4976,15 +4852,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPageLinkAnnotations**
-> AsposeResponse PostPageLinkAnnotations(ctx, name, pageNumber, links, optional)
+> AsposeResponse PostPageLinkAnnotations(name, pageNumber, links, optional)
 Add document page link annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **links** | [**[]LinkAnnotation**](LinkAnnotation.md)| Array of link anotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5016,15 +4891,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPagePolyLineAnnotations**
-> AsposeResponse PostPagePolyLineAnnotations(ctx, name, pageNumber, annotations, optional)
+> AsposeResponse PostPagePolyLineAnnotations(name, pageNumber, annotations, optional)
 Add document page polyline annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **annotations** | [**[]PolyLineAnnotation**](PolyLineAnnotation.md)| The array of annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5056,15 +4930,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPagePolygonAnnotations**
-> AsposeResponse PostPagePolygonAnnotations(ctx, name, pageNumber, annotations, optional)
+> AsposeResponse PostPagePolygonAnnotations(name, pageNumber, annotations, optional)
 Add document page polygon annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **annotations** | [**[]PolygonAnnotation**](PolygonAnnotation.md)| The array of annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5096,15 +4969,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPageSquareAnnotations**
-> AsposeResponse PostPageSquareAnnotations(ctx, name, pageNumber, annotations, optional)
+> AsposeResponse PostPageSquareAnnotations(name, pageNumber, annotations, optional)
 Add document page square annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **annotations** | [**[]SquareAnnotation**](SquareAnnotation.md)| The array of annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5136,15 +5008,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPageSquigglyAnnotations**
-> AsposeResponse PostPageSquigglyAnnotations(ctx, name, pageNumber, annotations, optional)
+> AsposeResponse PostPageSquigglyAnnotations(name, pageNumber, annotations, optional)
 Add document page squiggly annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **annotations** | [**[]SquigglyAnnotation**](SquigglyAnnotation.md)| The array of annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5176,15 +5047,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPageStrikeOutAnnotations**
-> AsposeResponse PostPageStrikeOutAnnotations(ctx, name, pageNumber, annotations, optional)
+> AsposeResponse PostPageStrikeOutAnnotations(name, pageNumber, annotations, optional)
 Add document page StrikeOut annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **annotations** | [**[]StrikeOutAnnotation**](StrikeOutAnnotation.md)| The array of annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5216,15 +5086,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPageTextAnnotations**
-> AsposeResponse PostPageTextAnnotations(ctx, name, pageNumber, annotations, optional)
+> AsposeResponse PostPageTextAnnotations(name, pageNumber, annotations, optional)
 Add document page text annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **annotations** | [**[]TextAnnotation**](TextAnnotation.md)| The array of annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5256,15 +5125,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPageTextReplace**
-> TextReplaceResponse PostPageTextReplace(ctx, name, pageNumber, textReplaceListRequest, optional)
+> TextReplaceResponse PostPageTextReplace(name, pageNumber, textReplaceListRequest, optional)
 Page's replace text method.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**|  | 
+ **name** | **string**|  | 
   **pageNumber** | **int32**|  | 
   **textReplaceListRequest** | [**TextReplaceListRequest**](TextReplaceListRequest.md)|  | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5296,15 +5164,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPageUnderlineAnnotations**
-> AsposeResponse PostPageUnderlineAnnotations(ctx, name, pageNumber, annotations, optional)
+> AsposeResponse PostPageUnderlineAnnotations(name, pageNumber, annotations, optional)
 Add document page underline annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **annotations** | [**[]UnderlineAnnotation**](UnderlineAnnotation.md)| The array of annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5336,15 +5203,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostPopupAnnotation**
-> AsposeResponse PostPopupAnnotation(ctx, name, annotationId, annotation, optional)
+> AsposeResponse PostPopupAnnotation(name, annotationId, annotation, optional)
 Add document popup annotations.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The parent annotation ID. | 
   **annotation** | [**PopupAnnotation**](PopupAnnotation.md)| The annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5376,15 +5242,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostSignDocument**
-> AsposeResponse PostSignDocument(ctx, name, optional)
+> AsposeResponse PostSignDocument(name, optional)
 Sign document.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -5413,15 +5278,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostSignPage**
-> AsposeResponse PostSignPage(ctx, name, pageNumber, optional)
+> AsposeResponse PostSignPage(name, pageNumber, optional)
 Sign page.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -5452,15 +5316,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostSplitDocument**
-> SplitResultResponse PostSplitDocument(ctx, name, optional)
+> SplitResultResponse PostSplitDocument(name, optional)
 Split document to parts.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| Document name. | 
+ **name** | **string**| Document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -5491,15 +5354,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutAddNewPage**
-> DocumentPagesResponse PutAddNewPage(ctx, name, optional)
+> DocumentPagesResponse PutAddNewPage(name, optional)
 Add new page to end of the document.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -5527,15 +5389,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutAddText**
-> AsposeResponse PutAddText(ctx, name, pageNumber, optional)
+> AsposeResponse PutAddText(name, pageNumber, optional)
 Add text to PDF document page.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| Number of page (starting from 1). | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -5566,15 +5427,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutCaretAnnotation**
-> CaretAnnotationResponse PutCaretAnnotation(ctx, name, annotationId, annotation, optional)
+> CaretAnnotationResponse PutCaretAnnotation(name, annotationId, annotation, optional)
 Replace document caret annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**CaretAnnotation**](CaretAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5606,15 +5466,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutCircleAnnotation**
-> CircleAnnotationResponse PutCircleAnnotation(ctx, name, annotationId, annotation, optional)
+> CircleAnnotationResponse PutCircleAnnotation(name, annotationId, annotation, optional)
 Replace document circle annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**CircleAnnotation**](CircleAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5646,15 +5505,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutCreate**
-> AsposeResponse PutCreate(ctx, path, file, optional)
+> AsposeResponse PutCreate(path, file, optional)
 Upload a specific file 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **path** | **string**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext | 
+ **path** | **string**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext | 
   **file** | ***os.File**| File to upload | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -5684,15 +5542,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutCreateDocument**
-> DocumentResponse PutCreateDocument(ctx, name, optional)
+> DocumentResponse PutCreateDocument(name, optional)
 Create empty document.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The new document name. | 
+ **name** | **string**| The new document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -5720,15 +5577,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutEpubInStorageToPdf**
-> AsposeResponse PutEpubInStorageToPdf(ctx, name, srcPath, optional)
+> AsposeResponse PutEpubInStorageToPdf(name, srcPath, optional)
 Convert EPUB file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.epub) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -5758,15 +5614,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutFieldsFlatten**
-> AsposeResponse PutFieldsFlatten(ctx, name, optional)
+> AsposeResponse PutFieldsFlatten(name, optional)
 Flatten form fields in document.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -5794,15 +5649,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutFreeTextAnnotation**
-> FreeTextAnnotationResponse PutFreeTextAnnotation(ctx, name, annotationId, annotation, optional)
+> FreeTextAnnotationResponse PutFreeTextAnnotation(name, annotationId, annotation, optional)
 Replace document free text annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**FreeTextAnnotation**](FreeTextAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5834,15 +5688,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutHighlightAnnotation**
-> HighlightAnnotationResponse PutHighlightAnnotation(ctx, name, annotationId, annotation, optional)
+> HighlightAnnotationResponse PutHighlightAnnotation(name, annotationId, annotation, optional)
 Replace document highlight annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**HighlightAnnotation**](HighlightAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -5874,15 +5727,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutHtmlInStorageToPdf**
-> AsposeResponse PutHtmlInStorageToPdf(ctx, name, srcPath, optional)
+> AsposeResponse PutHtmlInStorageToPdf(name, srcPath, optional)
 Convert HTML file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.zip) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -5920,15 +5772,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutImageExtractAsGif**
-> AsposeResponse PutImageExtractAsGif(ctx, name, imageId, optional)
+> AsposeResponse PutImageExtractAsGif(name, imageId, optional)
 Extract document image in GIF format to folder
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **imageId** | **string**| Image ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -5961,15 +5812,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutImageExtractAsJpeg**
-> AsposeResponse PutImageExtractAsJpeg(ctx, name, imageId, optional)
+> AsposeResponse PutImageExtractAsJpeg(name, imageId, optional)
 Extract document image in JPEG format to folder
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **imageId** | **string**| Image ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -6002,15 +5852,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutImageExtractAsPng**
-> AsposeResponse PutImageExtractAsPng(ctx, name, imageId, optional)
+> AsposeResponse PutImageExtractAsPng(name, imageId, optional)
 Extract document image in PNG format to folder
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **imageId** | **string**| Image ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -6043,15 +5892,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutImageExtractAsTiff**
-> AsposeResponse PutImageExtractAsTiff(ctx, name, imageId, optional)
+> AsposeResponse PutImageExtractAsTiff(name, imageId, optional)
 Extract document image in TIFF format to folder
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **imageId** | **string**| Image ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -6084,15 +5932,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutImageInStorageToPdf**
-> AsposeResponse PutImageInStorageToPdf(ctx, name, imageTemplates, optional)
+> AsposeResponse PutImageInStorageToPdf(name, imageTemplates, optional)
 Convert image file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **imageTemplates** | [**ImageTemplatesRequest**](ImageTemplatesRequest.md)| Image templates | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -6122,15 +5969,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutImagesExtractAsGif**
-> AsposeResponse PutImagesExtractAsGif(ctx, name, pageNumber, optional)
+> AsposeResponse PutImagesExtractAsGif(name, pageNumber, optional)
 Extract document images in GIF format to folder.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -6163,15 +6009,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutImagesExtractAsJpeg**
-> AsposeResponse PutImagesExtractAsJpeg(ctx, name, pageNumber, optional)
+> AsposeResponse PutImagesExtractAsJpeg(name, pageNumber, optional)
 Extract document images in JPEG format to folder.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -6204,15 +6049,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutImagesExtractAsPng**
-> AsposeResponse PutImagesExtractAsPng(ctx, name, pageNumber, optional)
+> AsposeResponse PutImagesExtractAsPng(name, pageNumber, optional)
 Extract document images in PNG format to folder.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -6245,15 +6089,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutImagesExtractAsTiff**
-> AsposeResponse PutImagesExtractAsTiff(ctx, name, pageNumber, optional)
+> AsposeResponse PutImagesExtractAsTiff(name, pageNumber, optional)
 Extract document images in TIFF format to folder.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -6286,15 +6129,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutInkAnnotation**
-> InkAnnotationResponse PutInkAnnotation(ctx, name, annotationId, annotation, optional)
+> InkAnnotationResponse PutInkAnnotation(name, annotationId, annotation, optional)
 Replace document ink annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**InkAnnotation**](InkAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -6326,15 +6168,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutLaTeXInStorageToPdf**
-> AsposeResponse PutLaTeXInStorageToPdf(ctx, name, srcPath, optional)
+> AsposeResponse PutLaTeXInStorageToPdf(name, srcPath, optional)
 Convert LaTeX file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.tex) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -6364,15 +6205,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutLineAnnotation**
-> LineAnnotationResponse PutLineAnnotation(ctx, name, annotationId, annotation, optional)
+> LineAnnotationResponse PutLineAnnotation(name, annotationId, annotation, optional)
 Replace document line annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**LineAnnotation**](LineAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -6404,15 +6244,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutLinkAnnotation**
-> LinkAnnotationResponse PutLinkAnnotation(ctx, name, linkId, link, optional)
+> LinkAnnotationResponse PutLinkAnnotation(name, linkId, link, optional)
 Replace document page link annotations
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **linkId** | **string**| The link ID. | 
   **link** | [**LinkAnnotation**](LinkAnnotation.md)| Link anotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -6444,15 +6283,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutMergeDocuments**
-> *os.File PutMergeDocuments(ctx, name, optional)
+> []byte PutMergeDocuments(name, optional)
 Merge a list of documents.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| Resulting documen name. | 
+ **name** | **string**| Resulting documen name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -6467,7 +6305,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**[]byte**
 
 ### Authorization
 
@@ -6481,15 +6319,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutMhtInStorageToPdf**
-> AsposeResponse PutMhtInStorageToPdf(ctx, name, srcPath, optional)
+> AsposeResponse PutMhtInStorageToPdf(name, srcPath, optional)
 Convert MHT file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.mht) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -6519,15 +6356,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPageAddStamp**
-> AsposeResponse PutPageAddStamp(ctx, name, pageNumber, stamp, optional)
+> AsposeResponse PutPageAddStamp(name, pageNumber, stamp, optional)
 Add page stamp.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **stamp** | [**Stamp**](Stamp.md)| with data. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -6559,15 +6395,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPageConvertToBmp**
-> AsposeResponse PutPageConvertToBmp(ctx, name, pageNumber, outPath, optional)
+> AsposeResponse PutPageConvertToBmp(name, pageNumber, outPath, optional)
 Convert document page to bmp image and upload resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **outPath** | **string**| The out path of result image. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -6601,15 +6436,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPageConvertToEmf**
-> AsposeResponse PutPageConvertToEmf(ctx, name, pageNumber, outPath, optional)
+> AsposeResponse PutPageConvertToEmf(name, pageNumber, outPath, optional)
 Convert document page to emf image and upload resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **outPath** | **string**| The out path of result image. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -6643,15 +6477,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPageConvertToGif**
-> AsposeResponse PutPageConvertToGif(ctx, name, pageNumber, outPath, optional)
+> AsposeResponse PutPageConvertToGif(name, pageNumber, outPath, optional)
 Convert document page to gif image and upload resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **outPath** | **string**| The out path of result image. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -6685,15 +6518,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPageConvertToJpeg**
-> AsposeResponse PutPageConvertToJpeg(ctx, name, pageNumber, outPath, optional)
+> AsposeResponse PutPageConvertToJpeg(name, pageNumber, outPath, optional)
 Convert document page to Jpeg image and upload resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **outPath** | **string**| The out path of result image. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -6727,15 +6559,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPageConvertToPng**
-> AsposeResponse PutPageConvertToPng(ctx, name, pageNumber, outPath, optional)
+> AsposeResponse PutPageConvertToPng(name, pageNumber, outPath, optional)
 Convert document page to png image and upload resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **outPath** | **string**| The out path of result image. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -6769,15 +6600,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPageConvertToTiff**
-> AsposeResponse PutPageConvertToTiff(ctx, name, pageNumber, outPath, optional)
+> AsposeResponse PutPageConvertToTiff(name, pageNumber, outPath, optional)
 Convert document page to Tiff image and upload resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
   **outPath** | **string**| The out path of result image. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -6811,15 +6641,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPclInStorageToPdf**
-> AsposeResponse PutPclInStorageToPdf(ctx, name, srcPath, optional)
+> AsposeResponse PutPclInStorageToPdf(name, srcPath, optional)
 Convert PCL file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.pcl) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -6849,15 +6678,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInRequestToDoc**
-> AsposeResponse PutPdfInRequestToDoc(ctx, outPath, optional)
+> AsposeResponse PutPdfInRequestToDoc(outPath, optional)
 Converts PDF document (in request content) to DOC format and uploads resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.doc) | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.doc) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -6893,15 +6721,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInRequestToEpub**
-> AsposeResponse PutPdfInRequestToEpub(ctx, outPath, optional)
+> AsposeResponse PutPdfInRequestToEpub(outPath, optional)
 Converts PDF document (in request content) to EPUB format and uploads resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.epub) | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.epub) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -6930,15 +6757,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInRequestToHtml**
-> AsposeResponse PutPdfInRequestToHtml(ctx, outPath, optional)
+> AsposeResponse PutPdfInRequestToHtml(outPath, optional)
 Converts PDF document (in request content) to Html format and uploads resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.html) | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.html) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -6994,15 +6820,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInRequestToLaTeX**
-> AsposeResponse PutPdfInRequestToLaTeX(ctx, outPath, optional)
+> AsposeResponse PutPdfInRequestToLaTeX(outPath, optional)
 Converts PDF document (in request content) to LaTeX format and uploads resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.tex) | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.tex) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -7031,15 +6856,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInRequestToMobiXml**
-> AsposeResponse PutPdfInRequestToMobiXml(ctx, outPath, optional)
+> AsposeResponse PutPdfInRequestToMobiXml(outPath, optional)
 Converts PDF document (in request content) to MOBIXML format and uploads resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.mobixml) | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.mobixml) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -7067,15 +6891,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInRequestToPdfA**
-> AsposeResponse PutPdfInRequestToPdfA(ctx, outPath, type_, optional)
+> AsposeResponse PutPdfInRequestToPdfA(outPath, type_, optional)
 Converts PDF document (in request content) to PdfA format and uploads resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.pdf) | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.pdf) | 
   **type_** | **string**| Type of PdfA format. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -7105,15 +6928,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInRequestToPptx**
-> AsposeResponse PutPdfInRequestToPptx(ctx, outPath, optional)
+> AsposeResponse PutPdfInRequestToPptx(outPath, optional)
 Converts PDF document (in request content) to PPTX format and uploads resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.pptx) | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.pptx) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -7143,15 +6965,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInRequestToSvg**
-> AsposeResponse PutPdfInRequestToSvg(ctx, outPath, optional)
+> AsposeResponse PutPdfInRequestToSvg(outPath, optional)
 Converts PDF document (in request content) to SVG format and uploads resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.svg) | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.svg) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -7179,15 +7000,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInRequestToTiff**
-> AsposeResponse PutPdfInRequestToTiff(ctx, outPath, optional)
+> AsposeResponse PutPdfInRequestToTiff(outPath, optional)
 Converts PDF document (in request content) to TIFF format and uploads resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.tiff) | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.tiff) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -7230,15 +7050,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInRequestToXls**
-> AsposeResponse PutPdfInRequestToXls(ctx, outPath, optional)
+> AsposeResponse PutPdfInRequestToXls(outPath, optional)
 Converts PDF document (in request content) to XLS format and uploads resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xls) | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xls) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -7270,15 +7089,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInRequestToXml**
-> AsposeResponse PutPdfInRequestToXml(ctx, outPath, optional)
+> AsposeResponse PutPdfInRequestToXml(outPath, optional)
 Converts PDF document (in request content) to XML format and uploads resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xml) | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xml) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -7306,15 +7124,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInRequestToXps**
-> AsposeResponse PutPdfInRequestToXps(ctx, outPath, optional)
+> AsposeResponse PutPdfInRequestToXps(outPath, optional)
 Converts PDF document (in request content) to XPS format and uploads resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xps) | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xps) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -7342,15 +7159,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInStorageToDoc**
-> AsposeResponse PutPdfInStorageToDoc(ctx, name, outPath, optional)
+> AsposeResponse PutPdfInStorageToDoc(name, outPath, optional)
 Converts PDF document (located on storage) to DOC format and uploads resulting file to storage
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.doc) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -7388,15 +7204,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInStorageToEpub**
-> AsposeResponse PutPdfInStorageToEpub(ctx, name, outPath, optional)
+> AsposeResponse PutPdfInStorageToEpub(name, outPath, optional)
 Converts PDF document (located on storage) to EPUB format and uploads resulting file to storage
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.epub) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -7427,15 +7242,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInStorageToHtml**
-> AsposeResponse PutPdfInStorageToHtml(ctx, name, outPath, optional)
+> AsposeResponse PutPdfInStorageToHtml(name, outPath, optional)
 Converts PDF document (located on storage) to Html format and uploads resulting file to storage
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.html) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -7493,15 +7307,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInStorageToLaTeX**
-> AsposeResponse PutPdfInStorageToLaTeX(ctx, name, outPath, optional)
+> AsposeResponse PutPdfInStorageToLaTeX(name, outPath, optional)
 Converts PDF document (located on storage) to LaTeX format and uploads resulting file to storage
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.tex) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -7532,15 +7345,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInStorageToMobiXml**
-> AsposeResponse PutPdfInStorageToMobiXml(ctx, name, outPath, optional)
+> AsposeResponse PutPdfInStorageToMobiXml(name, outPath, optional)
 Converts PDF document (located on storage) to MOBIXML format and uploads resulting file to storage
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.mobixml) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -7570,15 +7382,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInStorageToPdfA**
-> AsposeResponse PutPdfInStorageToPdfA(ctx, name, outPath, type_, optional)
+> AsposeResponse PutPdfInStorageToPdfA(name, outPath, type_, optional)
 Converts PDF document (located on storage) to PdfA format and uploads resulting file to storage
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.pdf) | 
   **type_** | **string**| Type of PdfA format. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -7610,15 +7421,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInStorageToPptx**
-> AsposeResponse PutPdfInStorageToPptx(ctx, name, outPath, optional)
+> AsposeResponse PutPdfInStorageToPptx(name, outPath, optional)
 Converts PDF document (located on storage) to PPTX format and uploads resulting file to storage
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.pptx) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -7650,15 +7460,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInStorageToSvg**
-> AsposeResponse PutPdfInStorageToSvg(ctx, name, outPath, optional)
+> AsposeResponse PutPdfInStorageToSvg(name, outPath, optional)
 Converts PDF document (located on storage) to SVG format and uploads resulting file to storage
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.svg) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -7688,15 +7497,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInStorageToTiff**
-> AsposeResponse PutPdfInStorageToTiff(ctx, name, outPath, optional)
+> AsposeResponse PutPdfInStorageToTiff(name, outPath, optional)
 Converts PDF document (located on storage) to TIFF format and uploads resulting file to storage
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.tiff) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -7741,15 +7549,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInStorageToXls**
-> AsposeResponse PutPdfInStorageToXls(ctx, name, outPath, optional)
+> AsposeResponse PutPdfInStorageToXls(name, outPath, optional)
 Converts PDF document (located on storage) to XLS format and uploads resulting file to storage
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xls) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -7783,15 +7590,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInStorageToXml**
-> AsposeResponse PutPdfInStorageToXml(ctx, name, outPath, optional)
+> AsposeResponse PutPdfInStorageToXml(name, outPath, optional)
 Converts PDF document (located on storage) to XML format and uploads resulting file to storage
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xml) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -7821,15 +7627,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPdfInStorageToXps**
-> AsposeResponse PutPdfInStorageToXps(ctx, name, outPath, optional)
+> AsposeResponse PutPdfInStorageToXps(name, outPath, optional)
 Converts PDF document (located on storage) to XPS format and uploads resulting file to storage
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xps) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -7859,15 +7664,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPolyLineAnnotation**
-> PolyLineAnnotationResponse PutPolyLineAnnotation(ctx, name, annotationId, annotation, optional)
+> PolyLineAnnotationResponse PutPolyLineAnnotation(name, annotationId, annotation, optional)
 Replace document polyline annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**PolyLineAnnotation**](PolyLineAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -7899,15 +7703,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPolygonAnnotation**
-> PolygonAnnotationResponse PutPolygonAnnotation(ctx, name, annotationId, annotation, optional)
+> PolygonAnnotationResponse PutPolygonAnnotation(name, annotationId, annotation, optional)
 Replace document polygon annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**PolygonAnnotation**](PolygonAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -7939,15 +7742,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPopupAnnotation**
-> PopupAnnotationResponse PutPopupAnnotation(ctx, name, annotationId, annotation, optional)
+> PopupAnnotationResponse PutPopupAnnotation(name, annotationId, annotation, optional)
 Replace document popup annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**PopupAnnotation**](PopupAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -7979,15 +7781,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPrivileges**
-> AsposeResponse PutPrivileges(ctx, name, optional)
+> AsposeResponse PutPrivileges(name, optional)
 Update privilege document.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -8016,15 +7817,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPsInStorageToPdf**
-> AsposeResponse PutPsInStorageToPdf(ctx, name, srcPath, optional)
+> AsposeResponse PutPsInStorageToPdf(name, srcPath, optional)
 Convert PS file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.ps) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -8054,15 +7854,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutReplaceImage**
-> ImageResponse PutReplaceImage(ctx, name, imageId, optional)
+> ImageResponse PutReplaceImage(name, imageId, optional)
 Replace document image.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **imageId** | **string**| The image ID. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -8094,15 +7893,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutSearchableDocument**
-> AsposeResponse PutSearchableDocument(ctx, name, optional)
+> AsposeResponse PutSearchableDocument(name, optional)
 Create searchable PDF document. Generate OCR layer for images in input PDF document.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -8131,15 +7929,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutSetProperty**
-> DocumentPropertyResponse PutSetProperty(ctx, name, propertyName, value, optional)
+> DocumentPropertyResponse PutSetProperty(name, propertyName, value, optional)
 Add/update document property.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**|  | 
+ **name** | **string**|  | 
   **propertyName** | **string**|  | 
   **value** | **string**|  | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -8171,15 +7968,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutSquareAnnotation**
-> SquareAnnotationResponse PutSquareAnnotation(ctx, name, annotationId, annotation, optional)
+> SquareAnnotationResponse PutSquareAnnotation(name, annotationId, annotation, optional)
 Replace document square annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**SquareAnnotation**](SquareAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -8211,15 +8007,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutSquigglyAnnotation**
-> SquigglyAnnotationResponse PutSquigglyAnnotation(ctx, name, annotationId, annotation, optional)
+> SquigglyAnnotationResponse PutSquigglyAnnotation(name, annotationId, annotation, optional)
 Replace document squiggly annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**SquigglyAnnotation**](SquigglyAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -8251,15 +8046,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutStrikeOutAnnotation**
-> StrikeOutAnnotationResponse PutStrikeOutAnnotation(ctx, name, annotationId, annotation, optional)
+> StrikeOutAnnotationResponse PutStrikeOutAnnotation(name, annotationId, annotation, optional)
 Replace document StrikeOut annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**StrikeOutAnnotation**](StrikeOutAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -8291,15 +8085,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutSvgInStorageToPdf**
-> AsposeResponse PutSvgInStorageToPdf(ctx, name, srcPath, optional)
+> AsposeResponse PutSvgInStorageToPdf(name, srcPath, optional)
 Convert SVG file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.svg) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -8337,15 +8130,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutTextAnnotation**
-> TextAnnotationResponse PutTextAnnotation(ctx, name, annotationId, annotation, optional)
+> TextAnnotationResponse PutTextAnnotation(name, annotationId, annotation, optional)
 Replace document text annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**TextAnnotation**](TextAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -8377,15 +8169,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutUnderlineAnnotation**
-> UnderlineAnnotationResponse PutUnderlineAnnotation(ctx, name, annotationId, annotation, optional)
+> UnderlineAnnotationResponse PutUnderlineAnnotation(name, annotationId, annotation, optional)
 Replace document underline annotation
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **annotationId** | **string**| The annotation ID. | 
   **annotation** | [**UnderlineAnnotation**](UnderlineAnnotation.md)| Annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -8417,15 +8208,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutUpdateField**
-> FieldResponse PutUpdateField(ctx, name, fieldName, optional)
+> FieldResponse PutUpdateField(name, fieldName, optional)
 Update field.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **fieldName** | **string**| The name of a field to be updated. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -8456,15 +8246,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutUpdateFields**
-> FieldsResponse PutUpdateFields(ctx, name, optional)
+> FieldsResponse PutUpdateFields(name, optional)
 Update fields.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -8493,15 +8282,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutWebInStorageToPdf**
-> AsposeResponse PutWebInStorageToPdf(ctx, name, url, optional)
+> AsposeResponse PutWebInStorageToPdf(name, url, optional)
 Convert web page to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **url** | **string**| Source url | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -8538,15 +8326,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutXfaPdfInRequestToAcroForm**
-> AsposeResponse PutXfaPdfInRequestToAcroForm(ctx, outPath, optional)
+> AsposeResponse PutXfaPdfInRequestToAcroForm(outPath, optional)
 Converts PDF document which contatins XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.pdf) | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.pdf) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -8574,15 +8361,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutXfaPdfInStorageToAcroForm**
-> AsposeResponse PutXfaPdfInStorageToAcroForm(ctx, name, outPath, optional)
+> AsposeResponse PutXfaPdfInStorageToAcroForm(name, outPath, optional)
 Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.pdf) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -8612,15 +8398,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutXmlInStorageToPdf**
-> AsposeResponse PutXmlInStorageToPdf(ctx, name, srcPath, optional)
+> AsposeResponse PutXmlInStorageToPdf(name, srcPath, optional)
 Convert XML file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.xml) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -8651,15 +8436,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutXpsInStorageToPdf**
-> AsposeResponse PutXpsInStorageToPdf(ctx, name, srcPath, optional)
+> AsposeResponse PutXpsInStorageToPdf(name, srcPath, optional)
 Convert XPS file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.xps) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -8689,15 +8473,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutXslFoInStorageToPdf**
-> AsposeResponse PutXslFoInStorageToPdf(ctx, name, srcPath, optional)
+> AsposeResponse PutXslFoInStorageToPdf(name, srcPath, optional)
 Convert XslFo file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **name** | **string**| The document name. | 
+ **name** | **string**| The document name. | 
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.xpsfo) | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
