@@ -1,4 +1,5 @@
 # ImageSrcType
+Allows to specify image file format.
 
 ## Properties
 Name | Type | Description | Notes

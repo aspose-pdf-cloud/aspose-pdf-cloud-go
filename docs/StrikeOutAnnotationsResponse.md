@@ -1,5 +1,6 @@
 # StrikeOutAnnotationsResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

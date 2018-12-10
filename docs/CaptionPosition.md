@@ -1,4 +1,5 @@
 # CaptionPosition
+Enumeration of the annotation?s caption positioning.
 
 ## Properties
 Name | Type | Description | Notes

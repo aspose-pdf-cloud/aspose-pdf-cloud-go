@@ -1,5 +1,6 @@
 # PopupAnnotationResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

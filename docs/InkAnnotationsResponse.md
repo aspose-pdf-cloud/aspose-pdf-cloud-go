@@ -1,5 +1,6 @@
 # InkAnnotationsResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

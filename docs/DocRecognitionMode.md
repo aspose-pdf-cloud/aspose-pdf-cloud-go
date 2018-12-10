@@ -1,4 +1,5 @@
 # DocRecognitionMode
+Allows to control how a PDF document is converted into a word processing document.
 
 ## Properties
 Name | Type | Description | Notes

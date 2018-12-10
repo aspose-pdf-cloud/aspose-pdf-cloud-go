@@ -1,4 +1,5 @@
 # FontEncodingRules
+This enumeration defines rules which tune encoding logic
 
 ## Properties
 Name | Type | Description | Notes

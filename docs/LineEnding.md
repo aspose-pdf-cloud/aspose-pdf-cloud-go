@@ -1,4 +1,5 @@
 # LineEnding
+Enumerates the line ending styles to be used in drawing the line.
 
 ## Properties
 Name | Type | Description | Notes

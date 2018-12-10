@@ -1,4 +1,5 @@
 # StampType
+Represents enumeration of the stamp types.
 
 ## Properties
 Name | Type | Description | Notes

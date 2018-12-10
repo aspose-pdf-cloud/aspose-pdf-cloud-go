@@ -1,5 +1,6 @@
 # CaretAnnotationResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

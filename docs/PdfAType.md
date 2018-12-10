@@ -1,4 +1,5 @@
 # PdfAType
+Allows to specify PdfA file format.
 
 ## Properties
 Name | Type | Description | Notes

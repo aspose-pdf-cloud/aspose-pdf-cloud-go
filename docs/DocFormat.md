@@ -1,4 +1,5 @@
 # DocFormat
+Allows to specify .doc or .docx file format.
 
 ## Properties
 Name | Type | Description | Notes

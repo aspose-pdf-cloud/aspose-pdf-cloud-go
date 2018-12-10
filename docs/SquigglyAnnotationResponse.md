@@ -1,5 +1,6 @@
 # SquigglyAnnotationResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

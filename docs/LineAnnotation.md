@@ -1,4 +1,5 @@
 # LineAnnotation
+Provides LineAnnotation.
 
 ## Properties
 Name | Type | Description | Notes

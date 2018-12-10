@@ -1,4 +1,5 @@
 # PopupAnnotationWithParent
+Provides PopupAnnotation.
 
 ## Properties
 Name | Type | Description | Notes

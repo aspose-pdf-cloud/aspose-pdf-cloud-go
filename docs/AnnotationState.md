@@ -1,4 +1,5 @@
 # AnnotationState
+The enumeration of states to which the original annotation can be set.
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,5 @@
 # CaretSymbol
+A symbol to be associated with the caret.
 
 ## Properties
 Name | Type | Description | Notes

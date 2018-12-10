@@ -1,4 +1,5 @@
 # HighlightAnnotation
+Provides HighlightAnnotation.
 
 ## Properties
 Name | Type | Description | Notes

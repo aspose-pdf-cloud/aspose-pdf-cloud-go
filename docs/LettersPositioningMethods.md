@@ -1,4 +1,6 @@
 # LettersPositioningMethods
+It enumerates possible modes of positioning of letters in words in result HTML
+            
 
 ## Properties
 Name | Type | Description | Notes

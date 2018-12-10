@@ -1,4 +1,5 @@
 # SquareAnnotation
+Provides SquareAnnotation.
 
 ## Properties
 Name | Type | Description | Notes

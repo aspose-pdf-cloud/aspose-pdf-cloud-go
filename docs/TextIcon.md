@@ -1,4 +1,5 @@
 # TextIcon
+Enumerates the icons to be used in displaying the annotation.
 
 ## Properties
 Name | Type | Description | Notes

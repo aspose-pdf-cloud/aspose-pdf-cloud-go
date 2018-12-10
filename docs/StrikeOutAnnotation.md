@@ -1,4 +1,5 @@
 # StrikeOutAnnotation
+Provides StrikeOutAnnotation.
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,5 @@
 # Point
+Represent point with fractional coordinates.
 
 ## Properties
 Name | Type | Description | Notes

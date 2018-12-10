@@ -1,4 +1,5 @@
 # SplitResultDocument
+Represents split result document,
 
 ## Properties
 Name | Type | Description | Notes

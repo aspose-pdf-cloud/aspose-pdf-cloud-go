@@ -1,5 +1,6 @@
 # SignatureType
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

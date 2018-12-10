@@ -1,4 +1,5 @@
 # CaretAnnotation
+Provides CaretAnnotation.
 
 ## Properties
 Name | Type | Description | Notes

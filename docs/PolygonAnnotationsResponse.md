@@ -1,5 +1,6 @@
 # PolygonAnnotationsResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

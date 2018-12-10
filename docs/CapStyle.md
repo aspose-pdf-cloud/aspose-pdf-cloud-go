@@ -1,4 +1,5 @@
 # CapStyle
+Style of line ending of Ink annotation line. 
 
 ## Properties
 Name | Type | Description | Notes

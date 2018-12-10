@@ -1,5 +1,6 @@
 # UnderlineAnnotationResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

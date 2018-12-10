@@ -1,4 +1,5 @@
 # Rotation
+Enumeration of possible rotation values.
 
 ## Properties
 Name | Type | Description | Notes

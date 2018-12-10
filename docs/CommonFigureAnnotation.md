@@ -1,4 +1,5 @@
 # CommonFigureAnnotation
+Provides CommonFigureAnnotation.
 
 ## Properties
 Name | Type | Description | Notes

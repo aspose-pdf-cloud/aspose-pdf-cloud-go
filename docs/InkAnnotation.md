@@ -1,4 +1,5 @@
 # InkAnnotation
+Provides InkAnnotation.
 
 ## Properties
 Name | Type | Description | Notes

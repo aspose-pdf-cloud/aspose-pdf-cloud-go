@@ -1,4 +1,5 @@
 # AntialiasingProcessingType
+This enum describes possible antialiasing measures during conversion
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,5 @@
 # UnderlineAnnotation
+Provides UnderlineAnnotation.
 
 ## Properties
 Name | Type | Description | Notes

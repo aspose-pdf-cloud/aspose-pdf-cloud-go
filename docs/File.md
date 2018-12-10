@@ -1,4 +1,5 @@
 # File
+Represents file DTO.
 
 ## Properties
 Name | Type | Description | Notes

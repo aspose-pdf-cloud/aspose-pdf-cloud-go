@@ -1,5 +1,6 @@
 # AnnotationType
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

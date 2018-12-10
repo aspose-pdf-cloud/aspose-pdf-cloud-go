@@ -1,4 +1,5 @@
 # SquigglyAnnotation
+Provides SquigglyAnnotation.
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,5 +1,6 @@
 # SquareAnnotationsResponse
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

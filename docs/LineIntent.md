@@ -1,4 +1,5 @@
 # LineIntent
+Enumerates the intents of the line annotation.
 
 ## Properties
 Name | Type | Description | Notes

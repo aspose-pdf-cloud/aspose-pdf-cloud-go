@@ -1,4 +1,5 @@
 # CircleAnnotation
+Provides CircleAnnotation.
 
 ## Properties
 Name | Type | Description | Notes

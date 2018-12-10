@@ -1,4 +1,5 @@
 # PolyIntent
+Enumerates the intents of the polygon or polyline annotation.
 
 ## Properties
 Name | Type | Description | Notes
