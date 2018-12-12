@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **TextState** | [***TextState**](TextState.md) | Text properties of a new text. | [optional] [default to null]
 **Rect** | [***RectanglePdf**](RectanglePdf.md) | Rectangle area where searched original text. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../text_replace.go)
 
 

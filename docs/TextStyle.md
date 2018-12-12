@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **ForegroundColor** | [***Color**](Color.md) | Gets or sets foreground color of the text. | [optional] [default to null]
 **BackgroundColor** | [***Color**](Color.md) | Sets background color of the text. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../text_style.go)
 
 

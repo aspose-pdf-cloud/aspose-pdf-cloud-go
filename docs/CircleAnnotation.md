@@ -23,6 +23,6 @@ Name | Type | Description | Notes
 **Frame** | [***RectanglePdf**](RectanglePdf.md) | Get or set the annotation Rectangle of frame. | [optional] [default to null]
 **Color** | [***Color**](Color.md) | Color of the annotation. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../circle_annotation.go)
 
 

@@ -24,6 +24,6 @@ Name | Type | Description | Notes
 **Rotate** | [***Rotation**](Rotation.md) | Angle of annotation rotation. | [optional] [default to null]
 **TextStyle** | [***TextStyle**](TextStyle.md) | Text style of the annotation. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../free_text_annotation.go)
 
 

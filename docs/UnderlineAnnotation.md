@@ -22,6 +22,6 @@ Name | Type | Description | Notes
 **Color** | [***Color**](Color.md) | Color of the annotation. | [optional] [default to null]
 **QuadPoints** | [**[]Point**](Point.md) | Gets or sets an array of points specifying the coordinates of n quadrilaterals. Each quadrilateral encompasses a word or group of contiguous words in the text underlying the annotation. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../underline_annotation.go)
 
 

@@ -23,6 +23,6 @@ Name | Type | Description | Notes
 **InkList** | [**[][]Point**](array.md) | Gets or sets list of gestures that are independent lines which are represented by Point[] arrays. | [optional] [default to null]
 **CapStyle** | [***CapStyle**](CapStyle.md) | Style of ink annotation line endings. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../ink_annotation.go)
 
 

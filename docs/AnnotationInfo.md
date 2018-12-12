@@ -17,6 +17,6 @@ Name | Type | Description | Notes
 **VerticalAlignment** | [***VerticalAlignment**](VerticalAlignment.md) | Gets VerticalAlignment of the annotation. | [optional] [default to null]
 **AnnotationType** | [***AnnotationType**](AnnotationType.md) | Gets annotation type. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../annotation_info.go)
 
 

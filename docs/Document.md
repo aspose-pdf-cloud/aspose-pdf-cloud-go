@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **DocumentProperties** | [***DocumentProperties**](DocumentProperties.md) | Document properties. | [optional] [default to null]
 **Pages** | [***Pages**](Pages.md) | Document pages. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../document.go)
 
 

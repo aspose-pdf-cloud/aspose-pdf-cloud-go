@@ -22,6 +22,6 @@ Name | Type | Description | Notes
 **InteriorColor** | [***Color**](Color.md) | Get the annotation InteriorColor. | [optional] [default to null]
 **Frame** | [***RectanglePdf**](RectanglePdf.md) | Get or set the annotation Rectangle of frame. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../common_figure_annotation.go)
 
 

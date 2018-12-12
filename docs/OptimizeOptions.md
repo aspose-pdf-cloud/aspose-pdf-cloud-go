@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **RemoveUnusedStreams** | **bool** | If this flag set to true, every resource is checked on it&#39;s usage. If resource is never used, then resources is removed. This may decrease document size for example when pages were extracted from document.  | [default to null]
 **UnembedFonts** | **bool** | Make fonts not embedded if set to true.  | [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../optimize_options.go)
 
 

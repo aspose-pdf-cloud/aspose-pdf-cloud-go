@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **BackgroundColor** | [***Color**](Color.md) | Sets background color of the text. | [optional] [default to null]
 **FontStyle** | [***FontStyles**](FontStyles.md) | Sets font style of the text. | [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../text_state.go)
 
 

@@ -19,6 +19,6 @@ Name | Type | Description | Notes
 **Open** | **bool** | Gets or sets a flag specifying whether the pop-up annotation should initially be displayed open. | [optional] [default to null]
 **Parent** | [***AnnotationInfo**](AnnotationInfo.md) | Parent of annotation. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../popup_annotation_with_parent.go)
 
 

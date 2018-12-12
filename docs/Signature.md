@@ -18,6 +18,6 @@ Name | Type | Description | Notes
 **Date** | **string** | Gets or sets the time of signing. | [optional] [default to null]
 **ShowProperties** | **bool** | Gets or sets the showproperties in signature field | [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../signature.go)
 
 

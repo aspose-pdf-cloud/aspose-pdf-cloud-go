@@ -33,6 +33,6 @@ Name | Type | Description | Notes
 **Color** | [***Color**](Color.md) | Color of the annotation. | [optional] [default to null]
 **Intent** | [***LineIntent**](LineIntent.md) | Gets or sets the intent of the line annotation. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../line_annotation.go)
 
 

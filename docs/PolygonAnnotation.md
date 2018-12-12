@@ -26,6 +26,6 @@ Name | Type | Description | Notes
 **Vertices** | [**[]Point**](Point.md) | Gets or sets an array of points representing the horizontal and vertical coordinates of each vertex. | [optional] [default to null]
 **Color** | [***Color**](Color.md) | Color of the annotation. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../polygon_annotation.go)
 
 

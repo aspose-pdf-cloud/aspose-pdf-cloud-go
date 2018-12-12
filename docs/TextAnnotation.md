@@ -24,6 +24,6 @@ Name | Type | Description | Notes
 **Color** | [***Color**](Color.md) | Color of the annotation. | [optional] [default to null]
 **Icon** | [***TextIcon**](TextIcon.md) | Gets or sets an icon to be used in displaying the annotation. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../text_annotation.go)
 
 
