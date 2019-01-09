@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing multiple images info
 type ImagesResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Images object
 	Images *Images `json:"Images,omitempty"`
 }

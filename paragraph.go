@@ -20,18 +20,30 @@
  */
 package asposepdfcloud
 
-// Paragraph DTO for add text functionality.
+// Represents text paragraphs as multiline text object.
 type Paragraph struct {
+	// Line spacing mode.
 	LineSpacing LineSpacing `json:"LineSpacing,omitempty"`
+	// Word wrap mode.
 	WrapMode WrapMode `json:"WrapMode,omitempty"`
+	// Horizontal alignment for the text inside paragrph's rectangle.
 	HorizontalAlignment TextHorizontalAlignment `json:"HorizontalAlignment,omitempty"`
+	// Left margin.
 	LeftMargin float64 `json:"LeftMargin,omitempty"`
+	// Right margin.
 	RightMargin float64 `json:"RightMargin,omitempty"`
+	// Top margin.
 	TopMargin float64 `json:"TopMargin,omitempty"`
+	// Bottom margin.
 	BottomMargin float64 `json:"BottomMargin,omitempty"`
-	Rectangle *RectanglePdf `json:"Rectangle,omitempty"`
+	// Rectangle of the paragraph.
+	Rectangle *Rectangle `json:"Rectangle,omitempty"`
+	// Rotation angle in degrees.
 	Rotation float64 `json:"Rotation,omitempty"`
+	// Subsequent lines indent value.
 	SubsequentLinesIndent float64 `json:"SubsequentLinesIndent,omitempty"`
+	// Vertical alignment for the text inside paragrph's rectangle
 	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
+	// An array of text lines.
 	Lines []TextLine `json:"Lines"`
 }

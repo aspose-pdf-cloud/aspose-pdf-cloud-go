@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of annotations.
+// Object representing a list of polygon annotations.
 type PolygonAnnotations struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of polygon annotations.
 	List []PolygonAnnotation `json:"List,omitempty"`
 }

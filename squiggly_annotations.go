@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of annotations.
+// Object representing a list of squiggly-underline annotations.
 type SquigglyAnnotations struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of squiggly-underline annotations.
 	List []SquigglyAnnotation `json:"List,omitempty"`
 }

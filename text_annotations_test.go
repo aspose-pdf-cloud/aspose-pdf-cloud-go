@@ -111,7 +111,7 @@ func TestPostPageTextAnnotations(t *testing.T) {
 
 	annotation := TextAnnotation {
 		Name: "Name",
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		RichText: "Rich Text",
@@ -144,7 +144,7 @@ func TestPutTextAnnotation(t *testing.T) {
 
 	annotation := TextAnnotation {
 		Name: "Updated Name",
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		RichText: "Updated Rich Text",

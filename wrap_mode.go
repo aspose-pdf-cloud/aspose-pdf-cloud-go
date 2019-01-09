@@ -19,7 +19,7 @@
  *
  */
 package asposepdfcloud
-// WrapMode : 
+// WrapMode : Defines word wrapping strategies
 type WrapMode string
 
 // List of WrapMode

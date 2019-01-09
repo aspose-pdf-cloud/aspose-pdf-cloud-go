@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing multiple text occurrences info
 type TextRectsResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
-	TextOccurences *TextRects `json:"TextOccurences,omitempty"`
+	// TextRects object
+	TextOccurrences *TextRects `json:"TextOccurrences,omitempty"`
 }

@@ -119,7 +119,7 @@ func TestPostPageFreeTextAnnotations(t *testing.T) {
 	annotation := FreeTextAnnotation {
 		Name: "Name",
 		TextStyle: &textStyle,
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		Intent: FreeTextIntentFreeTextTypeWriter,
@@ -161,7 +161,7 @@ func TestPutFreeTextAnnotation(t *testing.T) {
 	annotation := FreeTextAnnotation {
 		Name: "Updated Name",
 		TextStyle: &textStyle,
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		Intent: FreeTextIntentFreeTextTypeWriter,

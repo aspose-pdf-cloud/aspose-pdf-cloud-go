@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing multiple square annotation objects
 type SquareAnnotationsResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Square annotations object
 	Annotations *SquareAnnotations `json:"Annotations,omitempty"`
 }

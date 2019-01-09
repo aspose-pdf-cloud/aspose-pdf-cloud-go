@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**DeleteDocumentAnnotations**](PdfApi.md#DeleteDocumentAnnotations) | **Delete** /pdf/{name}/annotations | Delete all annotations from the document
 [**DeleteDocumentLinkAnnotations**](PdfApi.md#DeleteDocumentLinkAnnotations) | **Delete** /pdf/{name}/links | Delete all link annotations from the document
 [**DeleteField**](PdfApi.md#DeleteField) | **Delete** /pdf/{name}/fields/{fieldName} | Delete document field by name.
+[**DeleteFile**](PdfApi.md#DeleteFile) | **Delete** /storage/file | Remove a specific file 
+[**DeleteFolder**](PdfApi.md#DeleteFolder) | **Delete** /storage/folder | Remove a specific folder 
 [**DeleteImage**](PdfApi.md#DeleteImage) | **Delete** /pdf/{name}/images/{imageId} | Delete image from document page.
 [**DeleteLinkAnnotation**](PdfApi.md#DeleteLinkAnnotation) | **Delete** /pdf/{name}/links/{linkId} | Delete document page link annotation by ID
 [**DeletePage**](PdfApi.md#DeletePage) | **Delete** /pdf/{name}/pages/{pageNumber} | Delete document page by its number.
@@ -17,6 +19,7 @@ Method | HTTP request | Description
 [**DeleteProperty**](PdfApi.md#DeleteProperty) | **Delete** /pdf/{name}/documentproperties/{propertyName} | Delete document property.
 [**GetCaretAnnotation**](PdfApi.md#GetCaretAnnotation) | **Get** /pdf/{name}/annotations/caret/{annotationId} | Read document page caret annotation by ID.
 [**GetCircleAnnotation**](PdfApi.md#GetCircleAnnotation) | **Get** /pdf/{name}/annotations/circle/{annotationId} | Read document page circle annotation by ID.
+[**GetDiscUsage**](PdfApi.md#GetDiscUsage) | **Get** /storage/disc | Check the disk usage of the current account 
 [**GetDocument**](PdfApi.md#GetDocument) | **Get** /pdf/{name} | Read common document info.
 [**GetDocumentAnnotations**](PdfApi.md#GetDocumentAnnotations) | **Get** /pdf/{name}/annotations | Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
 [**GetDocumentAttachmentByIndex**](PdfApi.md#GetDocumentAttachmentByIndex) | **Get** /pdf/{name}/attachments/{attachmentIndex} | Read document attachment info by its index.
@@ -54,9 +57,12 @@ Method | HTTP request | Description
 [**GetImageExtractAsTiff**](PdfApi.md#GetImageExtractAsTiff) | **Get** /pdf/{name}/images/{imageId}/extract/tiff | Extract document image in TIFF format
 [**GetImages**](PdfApi.md#GetImages) | **Get** /pdf/{name}/pages/{pageNumber}/images | Read document images.
 [**GetInkAnnotation**](PdfApi.md#GetInkAnnotation) | **Get** /pdf/{name}/annotations/ink/{annotationId} | Read document page ink annotation by ID.
+[**GetIsExist**](PdfApi.md#GetIsExist) | **Get** /storage/exist | Check if a specific file or folder exists
+[**GetIsStorageExist**](PdfApi.md#GetIsStorageExist) | **Get** /storage/{name}/exist | Check if storage exists 
 [**GetLaTeXInStorageToPdf**](PdfApi.md#GetLaTeXInStorageToPdf) | **Get** /pdf/create/latex | Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
 [**GetLineAnnotation**](PdfApi.md#GetLineAnnotation) | **Get** /pdf/{name}/annotations/line/{annotationId} | Read document page line annotation by ID.
 [**GetLinkAnnotation**](PdfApi.md#GetLinkAnnotation) | **Get** /pdf/{name}/links/{linkId} | Read document link annotation by ID.
+[**GetListFileVersions**](PdfApi.md#GetListFileVersions) | **Get** /storage/version | Get the file&#39;s versions list 
 [**GetListFiles**](PdfApi.md#GetListFiles) | **Get** /storage/folder | Get the file listing of a specific folder 
 [**GetMhtInStorageToPdf**](PdfApi.md#GetMhtInStorageToPdf) | **Get** /pdf/create/mht | Convert MHT file (located on storage) to PDF format and return resulting file in response. 
 [**GetPage**](PdfApi.md#GetPage) | **Get** /pdf/{name}/pages/{pageNumber} | Read document page info.
@@ -119,7 +125,10 @@ Method | HTTP request | Description
 [**PostAppendDocument**](PdfApi.md#PostAppendDocument) | **Post** /pdf/{name}/appendDocument | Append document to existing one.
 [**PostCreateField**](PdfApi.md#PostCreateField) | **Post** /pdf/{name}/fields | Create field.
 [**PostDocumentTextReplace**](PdfApi.md#PostDocumentTextReplace) | **Post** /pdf/{name}/text/replace | Document&#39;s replace text method.
+[**PostFlattenDocument**](PdfApi.md#PostFlattenDocument) | **Post** /pdf/{name}/flatten | Removes all fields from the document and place their values instead.
 [**PostInsertImage**](PdfApi.md#PostInsertImage) | **Post** /pdf/{name}/pages/{pageNumber}/images | Insert image to document page.
+[**PostMoveFile**](PdfApi.md#PostMoveFile) | **Post** /storage/file | Move a specific file
+[**PostMoveFolder**](PdfApi.md#PostMoveFolder) | **Post** /storage/folder | Move a specific folder 
 [**PostMovePage**](PdfApi.md#PostMovePage) | **Post** /pdf/{name}/pages/{pageNumber}/movePage | Move page to new position.
 [**PostOptimizeDocument**](PdfApi.md#PostOptimizeDocument) | **Post** /pdf/{name}/optimize | Optimize document.
 [**PostPageCaretAnnotations**](PdfApi.md#PostPageCaretAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/caret | Add document page caret annotations.
@@ -147,6 +156,7 @@ Method | HTTP request | Description
 [**PutCircleAnnotation**](PdfApi.md#PutCircleAnnotation) | **Put** /pdf/{name}/annotations/circle/{annotationId} | Replace document circle annotation
 [**PutCreate**](PdfApi.md#PutCreate) | **Put** /storage/file | Upload a specific file 
 [**PutCreateDocument**](PdfApi.md#PutCreateDocument) | **Put** /pdf/{name} | Create empty document.
+[**PutCreateFolder**](PdfApi.md#PutCreateFolder) | **Put** /storage/folder | Create the folder 
 [**PutEpubInStorageToPdf**](PdfApi.md#PutEpubInStorageToPdf) | **Put** /pdf/{name}/create/epub | Convert EPUB file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutFieldsFlatten**](PdfApi.md#PutFieldsFlatten) | **Put** /pdf/{name}/fields/flatten | Flatten form fields in document.
 [**PutFreeTextAnnotation**](PdfApi.md#PutFreeTextAnnotation) | **Put** /pdf/{name}/annotations/freetext/{annotationId} | Replace document free text annotation
@@ -339,6 +349,68 @@ Name | Type | Description  | Notes
  **fieldName** | **string**| The field name/ | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteFile**
+> AsposeResponse DeleteFile(path, optional)
+Remove a specific file 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| Path of the file including file name and extension e.g. /Folder1/file.ext | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| Path of the file including file name and extension e.g. /Folder1/file.ext | 
+ **versionId** | **string**| File&#39;s version | 
+ **storage** | **string**| User&#39;s storage name | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteFolder**
+> AsposeResponse DeleteFolder(path, optional)
+Remove a specific folder 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| Folder path e.g. /Folder1 | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| Folder path e.g. /Folder1 | 
+ **storage** | **string**| User&#39;s storage name | 
+ **recursive** | **bool**| Remove recursivelly inner folder/files. If false and folder contains data than exception is raised. | [default to false]
 
 ### Return type
 
@@ -638,6 +710,34 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CircleAnnotationResponse**](CircleAnnotationResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDiscUsage**
+> DiscUsageResponse GetDiscUsage(optional)
+Check the disk usage of the current account 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storage** | **string**| User&#39;s storage name | 
+
+### Return type
+
+[**DiscUsageResponse**](DiscUsageResponse.md)
 
 ### HTTP request headers
 
@@ -1836,6 +1936,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetIsExist**
+> FileExistResponse GetIsExist(path, optional)
+Check if a specific file or folder exists
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| File or folder path e.g. /file.ext or /Folder1 | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| File or folder path e.g. /file.ext or /Folder1 | 
+ **versionId** | **string**| File&#39;s version | 
+ **storage** | **string**| User&#39;s storage name | 
+
+### Return type
+
+[**FileExistResponse**](FileExistResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetIsStorageExist**
+> StorageExistResponse GetIsStorageExist(name)
+Check if storage exists 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Storage name | 
+
+### Return type
+
+[**StorageExistResponse**](StorageExistResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetLaTeXInStorageToPdf**
 > []byte GetLaTeXInStorageToPdf(srcPath, optional)
 Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
@@ -1924,6 +2076,36 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LinkAnnotationResponse**](LinkAnnotationResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetListFileVersions**
+> FileVersionsResponse GetListFileVersions(path, optional)
+Get the file's versions list 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| File path e.g. /file.ext or /Folder1/file.ext | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| File path e.g. /file.ext or /Folder1/file.ext | 
+ **storage** | **string**| User&#39;s storage name | 
+
+### Return type
+
+[**FileVersionsResponse**](FileVersionsResponse.md)
 
 ### HTTP request headers
 
@@ -2741,10 +2923,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
   **pageNumber** | **int32**| Number of page (starting from 1). | 
-  **lLX** | **float64**|  | 
-  **lLY** | **float64**|  | 
-  **uRX** | **float64**|  | 
-  **uRY** | **float64**|  | 
+  **lLX** | **float64**| X-coordinate of lower - left corner. | 
+  **lLY** | **float64**| Y - coordinate of lower-left corner. | 
+  **uRX** | **float64**| X - coordinate of upper-right corner. | 
+  **uRY** | **float64**| Y - coordinate of upper-right corner. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -2754,10 +2936,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| Number of page (starting from 1). | 
- **lLX** | **float64**|  | 
- **lLY** | **float64**|  | 
- **uRX** | **float64**|  | 
- **uRY** | **float64**|  | 
+ **lLX** | **float64**| X-coordinate of lower - left corner. | 
+ **lLY** | **float64**| Y - coordinate of lower-left corner. | 
+ **uRX** | **float64**| X - coordinate of upper-right corner. | 
+ **uRY** | **float64**| Y - coordinate of upper-right corner. | 
  **format** | [**[]string**](string.md)| List of formats for search. | 
  **regex** | **string**| Formats are specified as a regular expression. | 
  **splitRects** | **bool**| Split result fragments (default is true). | 
@@ -2958,7 +3140,7 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
- **contentRecognitionMode** | **string**| Рroperty tunes conversion for this or that desirable method of recognition of content. | 
+ **contentRecognitionMode** | **string**| Property tunes conversion for this or that desirable method of recognition of content. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -3611,10 +3793,10 @@ Read document text.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
-  **lLX** | **float64**|  | 
-  **lLY** | **float64**|  | 
-  **uRX** | **float64**|  | 
-  **uRY** | **float64**|  | 
+  **lLX** | **float64**| X-coordinate of lower - left corner. | 
+  **lLY** | **float64**| Y - coordinate of lower-left corner. | 
+  **uRX** | **float64**| X - coordinate of upper-right corner. | 
+  **uRY** | **float64**| Y - coordinate of upper-right corner. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3623,10 +3805,10 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
- **lLX** | **float64**|  | 
- **lLY** | **float64**|  | 
- **uRX** | **float64**|  | 
- **uRY** | **float64**|  | 
+ **lLX** | **float64**| X-coordinate of lower - left corner. | 
+ **lLY** | **float64**| Y - coordinate of lower-left corner. | 
+ **uRX** | **float64**| X - coordinate of upper-right corner. | 
+ **uRY** | **float64**| Y - coordinate of upper-right corner. | 
  **format** | [**[]string**](string.md)| List of formats for search. | 
  **regex** | **string**| Formats are specified as a regular expression. | 
  **splitRects** | **bool**| Split result fragments (default is true). | 
@@ -4035,6 +4217,40 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PostFlattenDocument**
+> AsposeResponse PostFlattenDocument(name, optional)
+Removes all fields from the document and place their values instead.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **updateAppearances** | **bool**| If set, all field appearances will be regenerated before flattening. This option may help if field is incorrectly flattened. This option may decrease performance.. | 
+ **callEvents** | **bool**| If set, formatting and other JavaScript events will be called. | 
+ **hideButtons** | **bool**| If set, buttons will be removed from flattened document. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PostInsertImage**
 > AsposeResponse PostInsertImage(name, pageNumber, llx, lly, urx, ury, optional)
 Insert image to document page.
@@ -4074,6 +4290,73 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostMoveFile**
+> AsposeResponse PostMoveFile(src, dest, optional)
+Move a specific file
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **src** | **string**| Source file path e.g. /fileSource.ext | 
+  **dest** | **string**| Destination file path e.g. /fileDestination.ext | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **src** | **string**| Source file path e.g. /fileSource.ext | 
+ **dest** | **string**| Destination file path e.g. /fileDestination.ext | 
+ **versionId** | **string**| Source file&#39;s version, | 
+ **storage** | **string**| User&#39;s source storage name | 
+ **destStorage** | **string**| User&#39;s destination storage name | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostMoveFolder**
+> AsposeResponse PostMoveFolder(src, dest, optional)
+Move a specific folder 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **src** | **string**| Source folder path e.g. /Folder1 | 
+  **dest** | **string**| Destination folder path e.g. /Folder2 | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **src** | **string**| Source folder path e.g. /Folder1 | 
+ **dest** | **string**| Destination folder path e.g. /Folder2 | 
+ **storage** | **string**| User&#39;s source storage name | 
+ **destStorage** | **string**| User&#39;s destination storage name | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -4996,6 +5279,37 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DocumentResponse**](DocumentResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutCreateFolder**
+> AsposeResponse PutCreateFolder(path, optional)
+Create the folder 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| Target folder&#39;s path e.g. Folder1/Folder2/. The folders will be created recursively | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| Target folder&#39;s path e.g. Folder1/Folder2/. The folders will be created recursively | 
+ **storage** | **string**| User&#39;s source storage name | 
+ **destStorage** | **string**| User&#39;s destination storage name | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
 
 ### HTTP request headers
 
@@ -6049,7 +6363,7 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.epub) | 
- **contentRecognitionMode** | **string**| Рroperty tunes conversion for this or that desirable method of recognition of content. | 
+ **contentRecognitionMode** | **string**| Property tunes conversion for this or that desirable method of recognition of content. | 
  **storage** | **string**| The document storage. | 
  **file** | ***os.File**| A file to be converted. | 
 
@@ -6486,7 +6800,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.epub) | 
- **contentRecognitionMode** | **string**| Рroperty tunes conversion for this or that desirable method of recognition of content. | 
+ **contentRecognitionMode** | **string**| Property tunes conversion for this or that desirable method of recognition of content. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 

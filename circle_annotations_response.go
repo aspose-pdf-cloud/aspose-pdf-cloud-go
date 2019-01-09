@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing multiple circle annotation objects
 type CircleAnnotationsResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Circle annotations object
 	Annotations *CircleAnnotations `json:"Annotations,omitempty"`
 }

@@ -120,7 +120,7 @@ func TestPostPageLinkAnnotations(t *testing.T) {
 	}
 
 	annotation := LinkAnnotation {
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 500, URY: 500},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 500, URY: 500},
 		ActionType: LinkActionTypeGoToURIAction,
 		Action: "https://products.aspose.cloud/pdf",
 		Highlighting: LinkHighlightingModeInvert,
@@ -151,7 +151,7 @@ func TestPutLinkAnnotation(t *testing.T) {
 	}
 
 	annotation := LinkAnnotation {
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 500, URY: 500},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 500, URY: 500},
 		ActionType: LinkActionTypeGoToURIAction,
 		Action: "https://products.aspose.cloud/pdf",
 		Highlighting: LinkHighlightingModeInvert,

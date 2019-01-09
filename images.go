@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of page images.
+// Represents list of images.
 type Images struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of images.
 	List []Image `json:"List,omitempty"`
 }

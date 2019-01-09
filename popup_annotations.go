@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of annotations.
+// Object representing a list of popup annotations.
 type PopupAnnotations struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of popup annotations.
 	List []PopupAnnotationWithParent `json:"List,omitempty"`
 }

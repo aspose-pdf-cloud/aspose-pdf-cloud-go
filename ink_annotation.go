@@ -24,6 +24,8 @@ package asposepdfcloud
 type InkAnnotation struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// Color of the annotation.
+	Color *Color `json:"Color,omitempty"`
 	// Get the annotation content.
 	Contents string `json:"Contents,omitempty"`
 	// The date and time when the annotation was last modified.
@@ -35,7 +37,7 @@ type InkAnnotation struct {
 	// Gets Name of the annotation.
 	Name string `json:"Name,omitempty"`
 	// Gets Rect of the annotation.
-	Rect *RectanglePdf `json:"Rect,omitempty"`
+	Rect *Rectangle `json:"Rect,omitempty"`
 	// Gets PageIndex of the annotation.
 	PageIndex int32 `json:"PageIndex,omitempty"`
 	// Gets ZIndex of the annotation.
@@ -52,8 +54,6 @@ type InkAnnotation struct {
 	Title string `json:"Title,omitempty"`
 	// Get the annotation RichText.
 	RichText string `json:"RichText,omitempty"`
-	// Color of the annotation.
-	Color *Color `json:"Color,omitempty"`
 	// Gets or sets list of gestures that are independent lines which are represented by Point[] arrays.
 	InkList [][]Point `json:"InkList,omitempty"`
 	// Style of ink annotation line endings.

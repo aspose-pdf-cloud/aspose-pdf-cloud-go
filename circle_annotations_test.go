@@ -111,7 +111,7 @@ func TestPostPageCircleAnnotations(t *testing.T) {
 
 	annotation := CircleAnnotation {
 		Name: "Name",
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		RichText: "Rich Text",
@@ -144,7 +144,7 @@ func TestPutCircleAnnotation(t *testing.T) {
 
 	annotation := CircleAnnotation {
 		Name: "Name Updated",
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		RichText: "Rich Text Updated",

@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of annotations.
+// Object representing a list of circle annotations.
 type CircleAnnotations struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of circle annotations.
 	List []CircleAnnotation `json:"List,omitempty"`
 }

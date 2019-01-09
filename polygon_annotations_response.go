@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing multiple polygon annotation objects
 type PolygonAnnotationsResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Polygon annotations object
 	Annotations *PolygonAnnotations `json:"Annotations,omitempty"`
 }

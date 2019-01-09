@@ -111,14 +111,14 @@ func TestPostPageCaretAnnotations(t *testing.T) {
 
 	annotation := CaretAnnotation {
 		Name: "Name",
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		RichText: "Rich Text",
 		Subject: "Text Box Subj",
 		ZIndex: 1,
 		Title: "Title",
-		Frame: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Frame: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Modified: "02/02/2018 00:00:00.000 AM",
 	}
 
@@ -146,14 +146,14 @@ func TestPutCaretAnnotation(t *testing.T) {
 
 	annotation := CaretAnnotation {
 		Name: "Name Updated",
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		RichText: "Rich Text Updated",
 		Subject: "Text Box Subj Updated",
 		ZIndex: 1,
 		Title: "Title Updated",
-		Frame: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Frame: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Modified: "02/02/2018 00:00:00.000 AM",
 	}
 

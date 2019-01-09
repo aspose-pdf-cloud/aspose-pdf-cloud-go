@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing single page info
 type DocumentPageResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Page object
 	Page *Page `json:"Page,omitempty"`
 }

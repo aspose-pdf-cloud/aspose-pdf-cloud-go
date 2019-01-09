@@ -25,6 +25,8 @@ type TextReplaceListRequest struct {
 	// A list of text replacement settings.
 	TextReplaces []TextReplace `json:"TextReplaces"`
 	DefaultFont string `json:"DefaultFont,omitempty"`
+	// The index of first match to be replaced.
 	StartIndex int32 `json:"StartIndex,omitempty"`
+	// The number of matches to be replaced.
 	CountReplace int32 `json:"CountReplace,omitempty"`
 }

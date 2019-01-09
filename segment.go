@@ -20,7 +20,10 @@
  */
 package asposepdfcloud
 
+// Represents segment of Pdf text.
 type Segment struct {
+	// Text that the Segment object represents.
 	Value string `json:"Value"`
+	// Text state for the text that Segment object represents.
 	TextState *TextState `json:"TextState,omitempty"`
 }

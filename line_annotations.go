@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of annotations.
+// Object representing a list of line annotations.
 type LineAnnotations struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of line annotations.
 	List []LineAnnotation `json:"List,omitempty"`
 }

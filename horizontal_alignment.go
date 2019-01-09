@@ -19,7 +19,7 @@
  *
  */
 package asposepdfcloud
-// HorizontalAlignment : 
+// HorizontalAlignment : Describes horizontal alignment.
 type HorizontalAlignment string
 
 // List of HorizontalAlignment

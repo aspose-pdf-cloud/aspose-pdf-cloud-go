@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing multiple caret annotation objects
 type CaretAnnotationsResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Caret annotations object
 	Annotations *CaretAnnotations `json:"Annotations,omitempty"`
 }

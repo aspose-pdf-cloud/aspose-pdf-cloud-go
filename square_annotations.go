@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of annotations.
+// Object representing a list of square annotations.
 type SquareAnnotations struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of square annotations.
 	List []SquareAnnotation `json:"List,omitempty"`
 }

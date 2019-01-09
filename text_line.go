@@ -20,7 +20,7 @@
  */
 package asposepdfcloud
 
-// A line of text to be inserted into .
+// A line of text to be inserted into paragraph.
 type TextLine struct {
 	// Line's horizontal alignment
 	HorizontalAlignment TextHorizontalAlignment `json:"HorizontalAlignment,omitempty"`

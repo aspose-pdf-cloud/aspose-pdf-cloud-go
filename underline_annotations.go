@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of annotations.
+// Object representing a list of underline annotations.
 type UnderlineAnnotations struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of underline annotations.
 	List []UnderlineAnnotation `json:"List,omitempty"`
 }

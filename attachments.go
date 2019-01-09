@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of attachment.
+// Represents list of attachment.
 type Attachments struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of annotations.
 	List []LinkElement `json:"List,omitempty"`
 }

@@ -19,7 +19,7 @@
  *
  */
 package asposepdfcloud
-// LineSpacing : 
+// LineSpacing : Defines line spacing specifics
 type LineSpacing string
 
 // List of LineSpacing

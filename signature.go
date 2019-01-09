@@ -20,6 +20,7 @@
  */
 package asposepdfcloud
 
+// Represents signature.
 type Signature struct {
 	// Gets or sets the signature path.
 	SignaturePath string `json:"SignaturePath"`
@@ -38,7 +39,7 @@ type Signature struct {
 	// Gets or sets a value indicating whether this  is visible. Supports only when signing particular page.
 	Visible bool `json:"Visible"`
 	// Gets or sets the visible rectangle of the signature. Supports only when signing particular page.
-	Rectangle *RectanglePdf `json:"Rectangle,omitempty"`
+	Rectangle *Rectangle `json:"Rectangle,omitempty"`
 	// Gets or sets the name of the signature field. Supports only when signing document with particular form field.
 	FormFieldName string `json:"FormFieldName,omitempty"`
 	// Gets or sets the name of the person or authority signing the document..

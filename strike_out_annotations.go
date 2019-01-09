@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of annotations.
+// Object representing a list of strikeout annotations.
 type StrikeOutAnnotations struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of strikeout annotations.
 	List []StrikeOutAnnotation `json:"List,omitempty"`
 }

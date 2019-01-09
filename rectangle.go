@@ -21,9 +21,13 @@
 package asposepdfcloud
 
 // Represents rectangle DTO.
-type RectanglePdf struct {
+type Rectangle struct {
+	// X-coordinate of lower - left corner.
 	LLX float64 `json:"LLX"`
+	// Y - coordinate of lower-left corner.
 	LLY float64 `json:"LLY"`
+	// X - coordinate of upper-right corner.
 	URX float64 `json:"URX"`
+	// Y - coordinate of upper-right corner.
 	URY float64 `json:"URY"`
 }

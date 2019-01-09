@@ -111,7 +111,7 @@ func TestPostPagePolygonAnnotations(t *testing.T) {
 
 	annotation := PolygonAnnotation {
 		Name: "Name",
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		RichText: "Rich Text",
@@ -151,7 +151,7 @@ func TestPutPolygonAnnotation(t *testing.T) {
 
 	annotation := PolygonAnnotation {
 		Name: "Name Updated",
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		RichText: "Rich Text Updated",

@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing single highlight annotation object
 type HighlightAnnotationResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Highlight annotation object
 	Annotation *HighlightAnnotation `json:"Annotation,omitempty"`
 }
