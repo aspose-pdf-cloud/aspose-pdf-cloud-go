@@ -31,7 +31,7 @@ type Image struct {
 	// Gets ID of the image.
 	Id string `json:"Id,omitempty"`
 	// Gets rectangle of the image.
-	Rectangle *RectanglePdf `json:"Rectangle,omitempty"`
+	Rectangle *Rectangle `json:"Rectangle,omitempty"`
 	// Gets page number.
 	PageNumber int32 `json:"PageNumber,omitempty"`
 }

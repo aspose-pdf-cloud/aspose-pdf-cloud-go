@@ -24,6 +24,8 @@ package asposepdfcloud
 type HighlightAnnotation struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// Color of the annotation.
+	Color *Color `json:"Color,omitempty"`
 	// Get the annotation content.
 	Contents string `json:"Contents,omitempty"`
 	// The date and time when the annotation was last modified.
@@ -35,7 +37,7 @@ type HighlightAnnotation struct {
 	// Gets Name of the annotation.
 	Name string `json:"Name,omitempty"`
 	// Gets Rect of the annotation.
-	Rect *RectanglePdf `json:"Rect,omitempty"`
+	Rect *Rectangle `json:"Rect,omitempty"`
 	// Gets PageIndex of the annotation.
 	PageIndex int32 `json:"PageIndex,omitempty"`
 	// Gets ZIndex of the annotation.
@@ -52,8 +54,6 @@ type HighlightAnnotation struct {
 	Title string `json:"Title,omitempty"`
 	// Get the annotation RichText.
 	RichText string `json:"RichText,omitempty"`
-	// Color of the annotation.
-	Color *Color `json:"Color,omitempty"`
 	// Gets or sets an array of points specifying the coordinates of n quadrilaterals.   Each quadrilateral encompasses a word or group of contiguous words in the text   underlying the annotation.             
 	QuadPoints []Point `json:"QuadPoints,omitempty"`
 }

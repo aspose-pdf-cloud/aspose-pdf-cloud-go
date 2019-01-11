@@ -20,9 +20,12 @@
  */
 package asposepdfcloud
 
-// Represents text DTO.
+// Represents text occurrence.
 type TextRect struct {
+	// Text of the occurrence.
 	Text string `json:"Text,omitempty"`
+	// Page on which the occurrence is found.
 	Page int32 `json:"Page"`
-	Rect *RectanglePdf `json:"Rect,omitempty"`
+	// Rectangle of the occurrence.
+	Rect *Rectangle `json:"Rect,omitempty"`
 }

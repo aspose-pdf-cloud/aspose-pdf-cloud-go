@@ -20,12 +20,12 @@
  */
 package asposepdfcloud
 
-// Returns also a message.
+// Represent responce containing signature verification result
 type SignatureVerifyResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
-	// Valid sign.
+	// True if signature is valid and false if not
 	Valid bool `json:"Valid,omitempty"`
 }

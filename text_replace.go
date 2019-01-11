@@ -31,5 +31,5 @@ type TextReplace struct {
 	// Text properties of a new text.
 	TextState *TextState `json:"TextState,omitempty"`
 	// Rectangle area where searched original text.
-	Rect *RectanglePdf `json:"Rect,omitempty"`
+	Rect *Rectangle `json:"Rect,omitempty"`
 }

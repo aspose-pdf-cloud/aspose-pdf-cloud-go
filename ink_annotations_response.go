@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing multiple ink annotation objects
 type InkAnnotationsResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Ink annotations object
 	Annotations *InkAnnotations `json:"Annotations,omitempty"`
 }

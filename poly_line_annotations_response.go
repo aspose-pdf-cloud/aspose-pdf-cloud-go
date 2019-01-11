@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing multiple polyline annotation objects
 type PolyLineAnnotationsResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Polyline annotations object
 	Annotations *PolyLineAnnotations `json:"Annotations,omitempty"`
 }

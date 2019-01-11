@@ -28,6 +28,6 @@ type LinkAnnotation struct {
 	Action string `json:"Action,omitempty"`
 	Highlighting LinkHighlightingMode `json:"Highlighting,omitempty"`
 	Color *Color `json:"Color,omitempty"`
-	Rect *RectanglePdf `json:"Rect,omitempty"`
+	Rect *Rectangle `json:"Rect,omitempty"`
 	Id string `json:"Id,omitempty"`
 }

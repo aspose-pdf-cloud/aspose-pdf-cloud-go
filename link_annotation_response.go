@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing single link info
 type LinkAnnotationResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// LinkAnnotation object
 	Link *LinkAnnotation `json:"Link,omitempty"`
 }

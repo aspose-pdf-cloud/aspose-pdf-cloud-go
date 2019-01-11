@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing single squiggly-underline annotation object
 type SquigglyAnnotationResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Squiggly-underline annotation object
 	Annotation *SquigglyAnnotation `json:"Annotation,omitempty"`
 }

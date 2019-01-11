@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of annotations.
+// Object representing a list of caret annotations.
 type CaretAnnotations struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of caret annotations.
 	List []CaretAnnotation `json:"List,omitempty"`
 }

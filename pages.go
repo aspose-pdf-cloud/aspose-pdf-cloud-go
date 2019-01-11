@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of pages.
+// Represents list of pages.
 type Pages struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of pages.
 	List []Page `json:"List,omitempty"`
 }

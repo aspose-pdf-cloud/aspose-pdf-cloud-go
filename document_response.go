@@ -20,11 +20,14 @@
  */
 package asposepdfcloud
 
+// Represents response containing document info
 type DocumentResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Document object
 	Document *Document `json:"Document,omitempty"`
+	// A list of messages obtained while producing the responce
 	Messages []string `json:"Messages,omitempty"`
 }

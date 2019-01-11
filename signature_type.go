@@ -19,7 +19,7 @@
  *
  */
 package asposepdfcloud
-// SignatureType : 
+// SignatureType : The type of signature.
 type SignatureType string
 
 // List of SignatureType

@@ -24,7 +24,10 @@ package asposepdfcloud
 type DocumentProperty struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// Pame of the property.
 	Name string `json:"Name,omitempty"`
+	// Property value.
 	Value string `json:"Value,omitempty"`
+	// Value indicating whether it is a built-in property.
 	BuiltIn bool `json:"BuiltIn,omitempty"`
 }

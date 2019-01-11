@@ -24,6 +24,8 @@ package asposepdfcloud
 type MarkupAnnotation struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// Color of the annotation.
+	Color *Color `json:"Color,omitempty"`
 	// Get the annotation content.
 	Contents string `json:"Contents,omitempty"`
 	// The date and time when the annotation was last modified.
@@ -35,7 +37,7 @@ type MarkupAnnotation struct {
 	// Gets Name of the annotation.
 	Name string `json:"Name,omitempty"`
 	// Gets Rect of the annotation.
-	Rect *RectanglePdf `json:"Rect,omitempty"`
+	Rect *Rectangle `json:"Rect,omitempty"`
 	// Gets PageIndex of the annotation.
 	PageIndex int32 `json:"PageIndex,omitempty"`
 	// Gets ZIndex of the annotation.

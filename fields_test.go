@@ -83,7 +83,7 @@ func TestPostCreateField(t *testing.T) {
 		Name: "checkboxfield",
 		Type_: FieldTypeBoolean,
 		Values: []string{"1"},
-		Rect: &RectanglePdf {
+		Rect: &Rectangle {
 			LLX: float64(50),
 			LLY: float64(200),
 			URX: float64(200),
@@ -212,5 +212,29 @@ func TestPutFieldsFlatten(t *testing.T) {
 		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPutFieldsFlatten - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPostFlattenDocument(t *testing.T) {
+
+	name := "PdfWithAcroForm.pdf"
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"updateAppearances": true,
+		"hideButtons": true,
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostFlattenDocument(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPostFlattenDocument - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }

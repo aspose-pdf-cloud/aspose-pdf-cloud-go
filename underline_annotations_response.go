@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing multiple underline annotation objects
 type UnderlineAnnotationsResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Underline annotations object
 	Annotations *UnderlineAnnotations `json:"Annotations,omitempty"`
 }

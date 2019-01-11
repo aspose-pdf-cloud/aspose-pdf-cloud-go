@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing single field info
 type FieldResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Field object
 	Field *Field `json:"Field,omitempty"`
 }

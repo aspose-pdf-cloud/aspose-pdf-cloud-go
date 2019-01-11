@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing single strikeout annotation object
 type StrikeOutAnnotationResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Strikeout annotation object
 	Annotation *StrikeOutAnnotation `json:"Annotation,omitempty"`
 }

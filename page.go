@@ -26,6 +26,8 @@ type Page struct {
 	Links []Link `json:"Links,omitempty"`
 	// Page's id.
 	Id int32 `json:"Id,omitempty"`
+	// Page's images
 	Images *Images `json:"Images,omitempty"`
-	Rectangle *RectanglePdf `json:"Rectangle,omitempty"`
+	// Page's rectangle
+	Rectangle *Rectangle `json:"Rectangle,omitempty"`
 }

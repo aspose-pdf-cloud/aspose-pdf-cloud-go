@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of annotations.
+// Object representing a list of text annotations.
 type TextAnnotations struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of text annotations.
 	List []TextAnnotation `json:"List,omitempty"`
 }

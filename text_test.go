@@ -91,7 +91,7 @@ func TestPutAddText(t *testing.T) {
 	}
 	pageNumber := int32(1)
 	paragraph := Paragraph {
-		Rectangle: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Rectangle: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		LeftMargin: 10,
 		RightMargin: 10,
 		TopMargin: 20,

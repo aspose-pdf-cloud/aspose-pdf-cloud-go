@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing single document property info
 type DocumentPropertyResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// DocumentProperty object
 	DocumentProperty *DocumentProperty `json:"DocumentProperty,omitempty"`
 }

@@ -20,7 +20,8 @@
  */
 package asposepdfcloud
 
-// Represents text items DTO.
+// Represents multiple text occurrences DTO.
 type TextRects struct {
+	// The list of text occurrences.
 	List []TextRect `json:"List,omitempty"`
 }

@@ -22,8 +22,12 @@ package asposepdfcloud
 
 // Represents color DTO.
 type Color struct {
+	// Alpha component.
 	A int32 `json:"A"`
+	// Red component.
 	R int32 `json:"R"`
+	// Green component.
 	G int32 `json:"G"`
+	// Blue component.
 	B int32 `json:"B"`
 }

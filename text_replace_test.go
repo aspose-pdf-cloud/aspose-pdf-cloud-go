@@ -38,7 +38,7 @@ func TestPostDocumentTextReplace(t *testing.T) {
 			TextReplace{
 				OldValue: "market",
 				NewValue: "m_a_r_k_e_t",
-				Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+				Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 				Regex: false,
 			},
 		},
@@ -75,7 +75,7 @@ func TestPostPageTextReplace(t *testing.T) {
 			TextReplace{
 				OldValue: "market",
 				NewValue: "m_a_r_k_e_t",
-				Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+				Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 				Regex: false,
 			},
 		},

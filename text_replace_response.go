@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing the result of text replacement
 type TextReplaceResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Number of matches
 	Matches int32 `json:"Matches,omitempty"`
 }

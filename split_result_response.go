@@ -20,12 +20,12 @@
  */
 package asposepdfcloud
 
-// Represents split result object.
+// Represents responce containing split result.
 type SplitResultResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
-	// Gets or sets the splitting result.
+	// SplitResult object.
 	Result *SplitResult `json:"Result,omitempty"`
 }

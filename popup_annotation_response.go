@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing single popup annotation object
 type PopupAnnotationResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Popup annotation object
 	Annotation *PopupAnnotationWithParent `json:"Annotation,omitempty"`
 }

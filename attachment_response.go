@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing single attachment info
 type AttachmentResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Attachment object
 	Attachment *Attachment `json:"Attachment,omitempty"`
 }

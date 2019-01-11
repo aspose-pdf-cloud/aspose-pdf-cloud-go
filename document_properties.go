@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// Pdf document properties.
+// Represents list of PDF document properties.
 type DocumentProperties struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of PDF document properties.
 	List []DocumentProperty `json:"List,omitempty"`
 }

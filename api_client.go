@@ -465,6 +465,35 @@ func deserializeDTO(readCloser io.Reader, successPayload interface{}) error {
             ret.Files[index] = f
         }
 
+    } else if strings.Contains(dtoType, "FileVersionsResponse") {
+        var temp FileVersionsResponse_
+        ret := successPayload.(*FileVersionsResponse)
+        if err := json.NewDecoder(readCloser).Decode(&temp); err != nil {
+            return err
+        }
+        ret.Code = temp.Code
+        ret.Status = temp.Status
+        ret.FileVersions = make([]FileVersion,  len(temp.FileVersions))
+        re := regexp.MustCompile("\\/Date\\((\\d+?)000\\+0000\\)\\/")
+        
+        for index, fileVersion := range temp.FileVersions {
+            res := re.FindAllStringSubmatch(fileVersion.ModifiedDate, -1)
+            var f FileVersion
+            f.Name = fileVersion.Name
+            f.IsFolder = fileVersion.IsFolder
+            f.Size = fileVersion.Size
+            f.Path = fileVersion.Path
+            f.IsLatest = fileVersion.IsLatest
+            f.VersionId = fileVersion.VersionId
+	        if res != nil {
+		        i, err := strconv.ParseInt(res[0][1], 10, 64)
+    	        if err == nil {
+			        f.ModifiedDate = time.Unix(i, 0)
+    	        }
+            }
+            ret.FileVersions[index] = f
+        }
+
     } else {
         return json.NewDecoder(readCloser).Decode(&successPayload)
     }
@@ -485,6 +514,24 @@ type File_ struct {
 	ModifiedDate string `json:"ModifiedDate,omitempty"`
 	Size int64 `json:"Size"`
 	Path string `json:"Path,omitempty"`
+}
+
+type FileVersionsResponse_ struct {
+	// Response status code.
+	Code int32 `json:"Code"`
+	// Response status.
+	Status string `json:"Status,omitempty"`
+	FileVersions []FileVersion_ `json:"FileVersions,omitempty"`
+}
+
+type FileVersion_ struct {
+	Name string `json:"Name,omitempty"`
+	IsFolder bool `json:"IsFolder"`
+	ModifiedDate string `json:"ModifiedDate,omitempty"`
+	Size int64 `json:"Size"`
+	Path string `json:"Path,omitempty"`
+	VersionId string `json:"VersionId,omitempty"`
+	IsLatest bool `json:"IsLatest,omitempty"`
 }
 
 // TokenResp represents data returned by GetAccessToken and RefreshToken as HTTP response body.

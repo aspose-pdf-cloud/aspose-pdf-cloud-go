@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of annotations.
+// Object representing a list of ink annotations.
 type InkAnnotations struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of ink annotations.
 	List []InkAnnotation `json:"List,omitempty"`
 }

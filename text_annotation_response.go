@@ -20,10 +20,12 @@
  */
 package asposepdfcloud
 
+// Represents response containing single text annotation object
 type TextAnnotationResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
+	// Text annotation object
 	Annotation *TextAnnotation `json:"Annotation,omitempty"`
 }

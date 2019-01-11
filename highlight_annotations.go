@@ -20,9 +20,10 @@
  */
 package asposepdfcloud
 
-// List of annotations.
+// Object representing a list of highlight annotations.
 type HighlightAnnotations struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
+	// List of highlight annotations.
 	List []HighlightAnnotation `json:"List,omitempty"`
 }

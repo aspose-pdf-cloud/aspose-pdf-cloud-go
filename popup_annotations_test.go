@@ -134,7 +134,7 @@ func TestPostPopupAnnotation(t *testing.T) {
 
 	annotation := PopupAnnotation {
 		Name: "Name",
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		ZIndex: 1,
@@ -165,7 +165,7 @@ func TestPutPopupAnnotation(t *testing.T) {
 
 	annotation := PopupAnnotation {
 		Name: "Name Updated",
-		Rect: &RectanglePdf{ LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
 		Flags: []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		ZIndex: 1,
