@@ -1,6 +1,6 @@
 # Aspose.PDF Cloud
 - API version: 2.0
-- Package version: 18.12.0
+- Package version: 19.1.0
 
 [Aspose.PDF Cloud](https://products.aspose.cloud/pdf) is a true REST API that enables you to perform a wide range of document processing operations including creation, manipulation, conversion and rendering of PDF documents in the cloud.
 
@@ -74,16 +74,20 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetDocumentBookmarks**](docs/PdfApi.md#getdocumentbookmarks) | **Get** /pdf/{name}/bookmarks | Read document bookmark/bookmarks (including children).
 *PdfApi* | [**GetDocumentCaretAnnotations**](docs/PdfApi.md#getdocumentcaretannotations) | **Get** /pdf/{name}/annotations/caret | Read document caret annotations.
 *PdfApi* | [**GetDocumentCircleAnnotations**](docs/PdfApi.md#getdocumentcircleannotations) | **Get** /pdf/{name}/annotations/circle | Read document circle annotations.
+*PdfApi* | [**GetDocumentFileAttachmentAnnotations**](docs/PdfApi.md#getdocumentfileattachmentannotations) | **Get** /pdf/{name}/annotations/fileattachment | Read document FileAttachment annotations.
 *PdfApi* | [**GetDocumentFreeTextAnnotations**](docs/PdfApi.md#getdocumentfreetextannotations) | **Get** /pdf/{name}/annotations/freetext | Read document free text annotations.
 *PdfApi* | [**GetDocumentHighlightAnnotations**](docs/PdfApi.md#getdocumenthighlightannotations) | **Get** /pdf/{name}/annotations/highlight | Read document highlight annotations.
 *PdfApi* | [**GetDocumentInkAnnotations**](docs/PdfApi.md#getdocumentinkannotations) | **Get** /pdf/{name}/annotations/ink | Read document ink annotations.
 *PdfApi* | [**GetDocumentLineAnnotations**](docs/PdfApi.md#getdocumentlineannotations) | **Get** /pdf/{name}/annotations/line | Read document line annotations.
+*PdfApi* | [**GetDocumentMovieAnnotations**](docs/PdfApi.md#getdocumentmovieannotations) | **Get** /pdf/{name}/annotations/movie | Read document movie annotations.
 *PdfApi* | [**GetDocumentPolyLineAnnotations**](docs/PdfApi.md#getdocumentpolylineannotations) | **Get** /pdf/{name}/annotations/polyline | Read document polyline annotations.
 *PdfApi* | [**GetDocumentPolygonAnnotations**](docs/PdfApi.md#getdocumentpolygonannotations) | **Get** /pdf/{name}/annotations/polygon | Read document polygon annotations.
 *PdfApi* | [**GetDocumentPopupAnnotations**](docs/PdfApi.md#getdocumentpopupannotations) | **Get** /pdf/{name}/annotations/popup | Read document popup annotations.
 *PdfApi* | [**GetDocumentPopupAnnotationsByParent**](docs/PdfApi.md#getdocumentpopupannotationsbyparent) | **Get** /pdf/{name}/annotations/{annotationId}/popup | Read document popup annotations by parent id.
 *PdfApi* | [**GetDocumentProperties**](docs/PdfApi.md#getdocumentproperties) | **Get** /pdf/{name}/documentproperties | Read document properties.
 *PdfApi* | [**GetDocumentProperty**](docs/PdfApi.md#getdocumentproperty) | **Get** /pdf/{name}/documentproperties/{propertyName} | Read document property by name.
+*PdfApi* | [**GetDocumentRedactionAnnotations**](docs/PdfApi.md#getdocumentredactionannotations) | **Get** /pdf/{name}/annotations/redaction | Read document redaction annotations.
+*PdfApi* | [**GetDocumentSoundAnnotations**](docs/PdfApi.md#getdocumentsoundannotations) | **Get** /pdf/{name}/annotations/sound | Read document sound annotations.
 *PdfApi* | [**GetDocumentSquareAnnotations**](docs/PdfApi.md#getdocumentsquareannotations) | **Get** /pdf/{name}/annotations/square | Read document square annotations.
 *PdfApi* | [**GetDocumentSquigglyAnnotations**](docs/PdfApi.md#getdocumentsquigglyannotations) | **Get** /pdf/{name}/annotations/squiggly | Read document squiggly annotations.
 *PdfApi* | [**GetDocumentStrikeOutAnnotations**](docs/PdfApi.md#getdocumentstrikeoutannotations) | **Get** /pdf/{name}/annotations/strikeout | Read document StrikeOut annotations.
@@ -94,6 +98,8 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetEpubInStorageToPdf**](docs/PdfApi.md#getepubinstoragetopdf) | **Get** /pdf/create/epub | Convert EPUB file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**GetField**](docs/PdfApi.md#getfield) | **Get** /pdf/{name}/fields/{fieldName} | Get document field by name.
 *PdfApi* | [**GetFields**](docs/PdfApi.md#getfields) | **Get** /pdf/{name}/fields | Get document fields.
+*PdfApi* | [**GetFileAttachmentAnnotation**](docs/PdfApi.md#getfileattachmentannotation) | **Get** /pdf/{name}/annotations/fileattachment/{annotationId} | Read document page FileAttachment annotation by ID.
+*PdfApi* | [**GetFileAttachmentAnnotationData**](docs/PdfApi.md#getfileattachmentannotationdata) | **Get** /pdf/{name}/annotations/fileattachment/{annotationId}/data | Read document page FileAttachment annotation by ID.
 *PdfApi* | [**GetFreeTextAnnotation**](docs/PdfApi.md#getfreetextannotation) | **Get** /pdf/{name}/annotations/freetext/{annotationId} | Read document page free text annotation by ID.
 *PdfApi* | [**GetHighlightAnnotation**](docs/PdfApi.md#gethighlightannotation) | **Get** /pdf/{name}/annotations/highlight/{annotationId} | Read document page highlight annotation by ID.
 *PdfApi* | [**GetHtmlInStorageToPdf**](docs/PdfApi.md#gethtmlinstoragetopdf) | **Get** /pdf/create/html | Convert HTML file (located on storage) to PDF format and return resulting file in response. 
@@ -112,6 +118,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetListFileVersions**](docs/PdfApi.md#getlistfileversions) | **Get** /storage/version | Get the file&#39;s versions list 
 *PdfApi* | [**GetListFiles**](docs/PdfApi.md#getlistfiles) | **Get** /storage/folder | Get the file listing of a specific folder 
 *PdfApi* | [**GetMhtInStorageToPdf**](docs/PdfApi.md#getmhtinstoragetopdf) | **Get** /pdf/create/mht | Convert MHT file (located on storage) to PDF format and return resulting file in response. 
+*PdfApi* | [**GetMovieAnnotation**](docs/PdfApi.md#getmovieannotation) | **Get** /pdf/{name}/annotations/movie/{annotationId} | Read document page movie annotation by ID.
 *PdfApi* | [**GetPage**](docs/PdfApi.md#getpage) | **Get** /pdf/{name}/pages/{pageNumber} | Read document page info.
 *PdfApi* | [**GetPageAnnotations**](docs/PdfApi.md#getpageannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations | Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
 *PdfApi* | [**GetPageCaretAnnotations**](docs/PdfApi.md#getpagecaretannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/caret | Read document page caret annotations.
@@ -122,15 +129,19 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetPageConvertToJpeg**](docs/PdfApi.md#getpageconverttojpeg) | **Get** /pdf/{name}/pages/{pageNumber}/convert/jpeg | Convert document page to Jpeg image and return resulting file in response.
 *PdfApi* | [**GetPageConvertToPng**](docs/PdfApi.md#getpageconverttopng) | **Get** /pdf/{name}/pages/{pageNumber}/convert/png | Convert document page to Png image and return resulting file in response.
 *PdfApi* | [**GetPageConvertToTiff**](docs/PdfApi.md#getpageconverttotiff) | **Get** /pdf/{name}/pages/{pageNumber}/convert/tiff | Convert document page to Tiff image  and return resulting file in response.
+*PdfApi* | [**GetPageFileAttachmentAnnotations**](docs/PdfApi.md#getpagefileattachmentannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/fileattachment | Read document page FileAttachment annotations.
 *PdfApi* | [**GetPageFreeTextAnnotations**](docs/PdfApi.md#getpagefreetextannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/freetext | Read document page free text annotations.
 *PdfApi* | [**GetPageHighlightAnnotations**](docs/PdfApi.md#getpagehighlightannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/highlight | Read document page highlight annotations.
 *PdfApi* | [**GetPageInkAnnotations**](docs/PdfApi.md#getpageinkannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/ink | Read document page ink annotations.
 *PdfApi* | [**GetPageLineAnnotations**](docs/PdfApi.md#getpagelineannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/line | Read document page line annotations.
 *PdfApi* | [**GetPageLinkAnnotation**](docs/PdfApi.md#getpagelinkannotation) | **Get** /pdf/{name}/pages/{pageNumber}/links/{linkId} | Read document page link annotation by ID.
 *PdfApi* | [**GetPageLinkAnnotations**](docs/PdfApi.md#getpagelinkannotations) | **Get** /pdf/{name}/pages/{pageNumber}/links | Read document page link annotations.
+*PdfApi* | [**GetPageMovieAnnotations**](docs/PdfApi.md#getpagemovieannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/movie | Read document page movie annotations.
 *PdfApi* | [**GetPagePolyLineAnnotations**](docs/PdfApi.md#getpagepolylineannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/polyline | Read document page polyline annotations.
 *PdfApi* | [**GetPagePolygonAnnotations**](docs/PdfApi.md#getpagepolygonannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/polygon | Read document page polygon annotations.
 *PdfApi* | [**GetPagePopupAnnotations**](docs/PdfApi.md#getpagepopupannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/popup | Read document page popup annotations.
+*PdfApi* | [**GetPageRedactionAnnotations**](docs/PdfApi.md#getpageredactionannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/redaction | Read document page redaction annotations.
+*PdfApi* | [**GetPageSoundAnnotations**](docs/PdfApi.md#getpagesoundannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/sound | Read document page sound annotations.
 *PdfApi* | [**GetPageSquareAnnotations**](docs/PdfApi.md#getpagesquareannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/square | Read document page square annotations.
 *PdfApi* | [**GetPageSquigglyAnnotations**](docs/PdfApi.md#getpagesquigglyannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/squiggly | Read document page squiggly annotations.
 *PdfApi* | [**GetPageStrikeOutAnnotations**](docs/PdfApi.md#getpagestrikeoutannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/strikeout | Read document page StrikeOut annotations.
@@ -155,6 +166,9 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetPolygonAnnotation**](docs/PdfApi.md#getpolygonannotation) | **Get** /pdf/{name}/annotations/polygon/{annotationId} | Read document page polygon annotation by ID.
 *PdfApi* | [**GetPopupAnnotation**](docs/PdfApi.md#getpopupannotation) | **Get** /pdf/{name}/annotations/popup/{annotationId} | Read document page popup annotation by ID.
 *PdfApi* | [**GetPsInStorageToPdf**](docs/PdfApi.md#getpsinstoragetopdf) | **Get** /pdf/create/ps | Convert PS file (located on storage) to PDF format and return resulting file in response. 
+*PdfApi* | [**GetRedactionAnnotation**](docs/PdfApi.md#getredactionannotation) | **Get** /pdf/{name}/annotations/redaction/{annotationId} | Read document page redaction annotation by ID.
+*PdfApi* | [**GetSoundAnnotation**](docs/PdfApi.md#getsoundannotation) | **Get** /pdf/{name}/annotations/sound/{annotationId} | Read document page sound annotation by ID.
+*PdfApi* | [**GetSoundAnnotationData**](docs/PdfApi.md#getsoundannotationdata) | **Get** /pdf/{name}/annotations/sound/{annotationId}/data | Read document page sound annotation by ID.
 *PdfApi* | [**GetSquareAnnotation**](docs/PdfApi.md#getsquareannotation) | **Get** /pdf/{name}/annotations/square/{annotationId} | Read document page square annotation by ID.
 *PdfApi* | [**GetSquigglyAnnotation**](docs/PdfApi.md#getsquigglyannotation) | **Get** /pdf/{name}/annotations/squiggly/{annotationId} | Read document page squiggly annotation by ID.
 *PdfApi* | [**GetStrikeOutAnnotation**](docs/PdfApi.md#getstrikeoutannotation) | **Get** /pdf/{name}/annotations/strikeout/{annotationId} | Read document page StrikeOut annotation by ID.
@@ -172,7 +186,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PostAppendDocument**](docs/PdfApi.md#postappenddocument) | **Post** /pdf/{name}/appendDocument | Append document to existing one.
 *PdfApi* | [**PostCreateField**](docs/PdfApi.md#postcreatefield) | **Post** /pdf/{name}/fields | Create field.
 *PdfApi* | [**PostDocumentTextReplace**](docs/PdfApi.md#postdocumenttextreplace) | **Post** /pdf/{name}/text/replace | Document&#39;s replace text method.
-*PdfApi* | [**PostFlattenDocument**](docs/PdfApi.md#postflattendocument) | **Post** /pdf/{name}/flatten | Removes all fields from the document and place their values instead.
+*PdfApi* | [**PostFlattenDocument**](docs/PdfApi.md#postflattendocument) | **Post** /pdf/{name}/flatten | Flatten the document.
 *PdfApi* | [**PostInsertImage**](docs/PdfApi.md#postinsertimage) | **Post** /pdf/{name}/pages/{pageNumber}/images | Insert image to document page.
 *PdfApi* | [**PostMoveFile**](docs/PdfApi.md#postmovefile) | **Post** /storage/file | Move a specific file
 *PdfApi* | [**PostMoveFolder**](docs/PdfApi.md#postmovefolder) | **Post** /storage/folder | Move a specific folder 
@@ -180,13 +194,17 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PostOptimizeDocument**](docs/PdfApi.md#postoptimizedocument) | **Post** /pdf/{name}/optimize | Optimize document.
 *PdfApi* | [**PostPageCaretAnnotations**](docs/PdfApi.md#postpagecaretannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/caret | Add document page caret annotations.
 *PdfApi* | [**PostPageCircleAnnotations**](docs/PdfApi.md#postpagecircleannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/circle | Add document page circle annotations.
+*PdfApi* | [**PostPageFileAttachmentAnnotations**](docs/PdfApi.md#postpagefileattachmentannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/fileattachment | Add document page FileAttachment annotations.
 *PdfApi* | [**PostPageFreeTextAnnotations**](docs/PdfApi.md#postpagefreetextannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/freetext | Add document page free text annotations.
 *PdfApi* | [**PostPageHighlightAnnotations**](docs/PdfApi.md#postpagehighlightannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/highlight | Add document page highlight annotations.
 *PdfApi* | [**PostPageInkAnnotations**](docs/PdfApi.md#postpageinkannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/ink | Add document page ink annotations.
 *PdfApi* | [**PostPageLineAnnotations**](docs/PdfApi.md#postpagelineannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/line | Add document page line annotations.
 *PdfApi* | [**PostPageLinkAnnotations**](docs/PdfApi.md#postpagelinkannotations) | **Post** /pdf/{name}/pages/{pageNumber}/links | Add document page link annotations.
+*PdfApi* | [**PostPageMovieAnnotations**](docs/PdfApi.md#postpagemovieannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/movie | Add document page movie annotations.
 *PdfApi* | [**PostPagePolyLineAnnotations**](docs/PdfApi.md#postpagepolylineannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/polyline | Add document page polyline annotations.
 *PdfApi* | [**PostPagePolygonAnnotations**](docs/PdfApi.md#postpagepolygonannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/polygon | Add document page polygon annotations.
+*PdfApi* | [**PostPageRedactionAnnotations**](docs/PdfApi.md#postpageredactionannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/redaction | Add document page redaction annotations.
+*PdfApi* | [**PostPageSoundAnnotations**](docs/PdfApi.md#postpagesoundannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/sound | Add document page sound annotations.
 *PdfApi* | [**PostPageSquareAnnotations**](docs/PdfApi.md#postpagesquareannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/square | Add document page square annotations.
 *PdfApi* | [**PostPageSquigglyAnnotations**](docs/PdfApi.md#postpagesquigglyannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/squiggly | Add document page squiggly annotations.
 *PdfApi* | [**PostPageStrikeOutAnnotations**](docs/PdfApi.md#postpagestrikeoutannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/strikeout | Add document page StrikeOut annotations.
@@ -206,6 +224,8 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PutCreateFolder**](docs/PdfApi.md#putcreatefolder) | **Put** /storage/folder | Create the folder 
 *PdfApi* | [**PutEpubInStorageToPdf**](docs/PdfApi.md#putepubinstoragetopdf) | **Put** /pdf/{name}/create/epub | Convert EPUB file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**PutFieldsFlatten**](docs/PdfApi.md#putfieldsflatten) | **Put** /pdf/{name}/fields/flatten | Flatten form fields in document.
+*PdfApi* | [**PutFileAttachmentAnnotation**](docs/PdfApi.md#putfileattachmentannotation) | **Put** /pdf/{name}/annotations/fileattachment/{annotationId} | Replace document FileAttachment annotation
+*PdfApi* | [**PutFileAttachmentAnnotationDataExtract**](docs/PdfApi.md#putfileattachmentannotationdataextract) | **Put** /pdf/{name}/annotations/fileattachment/{annotationId}/data/extract | Extract document FileAttachment annotation content to storage
 *PdfApi* | [**PutFreeTextAnnotation**](docs/PdfApi.md#putfreetextannotation) | **Put** /pdf/{name}/annotations/freetext/{annotationId} | Replace document free text annotation
 *PdfApi* | [**PutHighlightAnnotation**](docs/PdfApi.md#puthighlightannotation) | **Put** /pdf/{name}/annotations/highlight/{annotationId} | Replace document highlight annotation
 *PdfApi* | [**PutHtmlInStorageToPdf**](docs/PdfApi.md#puthtmlinstoragetopdf) | **Put** /pdf/{name}/create/html | Convert HTML file (located on storage) to PDF format and upload resulting file to storage. 
@@ -224,6 +244,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PutLinkAnnotation**](docs/PdfApi.md#putlinkannotation) | **Put** /pdf/{name}/links/{linkId} | Replace document page link annotations
 *PdfApi* | [**PutMergeDocuments**](docs/PdfApi.md#putmergedocuments) | **Put** /pdf/{name}/merge | Merge a list of documents.
 *PdfApi* | [**PutMhtInStorageToPdf**](docs/PdfApi.md#putmhtinstoragetopdf) | **Put** /pdf/{name}/create/mht | Convert MHT file (located on storage) to PDF format and upload resulting file to storage. 
+*PdfApi* | [**PutMovieAnnotation**](docs/PdfApi.md#putmovieannotation) | **Put** /pdf/{name}/annotations/movie/{annotationId} | Replace document movie annotation
 *PdfApi* | [**PutPageAddStamp**](docs/PdfApi.md#putpageaddstamp) | **Put** /pdf/{name}/pages/{pageNumber}/stamp | Add page stamp.
 *PdfApi* | [**PutPageConvertToBmp**](docs/PdfApi.md#putpageconverttobmp) | **Put** /pdf/{name}/pages/{pageNumber}/convert/bmp | Convert document page to bmp image and upload resulting file to storage.
 *PdfApi* | [**PutPageConvertToEmf**](docs/PdfApi.md#putpageconverttoemf) | **Put** /pdf/{name}/pages/{pageNumber}/convert/emf | Convert document page to emf image and upload resulting file to storage.
@@ -261,9 +282,12 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PutPopupAnnotation**](docs/PdfApi.md#putpopupannotation) | **Put** /pdf/{name}/annotations/popup/{annotationId} | Replace document popup annotation
 *PdfApi* | [**PutPrivileges**](docs/PdfApi.md#putprivileges) | **Put** /pdf/{name}/privileges | Update privilege document.
 *PdfApi* | [**PutPsInStorageToPdf**](docs/PdfApi.md#putpsinstoragetopdf) | **Put** /pdf/{name}/create/ps | Convert PS file (located on storage) to PDF format and upload resulting file to storage. 
+*PdfApi* | [**PutRedactionAnnotation**](docs/PdfApi.md#putredactionannotation) | **Put** /pdf/{name}/annotations/redaction/{annotationId} | Replace document redaction annotation
 *PdfApi* | [**PutReplaceImage**](docs/PdfApi.md#putreplaceimage) | **Put** /pdf/{name}/images/{imageId} | Replace document image.
 *PdfApi* | [**PutSearchableDocument**](docs/PdfApi.md#putsearchabledocument) | **Put** /pdf/{name}/ocr | Create searchable PDF document. Generate OCR layer for images in input PDF document.
 *PdfApi* | [**PutSetProperty**](docs/PdfApi.md#putsetproperty) | **Put** /pdf/{name}/documentproperties/{propertyName} | Add/update document property.
+*PdfApi* | [**PutSoundAnnotation**](docs/PdfApi.md#putsoundannotation) | **Put** /pdf/{name}/annotations/sound/{annotationId} | Replace document sound annotation
+*PdfApi* | [**PutSoundAnnotationDataExtract**](docs/PdfApi.md#putsoundannotationdataextract) | **Put** /pdf/{name}/annotations/sound/{annotationId}/data/extract | Extract document sound annotation content to storage
 *PdfApi* | [**PutSquareAnnotation**](docs/PdfApi.md#putsquareannotation) | **Put** /pdf/{name}/annotations/square/{annotationId} | Replace document square annotation
 *PdfApi* | [**PutSquigglyAnnotation**](docs/PdfApi.md#putsquigglyannotation) | **Put** /pdf/{name}/annotations/squiggly/{annotationId} | Replace document squiggly annotation
 *PdfApi* | [**PutStrikeOutAnnotation**](docs/PdfApi.md#putstrikeoutannotation) | **Put** /pdf/{name}/annotations/strikeout/{annotationId} | Replace document StrikeOut annotation
@@ -302,6 +326,7 @@ Class | Method | HTTP request | Description
  - [FieldType](docs/FieldType.md)
  - [File](docs/File.md)
  - [FileExist](docs/FileExist.md)
+ - [FileIcon](docs/FileIcon.md)
  - [FontEncodingRules](docs/FontEncodingRules.md)
  - [FontSavingModes](docs/FontSavingModes.md)
  - [FontStyles](docs/FontStyles.md)
@@ -337,6 +362,8 @@ Class | Method | HTTP request | Description
  - [ShapeType](docs/ShapeType.md)
  - [Signature](docs/Signature.md)
  - [SignatureType](docs/SignatureType.md)
+ - [SoundEncoding](docs/SoundEncoding.md)
+ - [SoundIcon](docs/SoundIcon.md)
  - [SplitResult](docs/SplitResult.md)
  - [Stamp](docs/Stamp.md)
  - [StampType](docs/StampType.md)
@@ -378,6 +405,9 @@ Class | Method | HTTP request | Description
  - [FieldResponse](docs/FieldResponse.md)
  - [Fields](docs/Fields.md)
  - [FieldsResponse](docs/FieldsResponse.md)
+ - [FileAttachmentAnnotationResponse](docs/FileAttachmentAnnotationResponse.md)
+ - [FileAttachmentAnnotations](docs/FileAttachmentAnnotations.md)
+ - [FileAttachmentAnnotationsResponse](docs/FileAttachmentAnnotationsResponse.md)
  - [FileExistResponse](docs/FileExistResponse.md)
  - [FileVersion](docs/FileVersion.md)
  - [FileVersionsResponse](docs/FileVersionsResponse.md)
@@ -402,6 +432,9 @@ Class | Method | HTTP request | Description
  - [LinkAnnotationResponse](docs/LinkAnnotationResponse.md)
  - [LinkAnnotations](docs/LinkAnnotations.md)
  - [LinkAnnotationsResponse](docs/LinkAnnotationsResponse.md)
+ - [MovieAnnotationResponse](docs/MovieAnnotationResponse.md)
+ - [MovieAnnotations](docs/MovieAnnotations.md)
+ - [MovieAnnotationsResponse](docs/MovieAnnotationsResponse.md)
  - [Page](docs/Page.md)
  - [Pages](docs/Pages.md)
  - [PolyLineAnnotationResponse](docs/PolyLineAnnotationResponse.md)
@@ -413,7 +446,13 @@ Class | Method | HTTP request | Description
  - [PopupAnnotationResponse](docs/PopupAnnotationResponse.md)
  - [PopupAnnotations](docs/PopupAnnotations.md)
  - [PopupAnnotationsResponse](docs/PopupAnnotationsResponse.md)
+ - [RedactionAnnotationResponse](docs/RedactionAnnotationResponse.md)
+ - [RedactionAnnotations](docs/RedactionAnnotations.md)
+ - [RedactionAnnotationsResponse](docs/RedactionAnnotationsResponse.md)
  - [SignatureVerifyResponse](docs/SignatureVerifyResponse.md)
+ - [SoundAnnotationResponse](docs/SoundAnnotationResponse.md)
+ - [SoundAnnotations](docs/SoundAnnotations.md)
+ - [SoundAnnotationsResponse](docs/SoundAnnotationsResponse.md)
  - [SplitResultDocument](docs/SplitResultDocument.md)
  - [SplitResultResponse](docs/SplitResultResponse.md)
  - [SquareAnnotationResponse](docs/SquareAnnotationResponse.md)
@@ -437,15 +476,19 @@ Class | Method | HTTP request | Description
  - [WordCountResponse](docs/WordCountResponse.md)
  - [AnnotationInfo](docs/AnnotationInfo.md)
  - [MarkupAnnotation](docs/MarkupAnnotation.md)
+ - [MovieAnnotation](docs/MovieAnnotation.md)
  - [PopupAnnotation](docs/PopupAnnotation.md)
+ - [RedactionAnnotation](docs/RedactionAnnotation.md)
  - [CaretAnnotation](docs/CaretAnnotation.md)
  - [CommonFigureAnnotation](docs/CommonFigureAnnotation.md)
+ - [FileAttachmentAnnotation](docs/FileAttachmentAnnotation.md)
  - [FreeTextAnnotation](docs/FreeTextAnnotation.md)
  - [HighlightAnnotation](docs/HighlightAnnotation.md)
  - [InkAnnotation](docs/InkAnnotation.md)
  - [LineAnnotation](docs/LineAnnotation.md)
  - [PolyAnnotation](docs/PolyAnnotation.md)
  - [PopupAnnotationWithParent](docs/PopupAnnotationWithParent.md)
+ - [SoundAnnotation](docs/SoundAnnotation.md)
  - [SquigglyAnnotation](docs/SquigglyAnnotation.md)
  - [StrikeOutAnnotation](docs/StrikeOutAnnotation.md)
  - [TextAnnotation](docs/TextAnnotation.md)

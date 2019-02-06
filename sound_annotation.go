@@ -1,0 +1,69 @@
+ /**
+ *
+ *   Copyright (c) 2019 Aspose.PDF Cloud
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ */
+package asposepdfcloud
+
+// Provides SoundAnnotation.
+type SoundAnnotation struct {
+	// Link to the document.
+	Links []Link `json:"Links,omitempty"`
+	// Color of the annotation.
+	Color *Color `json:"Color,omitempty"`
+	// Get the annotation content.
+	Contents string `json:"Contents,omitempty"`
+	// The date and time when the annotation was last modified.
+	Modified string `json:"Modified,omitempty"`
+	// Gets ID of the annotation.
+	Id string `json:"Id,omitempty"`
+	// Gets Flags of the annotation.
+	Flags []AnnotationFlags `json:"Flags,omitempty"`
+	// Gets Name of the annotation.
+	Name string `json:"Name,omitempty"`
+	// Gets Rect of the annotation.
+	Rect *Rectangle `json:"Rect,omitempty"`
+	// Gets PageIndex of the annotation.
+	PageIndex int32 `json:"PageIndex,omitempty"`
+	// Gets ZIndex of the annotation.
+	ZIndex int32 `json:"ZIndex,omitempty"`
+	// Gets HorizontalAlignment of the annotation.
+	HorizontalAlignment HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
+	// Gets VerticalAlignment of the annotation.
+	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
+	// The date and time when the annotation was created.
+	CreationDate string `json:"CreationDate,omitempty"`
+	// Get the annotation subject.
+	Subject string `json:"Subject,omitempty"`
+	// Get the annotation title.
+	Title string `json:"Title,omitempty"`
+	// Get the annotation RichText.
+	RichText string `json:"RichText,omitempty"`
+	// A sound file path defining the sound to be played when the annotation is activated.
+	FilePath string `json:"FilePath,omitempty"`
+	// Gets or sets an icon to be used in displaying the annotation.
+	Icon SoundIcon `json:"Icon,omitempty"`
+	// Gets or sets the sampling rate, in samples per second.
+	Rate int32 `json:"Rate,omitempty"`
+	// Gets or sets the number of sound channels.
+	Channels int32 `json:"Channels,omitempty"`
+	// Gets or sets the number of bits per sample value per channel.
+	Bits int32 `json:"Bits,omitempty"`
+	// Gets or sets the encoding format for the sample data.
+	Encoding SoundEncoding `json:"Encoding,omitempty"`
+}
