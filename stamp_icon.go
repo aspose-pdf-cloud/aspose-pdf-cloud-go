@@ -19,13 +19,23 @@
  *
  */
 package asposepdfcloud
+// StampIcon : Enumerates the icons to be used in displaying the annotation.
+type StampIcon string
 
-// Represents response containing multiple redaction annotation objects
-type RedactionAnnotationsResponse struct {
-	// Response status code.
-	Code int32 `json:"Code"`
-	// Response status.
-	Status string `json:"Status,omitempty"`
-	// Redaction annotations object
-	Annotations *RedactionAnnotations `json:"Annotations,omitempty"`
-}
+// List of StampIcon
+const (
+	StampIconDraft StampIcon = "Draft"
+	StampIconApproved StampIcon = "Approved"
+	StampIconExperimental StampIcon = "Experimental"
+	StampIconNotApproved StampIcon = "NotApproved"
+	StampIconAsIs StampIcon = "AsIs"
+	StampIconExpired StampIcon = "Expired"
+	StampIconNotForPublicRelease StampIcon = "NotForPublicRelease"
+	StampIconConfidential StampIcon = "Confidential"
+	StampIconFinal StampIcon = "Final"
+	StampIconSold StampIcon = "Sold"
+	StampIconDepartmental StampIcon = "Departmental"
+	StampIconForComment StampIcon = "ForComment"
+	StampIconForPublicRelease StampIcon = "ForPublicRelease"
+	StampIconTopSecret StampIcon = "TopSecret"
+)
