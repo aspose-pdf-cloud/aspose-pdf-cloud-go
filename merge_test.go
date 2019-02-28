@@ -52,6 +52,6 @@
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		t.Fail()
 	} else {
-		fmt.Printf("%d\tTestPutMergeDocuments - %db\n", GetBaseTest().GetTestNumber(), len(response))
+		fmt.Printf("%d\tTestPutMergeDocuments - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }

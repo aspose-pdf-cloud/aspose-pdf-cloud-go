@@ -20,12 +20,12 @@
  */
 package asposepdfcloud
 
-// Represents response containing multiple redaction annotation objects
-type RedactionAnnotationsResponse struct {
+// Represents response containing multiple screen annotation objects
+type ScreenAnnotationsResponse struct {
 	// Response status code.
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
-	// Redaction annotations object
-	Annotations *RedactionAnnotations `json:"Annotations,omitempty"`
+	// Screen annotations object
+	Annotations *ScreenAnnotations `json:"Annotations,omitempty"`
 }

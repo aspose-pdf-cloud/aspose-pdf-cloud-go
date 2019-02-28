@@ -140,3 +140,29 @@ func TestDeleteAnnotation(t *testing.T) {
 		fmt.Printf("%d\tTestDeleteAnnotation - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
+
+func TestPutAnnotationsFlatten(t *testing.T) {
+
+	name := "PdfWithAnnotations.pdf"
+	var endPage int32 = 2
+	annotationTypes := []AnnotationType{AnnotationTypeStamp}
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"endPage": endPage,
+		"annotationTypes": annotationTypes,
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutAnnotationsFlatten(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		 t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutAnnotationsFlatten - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
