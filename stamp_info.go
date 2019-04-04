@@ -20,22 +20,22 @@
  */
 package asposepdfcloud
 
-// Represents text occurrence.
-type TextRect struct {
-	// Text of the occurrence.
-	Text string `json:"Text,omitempty"`
-	// Page on which the occurrence is found.
-	Page int32 `json:"Page,omitempty"`
-	// Rectangle of the occurrence.
+// Provides stamp info.
+type StampInfo struct {
+	// Link to the document.
+	Links []Link `json:"Links,omitempty"`
+	// Gets ID of the stamp.
+	Id string `json:"Id,omitempty"`
+	// Gets index on page of the stamp.
+	IndexOnPage int32 `json:"IndexOnPage,omitempty"`
+	// Gets PageIndex of the annotation.
+	PageIndex int32 `json:"PageIndex,omitempty"`
+	// Gets Rect of the annotation.
 	Rect *Rectangle `json:"Rect,omitempty"`
-	// Gets or sets a horizontal alignment of text fragment. 
-	HorizontalAlignment HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
-	// Gets or sets a vertical alignment of text fragment. 
-	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
-	// Gets or sets text position for text, represented with  object.
-	Position *Position `json:"Position,omitempty"`
-	// Gets text position for text, represented with  object. The YIndent of the Position structure represents baseline coordinate of the text fragment.
-	BaselinePosition *Position `json:"BaselinePosition,omitempty"`
-	// Gets or sets text state for the text that  object represents.
-	TextState *TextState `json:"TextState,omitempty"`
+	// Get the text content.
+	Text string `json:"Text,omitempty"`
+	// Gets the stamp is visible.
+	Visible bool `json:"Visible,omitempty"`
+	// Gets stamp type.
+	StampType StampType `json:"StampType,omitempty"`
 }

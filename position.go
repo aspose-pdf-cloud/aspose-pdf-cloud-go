@@ -20,22 +20,10 @@
  */
 package asposepdfcloud
 
-// Represents text occurrence.
-type TextRect struct {
-	// Text of the occurrence.
-	Text string `json:"Text,omitempty"`
-	// Page on which the occurrence is found.
-	Page int32 `json:"Page,omitempty"`
-	// Rectangle of the occurrence.
-	Rect *Rectangle `json:"Rect,omitempty"`
-	// Gets or sets a horizontal alignment of text fragment. 
-	HorizontalAlignment HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
-	// Gets or sets a vertical alignment of text fragment. 
-	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
-	// Gets or sets text position for text, represented with  object.
-	Position *Position `json:"Position,omitempty"`
-	// Gets text position for text, represented with  object. The YIndent of the Position structure represents baseline coordinate of the text fragment.
-	BaselinePosition *Position `json:"BaselinePosition,omitempty"`
-	// Gets or sets text state for the text that  object represents.
-	TextState *TextState `json:"TextState,omitempty"`
+// Represents a position object
+type Position struct {
+	// Gets the X coordinate of the object
+	XIndent float64 `json:"XIndent"`
+	// Gets the Y coordinate of the object
+	YIndent float64 `json:"YIndent"`
 }
