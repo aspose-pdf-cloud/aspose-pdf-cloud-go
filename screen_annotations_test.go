@@ -178,7 +178,7 @@ func TestPutScreenAnnotation(t *testing.T) {
 		fmt.Printf("%d\tTestPutScreenAnnotation - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
-/*
+
 func TestGetScreenAnnotationData(t *testing.T) {
  
 	name := "PdfWithScreenAnnotations.pdf"
@@ -210,7 +210,7 @@ func TestGetScreenAnnotationData(t *testing.T) {
 func TestPutScreenAnnotationDataExtract(t *testing.T) {
  
 	name := "PdfWithScreenAnnotations.pdf"
-
+	outFilePath := GetBaseTest().remoteFolder + "/screen.dat"
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
@@ -225,7 +225,7 @@ func TestPutScreenAnnotationDataExtract(t *testing.T) {
 	}
 	annotationID := responseAnnotations.Annotations.List[0].Id
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PutScreenAnnotationDataExtract(name, annotationID, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutScreenAnnotationDataExtract(name, annotationID, outFilePath, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
@@ -234,4 +234,3 @@ func TestPutScreenAnnotationDataExtract(t *testing.T) {
 		fmt.Printf("%d\tTestGetScreenAnnotation - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
-*/
