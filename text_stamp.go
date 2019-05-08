@@ -26,24 +26,14 @@ type TextStamp struct {
 	Links []Link `json:"Links,omitempty"`
 	// Sets or gets a bool value that indicates the content is stamped as background. If the value is true, the stamp content is layed at the bottom. By defalt, the value is false, the stamp content is layed at the top.
 	Background bool `json:"Background,omitempty"`
-	// Gets or sets bottom margin of stamp.
-	BottomMargin float64 `json:"BottomMargin,omitempty"`
 	// Gets or sets Horizontal alignment of stamp on the page. 
 	HorizontalAlignment HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
-	// Gets or sets left margin of stamp.
-	LeftMargin float64 `json:"LeftMargin,omitempty"`
 	// Gets or sets a value to indicate the stamp opacity. The value is from 0.0 to 1.0. By default the value is 1.0.
 	Opacity float64 `json:"Opacity,omitempty"`
-	// Gets or sets right margin of stamp.
-	RightMargin float64 `json:"RightMargin,omitempty"`
 	// Sets or gets the rotation of stamp content according  values. Note. This property is for set angles which are multiples of 90 degrees (0, 90, 180, 270 degrees). To set arbitrary angle use RotateAngle property.  If angle set by ArbitraryAngle is not multiple of 90 then Rotate property returns Rotation.None.
 	Rotate Rotation `json:"Rotate,omitempty"`
 	// Gets or sets rotate angle of stamp in degrees. This property allows to set arbitrary rotate angle. 
 	RotateAngle float64 `json:"RotateAngle,omitempty"`
-	// Gets or sets top margin of stamp.
-	TopMargin float64 `json:"TopMargin,omitempty"`
-	// Gets or sets vertical alignment of stamp on page.
-	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
 	// Horizontal stamp coordinate, starting from the left.
 	XIndent float64 `json:"XIndent,omitempty"`
 	// Vertical stamp coordinate, starting from the bottom.
@@ -56,4 +46,14 @@ type TextStamp struct {
 	Value string `json:"Value,omitempty"`
 	// Gets text properties of the stamp. See  for details.
 	TextState *TextState `json:"TextState,omitempty"`
+	// Gets or sets vertical alignment of stamp on page.
+	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
+	// Gets or sets bottom margin of stamp.
+	BottomMargin float64 `json:"BottomMargin,omitempty"`
+	// Gets or sets left margin of stamp.
+	LeftMargin float64 `json:"LeftMargin,omitempty"`
+	// Gets or sets top margin of stamp.
+	TopMargin float64 `json:"TopMargin,omitempty"`
+	// Gets or sets right margin of stamp.
+	RightMargin float64 `json:"RightMargin,omitempty"`
 }

@@ -19,15 +19,12 @@
  *
  */
 package asposepdfcloud
+// ColumnAdjustment : Enumerates column adjustment types.
+type ColumnAdjustment string
 
-// This class represents a margin for different objects.
-type MarginInfo struct {
-	// Gets or sets a float value that indicates the left margin.
-	Left float64 `json:"Left,omitempty"`
-	// Gets or sets a float value that indicates the right margin.
-	Right float64 `json:"Right,omitempty"`
-	// Gets or sets a float value that indicates the top margin.
-	Top float64 `json:"Top,omitempty"`
-	// Gets or sets a float value that indicates the bottom margin.
-	Bottom float64 `json:"Bottom,omitempty"`
-}
+// List of ColumnAdjustment
+const (
+	ColumnAdjustmentCustomized ColumnAdjustment = "Customized"
+	ColumnAdjustmentAutoFitToContent ColumnAdjustment = "AutoFitToContent"
+	ColumnAdjustmentAutoFitToWindow ColumnAdjustment = "AutoFitToWindow"
+)

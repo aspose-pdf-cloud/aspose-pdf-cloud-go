@@ -20,8 +20,8 @@
  */
 package asposepdfcloud
 
-// Represents Pdf stamps.
-type PdfPageStamp struct {
+// Represents Pdf image footer.
+type ImageFooter struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
 	// Sets or gets a bool value that indicates the content is stamped as background. If the value is true, the stamp content is layed at the bottom. By defalt, the value is false, the stamp content is layed at the top.
@@ -42,16 +42,14 @@ type PdfPageStamp struct {
 	Zoom float64 `json:"Zoom,omitempty"`
 	// Gets or sets the file name.
 	FileName string `json:"FileName,omitempty"`
-	// Gets or sets the index of the page.
-	PageIndex int32 `json:"PageIndex,omitempty"`
-	// Gets or sets vertical alignment of stamp on page.
-	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
+	// Gets or sets image width. Setting this property allos to scal image horizontally.
+	Width float64 `json:"Width,omitempty"`
+	// Gets or sets image height. Setting this image allows to scale image vertically.
+	Height float64 `json:"Height,omitempty"`
 	// Gets or sets bottom margin of stamp.
 	BottomMargin float64 `json:"BottomMargin,omitempty"`
 	// Gets or sets left margin of stamp.
 	LeftMargin float64 `json:"LeftMargin,omitempty"`
-	// Gets or sets top margin of stamp.
-	TopMargin float64 `json:"TopMargin,omitempty"`
 	// Gets or sets right margin of stamp.
 	RightMargin float64 `json:"RightMargin,omitempty"`
 }

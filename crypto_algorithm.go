@@ -18,31 +18,14 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
+// CryptoAlgorithm : Represent type of cryptographic algorithm that used in encryption/decryption routines.
+type CryptoAlgorithm string
 
- import (
-	 "fmt"
-	 "testing"
- )
- 
-func TestGetDocumentBookmarks(t *testing.T) {
-
-	name := "PdfWithBookmarks.pdf"
-
-	if err := GetBaseTest().UploadFile(name); err != nil {
-		t.Error(err)
-	}
-
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
-	}
-
-	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentBookmarks(name, args)
-	if err != nil {
-		t.Error(err)
-	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		t.Fail()
-	} else {
-		fmt.Printf("%d\tTestGetDocumentBookmarks - %db\n", GetBaseTest().GetTestNumber(), len(response))
-	}
-}
+// List of CryptoAlgorithm
+const (
+	CryptoAlgorithmRC4x40 CryptoAlgorithm = "RC4x40"
+	CryptoAlgorithmRC4x128 CryptoAlgorithm = "RC4x128"
+	CryptoAlgorithmAESx128 CryptoAlgorithm = "AESx128"
+	CryptoAlgorithmAESx256 CryptoAlgorithm = "AESx256"
+)

@@ -1,5 +1,5 @@
-# PdfPageStamp
-Represents Pdf stamps.
+# ImageHeader
+Represents Pdf image header.
 
 ## Properties
 Name | Type | Description | Notes
@@ -14,13 +14,12 @@ Name | Type | Description | Notes
 **YIndent** | **float64** | Vertical stamp coordinate, starting from the bottom. | [optional] [default to null]
 **Zoom** | **float64** | Zooming factor of the stamp. Allows to scale stamp. | [optional] [default to null]
 **FileName** | **string** | Gets or sets the file name. | [optional] [default to null]
-**PageIndex** | **int32** | Gets or sets the index of the page. | [optional] [default to null]
-**VerticalAlignment** | [***VerticalAlignment**](VerticalAlignment.md) | Gets or sets vertical alignment of stamp on page. | [optional] [default to null]
-**BottomMargin** | **float64** | Gets or sets bottom margin of stamp. | [optional] [default to null]
+**Width** | **float64** | Gets or sets image width. Setting this property allos to scal image horizontally. | [optional] [default to null]
+**Height** | **float64** | Gets or sets image height. Setting this image allows to scale image vertically. | [optional] [default to null]
 **LeftMargin** | **float64** | Gets or sets left margin of stamp. | [optional] [default to null]
 **TopMargin** | **float64** | Gets or sets top margin of stamp. | [optional] [default to null]
 **RightMargin** | **float64** | Gets or sets right margin of stamp. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../pdf_page_stamp.go)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../image_header.go)
 
 

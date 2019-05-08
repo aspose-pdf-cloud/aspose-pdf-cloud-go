@@ -1,4 +1,4 @@
-# PdfPageStamp
+# PageNumberStamp
 Represents Pdf stamps.
 
 ## Properties
@@ -13,14 +13,14 @@ Name | Type | Description | Notes
 **XIndent** | **float64** | Horizontal stamp coordinate, starting from the left. | [optional] [default to null]
 **YIndent** | **float64** | Vertical stamp coordinate, starting from the bottom. | [optional] [default to null]
 **Zoom** | **float64** | Zooming factor of the stamp. Allows to scale stamp. | [optional] [default to null]
-**FileName** | **string** | Gets or sets the file name. | [optional] [default to null]
-**PageIndex** | **int32** | Gets or sets the index of the page. | [optional] [default to null]
+**Value** | **string** | Gets or sets string value which is used as stamp on the page. | [optional] [default to null]
+**StartingNumber** | **int32** | Gets or sets value of the number of starting page. Other pages will be numbered starting from this value. | [optional] [default to null]
 **VerticalAlignment** | [***VerticalAlignment**](VerticalAlignment.md) | Gets or sets vertical alignment of stamp on page. | [optional] [default to null]
 **BottomMargin** | **float64** | Gets or sets bottom margin of stamp. | [optional] [default to null]
 **LeftMargin** | **float64** | Gets or sets left margin of stamp. | [optional] [default to null]
 **TopMargin** | **float64** | Gets or sets top margin of stamp. | [optional] [default to null]
 **RightMargin** | **float64** | Gets or sets right margin of stamp. | [optional] [default to null]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../pdf_page_stamp.go)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../page_number_stamp.go)
 
 

@@ -275,3 +275,45 @@ func TestDeleteStamp(t *testing.T) {
 		fmt.Printf("%d\tTestDeleteStamp - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
+
+func TestPostDocumentPageNumberStamps(t *testing.T) {
+
+	name := "4pages.pdf"
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+		"startPageNumber": int32(2),
+		"endPageNumber": int32(3),
+	}
+
+	stamp := PageNumberStamp {
+		Background: true,
+		LeftMargin: 1,
+		RightMargin: 2,
+		TopMargin: 3,
+		BottomMargin: 4,
+		HorizontalAlignment: HorizontalAlignmentCenter,
+		VerticalAlignment: VerticalAlignmentCenter,
+		Opacity: 1,
+		Rotate: RotationNone,
+		RotateAngle: 0,
+		XIndent: 0,
+		YIndent: 0,
+		Zoom: 1,
+		StartingNumber: int32(3),
+		Value: "Page #",
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentPageNumberStamps(name, stamp, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tPostDocumentPageNumberStamps - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
