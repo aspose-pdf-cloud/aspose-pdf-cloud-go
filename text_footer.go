@@ -20,8 +20,8 @@
  */
 package asposepdfcloud
 
-// Represents Pdf stamps.
-type PdfPageStamp struct {
+// Represents Pdf text header.
+type TextFooter struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
 	// Sets or gets a bool value that indicates the content is stamped as background. If the value is true, the stamp content is layed at the bottom. By defalt, the value is false, the stamp content is layed at the top.
@@ -40,18 +40,16 @@ type PdfPageStamp struct {
 	YIndent float64 `json:"YIndent,omitempty"`
 	// Zooming factor of the stamp. Allows to scale stamp.
 	Zoom float64 `json:"Zoom,omitempty"`
-	// Gets or sets the file name.
-	FileName string `json:"FileName,omitempty"`
-	// Gets or sets the index of the page.
-	PageIndex int32 `json:"PageIndex,omitempty"`
-	// Gets or sets vertical alignment of stamp on page.
-	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
+	// Alignment of the text inside the stamp.
+	TextAlignment HorizontalAlignment `json:"TextAlignment,omitempty"`
+	// Gets or sets string value which is used as stamp on the page.
+	Value string `json:"Value,omitempty"`
+	// Gets text properties of the stamp. See  for details.
+	TextState *TextState `json:"TextState,omitempty"`
 	// Gets or sets bottom margin of stamp.
 	BottomMargin float64 `json:"BottomMargin,omitempty"`
 	// Gets or sets left margin of stamp.
 	LeftMargin float64 `json:"LeftMargin,omitempty"`
-	// Gets or sets top margin of stamp.
-	TopMargin float64 `json:"TopMargin,omitempty"`
 	// Gets or sets right margin of stamp.
 	RightMargin float64 `json:"RightMargin,omitempty"`
 }

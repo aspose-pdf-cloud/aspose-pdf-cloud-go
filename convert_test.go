@@ -469,6 +469,80 @@ func TestPutPdfInRequestToXls(t *testing.T) {
 	}
 }
 
+// To XLS
+func TestGetPdfInStorageToXlsx(t *testing.T) {
+
+	name := "4pages.pdf"	
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetPdfInStorageToXlsx(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetPdfInStorageToXlsx - %db\n", GetBaseTest().GetTestNumber(), len(response))
+	}
+}
+
+func TestPutPdfInStorageToXlsx(t *testing.T) {
+
+	name := "4pages.pdf"	
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	resFileName := "result.xlsx";
+    outPath := GetBaseTest().remoteFolder + "/" + resFileName;
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInStorageToXlsx(name, outPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutPdfInStorageToXlsx - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPutPdfInRequestToXlsx(t *testing.T) {
+	name := "4pages.pdf"
+	resFileName := "result.xlsx";
+    outPath := GetBaseTest().remoteFolder + "/" + resFileName;
+
+	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + name) 
+	if err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+		"file": file,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInRequestToXlsx(outPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutPdfInRequestToXlsx - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
 // To HTML
 func TestGetPdfInStorageToHtml(t *testing.T) {
 

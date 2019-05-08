@@ -20,14 +20,16 @@
  */
 package asposepdfcloud
 
-// This class represents a margin for different objects.
-type MarginInfo struct {
-	// Gets or sets a float value that indicates the left margin.
-	Left float64 `json:"Left,omitempty"`
-	// Gets or sets a float value that indicates the right margin.
-	Right float64 `json:"Right,omitempty"`
-	// Gets or sets a float value that indicates the top margin.
-	Top float64 `json:"Top,omitempty"`
-	// Gets or sets a float value that indicates the bottom margin.
-	Bottom float64 `json:"Bottom,omitempty"`
+// This class represents border for graphics elements.
+type BorderInfo struct {
+	// Gets or sets a object that indicates left of the border.
+	Left *GraphInfo `json:"Left,omitempty"`
+	// Gets or sets a object that indicates right of the border.
+	Right *GraphInfo `json:"Right,omitempty"`
+	// Gets or sets a object that indicates the top border.
+	Top *GraphInfo `json:"Top,omitempty"`
+	// Gets or sets a object that indicates bottom of the border.
+	Bottom *GraphInfo `json:"Bottom,omitempty"`
+	// Gets or sets a rouded border radius
+	RoundedBorderRadius float64 `json:"RoundedBorderRadius,omitempty"`
 }

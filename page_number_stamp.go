@@ -21,7 +21,7 @@
 package asposepdfcloud
 
 // Represents Pdf stamps.
-type PdfPageStamp struct {
+type PageNumberStamp struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
 	// Sets or gets a bool value that indicates the content is stamped as background. If the value is true, the stamp content is layed at the bottom. By defalt, the value is false, the stamp content is layed at the top.
@@ -40,10 +40,10 @@ type PdfPageStamp struct {
 	YIndent float64 `json:"YIndent,omitempty"`
 	// Zooming factor of the stamp. Allows to scale stamp.
 	Zoom float64 `json:"Zoom,omitempty"`
-	// Gets or sets the file name.
-	FileName string `json:"FileName,omitempty"`
-	// Gets or sets the index of the page.
-	PageIndex int32 `json:"PageIndex,omitempty"`
+	// Gets or sets string value which is used as stamp on the page.
+	Value string `json:"Value,omitempty"`
+	// Gets or sets value of the number of starting page. Other pages will be numbered starting from this value.
+	StartingNumber int32 `json:"StartingNumber,omitempty"`
 	// Gets or sets vertical alignment of stamp on page.
 	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
 	// Gets or sets bottom margin of stamp.

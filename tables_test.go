@@ -162,9 +162,9 @@ func TestDeleteTable(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	stampID := responseTables.Tables.List[0].Id
+	tableID := responseTables.Tables.List[0].Id
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.DeleteTable(name, stampID, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.DeleteTable(name, tableID, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
@@ -172,4 +172,129 @@ func TestDeleteTable(t *testing.T) {
 	} else {
 		fmt.Printf("%d\tTestDeleteTable - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
+}
+
+func TestPostPageTables(t *testing.T) {
+
+	name := "4pages.pdf"
+	var pageNumber int32 = 1
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	table := DrawTable()
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostPageTables(name, pageNumber, []Table{table}, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+			t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPostPageTables - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPutTable(t *testing.T) {
+
+	name := "PdfWithTable.pdf"
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+	
+	responseTables, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentTables(name, args)
+	if err != nil {
+		t.Error(err)
+	}
+	tableID := responseTables.Tables.List[0].Id
+
+	table := DrawTable()
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutTable(name, tableID, table, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+			t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutTable - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func DrawTable() Table {
+	textState := TextState{FontSize: 11, FontStyle: FontStylesRegular}
+
+	numOfCols := int32(5)
+	numOfRows := int32(5)
+
+	table := Table {
+		Rows: make([]Row, numOfRows),
+	}
+	colWidths := ""
+
+	for c := int32(0); c < numOfCols; c++ {
+		colWidths += " 30"
+	}
+	table.ColumnWidths = colWidths
+
+	table.DefaultCellTextState = &textState
+
+	borderTableBorder := GraphInfo {
+		Color: &Color { A: int32(0xFF), R: 0, G: int32(0xFF), B: 0},
+		LineWidth: 1,
+	}
+
+	table.DefaultCellBorder = &BorderInfo {
+		Top: &borderTableBorder,
+		Right: &borderTableBorder,
+		Bottom: &borderTableBorder,
+		Left: &borderTableBorder,
+	}
+	table.Top = 100
+
+	for r := int32(0); r < numOfRows; r++ {
+
+		row := Row{Cells: make([]Cell, numOfCols),}
+
+		for c := int32(0); c < numOfCols; c++ {
+
+			cell := Cell {
+				BackgroundColor: &Color { A: int32(0xFF), R: int32(0x88), G: int32(0xFF), B: 0},
+				DefaultCellTextState: &textState,
+				Paragraphs: []TextRect {
+					TextRect{ Text: "value" },
+				},
+			}
+			
+			// change properties on cell
+			if c == 1 {
+				cell.DefaultCellTextState.ForegroundColor = &Color { A: int32(0xFF), R: int32(0x88), G: 0, B: int32(0xFF)}
+			} else if c == 2 {
+				// change properties on cell AFTER first clearing and re-adding paragraphs
+				cell.Paragraphs[0] = TextRect{ Text: "y" }
+				cell.DefaultCellTextState.ForegroundColor = &Color { A: int32(0xFF), R: int32(0), G: 0, B: int32(0xFF)}
+			} else if (c == 3) {
+				// change properties on paragraph
+				cell.Paragraphs[0].TextState = &textState
+				cell.Paragraphs[0].TextState.ForegroundColor = &Color { A: int32(0xFF), R: int32(0), G: 0, B: int32(0xFF)}
+			} else if (c == 4) {// change properties on paragraph AFTER first clearing and re-adding paragraphs
+				cell.Paragraphs[0] = TextRect{ Text: "y" }
+				cell.Paragraphs[0].TextState = &textState
+				cell.Paragraphs[0].TextState.ForegroundColor = &Color { A: int32(0xFF), R: int32(0), G: 0, B: int32(0xFF)}
+			}
+			row.Cells[c] = cell
+
+		}
+		table.Rows[r] = row;
+	}
+
+	return table;
 }

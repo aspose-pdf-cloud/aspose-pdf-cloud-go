@@ -30,7 +30,6 @@ Method | HTTP request | Description
 [**GetDocumentAnnotations**](PdfApi.md#GetDocumentAnnotations) | **Get** /pdf/{name}/annotations | Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
 [**GetDocumentAttachmentByIndex**](PdfApi.md#GetDocumentAttachmentByIndex) | **Get** /pdf/{name}/attachments/{attachmentIndex} | Read document attachment info by its index.
 [**GetDocumentAttachments**](PdfApi.md#GetDocumentAttachments) | **Get** /pdf/{name}/attachments | Read document attachments info.
-[**GetDocumentBookmarks**](PdfApi.md#GetDocumentBookmarks) | **Get** /pdf/{name}/bookmarks | Read document bookmark/bookmarks (including children).
 [**GetDocumentCaretAnnotations**](PdfApi.md#GetDocumentCaretAnnotations) | **Get** /pdf/{name}/annotations/caret | Read document caret annotations.
 [**GetDocumentCircleAnnotations**](PdfApi.md#GetDocumentCircleAnnotations) | **Get** /pdf/{name}/annotations/circle | Read document circle annotations.
 [**GetDocumentFileAttachmentAnnotations**](PdfApi.md#GetDocumentFileAttachmentAnnotations) | **Get** /pdf/{name}/annotations/fileattachment | Read document FileAttachment annotations.
@@ -127,6 +126,7 @@ Method | HTTP request | Description
 [**GetPdfInStorageToSvg**](PdfApi.md#GetPdfInStorageToSvg) | **Get** /pdf/{name}/convert/svg | Converts PDF document (located on storage) to SVG format and returns resulting file in response content
 [**GetPdfInStorageToTiff**](PdfApi.md#GetPdfInStorageToTiff) | **Get** /pdf/{name}/convert/tiff | Converts PDF document (located on storage) to TIFF format and returns resulting file in response content
 [**GetPdfInStorageToXls**](PdfApi.md#GetPdfInStorageToXls) | **Get** /pdf/{name}/convert/xls | Converts PDF document (located on storage) to XLS format and returns resulting file in response content
+[**GetPdfInStorageToXlsx**](PdfApi.md#GetPdfInStorageToXlsx) | **Get** /pdf/{name}/convert/xlsx | Converts PDF document (located on storage) to XLSX format and returns resulting file in response content
 [**GetPdfInStorageToXml**](PdfApi.md#GetPdfInStorageToXml) | **Get** /pdf/{name}/convert/xml | Converts PDF document (located on storage) to XML format and returns resulting file in response content
 [**GetPdfInStorageToXps**](PdfApi.md#GetPdfInStorageToXps) | **Get** /pdf/{name}/convert/xps | Converts PDF document (located on storage) to XPS format and returns resulting file in response content
 [**GetPolyLineAnnotation**](PdfApi.md#GetPolyLineAnnotation) | **Get** /pdf/{name}/annotations/polyline/{annotationId} | Read document page polyline annotation by ID.
@@ -156,8 +156,16 @@ Method | HTTP request | Description
 [**GetXpsInStorageToPdf**](PdfApi.md#GetXpsInStorageToPdf) | **Get** /pdf/create/xps | Convert XPS file (located on storage) to PDF format and return resulting file in response. 
 [**GetXslFoInStorageToPdf**](PdfApi.md#GetXslFoInStorageToPdf) | **Get** /pdf/create/xslfo | Convert XslFo file (located on storage) to PDF format and return resulting file in response. 
 [**PostAppendDocument**](PdfApi.md#PostAppendDocument) | **Post** /pdf/{name}/appendDocument | Append document to existing one.
+[**PostChangePasswordDocumentInStorage**](PdfApi.md#PostChangePasswordDocumentInStorage) | **Post** /pdf/{name}/changepassword | Change document password in storage.
 [**PostCreateField**](PdfApi.md#PostCreateField) | **Post** /pdf/{name}/fields | Create field.
+[**PostDecryptDocumentInStorage**](PdfApi.md#PostDecryptDocumentInStorage) | **Post** /pdf/{name}/decrypt | Decrypt document in storage.
+[**PostDocumentImageFooter**](PdfApi.md#PostDocumentImageFooter) | **Post** /pdf/{name}/footer/image | Add document image footer.
+[**PostDocumentImageHeader**](PdfApi.md#PostDocumentImageHeader) | **Post** /pdf/{name}/header/image | Add document image header.
+[**PostDocumentPageNumberStamps**](PdfApi.md#PostDocumentPageNumberStamps) | **Post** /pdf/{name}/stamps/pagenumber | Add document page number stamps.
+[**PostDocumentTextFooter**](PdfApi.md#PostDocumentTextFooter) | **Post** /pdf/{name}/footer/text | Add document text footer.
+[**PostDocumentTextHeader**](PdfApi.md#PostDocumentTextHeader) | **Post** /pdf/{name}/header/text | Add document text header.
 [**PostDocumentTextReplace**](PdfApi.md#PostDocumentTextReplace) | **Post** /pdf/{name}/text/replace | Document&#39;s replace text method.
+[**PostEncryptDocumentInStorage**](PdfApi.md#PostEncryptDocumentInStorage) | **Post** /pdf/{name}/encrypt | Encrypt document in storage.
 [**PostFlattenDocument**](PdfApi.md#PostFlattenDocument) | **Post** /pdf/{name}/flatten | Flatten the document.
 [**PostInsertImage**](PdfApi.md#PostInsertImage) | **Post** /pdf/{name}/pages/{pageNumber}/images | Insert image to document page.
 [**PostMoveFile**](PdfApi.md#PostMoveFile) | **Post** /storage/file | Move a specific file
@@ -184,6 +192,7 @@ Method | HTTP request | Description
 [**PostPageSquigglyAnnotations**](PdfApi.md#PostPageSquigglyAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/squiggly | Add document page squiggly annotations.
 [**PostPageStampAnnotations**](PdfApi.md#PostPageStampAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/stamp | Add document page stamp annotations.
 [**PostPageStrikeOutAnnotations**](PdfApi.md#PostPageStrikeOutAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/strikeout | Add document page StrikeOut annotations.
+[**PostPageTables**](PdfApi.md#PostPageTables) | **Post** /pdf/{name}/pages/{pageNumber}/tables | Add document page tables.
 [**PostPageTextAnnotations**](PdfApi.md#PostPageTextAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/text | Add document page text annotations.
 [**PostPageTextReplace**](PdfApi.md#PostPageTextReplace) | **Post** /pdf/{name}/pages/{pageNumber}/text/replace | Page&#39;s replace text method.
 [**PostPageTextStamps**](PdfApi.md#PostPageTextStamps) | **Post** /pdf/{name}/pages/{pageNumber}/stamps/text | Add document page text stamps.
@@ -196,10 +205,13 @@ Method | HTTP request | Description
 [**PutAddText**](PdfApi.md#PutAddText) | **Put** /pdf/{name}/pages/{pageNumber}/text | Add text to PDF document page.
 [**PutAnnotationsFlatten**](PdfApi.md#PutAnnotationsFlatten) | **Put** /pdf/{name}/annotations/flatten | Flattens the annotations of the specified types
 [**PutCaretAnnotation**](PdfApi.md#PutCaretAnnotation) | **Put** /pdf/{name}/annotations/caret/{annotationId} | Replace document caret annotation
+[**PutChangePasswordDocument**](PdfApi.md#PutChangePasswordDocument) | **Put** /pdf/changepassword | Change document password from content.
 [**PutCircleAnnotation**](PdfApi.md#PutCircleAnnotation) | **Put** /pdf/{name}/annotations/circle/{annotationId} | Replace document circle annotation
 [**PutCreate**](PdfApi.md#PutCreate) | **Put** /storage/file | Upload a specific file 
 [**PutCreateDocument**](PdfApi.md#PutCreateDocument) | **Put** /pdf/{name} | Create empty document.
 [**PutCreateFolder**](PdfApi.md#PutCreateFolder) | **Put** /storage/folder | Create the folder 
+[**PutDecryptDocument**](PdfApi.md#PutDecryptDocument) | **Put** /pdf/decrypt | Decrypt document from content.
+[**PutEncryptDocument**](PdfApi.md#PutEncryptDocument) | **Put** /pdf/encrypt | Encrypt document from content.
 [**PutEpubInStorageToPdf**](PdfApi.md#PutEpubInStorageToPdf) | **Put** /pdf/{name}/create/epub | Convert EPUB file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutFieldsFlatten**](PdfApi.md#PutFieldsFlatten) | **Put** /pdf/{name}/fields/flatten | Flatten form fields in document.
 [**PutFileAttachmentAnnotation**](PdfApi.md#PutFileAttachmentAnnotation) | **Put** /pdf/{name}/annotations/fileattachment/{annotationId} | Replace document FileAttachment annotation
@@ -241,6 +253,7 @@ Method | HTTP request | Description
 [**PutPdfInRequestToSvg**](PdfApi.md#PutPdfInRequestToSvg) | **Put** /pdf/convert/svg | Converts PDF document (in request content) to SVG format and uploads resulting file to storage.
 [**PutPdfInRequestToTiff**](PdfApi.md#PutPdfInRequestToTiff) | **Put** /pdf/convert/tiff | Converts PDF document (in request content) to TIFF format and uploads resulting file to storage.
 [**PutPdfInRequestToXls**](PdfApi.md#PutPdfInRequestToXls) | **Put** /pdf/convert/xls | Converts PDF document (in request content) to XLS format and uploads resulting file to storage.
+[**PutPdfInRequestToXlsx**](PdfApi.md#PutPdfInRequestToXlsx) | **Put** /pdf/convert/xlsx | Converts PDF document (in request content) to XLSX format and uploads resulting file to storage.
 [**PutPdfInRequestToXml**](PdfApi.md#PutPdfInRequestToXml) | **Put** /pdf/convert/xml | Converts PDF document (in request content) to XML format and uploads resulting file to storage.
 [**PutPdfInRequestToXps**](PdfApi.md#PutPdfInRequestToXps) | **Put** /pdf/convert/xps | Converts PDF document (in request content) to XPS format and uploads resulting file to storage.
 [**PutPdfInStorageToDoc**](PdfApi.md#PutPdfInStorageToDoc) | **Put** /pdf/{name}/convert/doc | Converts PDF document (located on storage) to DOC format and uploads resulting file to storage
@@ -253,6 +266,7 @@ Method | HTTP request | Description
 [**PutPdfInStorageToSvg**](PdfApi.md#PutPdfInStorageToSvg) | **Put** /pdf/{name}/convert/svg | Converts PDF document (located on storage) to SVG format and uploads resulting file to storage
 [**PutPdfInStorageToTiff**](PdfApi.md#PutPdfInStorageToTiff) | **Put** /pdf/{name}/convert/tiff | Converts PDF document (located on storage) to TIFF format and uploads resulting file to storage
 [**PutPdfInStorageToXls**](PdfApi.md#PutPdfInStorageToXls) | **Put** /pdf/{name}/convert/xls | Converts PDF document (located on storage) to XLS format and uploads resulting file to storage
+[**PutPdfInStorageToXlsx**](PdfApi.md#PutPdfInStorageToXlsx) | **Put** /pdf/{name}/convert/xlsx | Converts PDF document (located on storage) to XLSX format and uploads resulting file to storage
 [**PutPdfInStorageToXml**](PdfApi.md#PutPdfInStorageToXml) | **Put** /pdf/{name}/convert/xml | Converts PDF document (located on storage) to XML format and uploads resulting file to storage
 [**PutPdfInStorageToXps**](PdfApi.md#PutPdfInStorageToXps) | **Put** /pdf/{name}/convert/xps | Converts PDF document (located on storage) to XPS format and uploads resulting file to storage
 [**PutPolyLineAnnotation**](PdfApi.md#PutPolyLineAnnotation) | **Put** /pdf/{name}/annotations/polyline/{annotationId} | Replace document polyline annotation
@@ -274,6 +288,7 @@ Method | HTTP request | Description
 [**PutStampAnnotationDataExtract**](PdfApi.md#PutStampAnnotationDataExtract) | **Put** /pdf/{name}/annotations/stamp/{annotationId}/data/extract | Extract document stamp annotation content to storage
 [**PutStrikeOutAnnotation**](PdfApi.md#PutStrikeOutAnnotation) | **Put** /pdf/{name}/annotations/strikeout/{annotationId} | Replace document StrikeOut annotation
 [**PutSvgInStorageToPdf**](PdfApi.md#PutSvgInStorageToPdf) | **Put** /pdf/{name}/create/svg | Convert SVG file (located on storage) to PDF format and upload resulting file to storage. 
+[**PutTable**](PdfApi.md#PutTable) | **Put** /pdf/{name}/tables/{tableId} | Replace document page table.
 [**PutTextAnnotation**](PdfApi.md#PutTextAnnotation) | **Put** /pdf/{name}/annotations/text/{annotationId} | Replace document text annotation
 [**PutUnderlineAnnotation**](PdfApi.md#PutUnderlineAnnotation) | **Put** /pdf/{name}/annotations/underline/{annotationId} | Replace document underline annotation
 [**PutUpdateField**](PdfApi.md#PutUpdateField) | **Put** /pdf/{name}/fields/{fieldName} | Update field.
@@ -1020,7 +1035,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: multipart/form-data
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1116,38 +1131,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **GetDocumentBookmarks**
-> []byte GetDocumentBookmarks(name, optional)
-Read document bookmark/bookmarks (including children).
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| The document name. | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| The document name. | 
- **bookmarkPath** | **string**| The bookmark path. Leave it empty if you want to get all the bookmarks in the document. | 
- **storage** | **string**| The document storage. | 
- **folder** | **string**| The document folder. | 
-
-### Return type
-
-**[]byte**
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4314,6 +4297,41 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetPdfInStorageToXlsx**
+> []byte GetPdfInStorageToXlsx(name, optional)
+Converts PDF document (located on storage) to XLSX format and returns resulting file in response content
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **insertBlankColumnAtFirst** | **bool**| Insert blank column at first | 
+ **minimizeTheNumberOfWorksheets** | **bool**| Minimize the number of worksheets | 
+ **scaleFactor** | **float64**| Scale factor | 
+ **uniformWorksheets** | **bool**| Uniform worksheets | 
+ **folder** | **string**| The document folder. | 
+ **storage** | **string**| The document storage. | 
+
+### Return type
+
+**[]byte**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetPdfInStorageToXml**
 > []byte GetPdfInStorageToXml(name, optional)
 Converts PDF document (located on storage) to XML format and returns resulting file in response content
@@ -5272,6 +5290,43 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PostChangePasswordDocumentInStorage**
+> AsposeResponse PostChangePasswordDocumentInStorage(name, ownerPassword, newUserPassword, newOwnerPassword, optional)
+Change document password in storage.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Document name. | 
+  **ownerPassword** | **string**| Owner password (encrypted Base64). | 
+  **newUserPassword** | **string**| New user password (encrypted Base64). | 
+  **newOwnerPassword** | **string**| New owner password (encrypted Base64). | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Document name. | 
+ **ownerPassword** | **string**| Owner password (encrypted Base64). | 
+ **newUserPassword** | **string**| New user password (encrypted Base64). | 
+ **newOwnerPassword** | **string**| New owner password (encrypted Base64). | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PostCreateField**
 > AsposeResponse PostCreateField(name, page, optional)
 Create field.
@@ -5292,6 +5347,214 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **page** | **int32**| Document page number. | 
  **field** | [**Field**](Field.md)| with the field data. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostDecryptDocumentInStorage**
+> AsposeResponse PostDecryptDocumentInStorage(name, password, optional)
+Decrypt document in storage.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Document name. | 
+  **password** | **string**| The password (encrypted Base64). | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Document name. | 
+ **password** | **string**| The password (encrypted Base64). | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostDocumentImageFooter**
+> AsposeResponse PostDocumentImageFooter(name, imageFooter, optional)
+Add document image footer.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **imageFooter** | [**ImageFooter**](ImageFooter.md)| The image footer. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **imageFooter** | [**ImageFooter**](ImageFooter.md)| The image footer. | 
+ **startPageNumber** | **int32**| The start page number. | 
+ **endPageNumber** | **int32**| The end page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostDocumentImageHeader**
+> AsposeResponse PostDocumentImageHeader(name, imageHeader, optional)
+Add document image header.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **imageHeader** | [**ImageHeader**](ImageHeader.md)| The image header. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **imageHeader** | [**ImageHeader**](ImageHeader.md)| The image header. | 
+ **startPageNumber** | **int32**| The start page number. | 
+ **endPageNumber** | **int32**| The end page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostDocumentPageNumberStamps**
+> AsposeResponse PostDocumentPageNumberStamps(name, stamp, optional)
+Add document page number stamps.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **stamp** | [**PageNumberStamp**](PageNumberStamp.md)| The stamp. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **stamp** | [**PageNumberStamp**](PageNumberStamp.md)| The stamp. | 
+ **startPageNumber** | **int32**| The start page number. | 
+ **endPageNumber** | **int32**| The end page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostDocumentTextFooter**
+> AsposeResponse PostDocumentTextFooter(name, textFooter, optional)
+Add document text footer.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **textFooter** | [**TextFooter**](TextFooter.md)| The text footer. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **textFooter** | [**TextFooter**](TextFooter.md)| The text footer. | 
+ **startPageNumber** | **int32**| The start page number. | 
+ **endPageNumber** | **int32**| The end page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostDocumentTextHeader**
+> AsposeResponse PostDocumentTextHeader(name, textHeader, optional)
+Add document text header.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **textHeader** | [**TextHeader**](TextHeader.md)| The text header. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **textHeader** | [**TextHeader**](TextHeader.md)| The text header. | 
+ **startPageNumber** | **int32**| The start page number. | 
+ **endPageNumber** | **int32**| The end page number. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -5331,6 +5594,45 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TextReplaceResponse**](TextReplaceResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostEncryptDocumentInStorage**
+> AsposeResponse PostEncryptDocumentInStorage(name, userPassword, ownerPassword, cryptoAlgorithm, optional)
+Encrypt document in storage.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Document name. | 
+  **userPassword** | **string**| User password (encrypted Base64). | 
+  **ownerPassword** | **string**| Owner password (encrypted Base64). | 
+  **cryptoAlgorithm** | **string**| Cryptographic algorithm, see  for details. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| Document name. | 
+ **userPassword** | **string**| User password (encrypted Base64). | 
+ **ownerPassword** | **string**| Owner password (encrypted Base64). | 
+ **cryptoAlgorithm** | **string**| Cryptographic algorithm, see  for details. | 
+ **permissionsFlags** | [**[]PermissionsFlags**](PermissionsFlags.md)| Array of document permissions, see  for details. | 
+ **usePdf20** | **bool**| Support for revision 6 (Extension 8). | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
 
 ### HTTP request headers
 
@@ -6250,6 +6552,41 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PostPageTables**
+> AsposeResponse PostPageTables(name, pageNumber, tables, optional)
+Add document page tables.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+  **tables** | [**[]Table**](Table.md)| The array of table. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **tables** | [**[]Table**](Table.md)| The array of table. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PostPageTextAnnotations**
 > AsposeResponse PostPageTextAnnotations(name, pageNumber, annotations, optional)
 Add document page text annotations.
@@ -6659,6 +6996,43 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PutChangePasswordDocument**
+> AsposeResponse PutChangePasswordDocument(outPath, ownerPassword, newUserPassword, newOwnerPassword, optional)
+Change document password from content.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.doc) | 
+  **ownerPassword** | **string**| Owner password (encrypted Base64). | 
+  **newUserPassword** | **string**| New user password (encrypted Base64). | 
+  **newOwnerPassword** | **string**| New owner password (encrypted Base64). | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.doc) | 
+ **ownerPassword** | **string**| Owner password (encrypted Base64). | 
+ **newUserPassword** | **string**| New user password (encrypted Base64). | 
+ **newOwnerPassword** | **string**| New owner password (encrypted Base64). | 
+ **storage** | **string**| The document storage. | 
+ **file** | ***os.File**| A file to be changed password. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PutCircleAnnotation**
 > CircleAnnotationResponse PutCircleAnnotation(name, annotationId, annotation, optional)
 Replace document circle annotation
@@ -6785,6 +7159,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutDecryptDocument**
+> AsposeResponse PutDecryptDocument(outPath, password, optional)
+Decrypt document from content.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.doc) | 
+  **password** | **string**| The password (encrypted Base64). | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.doc) | 
+ **password** | **string**| The password (encrypted Base64). | 
+ **storage** | **string**| The document storage. | 
+ **file** | ***os.File**| A file to be derypted. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutEncryptDocument**
+> AsposeResponse PutEncryptDocument(outPath, userPassword, ownerPassword, cryptoAlgorithm, optional)
+Encrypt document from content.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.doc) | 
+  **userPassword** | **string**| User password (encrypted Base64). | 
+  **ownerPassword** | **string**| Owner password (encrypted Base64). | 
+  **cryptoAlgorithm** | **string**| Cryptographic algorithm, see  for details. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.doc) | 
+ **userPassword** | **string**| User password (encrypted Base64). | 
+ **ownerPassword** | **string**| Owner password (encrypted Base64). | 
+ **cryptoAlgorithm** | **string**| Cryptographic algorithm, see  for details. | 
+ **permissionsFlags** | [**[]PermissionsFlags**](PermissionsFlags.md)| Array of document permissions, see  for details. | 
+ **usePdf20** | **bool**| Support for revision 6 (Extension 8). | 
+ **storage** | **string**| The document storage. | 
+ **file** | ***os.File**| A file to be encrypted. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -8253,6 +8699,41 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PutPdfInRequestToXlsx**
+> AsposeResponse PutPdfInRequestToXlsx(outPath, optional)
+Converts PDF document (in request content) to XLSX format and uploads resulting file to storage.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xlsx) | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xlsx) | 
+ **insertBlankColumnAtFirst** | **bool**| Insert blank column at first | 
+ **minimizeTheNumberOfWorksheets** | **bool**| Minimize the number of worksheets | 
+ **scaleFactor** | **float64**| Scale factor | 
+ **uniformWorksheets** | **bool**| Uniform worksheets | 
+ **storage** | **string**| The document storage. | 
+ **file** | ***os.File**| A file to be converted. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PutPdfInRequestToXml**
 > AsposeResponse PutPdfInRequestToXml(outPath, optional)
 Converts PDF document (in request content) to XML format and uploads resulting file to storage.
@@ -8688,6 +9169,43 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xls) | 
+ **insertBlankColumnAtFirst** | **bool**| Insert blank column at first | 
+ **minimizeTheNumberOfWorksheets** | **bool**| Minimize the number of worksheets | 
+ **scaleFactor** | **float64**| Scale factor | 
+ **uniformWorksheets** | **bool**| Uniform worksheets | 
+ **folder** | **string**| The document folder. | 
+ **storage** | **string**| The document storage. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutPdfInStorageToXlsx**
+> AsposeResponse PutPdfInStorageToXlsx(name, outPath, optional)
+Converts PDF document (located on storage) to XLSX format and uploads resulting file to storage
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xlsx) | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xlsx) | 
  **insertBlankColumnAtFirst** | **bool**| Insert blank column at first | 
  **minimizeTheNumberOfWorksheets** | **bool**| Minimize the number of worksheets | 
  **scaleFactor** | **float64**| Scale factor | 
@@ -9423,6 +9941,41 @@ Name | Type | Description  | Notes
  **marginTop** | **float64**| Page margin top | 
  **dstFolder** | **string**| The destination document folder. | 
  **storage** | **string**| The document storage. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutTable**
+> AsposeResponse PutTable(name, tableId, table, optional)
+Replace document page table.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **tableId** | **string**| The table ID. | 
+  **table** | [**Table**](Table.md)| The table. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **tableId** | **string**| The table ID. | 
+ **table** | [**Table**](Table.md)| The table. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
 
 ### Return type
 
