@@ -26,7 +26,7 @@ import (
 	"testing"
 )
 
-func TestPutCreate(t *testing.T) {
+func TestUploadFile(t *testing.T) {
 	name := "PdfWithBookmarks.pdf"
 
 	args := make(map[string]interface{})
@@ -36,18 +36,18 @@ func TestPutCreate(t *testing.T) {
 		t.Error(err)
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PutCreate(GetBaseTest().remoteFolder + "/" + name, file, args)
+	_, httpResponse, err := GetBaseTest().PdfAPI.UploadFile(GetBaseTest().remoteFolder + "/" + name, file, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		 t.Fail()
 	} else {
-		fmt.Printf("%d\tTestPutCreate - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tTestUploadFile - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
 	
 }
 
-func TestGetDownload(t *testing.T) {
+func TestDownloadFile(t *testing.T) {
 	name := "PdfWithBookmarks.pdf"
 
 	args := make(map[string]interface{})
@@ -56,18 +56,18 @@ func TestGetDownload(t *testing.T) {
 		t.Error(err)
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.GetDownload(GetBaseTest().remoteFolder + "/" + name, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.DownloadFile(GetBaseTest().remoteFolder + "/" + name, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		 t.Fail()
 	} else {
-		fmt.Printf("%d\tTestGetDownload - %db\n", GetBaseTest().GetTestNumber(), len(response))
+		fmt.Printf("%d\tTestDownloadFile - %db\n", GetBaseTest().GetTestNumber(), len(response))
 	}
 	
 }
 
-func TestPostMoveFile(t *testing.T) {
+func TestMoveFile(t *testing.T) {
 	name := "4pages.pdf"
 
 	args := make(map[string]interface{})
@@ -78,13 +78,13 @@ func TestPostMoveFile(t *testing.T) {
 	src := GetBaseTest().remoteFolder + "/" + name
 	dest := GetBaseTest().remoteFolder + "/4pages_renamed.pdf"
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PostMoveFile(src, dest, args)
+	httpResponse, err := GetBaseTest().PdfAPI.MoveFile(src, dest, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		 t.Fail()
 	} else {
-		fmt.Printf("%d\tTestPostMoveFile - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tTestMoveFile - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
 }
 
@@ -98,29 +98,28 @@ func TestDeleteFile(t *testing.T) {
 	}
 	path := GetBaseTest().remoteFolder + "/" + name
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.DeleteFile(path, args)
+	httpResponse, err := GetBaseTest().PdfAPI.DeleteFile(path, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		 t.Fail()
 	} else {
-		fmt.Printf("%d\tDeleteFile - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tTestDeleteFile - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
 }
 
-func TestGetListFiles(t *testing.T) {
+func TestGetFilesList(t *testing.T) {
 
-	args := map[string]interface{} {
-		"path":  GetBaseTest().remoteFolder,
-	}
+	path := GetBaseTest().remoteFolder
+	args := make(map[string]interface{})
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.GetListFiles(args)
+	_, httpResponse, err := GetBaseTest().PdfAPI.GetFilesList(path, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		 t.Fail()
 	} else {
-		fmt.Printf("%d\tTestGetListFiles - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tTestGetFilesList - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
 }
 
@@ -130,35 +129,35 @@ func TestPutCreateFolder(t *testing.T) {
 
 	path := GetBaseTest().remoteFolder + "/testFolder"
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PutCreateFolder(path, args)
+	httpResponse, err := GetBaseTest().PdfAPI.CreateFolder(path, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		 t.Fail()
 	} else {
-		fmt.Printf("%d\tPutCreateFolder - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tPutCreateFolder - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
 }
 
-func TestPostMoveFolder(t *testing.T) {
+func TestMoveFolder(t *testing.T) {
 
 	args := make(map[string]interface{})
 
 	src := GetBaseTest().remoteFolder + "/testFolder"
-	_, _, err := GetBaseTest().PdfAPI.PutCreateFolder(src, args)
+	_, err := GetBaseTest().PdfAPI.CreateFolder(src, args)
 	if err != nil {
 		t.Error(err)
 	}
 
 	dest :=  GetBaseTest().remoteFolder + "/testFolderRenamed"
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PostMoveFolder(src, dest, args)
+	httpResponse, err := GetBaseTest().PdfAPI.MoveFolder(src, dest, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		 t.Fail()
 	} else {
-		fmt.Printf("%d\tPostMoveFolder - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tPostMoveFolder - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
 }
 
@@ -167,36 +166,36 @@ func TestDeleteFolder(t *testing.T) {
 	args := make(map[string]interface{})
 
 	path := GetBaseTest().remoteFolder + "/testFolder"
-	_, _, err := GetBaseTest().PdfAPI.PutCreateFolder(path, args)
+	_, err := GetBaseTest().PdfAPI.CreateFolder(path, args)
 	if err != nil {
 		t.Error(err)
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.DeleteFolder(path, args)
+	httpResponse, err := GetBaseTest().PdfAPI.DeleteFolder(path, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		 t.Fail()
 	} else {
-		fmt.Printf("%d\tDeleteFolder - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tDeleteFolder - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
 }
 
-func TestGetIsStorageExist(t *testing.T) {
+func TestStorageExists(t *testing.T) {
 
 	name := "PDF-CI"
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.GetIsStorageExist(name)
+	_, httpResponse, err := GetBaseTest().PdfAPI.StorageExists(name)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		 t.Fail()
 	} else {
-		fmt.Printf("%d\tGetIsStorageExist - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tTestStorageExists - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
 }
 
-func TestGetIsExist(t *testing.T) {
+func TestObjectExists(t *testing.T) {
 	name := "4pages.pdf"
 
 	args := make(map[string]interface{})
@@ -206,28 +205,28 @@ func TestGetIsExist(t *testing.T) {
 	}
 	path := GetBaseTest().remoteFolder + "/" + name
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.GetIsExist(path, args)
+	_, httpResponse, err := GetBaseTest().PdfAPI.ObjectExists(path, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		 t.Fail()
 	} else {
-		fmt.Printf("%d\tGetIsExist - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tTestObjectExists - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
 }
 
 func TestGetDiscUsage(t *testing.T) {
-	response, httpResponse, err := GetBaseTest().PdfAPI.GetDiscUsage(nil)
+	_, httpResponse, err := GetBaseTest().PdfAPI.GetDiscUsage(nil)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		 t.Fail()
 	} else {
-		fmt.Printf("%d\tGetDiscUsage - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tGetDiscUsage - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
 }
 
-func TestGetListFileVersions(t *testing.T) {
+func TestGetFileVersions(t *testing.T) {
 	name := "4pages.pdf"
 
 	args := make(map[string]interface{})
@@ -237,12 +236,12 @@ func TestGetListFileVersions(t *testing.T) {
 	}
 	path := GetBaseTest().remoteFolder + "/" + name
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.GetListFileVersions(path, args)
+	_, httpResponse, err := GetBaseTest().PdfAPI.GetFileVersions(path, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		 t.Fail()
 	} else {
-		fmt.Printf("%d\tGetListFileVersions - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tTestGetFileVersions - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
 }

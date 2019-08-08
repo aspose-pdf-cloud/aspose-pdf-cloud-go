@@ -25,13 +25,13 @@ type Image struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
 	// Gets width of the image.
-	Width int32 `json:"Width,omitempty"`
+	Width int32 `json:"Width"`
 	// Gets height of the image.
-	Height int32 `json:"Height,omitempty"`
+	Height int32 `json:"Height"`
 	// Gets ID of the image.
 	Id string `json:"Id,omitempty"`
 	// Gets rectangle of the image.
 	Rectangle *Rectangle `json:"Rectangle,omitempty"`
 	// Gets page number.
-	PageNumber int32 `json:"PageNumber,omitempty"`
+	PageNumber int32 `json:"PageNumber"`
 }

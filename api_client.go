@@ -45,7 +45,7 @@ var (
     xmlCheck = regexp.MustCompile("(?i:[application|text]/xml)")
 )
 
-// APIClient manages communication with the Aspose.PDF Cloud API Reference API v2.0
+// APIClient manages communication with the Aspose.PDF Cloud API Reference API v3.0
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
     cfg     *Configuration
@@ -417,7 +417,7 @@ func (a *APIClient) addAuth(request *http.Request) (err error) {
 // RequestOauthToken function for requests OAuth token
 func (a *APIClient) RequestOauthToken() (error) {
 
-       resp, err := http.PostForm(strings.Replace(a.cfg.BasePath, "/v2.0", "/oauth2/token", -1), url.Values{
+       resp, err := http.PostForm(strings.Replace(a.cfg.BasePath, "/v3.0", "/connect/token", -1), url.Values{
                "grant_type": {"client_credentials"},
                "client_id": {a.cfg.AppSid},
                "client_secret": {a.cfg.AppKey}})
@@ -432,106 +432,55 @@ func (a *APIClient) RequestOauthToken() (error) {
                return err
        }
        a.cfg.AccessToken = tr.AccessToken
-       a.cfg.RefreshToken = tr.RefreshToken
        return nil
 }
 
 func deserializeDTO(readCloser io.Reader, successPayload interface{}) error {
     dtoType := reflect.TypeOf(successPayload).String()
-    if strings.Contains(dtoType, "FilesResponse") {
-        var temp FilesResponse_
-        ret := successPayload.(*FilesResponse)
+    
+    if strings.Contains(dtoType, "FilesList") {
+        var temp FilesList_
+        ret := successPayload.(*FilesList)
         if err := json.NewDecoder(readCloser).Decode(&temp); err != nil {
             return err
         }
-        ret.Code = temp.Code
-        ret.Status = temp.Status
-        ret.Files = make([]File,  len(temp.Files))
-        re := regexp.MustCompile("\\/Date\\((\\d+?)000\\+0000\\)\\/")
+        ret.Value = make([]StorageFile,  len(temp.Value))
         
-        for index, file := range temp.Files {
-            res := re.FindAllStringSubmatch(file.ModifiedDate, -1)
-            var f File
+        for index, file := range temp.Value {
+            var f StorageFile
             f.Name = file.Name
             f.IsFolder = file.IsFolder
             f.Size = file.Size
             f.Path = file.Path
-	        if res != nil {
-		        i, err := strconv.ParseInt(res[0][1], 10, 64)
-    	        if err == nil {
-			        f.ModifiedDate = time.Unix(i, 0)
-    	        }
-            }
-            ret.Files[index] = f
-        }
-    
-    } else if strings.Contains(dtoType, "FileVersionsResponse") {
-        var temp FileVersionsResponse_
-        ret := successPayload.(*FileVersionsResponse)
-        if err := json.NewDecoder(readCloser).Decode(&temp); err != nil {
-            return err
-        }
-        ret.Code = temp.Code
-        ret.Status = temp.Status
-        ret.FileVersions = make([]FileVersion,  len(temp.FileVersions))
-        re := regexp.MustCompile("\\/Date\\((\\d+?)000\\+0000\\)\\/")
-        
-        for index, fileVersion := range temp.FileVersions {
-            res := re.FindAllStringSubmatch(fileVersion.ModifiedDate, -1)
-            var f FileVersion
-            f.Name = fileVersion.Name
-            f.IsFolder = fileVersion.IsFolder
-            f.Size = fileVersion.Size
-            f.Path = fileVersion.Path
-            f.IsLatest = fileVersion.IsLatest
-            f.VersionId = fileVersion.VersionId
-	        if res != nil {
-		        i, err := strconv.ParseInt(res[0][1], 10, 64)
-    	        if err == nil {
-			        f.ModifiedDate = time.Unix(i, 0)
-    	        }
-            }
-            ret.FileVersions[index] = f
-        }
 
+            t1, err := time.Parse(time.RFC3339, file.ModifiedDate)
+            if (err == nil) {
+                f.ModifiedDate = t1
+            }
+            ret.Value[index] = f
+        } 
     } else {
         return json.NewDecoder(readCloser).Decode(&successPayload)
     }
     return nil
 }
 
-type FilesResponse_ struct {
-	// Response status code.
-	Code int32 `json:"Code"`
-	// Response status.
-	Status string `json:"Status,omitempty"`
-	Files []File_ `json:"Files,omitempty"`
+type FilesList_ struct {
+	// Files and folders contained by folder StorageFile.
+	Value []StorageFile_ `json:"Value,omitempty"`
 }
 
-type File_ struct {
+type StorageFile_ struct {
+	// File or folder name.
 	Name string `json:"Name,omitempty"`
+	// True if it is a folder.
 	IsFolder bool `json:"IsFolder"`
+	// File or folder last modified DateTime.
 	ModifiedDate string `json:"ModifiedDate,omitempty"`
+	// File or folder size.
 	Size int64 `json:"Size"`
+	// File or folder path.
 	Path string `json:"Path,omitempty"`
-}
-
-type FileVersionsResponse_ struct {
-	// Response status code.
-	Code int32 `json:"Code"`
-	// Response status.
-	Status string `json:"Status,omitempty"`
-	FileVersions []FileVersion_ `json:"FileVersions,omitempty"`
-}
-
-type FileVersion_ struct {
-	Name string `json:"Name,omitempty"`
-	IsFolder bool `json:"IsFolder"`
-	ModifiedDate string `json:"ModifiedDate,omitempty"`
-	Size int64 `json:"Size"`
-	Path string `json:"Path,omitempty"`
-	VersionId string `json:"VersionId,omitempty"`
-	IsLatest bool `json:"IsLatest,omitempty"`
 }
 
 // TokenResp represents data returned by GetAccessToken and RefreshToken as HTTP response body.
@@ -539,9 +488,4 @@ type TokenResp struct {
        AccessToken                         string `json:"access_token"`
        TokenType                           string `json:"token_type"`
        ExpiresIn                           int64  `json:"expires_in"`
-       RefreshToken                        string `json:"refresh_token"`
-       ClientID                            string `json:"client_id"`
-       ClientRefreshTokenLifeTimeInMinutes string `json:"clientRefreshTokenLifeTimeInMinutes"`
-       Issued                              string `json:".issued"`
-       Expires                             string `json:".expires"`
 }

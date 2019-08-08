@@ -37,7 +37,7 @@ type LineAnnotation struct {
 	// Gets Name of the annotation.
 	Name string `json:"Name,omitempty"`
 	// Gets Rect of the annotation.
-	Rect *Rectangle `json:"Rect,omitempty"`
+	Rect *Rectangle `json:"Rect"`
 	// Gets PageIndex of the annotation.
 	PageIndex int32 `json:"PageIndex,omitempty"`
 	// Gets ZIndex of the annotation.
@@ -55,11 +55,11 @@ type LineAnnotation struct {
 	// Get the annotation RichText.
 	RichText string `json:"RichText,omitempty"`
 	// Gets or sets starting point of line.
-	Starting *Point `json:"Starting,omitempty"`
+	Starting *Point `json:"Starting"`
 	// Gets or sets line ending style for line starting point.
 	StartingStyle LineEnding `json:"StartingStyle,omitempty"`
 	// Gets or sets ending point of line.
-	Ending *Point `json:"Ending,omitempty"`
+	Ending *Point `json:"Ending"`
 	// Gets or sets ending style for end point of line.
 	EndingStyle LineEnding `json:"EndingStyle,omitempty"`
 	// Gets or sets interior color of the annotation.

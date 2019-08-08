@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Gets ID of the annotation. | [optional] [default to null]
 **Flags** | [**[]AnnotationFlags**](AnnotationFlags.md) | Gets Flags of the annotation. | [optional] [default to null]
 **Name** | **string** | Gets Name of the annotation. | [optional] [default to null]
-**Rect** | [***Rectangle**](Rectangle.md) | Gets Rect of the annotation. | [optional] [default to null]
+**Rect** | [***Rectangle**](Rectangle.md) | Gets Rect of the annotation. | [default to null]
 **PageIndex** | **int32** | Gets PageIndex of the annotation. | [optional] [default to null]
 **ZIndex** | **int32** | Gets ZIndex of the annotation. | [optional] [default to null]
 **HorizontalAlignment** | [***HorizontalAlignment**](HorizontalAlignment.md) | Gets HorizontalAlignment of the annotation. | [optional] [default to null]
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **StartingStyle** | [***LineEnding**](LineEnding.md) | Gets or sets the style of first line ending. | [optional] [default to null]
 **EndingStyle** | [***LineEnding**](LineEnding.md) | Gets or sets the style of second line ending. | [optional] [default to null]
 **Intent** | [***PolyIntent**](PolyIntent.md) | Gets or sets the intent of the polygon or polyline annotation. | [optional] [default to null]
-**Vertices** | [**[]Point**](Point.md) | Gets or sets an array of points representing the horizontal and vertical coordinates of each vertex. | [optional] [default to null]
+**Vertices** | [**[]Point**](Point.md) | Gets or sets an array of points representing the horizontal and vertical coordinates of each vertex. | [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../polygon_annotation.go)
 

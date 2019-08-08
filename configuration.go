@@ -70,7 +70,6 @@ type Configuration struct {
     AppKey        string
     AppSid        string
     AccessToken   string
-    RefreshToken  string
 }
 
 func NewConfiguration(appSid string, appKey string, basePath string) *Configuration {

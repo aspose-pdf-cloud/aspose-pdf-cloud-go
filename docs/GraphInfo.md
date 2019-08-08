@@ -5,10 +5,10 @@ Represents graphics info.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LineWidth** | **float64** | Gets or sets a float value that indicates the line width of the graph. | [optional] [default to null]
-**Color** | [***Color**](Color.md) | Gets or sets a  object that indicates the color of the graph. | [optional] [default to null]
+**Color** | [***Color**](Color.md) | Gets or sets a Color object that indicates the color of the graph. | [optional] [default to null]
 **DashArray** | **[]int32** | Gets or sets a dash array. | [optional] [default to null]
 **DashPhase** | **int32** | Gets or sets a dash phase. | [optional] [default to null]
-**FillColor** | [***Color**](Color.md) | Gets or sets a  object that indicates the fill color of the graph. | [optional] [default to null]
+**FillColor** | [***Color**](Color.md) | Gets or sets a Color object that indicates the fill color of the graph. | [optional] [default to null]
 **IsDoubled** | **bool** | Gets or sets is border doubled. | [optional] [default to null]
 **SkewAngleX** | **float64** | Gets or sets a float value that indicates the skew angle of the x-coordinate when transforming a coordinate system. | [optional] [default to null]
 **SkewAngleY** | **float64** | Gets or sets a float value that indicates the skew angle of the y-coordinate when transforming a coordinate system. | [optional] [default to null]

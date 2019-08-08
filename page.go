@@ -25,7 +25,7 @@ type Page struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
 	// Page's id.
-	Id int32 `json:"Id,omitempty"`
+	Id int32 `json:"Id"`
 	// Page's images
 	Images *Images `json:"Images,omitempty"`
 	// Page's rectangle

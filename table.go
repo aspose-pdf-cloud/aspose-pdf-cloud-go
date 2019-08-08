@@ -41,7 +41,7 @@ type Table struct {
 	// Gets or sets the border.
 	Border *BorderInfo `json:"Border,omitempty"`
 	// Sets the rows of the table.
-	Rows []Row `json:"Rows,omitempty"`
+	Rows []Row `json:"Rows"`
 	// Gets default cell border;
 	DefaultColumnWidth string `json:"DefaultColumnWidth,omitempty"`
 	// Gets default cell border;

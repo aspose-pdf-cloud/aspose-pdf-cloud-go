@@ -33,5 +33,5 @@ type Field struct {
 	// Field rectangle.
 	Rect *Rectangle `json:"Rect,omitempty"`
 	// Field values.
-	Values []string `json:"Values,omitempty"`
+	Values []string `json:"Values"`
 }

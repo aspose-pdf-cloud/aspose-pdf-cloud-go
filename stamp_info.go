@@ -37,5 +37,5 @@ type StampInfo struct {
 	// Gets the stamp is visible.
 	Visible bool `json:"Visible,omitempty"`
 	// Gets stamp type.
-	StampType StampType `json:"StampType,omitempty"`
+	StampType StampType `json:"StampType"`
 }

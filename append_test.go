@@ -43,54 +43,16 @@ func TestPostAppendDocument(t *testing.T) {
 
 	args := map[string]interface{} {
 		"folder":  GetBaseTest().remoteFolder,
-		"appendFile": appendFilePath,
 		"startPage": startPage,
 		"endPage": endPage,
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PostAppendDocument(name, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostAppendDocument(name, appendFilePath, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		 t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPostAppendDocument - %d\n", GetBaseTest().GetTestNumber(), response.Code)
-	}
-}
-
-func TestPostAppendDocumentUsingDTO(t *testing.T) {
-
-	name := "PdfWithImages2.pdf"
-	appendFile := "4pages.pdf"
-	appendFilePath := GetBaseTest().remoteFolder + "/" + appendFile
-    startPage := int32(2)
-    endPage := int32(4)
-
-	appendDocument := AppendDocument {
-		Document: appendFilePath,
-		StartPage: startPage,
-		EndPage: endPage,
-	}
-
-	if err := GetBaseTest().UploadFile(name); err != nil {
-		t.Error(err)
-	}
-
-	if err := GetBaseTest().UploadFile(appendFile); err != nil {
-		t.Error(err)
-	}
-
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
-		"appendDocument": appendDocument,
-	}
-
-	response, httpResponse, err := GetBaseTest().PdfAPI.PostAppendDocument(name, args)
-	if err != nil {
-		t.Error(err)
-	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
-	} else {
-		fmt.Printf("%d\tTestPostAppendDocumentUsingDTO - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }

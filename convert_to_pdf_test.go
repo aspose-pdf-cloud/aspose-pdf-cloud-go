@@ -109,7 +109,7 @@ func TestPutWebInStorageToPdf(t *testing.T) {
 // from LaTeX
 func TestGetLaTeXInStorageToPdf(t *testing.T) {
 
-	name := "TexExample.tex"
+	name := "sample.tex"
 	srcPath := GetBaseTest().remoteFolder + "/" + name
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
@@ -130,7 +130,7 @@ func TestGetLaTeXInStorageToPdf(t *testing.T) {
 
 func TestPutLaTeXInStorageToPdf(t *testing.T) {
 
-	name := "TexExample.tex"	
+	name := "sample.tex"	
 	resFileName := "fromLaTeX.pdf"
 	srcPath := GetBaseTest().remoteFolder + "/" + name
 

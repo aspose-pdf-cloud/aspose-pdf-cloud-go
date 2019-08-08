@@ -37,7 +37,7 @@ type StrikeOutAnnotation struct {
 	// Gets Name of the annotation.
 	Name string `json:"Name,omitempty"`
 	// Gets Rect of the annotation.
-	Rect *Rectangle `json:"Rect,omitempty"`
+	Rect *Rectangle `json:"Rect"`
 	// Gets PageIndex of the annotation.
 	PageIndex int32 `json:"PageIndex,omitempty"`
 	// Gets ZIndex of the annotation.

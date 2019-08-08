@@ -37,7 +37,7 @@ type FreeTextAnnotation struct {
 	// Gets Name of the annotation.
 	Name string `json:"Name,omitempty"`
 	// Gets Rect of the annotation.
-	Rect *Rectangle `json:"Rect,omitempty"`
+	Rect *Rectangle `json:"Rect"`
 	// Gets PageIndex of the annotation.
 	PageIndex int32 `json:"PageIndex,omitempty"`
 	// Gets ZIndex of the annotation.
@@ -61,5 +61,5 @@ type FreeTextAnnotation struct {
 	// Angle of annotation rotation.
 	Rotate Rotation `json:"Rotate,omitempty"`
 	// Text style of the annotation.
-	TextStyle *TextStyle `json:"TextStyle,omitempty"`
+	TextStyle *TextStyle `json:"TextStyle"`
 }

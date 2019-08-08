@@ -37,7 +37,7 @@ type PolygonAnnotation struct {
 	// Gets Name of the annotation.
 	Name string `json:"Name,omitempty"`
 	// Gets Rect of the annotation.
-	Rect *Rectangle `json:"Rect,omitempty"`
+	Rect *Rectangle `json:"Rect"`
 	// Gets PageIndex of the annotation.
 	PageIndex int32 `json:"PageIndex,omitempty"`
 	// Gets ZIndex of the annotation.
@@ -63,5 +63,5 @@ type PolygonAnnotation struct {
 	// Gets or sets the intent of the polygon or polyline annotation.
 	Intent PolyIntent `json:"Intent,omitempty"`
 	// Gets or sets an array of points representing the horizontal and vertical coordinates of each vertex.
-	Vertices []Point `json:"Vertices,omitempty"`
+	Vertices []Point `json:"Vertices"`
 }

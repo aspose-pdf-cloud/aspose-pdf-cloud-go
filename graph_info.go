@@ -24,13 +24,13 @@ package asposepdfcloud
 type GraphInfo struct {
 	// Gets or sets a float value that indicates the line width of the graph.
 	LineWidth float64 `json:"LineWidth,omitempty"`
-	// Gets or sets a  object that indicates the color of the graph.
+	// Gets or sets a Color object that indicates the color of the graph.
 	Color *Color `json:"Color,omitempty"`
 	// Gets or sets a dash array.
 	DashArray []int32 `json:"DashArray,omitempty"`
 	// Gets or sets a dash phase.
 	DashPhase int32 `json:"DashPhase,omitempty"`
-	// Gets or sets a  object that indicates the fill color of the graph.
+	// Gets or sets a Color object that indicates the fill color of the graph.
 	FillColor *Color `json:"FillColor,omitempty"`
 	// Gets or sets is border doubled.
 	IsDoubled bool `json:"IsDoubled,omitempty"`

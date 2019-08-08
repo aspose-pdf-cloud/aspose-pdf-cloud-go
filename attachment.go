@@ -35,7 +35,7 @@ type Attachment struct {
 	// The date and time when the embedded file was last modified.
 	ModificationDate string `json:"ModificationDate,omitempty"`
 	// The size of the uncompressed embedded file, in bytes.
-	Size int32 `json:"Size,omitempty"`
+	Size int32 `json:"Size"`
 	// A 16-byte string that is the checksum of the bytes of the uncompressed embedded file.  The checksum is calculated by applying the standard MD5 message-digest algorithm  to the bytes of the embedded file stream.
 	CheckSum string `json:"CheckSum,omitempty"`
 }

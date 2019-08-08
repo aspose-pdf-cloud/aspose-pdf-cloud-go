@@ -54,10 +54,9 @@ func TestPostSignDocument(t *testing.T) {
 
 	args := map[string]interface{} {
 		"folder":  GetBaseTest().remoteFolder,
-		"signature": signature,
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PostSignDocument(name, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostSignDocument(name, signature, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
@@ -96,10 +95,9 @@ func TestPostSignPage(t *testing.T) {
 
 	args := map[string]interface{} {
 		"folder":  GetBaseTest().remoteFolder,
-		"signature": signature,
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PostSignPage(name, pageNumber, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostSignPage(name, pageNumber, signature, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
@@ -138,10 +136,9 @@ func TestGetVerifySignature(t *testing.T) {
 
 	args := map[string]interface{} {
 		"folder":  GetBaseTest().remoteFolder,
-		"signature": signature,
 	}
 
-	_, _, err := GetBaseTest().PdfAPI.PostSignDocument(name, args)
+	_, _, err := GetBaseTest().PdfAPI.PostSignDocument(name, signature, args)
 	if err != nil {
 		t.Error(err)
 	}

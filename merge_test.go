@@ -43,10 +43,9 @@
 
 	args := map[string]interface{} {
 		"folder":  GetBaseTest().remoteFolder,
-		"mergeDocuments": mergeDocuments,
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PutMergeDocuments(resultName, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutMergeDocuments(resultName, mergeDocuments, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
