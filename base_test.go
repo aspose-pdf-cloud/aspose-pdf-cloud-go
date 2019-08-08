@@ -55,7 +55,7 @@ func NewBaseTest() *BaseTest {
 		localTestDataFolder: "test_data",
 		TestNumber: 0,
 		// Get App key and App SID from https://aspose.cloud
-		PdfAPI: NewPdfApiService("AppSid", "AppKey", "https://billing.cloud.saltov.dynabic.com/v2.0"),
+		PdfAPI: NewPdfApiService("AppSid", "AppKey", "https://api-qa.aspose.cloud/v3.0"),
 	}
 	return bt
 }
