@@ -36,7 +36,7 @@ type Signature struct {
 	Contact string `json:"Contact,omitempty"`
 	// Gets or sets the location of the signature.
 	Location string `json:"Location,omitempty"`
-	// Gets or sets a value indicating whether this  is visible. Supports only when signing particular page.
+	// Gets or sets a value indicating whether this Signature is visible. Supports only when signing particular page.
 	Visible bool `json:"Visible"`
 	// Gets or sets the visible rectangle of the signature. Supports only when signing particular page.
 	Rectangle *Rectangle `json:"Rectangle,omitempty"`

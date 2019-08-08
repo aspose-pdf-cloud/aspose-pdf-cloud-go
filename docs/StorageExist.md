@@ -1,0 +1,11 @@
+# StorageExist
+Storage exists
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Exists** | **bool** | Shows that the storage exists.              | [default to null]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../storage_exist.go)
+
+

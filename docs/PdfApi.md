@@ -1,17 +1,22 @@
 ﻿# PdfApi
 
-All URIs are relative to *https://api.aspose.cloud/v2.0*
+All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CopyFile**](PdfApi.md#CopyFile) | **Put** /pdf/storage/file/copy/{srcPath} | Copy file
+[**CopyFolder**](PdfApi.md#CopyFolder) | **Put** /pdf/storage/folder/copy/{srcPath} | Copy folder
+[**CreateFolder**](PdfApi.md#CreateFolder) | **Put** /pdf/storage/folder/{path} | Create the folder
 [**DeleteAnnotation**](PdfApi.md#DeleteAnnotation) | **Delete** /pdf/{name}/annotations/{annotationId} | Delete document annotation by ID
+[**DeleteBookmark**](PdfApi.md#DeleteBookmark) | **Delete** /pdf/{name}/bookmarks/bookmark/{bookmarkPath} | Delete document bookmark by ID.
 [**DeleteDocumentAnnotations**](PdfApi.md#DeleteDocumentAnnotations) | **Delete** /pdf/{name}/annotations | Delete all annotations from the document
+[**DeleteDocumentBookmarks**](PdfApi.md#DeleteDocumentBookmarks) | **Delete** /pdf/{name}/bookmarks/tree | Delete all document bookmarks.
 [**DeleteDocumentLinkAnnotations**](PdfApi.md#DeleteDocumentLinkAnnotations) | **Delete** /pdf/{name}/links | Delete all link annotations from the document
 [**DeleteDocumentStamps**](PdfApi.md#DeleteDocumentStamps) | **Delete** /pdf/{name}/stamps | Delete all stamps from the document
 [**DeleteDocumentTables**](PdfApi.md#DeleteDocumentTables) | **Delete** /pdf/{name}/tables | Delete all tables from the document
 [**DeleteField**](PdfApi.md#DeleteField) | **Delete** /pdf/{name}/fields/{fieldName} | Delete document field by name.
-[**DeleteFile**](PdfApi.md#DeleteFile) | **Delete** /storage/file | Remove a specific file 
-[**DeleteFolder**](PdfApi.md#DeleteFolder) | **Delete** /storage/folder | Remove a specific folder 
+[**DeleteFile**](PdfApi.md#DeleteFile) | **Delete** /pdf/storage/file/{path} | Delete file
+[**DeleteFolder**](PdfApi.md#DeleteFolder) | **Delete** /pdf/storage/folder/{path} | Delete folder
 [**DeleteImage**](PdfApi.md#DeleteImage) | **Delete** /pdf/{name}/images/{imageId} | Delete image from document page.
 [**DeleteLinkAnnotation**](PdfApi.md#DeleteLinkAnnotation) | **Delete** /pdf/{name}/links/{linkId} | Delete document page link annotation by ID
 [**DeletePage**](PdfApi.md#DeletePage) | **Delete** /pdf/{name}/pages/{pageNumber} | Delete document page by its number.
@@ -23,13 +28,17 @@ Method | HTTP request | Description
 [**DeleteProperty**](PdfApi.md#DeleteProperty) | **Delete** /pdf/{name}/documentproperties/{propertyName} | Delete document property.
 [**DeleteStamp**](PdfApi.md#DeleteStamp) | **Delete** /pdf/{name}/stamps/{stampId} | Delete document stamp by ID
 [**DeleteTable**](PdfApi.md#DeleteTable) | **Delete** /pdf/{name}/tables/{tableId} | Delete document table by ID
+[**DownloadFile**](PdfApi.md#DownloadFile) | **Get** /pdf/storage/file/{path} | Download file
+[**GetBookmark**](PdfApi.md#GetBookmark) | **Get** /pdf/{name}/bookmarks/bookmark/{bookmarkPath} | Read document bookmark.
+[**GetBookmarks**](PdfApi.md#GetBookmarks) | **Get** /pdf/{name}/bookmarks/list/{bookmarkPath} | Read document bookmarks node list.
 [**GetCaretAnnotation**](PdfApi.md#GetCaretAnnotation) | **Get** /pdf/{name}/annotations/caret/{annotationId} | Read document page caret annotation by ID.
 [**GetCircleAnnotation**](PdfApi.md#GetCircleAnnotation) | **Get** /pdf/{name}/annotations/circle/{annotationId} | Read document page circle annotation by ID.
-[**GetDiscUsage**](PdfApi.md#GetDiscUsage) | **Get** /storage/disc | Check the disk usage of the current account 
+[**GetDiscUsage**](PdfApi.md#GetDiscUsage) | **Get** /pdf/storage/disc | Get disc usage
 [**GetDocument**](PdfApi.md#GetDocument) | **Get** /pdf/{name} | Read common document info.
 [**GetDocumentAnnotations**](PdfApi.md#GetDocumentAnnotations) | **Get** /pdf/{name}/annotations | Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
 [**GetDocumentAttachmentByIndex**](PdfApi.md#GetDocumentAttachmentByIndex) | **Get** /pdf/{name}/attachments/{attachmentIndex} | Read document attachment info by its index.
 [**GetDocumentAttachments**](PdfApi.md#GetDocumentAttachments) | **Get** /pdf/{name}/attachments | Read document attachments info.
+[**GetDocumentBookmarks**](PdfApi.md#GetDocumentBookmarks) | **Get** /pdf/{name}/bookmarks/tree | Read document bookmarks tree.
 [**GetDocumentCaretAnnotations**](PdfApi.md#GetDocumentCaretAnnotations) | **Get** /pdf/{name}/annotations/caret | Read document caret annotations.
 [**GetDocumentCircleAnnotations**](PdfApi.md#GetDocumentCircleAnnotations) | **Get** /pdf/{name}/annotations/circle | Read document circle annotations.
 [**GetDocumentFileAttachmentAnnotations**](PdfApi.md#GetDocumentFileAttachmentAnnotations) | **Get** /pdf/{name}/annotations/fileattachment | Read document FileAttachment annotations.
@@ -55,13 +64,17 @@ Method | HTTP request | Description
 [**GetDocumentTables**](PdfApi.md#GetDocumentTables) | **Get** /pdf/{name}/tables | Read document tables.
 [**GetDocumentTextAnnotations**](PdfApi.md#GetDocumentTextAnnotations) | **Get** /pdf/{name}/annotations/text | Read document text annotations.
 [**GetDocumentUnderlineAnnotations**](PdfApi.md#GetDocumentUnderlineAnnotations) | **Get** /pdf/{name}/annotations/underline | Read document underline annotations.
-[**GetDownload**](PdfApi.md#GetDownload) | **Get** /storage/file | Download a specific file 
 [**GetDownloadDocumentAttachmentByIndex**](PdfApi.md#GetDownloadDocumentAttachmentByIndex) | **Get** /pdf/{name}/attachments/{attachmentIndex}/download | Download document attachment content by its index.
 [**GetEpubInStorageToPdf**](PdfApi.md#GetEpubInStorageToPdf) | **Get** /pdf/create/epub | Convert EPUB file (located on storage) to PDF format and return resulting file in response. 
+[**GetExportFieldsFromPdfToFdfInStorage**](PdfApi.md#GetExportFieldsFromPdfToFdfInStorage) | **Get** /pdf/{name}/export/fdf | Export fields from from PDF in storage to FDF file.
+[**GetExportFieldsFromPdfToXfdfInStorage**](PdfApi.md#GetExportFieldsFromPdfToXfdfInStorage) | **Get** /pdf/{name}/export/xfdf | Export fields from from PDF in storage to XFDF file.
+[**GetExportFieldsFromPdfToXmlInStorage**](PdfApi.md#GetExportFieldsFromPdfToXmlInStorage) | **Get** /pdf/{name}/export/xml | Export fields from from PDF in storage to XML file.
 [**GetField**](PdfApi.md#GetField) | **Get** /pdf/{name}/fields/{fieldName} | Get document field by name.
 [**GetFields**](PdfApi.md#GetFields) | **Get** /pdf/{name}/fields | Get document fields.
 [**GetFileAttachmentAnnotation**](PdfApi.md#GetFileAttachmentAnnotation) | **Get** /pdf/{name}/annotations/fileattachment/{annotationId} | Read document page FileAttachment annotation by ID.
 [**GetFileAttachmentAnnotationData**](PdfApi.md#GetFileAttachmentAnnotationData) | **Get** /pdf/{name}/annotations/fileattachment/{annotationId}/data | Read document page FileAttachment annotation by ID.
+[**GetFileVersions**](PdfApi.md#GetFileVersions) | **Get** /pdf/storage/version/{path} | Get file versions
+[**GetFilesList**](PdfApi.md#GetFilesList) | **Get** /pdf/storage/folder/{path} | Get all files and folders within a folder
 [**GetFreeTextAnnotation**](PdfApi.md#GetFreeTextAnnotation) | **Get** /pdf/{name}/annotations/freetext/{annotationId} | Read document page free text annotation by ID.
 [**GetHighlightAnnotation**](PdfApi.md#GetHighlightAnnotation) | **Get** /pdf/{name}/annotations/highlight/{annotationId} | Read document page highlight annotation by ID.
 [**GetHtmlInStorageToPdf**](PdfApi.md#GetHtmlInStorageToPdf) | **Get** /pdf/create/html | Convert HTML file (located on storage) to PDF format and return resulting file in response. 
@@ -71,14 +84,13 @@ Method | HTTP request | Description
 [**GetImageExtractAsPng**](PdfApi.md#GetImageExtractAsPng) | **Get** /pdf/{name}/images/{imageId}/extract/png | Extract document image in PNG format
 [**GetImageExtractAsTiff**](PdfApi.md#GetImageExtractAsTiff) | **Get** /pdf/{name}/images/{imageId}/extract/tiff | Extract document image in TIFF format
 [**GetImages**](PdfApi.md#GetImages) | **Get** /pdf/{name}/pages/{pageNumber}/images | Read document images.
+[**GetImportFieldsFromFdfInStorage**](PdfApi.md#GetImportFieldsFromFdfInStorage) | **Get** /pdf/{name}/import/fdf | Update fields from FDF file in storage.
+[**GetImportFieldsFromXfdfInStorage**](PdfApi.md#GetImportFieldsFromXfdfInStorage) | **Get** /pdf/{name}/import/xfdf | Update fields from XFDF file in storage.
+[**GetImportFieldsFromXmlInStorage**](PdfApi.md#GetImportFieldsFromXmlInStorage) | **Get** /pdf/{name}/import/xml | Import from XML file (located on storage) to PDF format and return resulting file in response. 
 [**GetInkAnnotation**](PdfApi.md#GetInkAnnotation) | **Get** /pdf/{name}/annotations/ink/{annotationId} | Read document page ink annotation by ID.
-[**GetIsExist**](PdfApi.md#GetIsExist) | **Get** /storage/exist | Check if a specific file or folder exists
-[**GetIsStorageExist**](PdfApi.md#GetIsStorageExist) | **Get** /storage/{name}/exist | Check if storage exists 
 [**GetLaTeXInStorageToPdf**](PdfApi.md#GetLaTeXInStorageToPdf) | **Get** /pdf/create/latex | Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
 [**GetLineAnnotation**](PdfApi.md#GetLineAnnotation) | **Get** /pdf/{name}/annotations/line/{annotationId} | Read document page line annotation by ID.
 [**GetLinkAnnotation**](PdfApi.md#GetLinkAnnotation) | **Get** /pdf/{name}/links/{linkId} | Read document link annotation by ID.
-[**GetListFileVersions**](PdfApi.md#GetListFileVersions) | **Get** /storage/version | Get the file&#39;s versions list 
-[**GetListFiles**](PdfApi.md#GetListFiles) | **Get** /storage/folder | Get the file listing of a specific folder 
 [**GetMhtInStorageToPdf**](PdfApi.md#GetMhtInStorageToPdf) | **Get** /pdf/create/mht | Convert MHT file (located on storage) to PDF format and return resulting file in response. 
 [**GetMovieAnnotation**](PdfApi.md#GetMovieAnnotation) | **Get** /pdf/{name}/annotations/movie/{annotationId} | Read document page movie annotation by ID.
 [**GetPage**](PdfApi.md#GetPage) | **Get** /pdf/{name}/pages/{pageNumber} | Read document page info.
@@ -155,7 +167,11 @@ Method | HTTP request | Description
 [**GetXmlInStorageToPdf**](PdfApi.md#GetXmlInStorageToPdf) | **Get** /pdf/create/xml | Convert XML file (located on storage) to PDF format and return resulting file in response. 
 [**GetXpsInStorageToPdf**](PdfApi.md#GetXpsInStorageToPdf) | **Get** /pdf/create/xps | Convert XPS file (located on storage) to PDF format and return resulting file in response. 
 [**GetXslFoInStorageToPdf**](PdfApi.md#GetXslFoInStorageToPdf) | **Get** /pdf/create/xslfo | Convert XslFo file (located on storage) to PDF format and return resulting file in response. 
+[**MoveFile**](PdfApi.md#MoveFile) | **Put** /pdf/storage/file/move/{srcPath} | Move file
+[**MoveFolder**](PdfApi.md#MoveFolder) | **Put** /pdf/storage/folder/move/{srcPath} | Move folder
+[**ObjectExists**](PdfApi.md#ObjectExists) | **Get** /pdf/storage/exist/{path} | Check if file or folder exists
 [**PostAppendDocument**](PdfApi.md#PostAppendDocument) | **Post** /pdf/{name}/appendDocument | Append document to existing one.
+[**PostBookmark**](PdfApi.md#PostBookmark) | **Post** /pdf/{name}/bookmarks/bookmark/{bookmarkPath} | Add document bookmarks.
 [**PostChangePasswordDocumentInStorage**](PdfApi.md#PostChangePasswordDocumentInStorage) | **Post** /pdf/{name}/changepassword | Change document password in storage.
 [**PostCreateField**](PdfApi.md#PostCreateField) | **Post** /pdf/{name}/fields | Create field.
 [**PostDecryptDocumentInStorage**](PdfApi.md#PostDecryptDocumentInStorage) | **Post** /pdf/{name}/decrypt | Decrypt document in storage.
@@ -167,9 +183,10 @@ Method | HTTP request | Description
 [**PostDocumentTextReplace**](PdfApi.md#PostDocumentTextReplace) | **Post** /pdf/{name}/text/replace | Document&#39;s replace text method.
 [**PostEncryptDocumentInStorage**](PdfApi.md#PostEncryptDocumentInStorage) | **Post** /pdf/{name}/encrypt | Encrypt document in storage.
 [**PostFlattenDocument**](PdfApi.md#PostFlattenDocument) | **Post** /pdf/{name}/flatten | Flatten the document.
+[**PostImportFieldsFromFdf**](PdfApi.md#PostImportFieldsFromFdf) | **Post** /pdf/{name}/import/fdf | Update fields from FDF file in request.
+[**PostImportFieldsFromXfdf**](PdfApi.md#PostImportFieldsFromXfdf) | **Post** /pdf/{name}/import/xfdf | Update fields from XFDF file in request.
+[**PostImportFieldsFromXml**](PdfApi.md#PostImportFieldsFromXml) | **Post** /pdf/{name}/import/xml | Update fields from XML file in request.
 [**PostInsertImage**](PdfApi.md#PostInsertImage) | **Post** /pdf/{name}/pages/{pageNumber}/images | Insert image to document page.
-[**PostMoveFile**](PdfApi.md#PostMoveFile) | **Post** /storage/file | Move a specific file
-[**PostMoveFolder**](PdfApi.md#PostMoveFolder) | **Post** /storage/folder | Move a specific folder 
 [**PostMovePage**](PdfApi.md#PostMovePage) | **Post** /pdf/{name}/pages/{pageNumber}/movePage | Move page to new position.
 [**PostOptimizeDocument**](PdfApi.md#PostOptimizeDocument) | **Post** /pdf/{name}/optimize | Optimize document.
 [**PostPageCaretAnnotations**](PdfApi.md#PostPageCaretAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/caret | Add document page caret annotations.
@@ -204,15 +221,17 @@ Method | HTTP request | Description
 [**PutAddNewPage**](PdfApi.md#PutAddNewPage) | **Put** /pdf/{name}/pages | Add new page to end of the document.
 [**PutAddText**](PdfApi.md#PutAddText) | **Put** /pdf/{name}/pages/{pageNumber}/text | Add text to PDF document page.
 [**PutAnnotationsFlatten**](PdfApi.md#PutAnnotationsFlatten) | **Put** /pdf/{name}/annotations/flatten | Flattens the annotations of the specified types
+[**PutBookmark**](PdfApi.md#PutBookmark) | **Put** /pdf/{name}/bookmarks/bookmark/{bookmarkPath} | Update document bookmark.
 [**PutCaretAnnotation**](PdfApi.md#PutCaretAnnotation) | **Put** /pdf/{name}/annotations/caret/{annotationId} | Replace document caret annotation
 [**PutChangePasswordDocument**](PdfApi.md#PutChangePasswordDocument) | **Put** /pdf/changepassword | Change document password from content.
 [**PutCircleAnnotation**](PdfApi.md#PutCircleAnnotation) | **Put** /pdf/{name}/annotations/circle/{annotationId} | Replace document circle annotation
-[**PutCreate**](PdfApi.md#PutCreate) | **Put** /storage/file | Upload a specific file 
 [**PutCreateDocument**](PdfApi.md#PutCreateDocument) | **Put** /pdf/{name} | Create empty document.
-[**PutCreateFolder**](PdfApi.md#PutCreateFolder) | **Put** /storage/folder | Create the folder 
 [**PutDecryptDocument**](PdfApi.md#PutDecryptDocument) | **Put** /pdf/decrypt | Decrypt document from content.
 [**PutEncryptDocument**](PdfApi.md#PutEncryptDocument) | **Put** /pdf/encrypt | Encrypt document from content.
 [**PutEpubInStorageToPdf**](PdfApi.md#PutEpubInStorageToPdf) | **Put** /pdf/{name}/create/epub | Convert EPUB file (located on storage) to PDF format and upload resulting file to storage. 
+[**PutExportFieldsFromPdfToFdfInStorage**](PdfApi.md#PutExportFieldsFromPdfToFdfInStorage) | **Put** /pdf/{name}/export/fdf | Export fields from from PDF in storage to FDF file in storage.
+[**PutExportFieldsFromPdfToXfdfInStorage**](PdfApi.md#PutExportFieldsFromPdfToXfdfInStorage) | **Put** /pdf/{name}/export/xfdf | Export fields from from PDF in storage to XFDF file in storage.
+[**PutExportFieldsFromPdfToXmlInStorage**](PdfApi.md#PutExportFieldsFromPdfToXmlInStorage) | **Put** /pdf/{name}/export/xml | Export fields from from PDF in storage to XML file in storage.
 [**PutFieldsFlatten**](PdfApi.md#PutFieldsFlatten) | **Put** /pdf/{name}/fields/flatten | Flatten form fields in document.
 [**PutFileAttachmentAnnotation**](PdfApi.md#PutFileAttachmentAnnotation) | **Put** /pdf/{name}/annotations/fileattachment/{annotationId} | Replace document FileAttachment annotation
 [**PutFileAttachmentAnnotationDataExtract**](PdfApi.md#PutFileAttachmentAnnotationDataExtract) | **Put** /pdf/{name}/annotations/fileattachment/{annotationId}/data/extract | Extract document FileAttachment annotation content to storage
@@ -228,6 +247,9 @@ Method | HTTP request | Description
 [**PutImagesExtractAsJpeg**](PdfApi.md#PutImagesExtractAsJpeg) | **Put** /pdf/{name}/pages/{pageNumber}/images/extract/jpeg | Extract document images in JPEG format to folder.
 [**PutImagesExtractAsPng**](PdfApi.md#PutImagesExtractAsPng) | **Put** /pdf/{name}/pages/{pageNumber}/images/extract/png | Extract document images in PNG format to folder.
 [**PutImagesExtractAsTiff**](PdfApi.md#PutImagesExtractAsTiff) | **Put** /pdf/{name}/pages/{pageNumber}/images/extract/tiff | Extract document images in TIFF format to folder.
+[**PutImportFieldsFromFdfInStorage**](PdfApi.md#PutImportFieldsFromFdfInStorage) | **Put** /pdf/{name}/import/fdf | Update fields from FDF file in storage.
+[**PutImportFieldsFromXfdfInStorage**](PdfApi.md#PutImportFieldsFromXfdfInStorage) | **Put** /pdf/{name}/import/xfdf | Update fields from XFDF file in storage.
+[**PutImportFieldsFromXmlInStorage**](PdfApi.md#PutImportFieldsFromXmlInStorage) | **Put** /pdf/{name}/import/xml | Update fields from XML file in storage.
 [**PutInkAnnotation**](PdfApi.md#PutInkAnnotation) | **Put** /pdf/{name}/annotations/ink/{annotationId} | Replace document ink annotation
 [**PutLaTeXInStorageToPdf**](PdfApi.md#PutLaTeXInStorageToPdf) | **Put** /pdf/{name}/create/latex | Convert LaTeX file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutLineAnnotation**](PdfApi.md#PutLineAnnotation) | **Put** /pdf/{name}/annotations/line/{annotationId} | Replace document line annotation
@@ -299,7 +321,106 @@ Method | HTTP request | Description
 [**PutXmlInStorageToPdf**](PdfApi.md#PutXmlInStorageToPdf) | **Put** /pdf/{name}/create/xml | Convert XML file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutXpsInStorageToPdf**](PdfApi.md#PutXpsInStorageToPdf) | **Put** /pdf/{name}/create/xps | Convert XPS file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutXslFoInStorageToPdf**](PdfApi.md#PutXslFoInStorageToPdf) | **Put** /pdf/{name}/create/xslfo | Convert XslFo file (located on storage) to PDF format and upload resulting file to storage. 
+[**StorageExists**](PdfApi.md#StorageExists) | **Get** /pdf/storage/{storageName}/exist | Check if storage exists
+[**UploadFile**](PdfApi.md#UploadFile) | **Put** /pdf/storage/file/{path} | Upload file
 
+
+# **CopyFile**
+> CopyFile(srcPath, destPath, optional)
+Copy file
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **srcPath** | **string**| Source file path e.g. &#39;/folder/file.ext&#39; | 
+  **destPath** | **string**| Destination file path | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **srcPath** | **string**| Source file path e.g. &#39;/folder/file.ext&#39; | 
+ **destPath** | **string**| Destination file path | 
+ **srcStorageName** | **string**| Source storage name | 
+ **destStorageName** | **string**| Destination storage name | 
+ **versionId** | **string**| File version ID to copy | 
+
+### Return type
+
+ (empty response body)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **CopyFolder**
+> CopyFolder(srcPath, destPath, optional)
+Copy folder
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **srcPath** | **string**| Source folder path e.g. &#39;/src&#39; | 
+  **destPath** | **string**| Destination folder path e.g. &#39;/dst&#39; | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **srcPath** | **string**| Source folder path e.g. &#39;/src&#39; | 
+ **destPath** | **string**| Destination folder path e.g. &#39;/dst&#39; | 
+ **srcStorageName** | **string**| Source storage name | 
+ **destStorageName** | **string**| Destination storage name | 
+
+### Return type
+
+ (empty response body)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **CreateFolder**
+> CreateFolder(path, optional)
+Create the folder
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| Folder path to create e.g. &#39;folder_1/folder_2/&#39; | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| Folder path to create e.g. &#39;folder_1/folder_2/&#39; | 
+ **storageName** | **string**| Storage name | 
+
+### Return type
+
+ (empty response body)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteAnnotation**
 > AsposeResponse DeleteAnnotation(name, annotationId, optional)
@@ -334,6 +455,39 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **DeleteBookmark**
+> AsposeResponse DeleteBookmark(name, bookmarkPath, optional)
+Delete document bookmark by ID.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **bookmarkPath** | **string**| The bookmark path. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **bookmarkPath** | **string**| The bookmark path. | 
+ **folder** | **string**| The document folder. | 
+ **storage** | **string**| The document storage. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **DeleteDocumentAnnotations**
 > AsposeResponse DeleteDocumentAnnotations(name, optional)
 Delete all annotations from the document
@@ -353,6 +507,37 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteDocumentBookmarks**
+> AsposeResponse DeleteDocumentBookmarks(name, optional)
+Delete all document bookmarks.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **folder** | **string**| The document folder. | 
+ **storage** | **string**| The document storage. | 
 
 ### Return type
 
@@ -492,14 +677,14 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteFile**
-> AsposeResponse DeleteFile(path, optional)
-Remove a specific file 
+> DeleteFile(path, optional)
+Delete file
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| Path of the file including file name and extension e.g. /Folder1/file.ext | 
+ **path** | **string**| File path e.g. &#39;/folder/file.ext&#39; | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -507,13 +692,13 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| Path of the file including file name and extension e.g. /Folder1/file.ext | 
- **versionId** | **string**| File&#39;s version | 
- **storage** | **string**| User&#39;s storage name | 
+ **path** | **string**| File path e.g. &#39;/folder/file.ext&#39; | 
+ **storageName** | **string**| Storage name | 
+ **versionId** | **string**| File version ID to delete | 
 
 ### Return type
 
-[**AsposeResponse**](AsposeResponse.md)
+ (empty response body)
 
 ### HTTP request headers
 
@@ -523,14 +708,14 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteFolder**
-> AsposeResponse DeleteFolder(path, optional)
-Remove a specific folder 
+> DeleteFolder(path, optional)
+Delete folder
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| Folder path e.g. /Folder1 | 
+ **path** | **string**| Folder path e.g. &#39;/folder&#39; | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -538,13 +723,13 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| Folder path e.g. /Folder1 | 
- **storage** | **string**| User&#39;s storage name | 
- **recursive** | **bool**| Remove recursivelly inner folder/files. If false and folder contains data than exception is raised. | [default to false]
+ **path** | **string**| Folder path e.g. &#39;/folder&#39; | 
+ **storageName** | **string**| Storage name | 
+ **recursive** | **bool**| Enable to delete folders, subfolders and files | [default to false]
 
 ### Return type
 
-[**AsposeResponse**](AsposeResponse.md)
+ (empty response body)
 
 ### HTTP request headers
 
@@ -914,6 +1099,103 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **DownloadFile**
+> []byte DownloadFile(path, optional)
+Download file
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| File path e.g. &#39;/folder/file.ext&#39; | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| File path e.g. &#39;/folder/file.ext&#39; | 
+ **storageName** | **string**| Storage name | 
+ **versionId** | **string**| File version ID to download | 
+
+### Return type
+
+**[]byte**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetBookmark**
+> BookmarkResponse GetBookmark(name, bookmarkPath, optional)
+Read document bookmark.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **bookmarkPath** | **string**| The bookmark path. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **bookmarkPath** | **string**| The bookmark path. | 
+ **folder** | **string**| The document folder. | 
+ **storage** | **string**| The document storage. | 
+
+### Return type
+
+[**BookmarkResponse**](BookmarkResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetBookmarks**
+> BookmarksResponse GetBookmarks(name, bookmarkPath, optional)
+Read document bookmarks node list.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **bookmarkPath** | **string**| The bookmark path. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **bookmarkPath** | **string**| The bookmark path. | 
+ **folder** | **string**| The document folder. | 
+ **storage** | **string**| The document storage. | 
+
+### Return type
+
+[**BookmarksResponse**](BookmarksResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetCaretAnnotation**
 > CaretAnnotationResponse GetCaretAnnotation(name, annotationId, optional)
 Read document page caret annotation by ID.
@@ -981,8 +1263,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDiscUsage**
-> DiscUsageResponse GetDiscUsage(optional)
-Check the disk usage of the current account 
+> DiscUsage GetDiscUsage(optional)
+Get disc usage
 
 ### Required Parameters
 
@@ -995,11 +1277,11 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storage** | **string**| User&#39;s storage name | 
+ **storageName** | **string**| Storage name | 
 
 ### Return type
 
-[**DiscUsageResponse**](DiscUsageResponse.md)
+[**DiscUsage**](DiscUsage.md)
 
 ### HTTP request headers
 
@@ -1126,6 +1408,37 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttachmentsResponse**](AttachmentsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDocumentBookmarks**
+> BookmarksResponse GetDocumentBookmarks(name, optional)
+Read document bookmarks tree.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **folder** | **string**| The document folder. | 
+ **storage** | **string**| The document storage. | 
+
+### Return type
+
+[**BookmarksResponse**](BookmarksResponse.md)
 
 ### HTTP request headers
 
@@ -1913,37 +2226,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetDownload**
-> []byte GetDownload(path, optional)
-Download a specific file 
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **string**| Path of the file including the file name and extension e.g. /file.ext | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **string**| Path of the file including the file name and extension e.g. /file.ext | 
- **versionId** | **string**| File&#39;s version | 
- **storage** | **string**| User&#39;s storage name | 
-
-### Return type
-
-**[]byte**
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: multipart/form-data
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **GetDownloadDocumentAttachmentByIndex**
 > []byte GetDownloadDocumentAttachmentByIndex(name, attachmentIndex, optional)
 Download document attachment content by its index.
@@ -2007,6 +2289,99 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetExportFieldsFromPdfToFdfInStorage**
+> []byte GetExportFieldsFromPdfToFdfInStorage(name, optional)
+Export fields from from PDF in storage to FDF file.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+**[]byte**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetExportFieldsFromPdfToXfdfInStorage**
+> []byte GetExportFieldsFromPdfToXfdfInStorage(name, optional)
+Export fields from from PDF in storage to XFDF file.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+**[]byte**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetExportFieldsFromPdfToXmlInStorage**
+> []byte GetExportFieldsFromPdfToXmlInStorage(name, optional)
+Export fields from from PDF in storage to XML file.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+**[]byte**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetField**
 > FieldResponse GetField(name, fieldName, optional)
 Get document field by name.
@@ -2016,7 +2391,7 @@ Get document field by name.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
-  **fieldName** | **string**| The field name/ | 
+  **fieldName** | **string**| The field name (name should be encoded). | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -2025,7 +2400,7 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
- **fieldName** | **string**| The field name/ | 
+ **fieldName** | **string**| The field name (name should be encoded). | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -2100,7 +2475,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: multipart/form-data
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2134,6 +2509,66 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetFileVersions**
+> FileVersions GetFileVersions(path, optional)
+Get file versions
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| File path e.g. &#39;/file.ext&#39; | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| File path e.g. &#39;/file.ext&#39; | 
+ **storageName** | **string**| Storage name | 
+
+### Return type
+
+[**FileVersions**](FileVersions.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetFilesList**
+> FilesList GetFilesList(path, optional)
+Get all files and folders within a folder
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| Folder path e.g. &#39;/folder&#39; | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| Folder path e.g. &#39;/folder&#39; | 
+ **storageName** | **string**| Storage name | 
+
+### Return type
+
+[**FilesList**](FilesList.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2270,7 +2705,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: multipart/form-data
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2293,8 +2728,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **imageId** | **string**| Image ID. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -2328,8 +2763,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **imageId** | **string**| Image ID. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -2363,8 +2798,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **imageId** | **string**| Image ID. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -2398,8 +2833,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **imageId** | **string**| Image ID. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -2447,6 +2882,105 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetImportFieldsFromFdfInStorage**
+> []byte GetImportFieldsFromFdfInStorage(name, fdfFilePath, optional)
+Update fields from FDF file in storage.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fdfFilePath** | **string**| The Fdf file path. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fdfFilePath** | **string**| The Fdf file path. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+**[]byte**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetImportFieldsFromXfdfInStorage**
+> []byte GetImportFieldsFromXfdfInStorage(name, xfdfFilePath, optional)
+Update fields from XFDF file in storage.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **xfdfFilePath** | **string**| The XFDF file path. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **xfdfFilePath** | **string**| The XFDF file path. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+**[]byte**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetImportFieldsFromXmlInStorage**
+> []byte GetImportFieldsFromXmlInStorage(name, xmlFilePath, optional)
+Import from XML file (located on storage) to PDF format and return resulting file in response. 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **xmlFilePath** | **string**| Full source filename (ex. /folder1/folder2/template.xml) | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **xmlFilePath** | **string**| Full source filename (ex. /folder1/folder2/template.xml) | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+**[]byte**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetInkAnnotation**
 > InkAnnotationResponse GetInkAnnotation(name, annotationId, optional)
 Read document page ink annotation by ID.
@@ -2472,58 +3006,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InkAnnotationResponse**](InkAnnotationResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **GetIsExist**
-> FileExistResponse GetIsExist(path, optional)
-Check if a specific file or folder exists
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **string**| File or folder path e.g. /file.ext or /Folder1 | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **string**| File or folder path e.g. /file.ext or /Folder1 | 
- **versionId** | **string**| File&#39;s version | 
- **storage** | **string**| User&#39;s storage name | 
-
-### Return type
-
-[**FileExistResponse**](FileExistResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **GetIsStorageExist**
-> StorageExistResponse GetIsStorageExist(name)
-Check if storage exists 
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| Storage name | 
-
-### Return type
-
-[**StorageExistResponse**](StorageExistResponse.md)
 
 ### HTTP request headers
 
@@ -2628,65 +3110,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetListFileVersions**
-> FileVersionsResponse GetListFileVersions(path, optional)
-Get the file's versions list 
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **string**| File path e.g. /file.ext or /Folder1/file.ext | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **string**| File path e.g. /file.ext or /Folder1/file.ext | 
- **storage** | **string**| User&#39;s storage name | 
-
-### Return type
-
-[**FileVersionsResponse**](FileVersionsResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **GetListFiles**
-> FilesResponse GetListFiles(optional)
-Get the file listing of a specific folder 
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **string**| Start with name of storage e.g. root folder &#39;/&#39;or some folder &#39;/folder1/..&#39; | [default to /]
- **storage** | **string**| User&#39;s storage name | 
-
-### Return type
-
-[**FilesResponse**](FilesResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **GetMhtInStorageToPdf**
 > []byte GetMhtInStorageToPdf(srcPath, optional)
 Convert MHT file (located on storage) to PDF format and return resulting file in response. 
@@ -2779,7 +3202,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: multipart/form-data
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2901,8 +3324,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -2936,8 +3359,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -2971,8 +3394,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -3006,8 +3429,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -3041,8 +3464,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -3076,8 +3499,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -3783,7 +4206,7 @@ Name | Type | Description  | Notes
  **uRY** | **float64**| Y - coordinate of upper-right corner. | 
  **format** | [**[]string**](string.md)| List of formats for search. | 
  **regex** | **string**| Formats are specified as a regular expression. | 
- **splitRects** | **bool**| Split result fragments (default is true). | 
+ **splitRects** | **bool**| Split result fragments (default is true). | [default to true]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -4585,7 +5008,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: multipart/form-data
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4651,7 +5074,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: multipart/form-data
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4951,7 +5374,7 @@ Name | Type | Description  | Notes
  **uRY** | **float64**| Y - coordinate of upper-right corner. | 
  **format** | [**[]string**](string.md)| List of formats for search. | 
  **regex** | **string**| Formats are specified as a regular expression. | 
- **splitRects** | **bool**| Split result fragments (default is true). | 
+ **splitRects** | **bool**| Split result fragments (default is true). | [default to true]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -5255,8 +5678,106 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **MoveFile**
+> MoveFile(srcPath, destPath, optional)
+Move file
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **srcPath** | **string**| Source file path e.g. &#39;/src.ext&#39; | 
+  **destPath** | **string**| Destination file path e.g. &#39;/dest.ext&#39; | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **srcPath** | **string**| Source file path e.g. &#39;/src.ext&#39; | 
+ **destPath** | **string**| Destination file path e.g. &#39;/dest.ext&#39; | 
+ **srcStorageName** | **string**| Source storage name | 
+ **destStorageName** | **string**| Destination storage name | 
+ **versionId** | **string**| File version ID to move | 
+
+### Return type
+
+ (empty response body)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **MoveFolder**
+> MoveFolder(srcPath, destPath, optional)
+Move folder
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **srcPath** | **string**| Folder path to move e.g. &#39;/folder&#39; | 
+  **destPath** | **string**| Destination folder path to move to e.g &#39;/dst&#39; | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **srcPath** | **string**| Folder path to move e.g. &#39;/folder&#39; | 
+ **destPath** | **string**| Destination folder path to move to e.g &#39;/dst&#39; | 
+ **srcStorageName** | **string**| Source storage name | 
+ **destStorageName** | **string**| Destination storage name | 
+
+### Return type
+
+ (empty response body)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ObjectExists**
+> ObjectExist ObjectExists(path, optional)
+Check if file or folder exists
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39; | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39; | 
+ **storageName** | **string**| Storage name | 
+ **versionId** | **string**| File version ID | 
+
+### Return type
+
+[**ObjectExist**](ObjectExist.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PostAppendDocument**
-> DocumentResponse PostAppendDocument(name, optional)
+> DocumentResponse PostAppendDocument(name, appendFile, optional)
 Append document to existing one.
 
 ### Required Parameters
@@ -5264,6 +5785,7 @@ Append document to existing one.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The original document name. | 
+  **appendFile** | **string**| Append file server path. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -5272,7 +5794,6 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The original document name. | 
- **appendDocument** | [**AppendDocument**](AppendDocument.md)| with the append document data. | 
  **appendFile** | **string**| Append file server path. | 
  **startPage** | **int32**| Appending start page. | [default to 0]
  **endPage** | **int32**| Appending end page. | [default to 0]
@@ -5282,6 +5803,41 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DocumentResponse**](DocumentResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostBookmark**
+> BookmarksResponse PostBookmark(name, bookmarkPath, bookmarks, optional)
+Add document bookmarks.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **bookmarkPath** | **string**| The bookmark path. | 
+  **bookmarks** | [**[]Bookmark**](Bookmark.md)| The array of bookmark. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **bookmarkPath** | **string**| The bookmark path. | 
+ **bookmarks** | [**[]Bookmark**](Bookmark.md)| The array of bookmark. | 
+ **folder** | **string**| The document folder. | 
+ **storage** | **string**| The document storage. | 
+
+### Return type
+
+[**BookmarksResponse**](BookmarksResponse.md)
 
 ### HTTP request headers
 
@@ -5328,7 +5884,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostCreateField**
-> AsposeResponse PostCreateField(name, page, optional)
+> AsposeResponse PostCreateField(name, page, field, optional)
 Create field.
 
 ### Required Parameters
@@ -5337,6 +5893,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
   **page** | **int32**| Document page number. | 
+  **field** | [**Field**](Field.md)| Field with the field data. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -5346,7 +5903,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **page** | **int32**| Document page number. | 
- **field** | [**Field**](Field.md)| with the field data. | 
+ **field** | [**Field**](Field.md)| Field with the field data. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -5613,7 +6170,7 @@ Name | Type | Description  | Notes
  **name** | **string**| Document name. | 
   **userPassword** | **string**| User password (encrypted Base64). | 
   **ownerPassword** | **string**| Owner password (encrypted Base64). | 
-  **cryptoAlgorithm** | **string**| Cryptographic algorithm, see  for details. | 
+  **cryptoAlgorithm** | **string**| Cryptographic algorithm, see CryptoAlgorithm for details. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -5624,8 +6181,8 @@ Name | Type | Description  | Notes
  **name** | **string**| Document name. | 
  **userPassword** | **string**| User password (encrypted Base64). | 
  **ownerPassword** | **string**| Owner password (encrypted Base64). | 
- **cryptoAlgorithm** | **string**| Cryptographic algorithm, see  for details. | 
- **permissionsFlags** | [**[]PermissionsFlags**](PermissionsFlags.md)| Array of document permissions, see  for details. | 
+ **cryptoAlgorithm** | **string**| Cryptographic algorithm, see CryptoAlgorithm for details. | 
+ **permissionsFlags** | [**[]PermissionsFlags**](PermissionsFlags.md)| Array of document permissions, see PermissionsFlags for details. | 
  **usePdf20** | **bool**| Support for revision 6 (Extension 8). | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
@@ -5675,6 +6232,102 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PostImportFieldsFromFdf**
+> AsposeResponse PostImportFieldsFromFdf(name, optional)
+Update fields from FDF file in request.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+ **fdfData** | ***os.File**| Fdf file. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostImportFieldsFromXfdf**
+> AsposeResponse PostImportFieldsFromXfdf(name, optional)
+Update fields from XFDF file in request.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+ **xfdfData** | ***os.File**| Xfdf file. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostImportFieldsFromXml**
+> AsposeResponse PostImportFieldsFromXml(name, optional)
+Update fields from XML file in request.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+ **xmlData** | ***os.File**| Xml file. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PostInsertImage**
 > AsposeResponse PostInsertImage(name, pageNumber, llx, lly, urx, ury, optional)
 Insert image to document page.
@@ -5718,73 +6371,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **PostMoveFile**
-> AsposeResponse PostMoveFile(src, dest, optional)
-Move a specific file
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **src** | **string**| Source file path e.g. /fileSource.ext | 
-  **dest** | **string**| Destination file path e.g. /fileDestination.ext | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **src** | **string**| Source file path e.g. /fileSource.ext | 
- **dest** | **string**| Destination file path e.g. /fileDestination.ext | 
- **versionId** | **string**| Source file&#39;s version, | 
- **storage** | **string**| User&#39;s source storage name | 
- **destStorage** | **string**| User&#39;s destination storage name | 
-
-### Return type
-
-[**AsposeResponse**](AsposeResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **PostMoveFolder**
-> AsposeResponse PostMoveFolder(src, dest, optional)
-Move a specific folder 
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **src** | **string**| Source folder path e.g. /Folder1 | 
-  **dest** | **string**| Destination folder path e.g. /Folder2 | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **src** | **string**| Source folder path e.g. /Folder1 | 
- **dest** | **string**| Destination folder path e.g. /Folder2 | 
- **storage** | **string**| User&#39;s source storage name | 
- **destStorage** | **string**| User&#39;s destination storage name | 
-
-### Return type
-
-[**AsposeResponse**](AsposeResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **PostMovePage**
 > AsposeResponse PostMovePage(name, pageNumber, newIndex, optional)
 Move page to new position.
@@ -5821,7 +6407,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostOptimizeDocument**
-> AsposeResponse PostOptimizeDocument(name, optional)
+> AsposeResponse PostOptimizeDocument(name, options, optional)
 Optimize document.
 
 ### Required Parameters
@@ -5829,6 +6415,7 @@ Optimize document.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
+  **options** | [**OptimizeOptions**](OptimizeOptions.md)| The optimization options. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -6763,7 +7350,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostSignDocument**
-> AsposeResponse PostSignDocument(name, optional)
+> AsposeResponse PostSignDocument(name, sign, optional)
 Sign document.
 
 ### Required Parameters
@@ -6771,6 +7358,7 @@ Sign document.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
+  **sign** | [**Signature**](Signature.md)| Signature object containing signature data. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -6779,7 +7367,7 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
- **signature** | [**Signature**](Signature.md)| Signature object containing signature data. | 
+ **sign** | [**Signature**](Signature.md)| Signature object containing signature data. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -6795,7 +7383,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostSignPage**
-> AsposeResponse PostSignPage(name, pageNumber, optional)
+> AsposeResponse PostSignPage(name, pageNumber, sign, optional)
 Sign page.
 
 ### Required Parameters
@@ -6804,6 +7392,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
+  **sign** | [**Signature**](Signature.md)| Signature object containing signature data. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -6813,7 +7402,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
- **signature** | [**Signature**](Signature.md)| Signature object containing signature data. | 
+ **sign** | [**Signature**](Signature.md)| Signature object containing signature data. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -6894,7 +7483,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutAddText**
-> AsposeResponse PutAddText(name, pageNumber, optional)
+> AsposeResponse PutAddText(name, pageNumber, paragraph, optional)
 Add text to PDF document page.
 
 ### Required Parameters
@@ -6903,6 +7492,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
   **pageNumber** | **int32**| Number of page (starting from 1). | 
+  **paragraph** | [**Paragraph**](Paragraph.md)| Paragraph data. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -6953,6 +7543,41 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutBookmark**
+> BookmarkResponse PutBookmark(name, bookmarkPath, bookmark, optional)
+Update document bookmark.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **bookmarkPath** | **string**| The bookmark path. | 
+  **bookmark** | [**Bookmark**](Bookmark.md)| The bookmark. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **bookmarkPath** | **string**| The bookmark path. | 
+ **bookmark** | [**Bookmark**](Bookmark.md)| The bookmark. | 
+ **folder** | **string**| The document folder. | 
+ **storage** | **string**| The document storage. | 
+
+### Return type
+
+[**BookmarkResponse**](BookmarkResponse.md)
 
 ### HTTP request headers
 
@@ -7068,39 +7693,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **PutCreate**
-> AsposeResponse PutCreate(path, file, optional)
-Upload a specific file 
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **string**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext | 
-  **file** | ***os.File**| File to upload | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **string**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext | 
- **file** | ***os.File**| File to upload | 
- **versionId** | **string**| Source file&#39;s version | 
- **storage** | **string**| User&#39;s storage name | 
-
-### Return type
-
-[**AsposeResponse**](AsposeResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **PutCreateDocument**
 > DocumentResponse PutCreateDocument(name, optional)
 Create empty document.
@@ -7124,37 +7716,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DocumentResponse**](DocumentResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **PutCreateFolder**
-> AsposeResponse PutCreateFolder(path, optional)
-Create the folder 
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **string**| Target folder&#39;s path e.g. Folder1/Folder2/. The folders will be created recursively | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **string**| Target folder&#39;s path e.g. Folder1/Folder2/. The folders will be created recursively | 
- **storage** | **string**| User&#39;s source storage name | 
- **destStorage** | **string**| User&#39;s destination storage name | 
-
-### Return type
-
-[**AsposeResponse**](AsposeResponse.md)
 
 ### HTTP request headers
 
@@ -7207,7 +7768,7 @@ Name | Type | Description  | Notes
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.doc) | 
   **userPassword** | **string**| User password (encrypted Base64). | 
   **ownerPassword** | **string**| Owner password (encrypted Base64). | 
-  **cryptoAlgorithm** | **string**| Cryptographic algorithm, see  for details. | 
+  **cryptoAlgorithm** | **string**| Cryptographic algorithm, see CryptoAlgorithm for details. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -7218,8 +7779,8 @@ Name | Type | Description  | Notes
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.doc) | 
  **userPassword** | **string**| User password (encrypted Base64). | 
  **ownerPassword** | **string**| Owner password (encrypted Base64). | 
- **cryptoAlgorithm** | **string**| Cryptographic algorithm, see  for details. | 
- **permissionsFlags** | [**[]PermissionsFlags**](PermissionsFlags.md)| Array of document permissions, see  for details. | 
+ **cryptoAlgorithm** | **string**| Cryptographic algorithm, see CryptoAlgorithm for details. | 
+ **permissionsFlags** | [**[]PermissionsFlags**](PermissionsFlags.md)| Array of document permissions, see PermissionsFlags for details. | 
  **usePdf20** | **bool**| Support for revision 6 (Extension 8). | 
  **storage** | **string**| The document storage. | 
  **file** | ***os.File**| A file to be encrypted. | 
@@ -7256,6 +7817,105 @@ Name | Type | Description  | Notes
  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.epub) | 
  **storage** | **string**| The document storage. | 
  **dstFolder** | **string**| The destination document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutExportFieldsFromPdfToFdfInStorage**
+> AsposeResponse PutExportFieldsFromPdfToFdfInStorage(name, fdfOutputFilePath, optional)
+Export fields from from PDF in storage to FDF file in storage.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fdfOutputFilePath** | **string**| The output Fdf file path. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fdfOutputFilePath** | **string**| The output Fdf file path. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutExportFieldsFromPdfToXfdfInStorage**
+> AsposeResponse PutExportFieldsFromPdfToXfdfInStorage(name, xfdfOutputFilePath, optional)
+Export fields from from PDF in storage to XFDF file in storage.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **xfdfOutputFilePath** | **string**| The output xfdf file path. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **xfdfOutputFilePath** | **string**| The output xfdf file path. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutExportFieldsFromPdfToXmlInStorage**
+> AsposeResponse PutExportFieldsFromPdfToXmlInStorage(name, xmlOutputFilePath, optional)
+Export fields from from PDF in storage to XML file in storage.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **xmlOutputFilePath** | **string**| The output xml file path. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **xmlOutputFilePath** | **string**| The output xml file path. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
 
 ### Return type
 
@@ -7498,8 +8158,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **imageId** | **string**| Image ID. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
  **destFolder** | **string**| The document folder. | 
@@ -7534,8 +8194,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **imageId** | **string**| Image ID. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
  **destFolder** | **string**| The document folder. | 
@@ -7570,8 +8230,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **imageId** | **string**| Image ID. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
  **destFolder** | **string**| The document folder. | 
@@ -7606,8 +8266,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **imageId** | **string**| Image ID. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
  **destFolder** | **string**| The document folder. | 
@@ -7632,7 +8292,7 @@ Convert image file (located on storage) to PDF format and upload resulting file 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
-  **imageTemplates** | [**ImageTemplatesRequest**](ImageTemplatesRequest.md)| Image templates | 
+  **imageTemplates** | [**ImageTemplatesRequest**](ImageTemplatesRequest.md)| ImageTemplatesRequestImage templates | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -7641,7 +8301,7 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
- **imageTemplates** | [**ImageTemplatesRequest**](ImageTemplatesRequest.md)| Image templates | 
+ **imageTemplates** | [**ImageTemplatesRequest**](ImageTemplatesRequest.md)| ImageTemplatesRequestImage templates | 
  **dstFolder** | **string**| The destination document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -7675,8 +8335,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
  **destFolder** | **string**| The document folder. | 
@@ -7711,9 +8371,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
- **storage** | **string**|  | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
+ **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
  **destFolder** | **string**| The document folder. | 
 
@@ -7747,8 +8407,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
  **destFolder** | **string**| The document folder. | 
@@ -7783,11 +8443,110 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
  **destFolder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutImportFieldsFromFdfInStorage**
+> AsposeResponse PutImportFieldsFromFdfInStorage(name, fdfFilePath, optional)
+Update fields from FDF file in storage.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fdfFilePath** | **string**| The Fdf file path. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fdfFilePath** | **string**| The Fdf file path. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutImportFieldsFromXfdfInStorage**
+> AsposeResponse PutImportFieldsFromXfdfInStorage(name, xfdfFilePath, optional)
+Update fields from XFDF file in storage.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **xfdfFilePath** | **string**| The XFDF file path. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **xfdfFilePath** | **string**| The XFDF file path. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutImportFieldsFromXmlInStorage**
+> AsposeResponse PutImportFieldsFromXmlInStorage(name, xmlFilePath, optional)
+Update fields from XML file in storage.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **xmlFilePath** | **string**| Full source filename (ex. /folder1/folder2/template.xml) | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **xmlFilePath** | **string**| Full source filename (ex. /folder1/folder2/template.xml) | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
 
 ### Return type
 
@@ -7939,7 +8698,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutMergeDocuments**
-> DocumentResponse PutMergeDocuments(name, optional)
+> DocumentResponse PutMergeDocuments(name, mergeDocuments, optional)
 Merge a list of documents.
 
 ### Required Parameters
@@ -7947,6 +8706,7 @@ Merge a list of documents.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| Resulting documen name. | 
+  **mergeDocuments** | [**MergeDocuments**](MergeDocuments.md)| MergeDocuments with a list of documents. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -7955,7 +8715,7 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| Resulting documen name. | 
- **mergeDocuments** | [**MergeDocuments**](MergeDocuments.md)| with a list of documents. | 
+ **mergeDocuments** | [**MergeDocuments**](MergeDocuments.md)| MergeDocuments with a list of documents. | 
  **storage** | **string**| Resulting document storage. | 
  **folder** | **string**| Resulting document folder. | 
 
@@ -8048,7 +8808,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
-  **stamp** | [**Stamp**](Stamp.md)| with data. | 
+  **stamp** | [**Stamp**](Stamp.md)| Stamp with data. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -8058,7 +8818,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
- **stamp** | [**Stamp**](Stamp.md)| with data. | 
+ **stamp** | [**Stamp**](Stamp.md)| Stamp with data. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -8094,8 +8854,8 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
  **outPath** | **string**| The out path of result image. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -8131,8 +8891,8 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
  **outPath** | **string**| The out path of result image. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -8168,8 +8928,8 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
  **outPath** | **string**| The out path of result image. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -8205,8 +8965,8 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
  **outPath** | **string**| The out path of result image. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -8242,8 +9002,8 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
  **outPath** | **string**| The out path of result image. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -8279,8 +9039,8 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
  **outPath** | **string**| The out path of result image. | 
- **width** | **int32**| The converted image width. | 
- **height** | **int32**| The converted image height. | 
+ **width** | **int32**| The converted image width. | [default to 0]
+ **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -9396,7 +10156,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutPrivileges**
-> AsposeResponse PutPrivileges(name, optional)
+> AsposeResponse PutPrivileges(name, privileges, optional)
 Update privilege document.
 
 ### Required Parameters
@@ -9404,6 +10164,7 @@ Update privilege document.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
+  **privileges** | [**DocumentPrivilege**](DocumentPrivilege.md)| Document privileges. DocumentPrivilege | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -9412,7 +10173,7 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
- **privileges** | [**DocumentPrivilege**](DocumentPrivilege.md)| Document privileges.  | 
+ **privileges** | [**DocumentPrivilege**](DocumentPrivilege.md)| Document privileges. DocumentPrivilege | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -10059,7 +10820,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutUpdateField**
-> FieldResponse PutUpdateField(name, fieldName, optional)
+> FieldResponse PutUpdateField(name, fieldName, field, optional)
 Update field.
 
 ### Required Parameters
@@ -10068,6 +10829,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
   **fieldName** | **string**| The name of a field to be updated. | 
+  **field** | [**Field**](Field.md)| Field with the field data. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -10077,7 +10839,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **fieldName** | **string**| The name of a field to be updated. | 
- **field** | [**Field**](Field.md)| with the field data. | 
+ **field** | [**Field**](Field.md)| Field with the field data. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -10093,7 +10855,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutUpdateFields**
-> FieldsResponse PutUpdateFields(name, optional)
+> FieldsResponse PutUpdateFields(name, fields, optional)
 Update fields.
 
 ### Required Parameters
@@ -10101,6 +10863,7 @@ Update fields.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
+  **fields** | [**Fields**](Fields.md)| Fields with the fields data. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -10109,7 +10872,7 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
- **fields** | [**Fields**](Fields.md)| with the fields data. | 
+ **fields** | [**Fields**](Fields.md)| Fields with the fields data. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -10324,6 +11087,59 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **StorageExists**
+> StorageExist StorageExists(storageName)
+Check if storage exists
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storageName** | **string**| Storage name | 
+
+### Return type
+
+[**StorageExist**](StorageExist.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UploadFile**
+> FilesUploadResult UploadFile(path, file, optional)
+Upload file
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.              | 
+  **file** | ***os.File**| File to upload | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.              | 
+ **file** | ***os.File**| File to upload | 
+ **storageName** | **string**| Storage name | 
+
+### Return type
+
+[**FilesUploadResult**](FilesUploadResult.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

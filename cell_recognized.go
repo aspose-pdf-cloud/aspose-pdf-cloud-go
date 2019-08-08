@@ -21,7 +21,7 @@
 package asposepdfcloud
 
 type CellRecognized struct {
-	// Gets collection of  objects that describes text containing in the cell
+	// Gets collection of TextRect objects that describes text containing in the cell
 	TextRects *TextRects `json:"TextRects,omitempty"`
 	// Gets rectangle that describes position of the cell on page
 	Rectangle *Rectangle `json:"Rectangle,omitempty"`

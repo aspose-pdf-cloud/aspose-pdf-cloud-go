@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **DefaultCellTextState** | [***TextState**](TextState.md) | Gets or sets the default cell text state. | [optional] [default to null]
 **DefaultCellPadding** | [***MarginInfo**](MarginInfo.md) | Gets or sets the default cell padding. | [optional] [default to null]
 **Border** | [***BorderInfo**](BorderInfo.md) | Gets or sets the border. | [optional] [default to null]
-**Rows** | [**[]Row**](Row.md) | Sets the rows of the table. | [optional] [default to null]
+**Rows** | [**[]Row**](Row.md) | Sets the rows of the table. | [default to null]
 **DefaultColumnWidth** | **string** | Gets default cell border; | [optional] [default to null]
 **DefaultCellBorder** | [***BorderInfo**](BorderInfo.md) | Gets default cell border; | [optional] [default to null]
 **Broken** | [***TableBroken**](TableBroken.md) | Gets or sets table vertial broken; | [optional] [default to null]

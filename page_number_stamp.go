@@ -30,7 +30,7 @@ type PageNumberStamp struct {
 	HorizontalAlignment HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
 	// Gets or sets a value to indicate the stamp opacity. The value is from 0.0 to 1.0. By default the value is 1.0.
 	Opacity float64 `json:"Opacity,omitempty"`
-	// Sets or gets the rotation of stamp content according  values. Note. This property is for set angles which are multiples of 90 degrees (0, 90, 180, 270 degrees). To set arbitrary angle use RotateAngle property.  If angle set by ArbitraryAngle is not multiple of 90 then Rotate property returns Rotation.None.
+	// Sets or gets the rotation of stamp content according Rotation values. Note. This property is for set angles which are multiples of 90 degrees (0, 90, 180, 270 degrees). To set arbitrary angle use RotateAngle property.  If angle set by ArbitraryAngle is not multiple of 90 then Rotate property returns Rotation.None.
 	Rotate Rotation `json:"Rotate,omitempty"`
 	// Gets or sets rotate angle of stamp in degrees. This property allows to set arbitrary rotate angle. 
 	RotateAngle float64 `json:"RotateAngle,omitempty"`

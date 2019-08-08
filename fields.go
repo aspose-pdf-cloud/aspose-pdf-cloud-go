@@ -25,5 +25,5 @@ type Fields struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
 	// List of form fields.
-	List []Field `json:"List,omitempty"`
+	List []Field `json:"List"`
 }

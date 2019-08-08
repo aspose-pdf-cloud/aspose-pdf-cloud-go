@@ -67,10 +67,9 @@ func TestPostOptimizeDocument(t *testing.T) {
 
 	args := map[string]interface{} {
 		"folder":  GetBaseTest().remoteFolder,
-		"options": optimizeOptions,
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PostOptimizeDocument(name, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostOptimizeDocument(name, optimizeOptions, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {

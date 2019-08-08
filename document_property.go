@@ -29,5 +29,5 @@ type DocumentProperty struct {
 	// Property value.
 	Value string `json:"Value,omitempty"`
 	// Value indicating whether it is a built-in property.
-	BuiltIn bool `json:"BuiltIn,omitempty"`
+	BuiltIn bool `json:"BuiltIn"`
 }

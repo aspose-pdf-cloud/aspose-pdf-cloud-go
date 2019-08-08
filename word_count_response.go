@@ -26,6 +26,6 @@ type WordCountResponse struct {
 	Code int32 `json:"Code"`
 	// Response status.
 	Status string `json:"Status,omitempty"`
-	// with words per page info.            
+	// WordCount with words per page info.
 	WordsPerPage *WordCount `json:"WordsPerPage,omitempty"`
 }

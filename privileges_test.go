@@ -40,9 +40,8 @@
 
 	args := map[string]interface{} {
 		"folder":  GetBaseTest().remoteFolder,
-		"privileges": documentPrivilege,
 	}
-	response, httpResponse, err := GetBaseTest().PdfAPI.PutPrivileges(name, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPrivileges(name, documentPrivilege, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {

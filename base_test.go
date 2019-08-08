@@ -40,7 +40,7 @@ func (bt *BaseTest) UploadFile(name string) (err error) {
 		return err
 	}
 
-	_, _, err = GetBaseTest().PdfAPI.PutCreate(GetBaseTest().remoteFolder + "/" + name, file, args)
+	_, _, err = GetBaseTest().PdfAPI.UploadFile(GetBaseTest().remoteFolder + "/" + name, file, args)
 	return err
 }
 

@@ -20,7 +20,7 @@
  */
 package asposepdfcloud
 
-// Represents the privileges for accessing Pdf file./>.
+// Represents the privileges for accessing Pdf file.
 type DocumentPrivilege struct {
 	// Sets the permission which allow print or not.  true is allow and false or not set is forbidden.
 	AllowPrint bool `json:"AllowPrint,omitempty"`

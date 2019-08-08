@@ -37,7 +37,7 @@ type AnnotationInfo struct {
 	// Gets Name of the annotation.
 	Name string `json:"Name,omitempty"`
 	// Gets Rect of the annotation.
-	Rect *Rectangle `json:"Rect,omitempty"`
+	Rect *Rectangle `json:"Rect"`
 	// Gets PageIndex of the annotation.
 	PageIndex int32 `json:"PageIndex,omitempty"`
 	// Gets ZIndex of the annotation.
@@ -47,5 +47,5 @@ type AnnotationInfo struct {
 	// Gets VerticalAlignment of the annotation.
 	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
 	// Gets annotation type.
-	AnnotationType AnnotationType `json:"AnnotationType,omitempty"`
+	AnnotationType AnnotationType `json:"AnnotationType"`
 }

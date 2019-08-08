@@ -20,15 +20,14 @@
  */
 package asposepdfcloud
 
-import (
-	"time"
-)
-
-// Represents file DTO.
-type File struct {
-	Name string `json:"Name,omitempty"`
-	IsFolder bool `json:"IsFolder"`
-	ModifiedDate time.Time `json:"ModifiedDate,omitempty"`
-	Size int64 `json:"Size"`
-	Path string `json:"Path,omitempty"`
+// Error
+type ModelError struct {
+	// Code             
+	Code string `json:"Code,omitempty"`
+	// Message             
+	Message string `json:"Message,omitempty"`
+	// Description             
+	Description string `json:"Description,omitempty"`
+	// Inner Error             
+	InnerError *ErrorDetails `json:"InnerError,omitempty"`
 }

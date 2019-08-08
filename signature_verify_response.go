@@ -27,5 +27,5 @@ type SignatureVerifyResponse struct {
 	// Response status.
 	Status string `json:"Status,omitempty"`
 	// True if signature is valid and false if not
-	Valid bool `json:"Valid,omitempty"`
+	Valid bool `json:"Valid"`
 }

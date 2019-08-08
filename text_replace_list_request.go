@@ -24,6 +24,7 @@ package asposepdfcloud
 type TextReplaceListRequest struct {
 	// A list of text replacement settings.
 	TextReplaces []TextReplace `json:"TextReplaces"`
+	// Name of font to use if requested font is not embedded into document.
 	DefaultFont string `json:"DefaultFont,omitempty"`
 	// The index of first match to be replaced.
 	StartIndex int32 `json:"StartIndex,omitempty"`

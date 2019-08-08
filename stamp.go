@@ -36,7 +36,7 @@ type Stamp struct {
 	Opacity float64 `json:"Opacity,omitempty"`
 	// Gets or sets right margin of stamp.
 	RightMargin float64 `json:"RightMargin,omitempty"`
-	// Sets or gets the rotation of stamp content according  values. Note. This property is for set angles which are multiples of 90 degrees (0, 90, 180, 270 degrees). To set arbitrary angle use RotateAngle property.  If angle set by ArbitraryAngle is not multiple of 90 then Rotate property returns Rotation.None.
+	// Sets or gets the rotation of stamp content according Rotation values. Note. This property is for set angles which are multiples of 90 degrees (0, 90, 180, 270 degrees). To set arbitrary angle use RotateAngle property.  If angle set by ArbitraryAngle is not multiple of 90 then Rotate property returns Rotation.None.
 	Rotate Rotation `json:"Rotate,omitempty"`
 	// Gets or sets rotate angle of stamp in degrees. This property allows to set arbitrary rotate angle. 
 	RotateAngle float64 `json:"RotateAngle,omitempty"`
@@ -54,7 +54,7 @@ type Stamp struct {
 	TextAlignment HorizontalAlignment `json:"TextAlignment,omitempty"`
 	// Gets or sets string value which is used as stamp on the page.
 	Value string `json:"Value,omitempty"`
-	// Gets text properties of the stamp. See  for details.
+	// Gets text properties of the stamp. See TextState for details.
 	TextState *TextState `json:"TextState,omitempty"`
 	// Gets or sets the file name.
 	FileName string `json:"FileName,omitempty"`

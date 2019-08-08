@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Gets ID of the annotation. | [optional] [default to null]
 **Flags** | [**[]AnnotationFlags**](AnnotationFlags.md) | Gets Flags of the annotation. | [optional] [default to null]
 **Name** | **string** | Gets Name of the annotation. | [optional] [default to null]
-**Rect** | [***Rectangle**](Rectangle.md) | Gets Rect of the annotation. | [optional] [default to null]
+**Rect** | [***Rectangle**](Rectangle.md) | Gets Rect of the annotation. | [default to null]
 **PageIndex** | **int32** | Gets PageIndex of the annotation. | [optional] [default to null]
 **ZIndex** | **int32** | Gets ZIndex of the annotation. | [optional] [default to null]
 **HorizontalAlignment** | [***HorizontalAlignment**](HorizontalAlignment.md) | Gets HorizontalAlignment of the annotation. | [optional] [default to null]
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **Justification** | [***Justification**](Justification.md) | Gets Justification of the annotation. | [optional] [default to null]
 **Intent** | [***FreeTextIntent**](FreeTextIntent.md) | Gets or sets the intent of the free text annotation. | [optional] [default to null]
 **Rotate** | [***Rotation**](Rotation.md) | Angle of annotation rotation. | [optional] [default to null]
-**TextStyle** | [***TextStyle**](TextStyle.md) | Text style of the annotation. | [optional] [default to null]
+**TextStyle** | [***TextStyle**](TextStyle.md) | Text style of the annotation. | [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../free_text_annotation.go)
 

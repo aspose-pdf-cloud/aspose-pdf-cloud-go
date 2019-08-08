@@ -24,10 +24,10 @@ package asposepdfcloud
 type LinkAnnotation struct {
 	// Link to the document.
 	Links []Link `json:"Links,omitempty"`
-	ActionType LinkActionType `json:"ActionType,omitempty"`
-	Action string `json:"Action,omitempty"`
-	Highlighting LinkHighlightingMode `json:"Highlighting,omitempty"`
+	ActionType LinkActionType `json:"ActionType"`
+	Action string `json:"Action"`
+	Highlighting LinkHighlightingMode `json:"Highlighting"`
 	Color *Color `json:"Color,omitempty"`
-	Rect *Rectangle `json:"Rect,omitempty"`
+	Rect *Rectangle `json:"Rect"`
 	Id string `json:"Id,omitempty"`
 }

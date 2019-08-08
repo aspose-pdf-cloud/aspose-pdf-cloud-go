@@ -20,10 +20,14 @@
  */
 package asposepdfcloud
 
-type FilesResponse struct {
-	// Response status code.
-	Code int32 `json:"Code"`
-	// Response status.
-	Status string `json:"Status,omitempty"`
-	Files []File `json:"Files,omitempty"`
+import (
+	"time"
+)
+
+// The error details
+type ErrorDetails struct {
+	// The request id
+	RequestId string `json:"RequestId,omitempty"`
+	// Date
+	Date time.Time `json:"Date"`
 }

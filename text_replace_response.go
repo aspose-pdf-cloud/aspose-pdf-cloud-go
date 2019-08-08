@@ -27,5 +27,5 @@ type TextReplaceResponse struct {
 	// Response status.
 	Status string `json:"Status,omitempty"`
 	// Number of matches
-	Matches int32 `json:"Matches,omitempty"`
+	Matches int32 `json:"Matches"`
 }

@@ -31,5 +31,5 @@ type SplitResultDocument struct {
 	// The \"title\" attribute conveys human-readable information about the link.  The content of the \"title\" attribute is Language-Sensitive.
 	Title string `json:"Title,omitempty"`
 	// Gets or sets the page number.
-	Id int32 `json:"Id,omitempty"`
+	Id int32 `json:"Id"`
 }

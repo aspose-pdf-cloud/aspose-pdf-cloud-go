@@ -32,10 +32,10 @@ type TextRect struct {
 	HorizontalAlignment HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
 	// Gets or sets a vertical alignment of text fragment. 
 	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
-	// Gets or sets text position for text, represented with  object.
+	// Gets or sets text position for text, represented with TextRect object.
 	Position *Position `json:"Position,omitempty"`
-	// Gets text position for text, represented with  object. The YIndent of the Position structure represents baseline coordinate of the text fragment.
+	// Gets text position for text, represented with TextRect object. The YIndent of the Position structure represents baseline coordinate of the text fragment.
 	BaselinePosition *Position `json:"BaselinePosition,omitempty"`
-	// Gets or sets text state for the text that  object represents.
+	// Gets or sets text state for the text that TextRect object represents.
 	TextState *TextState `json:"TextState,omitempty"`
 }

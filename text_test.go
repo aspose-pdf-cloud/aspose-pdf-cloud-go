@@ -124,11 +124,10 @@ func TestPutAddText(t *testing.T) {
 	
 	args := map[string]interface{} {
 		"folder":  GetBaseTest().remoteFolder,
-		"paragraph": paragraph,
 	}
 
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PutAddText(name, pageNumber, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutAddText(name, pageNumber, paragraph, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {

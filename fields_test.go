@@ -93,10 +93,9 @@ func TestPostCreateField(t *testing.T) {
 			
 	args := map[string]interface{} {
 		"folder":  GetBaseTest().remoteFolder,
-		"field": field,
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PostCreateField(name, pageNumber, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostCreateField(name, pageNumber, field, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
@@ -124,10 +123,9 @@ func TestPutUpdateField(t *testing.T) {
 			
 	args := map[string]interface{} {
 		"folder":  GetBaseTest().remoteFolder,
-		"field": field,
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PutUpdateField(name, field.Name, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutUpdateField(name, field.Name, field, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
@@ -158,10 +156,9 @@ func TestPutUpdateFields(t *testing.T) {
 	}
 	args := map[string]interface{} {
 		"folder":  GetBaseTest().remoteFolder,
-		"fields": fields,
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PutUpdateFields(name, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutUpdateFields(name, fields, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
