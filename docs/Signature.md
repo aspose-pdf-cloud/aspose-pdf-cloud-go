@@ -17,6 +17,9 @@ Name | Type | Description | Notes
 **Authority** | **string** | Gets or sets the name of the person or authority signing the document.. | [optional] [default to null]
 **Date** | **string** | Gets or sets the time of signing. | [optional] [default to null]
 **ShowProperties** | **bool** | Gets or sets the showproperties in signature field | [default to null]
+**TimestampSettings** | [***TimestampSettings**](TimestampSettings.md) | Gets/sets timestamp settings. | [optional] [default to null]
+**IsValid** | **bool** | Verify the document regarding this signature and return true if document is valid or otherwise false. | [optional] [default to null]
+**CustomAppearance** | [***SignatureCustomAppearance**](SignatureCustomAppearance.md) | Gets/sets the custom appearance. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../signature.go)
 

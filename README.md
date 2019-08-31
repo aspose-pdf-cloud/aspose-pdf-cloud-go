@@ -1,6 +1,6 @@
 # Aspose.PDF Cloud
 - API version: 3.0
-- Package version: 19.7.0
+- Package version: 19.8.0
 
 [Aspose.PDF Cloud](https://products.aspose.cloud/pdf) is a true REST API that enables you to perform a wide range of document processing operations including creation, manipulation, conversion and rendering of PDF documents in the cloud.
 
@@ -102,6 +102,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetDocumentProperty**](docs/PdfApi.md#getdocumentproperty) | **Get** /pdf/{name}/documentproperties/{propertyName} | Read document property by name.
 *PdfApi* | [**GetDocumentRedactionAnnotations**](docs/PdfApi.md#getdocumentredactionannotations) | **Get** /pdf/{name}/annotations/redaction | Read document redaction annotations.
 *PdfApi* | [**GetDocumentScreenAnnotations**](docs/PdfApi.md#getdocumentscreenannotations) | **Get** /pdf/{name}/annotations/screen | Read document screen annotations.
+*PdfApi* | [**GetDocumentSignatureFields**](docs/PdfApi.md#getdocumentsignaturefields) | **Get** /pdf/{name}/fields/signature | Read document signature fields.
 *PdfApi* | [**GetDocumentSoundAnnotations**](docs/PdfApi.md#getdocumentsoundannotations) | **Get** /pdf/{name}/annotations/sound | Read document sound annotations.
 *PdfApi* | [**GetDocumentSquareAnnotations**](docs/PdfApi.md#getdocumentsquareannotations) | **Get** /pdf/{name}/annotations/square | Read document square annotations.
 *PdfApi* | [**GetDocumentSquigglyAnnotations**](docs/PdfApi.md#getdocumentsquigglyannotations) | **Get** /pdf/{name}/annotations/squiggly | Read document squiggly annotations.
@@ -138,6 +139,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetLaTeXInStorageToPdf**](docs/PdfApi.md#getlatexinstoragetopdf) | **Get** /pdf/create/latex | Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**GetLineAnnotation**](docs/PdfApi.md#getlineannotation) | **Get** /pdf/{name}/annotations/line/{annotationId} | Read document page line annotation by ID.
 *PdfApi* | [**GetLinkAnnotation**](docs/PdfApi.md#getlinkannotation) | **Get** /pdf/{name}/links/{linkId} | Read document link annotation by ID.
+*PdfApi* | [**GetMarkdownInStorageToPdf**](docs/PdfApi.md#getmarkdowninstoragetopdf) | **Get** /pdf/create/markdown | Convert MD file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**GetMhtInStorageToPdf**](docs/PdfApi.md#getmhtinstoragetopdf) | **Get** /pdf/create/mht | Convert MHT file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**GetMovieAnnotation**](docs/PdfApi.md#getmovieannotation) | **Get** /pdf/{name}/annotations/movie/{annotationId} | Read document page movie annotation by ID.
 *PdfApi* | [**GetPage**](docs/PdfApi.md#getpage) | **Get** /pdf/{name}/pages/{pageNumber} | Read document page info.
@@ -163,6 +165,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetPagePopupAnnotations**](docs/PdfApi.md#getpagepopupannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/popup | Read document page popup annotations.
 *PdfApi* | [**GetPageRedactionAnnotations**](docs/PdfApi.md#getpageredactionannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/redaction | Read document page redaction annotations.
 *PdfApi* | [**GetPageScreenAnnotations**](docs/PdfApi.md#getpagescreenannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/screen | Read document page screen annotations.
+*PdfApi* | [**GetPageSignatureFields**](docs/PdfApi.md#getpagesignaturefields) | **Get** /pdf/{name}/page/{pageNumber}/fields/signature | Read document page signature fields.
 *PdfApi* | [**GetPageSoundAnnotations**](docs/PdfApi.md#getpagesoundannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/sound | Read document page sound annotations.
 *PdfApi* | [**GetPageSquareAnnotations**](docs/PdfApi.md#getpagesquareannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/square | Read document page square annotations.
 *PdfApi* | [**GetPageSquigglyAnnotations**](docs/PdfApi.md#getpagesquigglyannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/squiggly | Read document page squiggly annotations.
@@ -195,6 +198,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetRedactionAnnotation**](docs/PdfApi.md#getredactionannotation) | **Get** /pdf/{name}/annotations/redaction/{annotationId} | Read document page redaction annotation by ID.
 *PdfApi* | [**GetScreenAnnotation**](docs/PdfApi.md#getscreenannotation) | **Get** /pdf/{name}/annotations/screen/{annotationId} | Read document page screen annotation by ID.
 *PdfApi* | [**GetScreenAnnotationData**](docs/PdfApi.md#getscreenannotationdata) | **Get** /pdf/{name}/annotations/screen/{annotationId}/data | Read document page screen annotation by ID.
+*PdfApi* | [**GetSignatureField**](docs/PdfApi.md#getsignaturefield) | **Get** /pdf/{name}/fields/signature/{fieldName} | Read document signature field by name.
 *PdfApi* | [**GetSoundAnnotation**](docs/PdfApi.md#getsoundannotation) | **Get** /pdf/{name}/annotations/sound/{annotationId} | Read document page sound annotation by ID.
 *PdfApi* | [**GetSoundAnnotationData**](docs/PdfApi.md#getsoundannotationdata) | **Get** /pdf/{name}/annotations/sound/{annotationId}/data | Read document page sound annotation by ID.
 *PdfApi* | [**GetSquareAnnotation**](docs/PdfApi.md#getsquareannotation) | **Get** /pdf/{name}/annotations/square/{annotationId} | Read document page square annotation by ID.
@@ -237,6 +241,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PostMovePage**](docs/PdfApi.md#postmovepage) | **Post** /pdf/{name}/pages/{pageNumber}/movePage | Move page to new position.
 *PdfApi* | [**PostOptimizeDocument**](docs/PdfApi.md#postoptimizedocument) | **Post** /pdf/{name}/optimize | Optimize document.
 *PdfApi* | [**PostPageCaretAnnotations**](docs/PdfApi.md#postpagecaretannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/caret | Add document page caret annotations.
+*PdfApi* | [**PostPageCertify**](docs/PdfApi.md#postpagecertify) | **Post** /pdf/{name}/pages/{pageNumber}/certify | Certify document page.
 *PdfApi* | [**PostPageCircleAnnotations**](docs/PdfApi.md#postpagecircleannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/circle | Add document page circle annotations.
 *PdfApi* | [**PostPageFileAttachmentAnnotations**](docs/PdfApi.md#postpagefileattachmentannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/fileattachment | Add document page FileAttachment annotations.
 *PdfApi* | [**PostPageFreeTextAnnotations**](docs/PdfApi.md#postpagefreetextannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/freetext | Add document page free text annotations.
@@ -301,6 +306,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PutLaTeXInStorageToPdf**](docs/PdfApi.md#putlatexinstoragetopdf) | **Put** /pdf/{name}/create/latex | Convert LaTeX file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**PutLineAnnotation**](docs/PdfApi.md#putlineannotation) | **Put** /pdf/{name}/annotations/line/{annotationId} | Replace document line annotation
 *PdfApi* | [**PutLinkAnnotation**](docs/PdfApi.md#putlinkannotation) | **Put** /pdf/{name}/links/{linkId} | Replace document page link annotations
+*PdfApi* | [**PutMarkdownInStorageToPdf**](docs/PdfApi.md#putmarkdowninstoragetopdf) | **Put** /pdf/{name}/create/markdown | Convert MD file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**PutMergeDocuments**](docs/PdfApi.md#putmergedocuments) | **Put** /pdf/{name}/merge | Merge a list of documents.
 *PdfApi* | [**PutMhtInStorageToPdf**](docs/PdfApi.md#putmhtinstoragetopdf) | **Put** /pdf/{name}/create/mht | Convert MHT file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**PutMovieAnnotation**](docs/PdfApi.md#putmovieannotation) | **Put** /pdf/{name}/annotations/movie/{annotationId} | Replace document movie annotation
@@ -393,6 +399,7 @@ Class | Method | HTTP request | Description
  - [CryptoAlgorithm](docs/CryptoAlgorithm.md)
  - [DiscUsage](docs/DiscUsage.md)
  - [DocFormat](docs/DocFormat.md)
+ - [DocMdpAccessPermissionType](docs/DocMdpAccessPermissionType.md)
  - [DocRecognitionMode](docs/DocRecognitionMode.md)
  - [DocumentPrivilege](docs/DocumentPrivilege.md)
  - [EpubRecognitionMode](docs/EpubRecognitionMode.md)
@@ -443,6 +450,7 @@ Class | Method | HTTP request | Description
  - [Segment](docs/Segment.md)
  - [ShapeType](docs/ShapeType.md)
  - [Signature](docs/Signature.md)
+ - [SignatureCustomAppearance](docs/SignatureCustomAppearance.md)
  - [SignatureType](docs/SignatureType.md)
  - [SoundEncoding](docs/SoundEncoding.md)
  - [SoundIcon](docs/SoundIcon.md)
@@ -462,6 +470,7 @@ Class | Method | HTTP request | Description
  - [TextReplaceListRequest](docs/TextReplaceListRequest.md)
  - [TextState](docs/TextState.md)
  - [TextStyle](docs/TextStyle.md)
+ - [TimestampSettings](docs/TimestampSettings.md)
  - [VerticalAlignment](docs/VerticalAlignment.md)
  - [WordCount](docs/WordCount.md)
  - [WrapMode](docs/WrapMode.md)
@@ -498,6 +507,7 @@ Class | Method | HTTP request | Description
  - [FileAttachmentAnnotations](docs/FileAttachmentAnnotations.md)
  - [FileAttachmentAnnotationsResponse](docs/FileAttachmentAnnotationsResponse.md)
  - [FileVersion](docs/FileVersion.md)
+ - [FormField](docs/FormField.md)
  - [FreeTextAnnotationResponse](docs/FreeTextAnnotationResponse.md)
  - [FreeTextAnnotations](docs/FreeTextAnnotations.md)
  - [FreeTextAnnotationsResponse](docs/FreeTextAnnotationsResponse.md)
@@ -538,6 +548,9 @@ Class | Method | HTTP request | Description
  - [ScreenAnnotationResponse](docs/ScreenAnnotationResponse.md)
  - [ScreenAnnotations](docs/ScreenAnnotations.md)
  - [ScreenAnnotationsResponse](docs/ScreenAnnotationsResponse.md)
+ - [SignatureFieldResponse](docs/SignatureFieldResponse.md)
+ - [SignatureFields](docs/SignatureFields.md)
+ - [SignatureFieldsResponse](docs/SignatureFieldsResponse.md)
  - [SignatureVerifyResponse](docs/SignatureVerifyResponse.md)
  - [SoundAnnotationResponse](docs/SoundAnnotationResponse.md)
  - [SoundAnnotations](docs/SoundAnnotations.md)
@@ -585,6 +598,7 @@ Class | Method | HTTP request | Description
  - [PopupAnnotation](docs/PopupAnnotation.md)
  - [RedactionAnnotation](docs/RedactionAnnotation.md)
  - [ScreenAnnotation](docs/ScreenAnnotation.md)
+ - [SignatureField](docs/SignatureField.md)
  - [TextFooter](docs/TextFooter.md)
  - [TextHeader](docs/TextHeader.md)
  - [TextStamp](docs/TextStamp.md)

@@ -235,3 +235,73 @@ func TestPostFlattenDocument(t *testing.T) {
 		fmt.Printf("%d\tTestPostFlattenDocument - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
+
+func TestGetDocumentSignatureFields(t *testing.T) {
+
+	name := "adbe.x509.rsa_sha1.valid.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentSignatureFields(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetDocumentSignatureFields - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestGetPageSignatureFields(t *testing.T) {
+
+	name := "adbe.x509.rsa_sha1.valid.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	pageNumber := int32(1)
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageSignatureFields(name, pageNumber, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetPageSignatureFields - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestGetSignatureField(t *testing.T) {
+
+	name := "adbe.x509.rsa_sha1.valid.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	signatureName := "Signature1"
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetSignatureField(name, signatureName, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetSignatureField - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}

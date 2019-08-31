@@ -152,3 +152,46 @@ func TestGetVerifySignature(t *testing.T) {
 		fmt.Printf("%d\tTestGetVerifySignature - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
+
+func TestPostPageCertify(t *testing.T) {
+ 
+	name := "4pages.pdf"
+	signatureName := "33226.p12"
+	pageNumber := int32(1)
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	if err := GetBaseTest().UploadFile(signatureName); err != nil {
+		t.Error(err)
+	}
+
+	signature := Signature {
+		Authority: "Sergey Smal",
+		Contact: "test@mail.ru",
+		Date: "08/01/2012 12:15:00.000 PM",
+		FormFieldName: "Signature1",
+		Location: "Ukraine",
+		Password: "sIikZSmz",
+		Rectangle: &Rectangle{ LLX: 100, LLY: 100, URX: 0, URY: 0},
+		SignaturePath: GetBaseTest().remoteFolder + "/" + signatureName,
+		SignatureType: SignatureTypePKCS7,
+		Visible: true,
+		ShowProperties: false, 
+		}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	permissionType := string(DocMdpAccessPermissionTypeNoChanges)
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostPageCertify(name, pageNumber, signature, permissionType, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPostPageCertify - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
