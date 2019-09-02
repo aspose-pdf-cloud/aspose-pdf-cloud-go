@@ -48,4 +48,10 @@ type Signature struct {
 	Date string `json:"Date,omitempty"`
 	// Gets or sets the showproperties in signature field
 	ShowProperties bool `json:"ShowProperties"`
+	// Gets/sets timestamp settings.
+	TimestampSettings *TimestampSettings `json:"TimestampSettings,omitempty"`
+	// Verify the document regarding this signature and return true if document is valid or otherwise false.
+	IsValid bool `json:"IsValid,omitempty"`
+	// Gets/sets the custom appearance.
+	CustomAppearance *SignatureCustomAppearance `json:"CustomAppearance,omitempty"`
 }

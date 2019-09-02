@@ -570,3 +570,49 @@ func TestPutImageInStorageToPdf(t *testing.T) {
 		fmt.Printf("%d\tTestPutImageInStorageToPdf - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
+
+// from MD
+func TestGetMarkdownInStorageToPdf(t *testing.T) {
+
+	name := "mixed.md"
+	srcPath := GetBaseTest().remoteFolder + "/" + name
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := make(map[string]interface{})
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetMarkdownInStorageToPdf(srcPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetMarkdownInStorageToPdf - %db\n", GetBaseTest().GetTestNumber(), len(response))
+	}
+}
+
+func TestPutMarkdownInStorageToPdf(t *testing.T) {
+
+	name := "Typography.PS"
+	resFileName := "mixed.md"
+	srcPath := GetBaseTest().remoteFolder + "/" + name
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutMarkdownInStorageToPdf(resFileName, srcPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutMarkdownInStorageToPdf - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
