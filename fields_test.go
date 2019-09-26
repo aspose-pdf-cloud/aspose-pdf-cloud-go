@@ -305,3 +305,138 @@ func TestGetSignatureField(t *testing.T) {
 		fmt.Printf("%d\tTestGetSignatureField - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
+
+func TestGetDocumentTextBoxFields(t *testing.T) {
+
+	name := "FormDataTextBox.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentTextBoxFields(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetDocumentTextBoxFields - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestGetPageTextBoxFields(t *testing.T) {
+
+	name := "FormDataTextBox.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	pageNumber := int32(1)
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageTextBoxFields(name, pageNumber, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetPageTextBoxFields - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestGetTextBoxField(t *testing.T) {
+
+	name := "FormDataTextBox.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	fieldName := "Petitioner"
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetTextBoxField(name, fieldName, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetTextBoxField - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPostTextBoxFields(t *testing.T) {
+
+	name := "4pages.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	textBox := TextBoxField {
+		PageIndex: 1, 
+		IsGroup: false,
+		Color: &Color{A: 255, R: 255, G: 0, B: 0},
+		Multiline: true,
+		MaxLen: 100,
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 500, URY: 200},
+		Value: "Page 1\nValue",
+		PartialName: "testField",
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostTextBoxFields(name, []TextBoxField{textBox}, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPostTextBoxFields - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPutTextBoxField(t *testing.T) {
+
+	name := "FormDataTextBox.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	fieldName := "Petitioner"
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	textBox := TextBoxField {
+		PageIndex: 1, 
+		IsGroup: false,
+		Color: &Color{A: 255, R: 255, G: 0, B: 0},
+		Multiline: true,
+		MaxLen: 100,
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 500, URY: 200},
+		Value: "Page 1\nValue",
+		PartialName: "testField",
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutTextBoxField(name, fieldName, textBox, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutTextBoxField - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
