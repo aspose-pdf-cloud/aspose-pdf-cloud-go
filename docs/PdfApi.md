@@ -64,6 +64,7 @@ Method | HTTP request | Description
 [**GetDocumentStrikeOutAnnotations**](PdfApi.md#GetDocumentStrikeOutAnnotations) | **Get** /pdf/{name}/annotations/strikeout | Read document StrikeOut annotations.
 [**GetDocumentTables**](PdfApi.md#GetDocumentTables) | **Get** /pdf/{name}/tables | Read document tables.
 [**GetDocumentTextAnnotations**](PdfApi.md#GetDocumentTextAnnotations) | **Get** /pdf/{name}/annotations/text | Read document text annotations.
+[**GetDocumentTextBoxFields**](PdfApi.md#GetDocumentTextBoxFields) | **Get** /pdf/{name}/fields/textbox | Read document text box fields.
 [**GetDocumentUnderlineAnnotations**](PdfApi.md#GetDocumentUnderlineAnnotations) | **Get** /pdf/{name}/annotations/underline | Read document underline annotations.
 [**GetDownloadDocumentAttachmentByIndex**](PdfApi.md#GetDownloadDocumentAttachmentByIndex) | **Get** /pdf/{name}/attachments/{attachmentIndex}/download | Download document attachment content by its index.
 [**GetEpubInStorageToPdf**](PdfApi.md#GetEpubInStorageToPdf) | **Get** /pdf/create/epub | Convert EPUB file (located on storage) to PDF format and return resulting file in response. 
@@ -128,6 +129,7 @@ Method | HTTP request | Description
 [**GetPageTables**](PdfApi.md#GetPageTables) | **Get** /pdf/{name}/pages/{pageNumber}/tables | Read document page tables.
 [**GetPageText**](PdfApi.md#GetPageText) | **Get** /pdf/{name}/pages/{pageNumber}/text | Read page text items.
 [**GetPageTextAnnotations**](PdfApi.md#GetPageTextAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/text | Read document page text annotations.
+[**GetPageTextBoxFields**](PdfApi.md#GetPageTextBoxFields) | **Get** /pdf/{name}/page/{pageNumber}/fields/textbox | Read document page text box fields.
 [**GetPageUnderlineAnnotations**](PdfApi.md#GetPageUnderlineAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/underline | Read document page underline annotations.
 [**GetPages**](PdfApi.md#GetPages) | **Get** /pdf/{name}/pages | Read document pages info.
 [**GetPclInStorageToPdf**](PdfApi.md#GetPclInStorageToPdf) | **Get** /pdf/create/pcl | Convert PCL file (located on storage) to PDF format and return resulting file in response. 
@@ -163,6 +165,7 @@ Method | HTTP request | Description
 [**GetTable**](PdfApi.md#GetTable) | **Get** /pdf/{name}/tables/{tableId} | Read document page table by ID.
 [**GetText**](PdfApi.md#GetText) | **Get** /pdf/{name}/text | Read document text.
 [**GetTextAnnotation**](PdfApi.md#GetTextAnnotation) | **Get** /pdf/{name}/annotations/text/{annotationId} | Read document page text annotation by ID.
+[**GetTextBoxField**](PdfApi.md#GetTextBoxField) | **Get** /pdf/{name}/fields/textbox/{fieldName} | Read document text box field by name.
 [**GetUnderlineAnnotation**](PdfApi.md#GetUnderlineAnnotation) | **Get** /pdf/{name}/annotations/underline/{annotationId} | Read document page underline annotation by ID.
 [**GetVerifySignature**](PdfApi.md#GetVerifySignature) | **Get** /pdf/{name}/verifySignature | Verify signature document.
 [**GetWebInStorageToPdf**](PdfApi.md#GetWebInStorageToPdf) | **Get** /pdf/create/web | Convert web page to PDF format and return resulting file in response. 
@@ -223,6 +226,7 @@ Method | HTTP request | Description
 [**PostSignDocument**](PdfApi.md#PostSignDocument) | **Post** /pdf/{name}/sign | Sign document.
 [**PostSignPage**](PdfApi.md#PostSignPage) | **Post** /pdf/{name}/pages/{pageNumber}/sign | Sign page.
 [**PostSplitDocument**](PdfApi.md#PostSplitDocument) | **Post** /pdf/{name}/split | Split document to parts.
+[**PostTextBoxFields**](PdfApi.md#PostTextBoxFields) | **Post** /pdf/{name}/fields/textbox | Add document text box fields.
 [**PutAddNewPage**](PdfApi.md#PutAddNewPage) | **Put** /pdf/{name}/pages | Add new page to end of the document.
 [**PutAddText**](PdfApi.md#PutAddText) | **Put** /pdf/{name}/pages/{pageNumber}/text | Add text to PDF document page.
 [**PutAnnotationsFlatten**](PdfApi.md#PutAnnotationsFlatten) | **Put** /pdf/{name}/annotations/flatten | Flattens the annotations of the specified types
@@ -318,6 +322,7 @@ Method | HTTP request | Description
 [**PutSvgInStorageToPdf**](PdfApi.md#PutSvgInStorageToPdf) | **Put** /pdf/{name}/create/svg | Convert SVG file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutTable**](PdfApi.md#PutTable) | **Put** /pdf/{name}/tables/{tableId} | Replace document page table.
 [**PutTextAnnotation**](PdfApi.md#PutTextAnnotation) | **Put** /pdf/{name}/annotations/text/{annotationId} | Replace document text annotation
+[**PutTextBoxField**](PdfApi.md#PutTextBoxField) | **Put** /pdf/{name}/fields/textbox/{fieldName} | Replace document text box field
 [**PutUnderlineAnnotation**](PdfApi.md#PutUnderlineAnnotation) | **Put** /pdf/{name}/annotations/underline/{annotationId} | Replace document underline annotation
 [**PutUpdateField**](PdfApi.md#PutUpdateField) | **Put** /pdf/{name}/fields/{fieldName} | Update field.
 [**PutUpdateFields**](PdfApi.md#PutUpdateFields) | **Put** /pdf/{name}/fields | Update fields.
@@ -2224,6 +2229,37 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TextAnnotationsResponse**](TextAnnotationsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDocumentTextBoxFields**
+> TextBoxFieldsResponse GetDocumentTextBoxFields(name, optional)
+Read document text box fields.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**TextBoxFieldsResponse**](TextBoxFieldsResponse.md)
 
 ### HTTP request headers
 
@@ -4354,6 +4390,39 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetPageTextBoxFields**
+> TextBoxFieldsResponse GetPageTextBoxFields(name, pageNumber, optional)
+Read document page text box fields.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**TextBoxFieldsResponse**](TextBoxFieldsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetPageUnderlineAnnotations**
 > UnderlineAnnotationsResponse GetPageUnderlineAnnotations(name, pageNumber, optional)
 Read document page underline annotations.
@@ -5547,6 +5616,39 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TextAnnotationResponse**](TextAnnotationResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetTextBoxField**
+> TextBoxFieldResponse GetTextBoxField(name, fieldName, optional)
+Read document text box field by name.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fieldName** | **string**| The field name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fieldName** | **string**| The field name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**TextBoxFieldResponse**](TextBoxFieldResponse.md)
 
 ### HTTP request headers
 
@@ -7613,6 +7715,39 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SplitResultResponse**](SplitResultResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostTextBoxFields**
+> AsposeResponse PostTextBoxFields(name, fields, optional)
+Add document text box fields.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fields** | [**[]TextBoxField**](TextBoxField.md)| The array of field. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fields** | [**[]TextBoxField**](TextBoxField.md)| The array of field. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
 
 ### HTTP request headers
 
@@ -10979,6 +11114,41 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TextAnnotationResponse**](TextAnnotationResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutTextBoxField**
+> TextBoxFieldResponse PutTextBoxField(name, fieldName, field, optional)
+Replace document text box field
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fieldName** | **string**| The field name. | 
+  **field** | [**TextBoxField**](TextBoxField.md)| The field. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fieldName** | **string**| The field name. | 
+ **field** | [**TextBoxField**](TextBoxField.md)| The field. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**TextBoxFieldResponse**](TextBoxFieldResponse.md)
 
 ### HTTP request headers
 
