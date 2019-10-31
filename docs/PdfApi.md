@@ -32,6 +32,7 @@ Method | HTTP request | Description
 [**GetBookmark**](PdfApi.md#GetBookmark) | **Get** /pdf/{name}/bookmarks/bookmark/{bookmarkPath} | Read document bookmark.
 [**GetBookmarks**](PdfApi.md#GetBookmarks) | **Get** /pdf/{name}/bookmarks/list/{bookmarkPath} | Read document bookmarks node list.
 [**GetCaretAnnotation**](PdfApi.md#GetCaretAnnotation) | **Get** /pdf/{name}/annotations/caret/{annotationId} | Read document page caret annotation by ID.
+[**GetCheckBoxField**](PdfApi.md#GetCheckBoxField) | **Get** /pdf/{name}/fields/checkbox/{fieldName} | Read document checkbox field by name.
 [**GetCircleAnnotation**](PdfApi.md#GetCircleAnnotation) | **Get** /pdf/{name}/annotations/circle/{annotationId} | Read document page circle annotation by ID.
 [**GetDiscUsage**](PdfApi.md#GetDiscUsage) | **Get** /pdf/storage/disc | Get disc usage
 [**GetDocument**](PdfApi.md#GetDocument) | **Get** /pdf/{name} | Read common document info.
@@ -40,6 +41,7 @@ Method | HTTP request | Description
 [**GetDocumentAttachments**](PdfApi.md#GetDocumentAttachments) | **Get** /pdf/{name}/attachments | Read document attachments info.
 [**GetDocumentBookmarks**](PdfApi.md#GetDocumentBookmarks) | **Get** /pdf/{name}/bookmarks/tree | Read document bookmarks tree.
 [**GetDocumentCaretAnnotations**](PdfApi.md#GetDocumentCaretAnnotations) | **Get** /pdf/{name}/annotations/caret | Read document caret annotations.
+[**GetDocumentCheckBoxFields**](PdfApi.md#GetDocumentCheckBoxFields) | **Get** /pdf/{name}/fields/checkbox | Read document checkbox fields.
 [**GetDocumentCircleAnnotations**](PdfApi.md#GetDocumentCircleAnnotations) | **Get** /pdf/{name}/annotations/circle | Read document circle annotations.
 [**GetDocumentFileAttachmentAnnotations**](PdfApi.md#GetDocumentFileAttachmentAnnotations) | **Get** /pdf/{name}/annotations/fileattachment | Read document FileAttachment annotations.
 [**GetDocumentFreeTextAnnotations**](PdfApi.md#GetDocumentFreeTextAnnotations) | **Get** /pdf/{name}/annotations/freetext | Read document free text annotations.
@@ -53,6 +55,7 @@ Method | HTTP request | Description
 [**GetDocumentPopupAnnotationsByParent**](PdfApi.md#GetDocumentPopupAnnotationsByParent) | **Get** /pdf/{name}/annotations/{annotationId}/popup | Read document popup annotations by parent id.
 [**GetDocumentProperties**](PdfApi.md#GetDocumentProperties) | **Get** /pdf/{name}/documentproperties | Read document properties.
 [**GetDocumentProperty**](PdfApi.md#GetDocumentProperty) | **Get** /pdf/{name}/documentproperties/{propertyName} | Read document property by name.
+[**GetDocumentRadioButtonFields**](PdfApi.md#GetDocumentRadioButtonFields) | **Get** /pdf/{name}/fields/radiobutton | Read document radiobutton fields.
 [**GetDocumentRedactionAnnotations**](PdfApi.md#GetDocumentRedactionAnnotations) | **Get** /pdf/{name}/annotations/redaction | Read document redaction annotations.
 [**GetDocumentScreenAnnotations**](PdfApi.md#GetDocumentScreenAnnotations) | **Get** /pdf/{name}/annotations/screen | Read document screen annotations.
 [**GetDocumentSignatureFields**](PdfApi.md#GetDocumentSignatureFields) | **Get** /pdf/{name}/fields/signature | Read document signature fields.
@@ -99,6 +102,7 @@ Method | HTTP request | Description
 [**GetPage**](PdfApi.md#GetPage) | **Get** /pdf/{name}/pages/{pageNumber} | Read document page info.
 [**GetPageAnnotations**](PdfApi.md#GetPageAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations | Read document page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
 [**GetPageCaretAnnotations**](PdfApi.md#GetPageCaretAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/caret | Read document page caret annotations.
+[**GetPageCheckBoxFields**](PdfApi.md#GetPageCheckBoxFields) | **Get** /pdf/{name}/page/{pageNumber}/fields/checkbox | Read document page checkbox fields.
 [**GetPageCircleAnnotations**](PdfApi.md#GetPageCircleAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/circle | Read document page circle annotations.
 [**GetPageConvertToBmp**](PdfApi.md#GetPageConvertToBmp) | **Get** /pdf/{name}/pages/{pageNumber}/convert/bmp | Convert document page to Bmp image and return resulting file in response.
 [**GetPageConvertToEmf**](PdfApi.md#GetPageConvertToEmf) | **Get** /pdf/{name}/pages/{pageNumber}/convert/emf | Convert document page to Emf image and return resulting file in response.
@@ -117,6 +121,7 @@ Method | HTTP request | Description
 [**GetPagePolyLineAnnotations**](PdfApi.md#GetPagePolyLineAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/polyline | Read document page polyline annotations.
 [**GetPagePolygonAnnotations**](PdfApi.md#GetPagePolygonAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/polygon | Read document page polygon annotations.
 [**GetPagePopupAnnotations**](PdfApi.md#GetPagePopupAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/popup | Read document page popup annotations.
+[**GetPageRadioButtonFields**](PdfApi.md#GetPageRadioButtonFields) | **Get** /pdf/{name}/page/{pageNumber}/fields/radiobutton | Read document page radiobutton fields.
 [**GetPageRedactionAnnotations**](PdfApi.md#GetPageRedactionAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/redaction | Read document page redaction annotations.
 [**GetPageScreenAnnotations**](PdfApi.md#GetPageScreenAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/screen | Read document page screen annotations.
 [**GetPageSignatureFields**](PdfApi.md#GetPageSignatureFields) | **Get** /pdf/{name}/page/{pageNumber}/fields/signature | Read document page signature fields.
@@ -150,6 +155,7 @@ Method | HTTP request | Description
 [**GetPolygonAnnotation**](PdfApi.md#GetPolygonAnnotation) | **Get** /pdf/{name}/annotations/polygon/{annotationId} | Read document page polygon annotation by ID.
 [**GetPopupAnnotation**](PdfApi.md#GetPopupAnnotation) | **Get** /pdf/{name}/annotations/popup/{annotationId} | Read document page popup annotation by ID.
 [**GetPsInStorageToPdf**](PdfApi.md#GetPsInStorageToPdf) | **Get** /pdf/create/ps | Convert PS file (located on storage) to PDF format and return resulting file in response. 
+[**GetRadioButtonField**](PdfApi.md#GetRadioButtonField) | **Get** /pdf/{name}/fields/radiobutton/{fieldName} | Read document RadioButton field by name.
 [**GetRedactionAnnotation**](PdfApi.md#GetRedactionAnnotation) | **Get** /pdf/{name}/annotations/redaction/{annotationId} | Read document page redaction annotation by ID.
 [**GetScreenAnnotation**](PdfApi.md#GetScreenAnnotation) | **Get** /pdf/{name}/annotations/screen/{annotationId} | Read document page screen annotation by ID.
 [**GetScreenAnnotationData**](PdfApi.md#GetScreenAnnotationData) | **Get** /pdf/{name}/annotations/screen/{annotationId}/data | Read document page screen annotation by ID.
@@ -180,6 +186,7 @@ Method | HTTP request | Description
 [**PostAppendDocument**](PdfApi.md#PostAppendDocument) | **Post** /pdf/{name}/appendDocument | Append document to existing one.
 [**PostBookmark**](PdfApi.md#PostBookmark) | **Post** /pdf/{name}/bookmarks/bookmark/{bookmarkPath} | Add document bookmarks.
 [**PostChangePasswordDocumentInStorage**](PdfApi.md#PostChangePasswordDocumentInStorage) | **Post** /pdf/{name}/changepassword | Change document password in storage.
+[**PostCheckBoxFields**](PdfApi.md#PostCheckBoxFields) | **Post** /pdf/{name}/fields/checkbox | Add document checkbox fields.
 [**PostCreateField**](PdfApi.md#PostCreateField) | **Post** /pdf/{name}/fields | Create field.
 [**PostDecryptDocumentInStorage**](PdfApi.md#PostDecryptDocumentInStorage) | **Post** /pdf/{name}/decrypt | Decrypt document in storage.
 [**PostDocumentImageFooter**](PdfApi.md#PostDocumentImageFooter) | **Post** /pdf/{name}/footer/image | Add document image footer.
@@ -223,6 +230,7 @@ Method | HTTP request | Description
 [**PostPageTextStamps**](PdfApi.md#PostPageTextStamps) | **Post** /pdf/{name}/pages/{pageNumber}/stamps/text | Add document page text stamps.
 [**PostPageUnderlineAnnotations**](PdfApi.md#PostPageUnderlineAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/underline | Add document page underline annotations.
 [**PostPopupAnnotation**](PdfApi.md#PostPopupAnnotation) | **Post** /pdf/{name}/annotations/{annotationId}/popup | Add document popup annotations.
+[**PostRadioButtonFields**](PdfApi.md#PostRadioButtonFields) | **Post** /pdf/{name}/fields/radiobutton | Add document RadioButton fields.
 [**PostSignDocument**](PdfApi.md#PostSignDocument) | **Post** /pdf/{name}/sign | Sign document.
 [**PostSignPage**](PdfApi.md#PostSignPage) | **Post** /pdf/{name}/pages/{pageNumber}/sign | Sign page.
 [**PostSplitDocument**](PdfApi.md#PostSplitDocument) | **Post** /pdf/{name}/split | Split document to parts.
@@ -233,6 +241,7 @@ Method | HTTP request | Description
 [**PutBookmark**](PdfApi.md#PutBookmark) | **Put** /pdf/{name}/bookmarks/bookmark/{bookmarkPath} | Update document bookmark.
 [**PutCaretAnnotation**](PdfApi.md#PutCaretAnnotation) | **Put** /pdf/{name}/annotations/caret/{annotationId} | Replace document caret annotation
 [**PutChangePasswordDocument**](PdfApi.md#PutChangePasswordDocument) | **Put** /pdf/changepassword | Change document password from content.
+[**PutCheckBoxField**](PdfApi.md#PutCheckBoxField) | **Put** /pdf/{name}/fields/checkbox/{fieldName} | Replace document checkbox field
 [**PutCircleAnnotation**](PdfApi.md#PutCircleAnnotation) | **Put** /pdf/{name}/annotations/circle/{annotationId} | Replace document circle annotation
 [**PutCreateDocument**](PdfApi.md#PutCreateDocument) | **Put** /pdf/{name} | Create empty document.
 [**PutDecryptDocument**](PdfApi.md#PutDecryptDocument) | **Put** /pdf/decrypt | Decrypt document from content.
@@ -306,6 +315,7 @@ Method | HTTP request | Description
 [**PutPopupAnnotation**](PdfApi.md#PutPopupAnnotation) | **Put** /pdf/{name}/annotations/popup/{annotationId} | Replace document popup annotation
 [**PutPrivileges**](PdfApi.md#PutPrivileges) | **Put** /pdf/{name}/privileges | Update privilege document.
 [**PutPsInStorageToPdf**](PdfApi.md#PutPsInStorageToPdf) | **Put** /pdf/{name}/create/ps | Convert PS file (located on storage) to PDF format and upload resulting file to storage. 
+[**PutRadioButtonField**](PdfApi.md#PutRadioButtonField) | **Put** /pdf/{name}/fields/radiobutton/{fieldName} | Replace document RadioButton field
 [**PutRedactionAnnotation**](PdfApi.md#PutRedactionAnnotation) | **Put** /pdf/{name}/annotations/redaction/{annotationId} | Replace document redaction annotation
 [**PutReplaceImage**](PdfApi.md#PutReplaceImage) | **Put** /pdf/{name}/images/{imageId} | Replace document image.
 [**PutScreenAnnotation**](PdfApi.md#PutScreenAnnotation) | **Put** /pdf/{name}/annotations/screen/{annotationId} | Replace document screen annotation
@@ -1240,6 +1250,39 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetCheckBoxField**
+> CheckBoxFieldResponse GetCheckBoxField(name, fieldName, optional)
+Read document checkbox field by name.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fieldName** | **string**| The field name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fieldName** | **string**| The field name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**CheckBoxFieldResponse**](CheckBoxFieldResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetCircleAnnotation**
 > CircleAnnotationResponse GetCircleAnnotation(name, annotationId, optional)
 Read document page circle annotation by ID.
@@ -1481,6 +1524,37 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CaretAnnotationsResponse**](CaretAnnotationsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDocumentCheckBoxFields**
+> CheckBoxFieldsResponse GetDocumentCheckBoxFields(name, optional)
+Read document checkbox fields.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**CheckBoxFieldsResponse**](CheckBoxFieldsResponse.md)
 
 ### HTTP request headers
 
@@ -1888,6 +1962,37 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DocumentPropertyResponse**](DocumentPropertyResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDocumentRadioButtonFields**
+> RadioButtonFieldsResponse GetDocumentRadioButtonFields(name, optional)
+Read document radiobutton fields.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**RadioButtonFieldsResponse**](RadioButtonFieldsResponse.md)
 
 ### HTTP request headers
 
@@ -3375,6 +3480,39 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetPageCheckBoxFields**
+> CheckBoxFieldsResponse GetPageCheckBoxFields(name, pageNumber, optional)
+Read document page checkbox fields.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**CheckBoxFieldsResponse**](CheckBoxFieldsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetPageCircleAnnotations**
 > CircleAnnotationsResponse GetPageCircleAnnotations(name, pageNumber, optional)
 Read document page circle annotations.
@@ -3975,6 +4113,39 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PopupAnnotationsResponse**](PopupAnnotationsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetPageRadioButtonFields**
+> RadioButtonFieldsResponse GetPageRadioButtonFields(name, pageNumber, optional)
+Read document page radiobutton fields.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**RadioButtonFieldsResponse**](RadioButtonFieldsResponse.md)
 
 ### HTTP request headers
 
@@ -5115,6 +5286,39 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetRadioButtonField**
+> RadioButtonFieldResponse GetRadioButtonField(name, fieldName, optional)
+Read document RadioButton field by name.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fieldName** | **string**| The field name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fieldName** | **string**| The field name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**RadioButtonFieldResponse**](RadioButtonFieldResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetRedactionAnnotation**
 > RedactionAnnotationResponse GetRedactionAnnotation(name, annotationId, optional)
 Read document page redaction annotation by ID.
@@ -6104,6 +6308,39 @@ Name | Type | Description  | Notes
  **ownerPassword** | **string**| Owner password (encrypted Base64). | 
  **newUserPassword** | **string**| New user password (encrypted Base64). | 
  **newOwnerPassword** | **string**| New owner password (encrypted Base64). | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostCheckBoxFields**
+> AsposeResponse PostCheckBoxFields(name, fields, optional)
+Add document checkbox fields.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fields** | [**[]CheckBoxField**](CheckBoxField.md)| The array of field. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fields** | [**[]CheckBoxField**](CheckBoxField.md)| The array of field. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -7621,6 +7858,39 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PostRadioButtonFields**
+> AsposeResponse PostRadioButtonFields(name, fields, optional)
+Add document RadioButton fields.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fields** | [**[]RadioButtonField**](RadioButtonField.md)| The array of field. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fields** | [**[]RadioButtonField**](RadioButtonField.md)| The array of field. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PostSignDocument**
 > AsposeResponse PostSignDocument(name, sign, optional)
 Sign document.
@@ -7959,6 +8229,41 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutCheckBoxField**
+> CheckBoxFieldResponse PutCheckBoxField(name, fieldName, field, optional)
+Replace document checkbox field
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fieldName** | **string**| The field name. | 
+  **field** | [**CheckBoxField**](CheckBoxField.md)| The field. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fieldName** | **string**| The field name. | 
+ **field** | [**CheckBoxField**](CheckBoxField.md)| The field. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**CheckBoxFieldResponse**](CheckBoxFieldResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -10551,6 +10856,41 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutRadioButtonField**
+> RadioButtonFieldResponse PutRadioButtonField(name, fieldName, field, optional)
+Replace document RadioButton field
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fieldName** | **string**| The field name. | 
+  **field** | [**RadioButtonField**](RadioButtonField.md)| The field. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fieldName** | **string**| The field name. | 
+ **field** | [**RadioButtonField**](RadioButtonField.md)| The field. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**RadioButtonFieldResponse**](RadioButtonFieldResponse.md)
 
 ### HTTP request headers
 
