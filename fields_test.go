@@ -748,3 +748,160 @@ func TestPutRadioButtonField(t *testing.T) {
 		fmt.Printf("%d\tTestPutRadioButtonField - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
+
+// ComboBoxField
+
+func TestGetDocumentComboBoxFields(t *testing.T) {
+
+	name := "PdfWithAcroForm.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentComboBoxFields(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetDocumentComboBoxFields - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestGetPageComboBoxFields(t *testing.T) {
+
+	name := "PdfWithAcroForm.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	pageNumber := int32(1)
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageComboBoxFields(name, pageNumber, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetPageComboBoxFields - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestGetComboBoxField(t *testing.T) {
+
+	name := "PdfWithAcroForm.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	fieldName := "comboboxField"
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetComboBoxField(name, fieldName, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetComboBoxField - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPostComboBoxFields(t *testing.T) {
+
+	name := "4pages.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	option1 := Option {
+				Name: "one", 
+				Value: "one",
+			}
+	
+	option2 := Option {
+		Name: "two", 
+		Value: "two",
+	}
+
+
+	field := ComboBoxField {
+		PageIndex: 1, 
+		IsGroup: false,
+		Color: &Color{A: 255, R: 255, G: 0, B: 0},
+		Selected: 1,
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 160, URY: 140},
+		PartialName: "testField",
+		Options: []Option{option1, option2},
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostComboBoxFields(name, []ComboBoxField{field}, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPostComboBoxFields - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPutComboBoxField(t *testing.T) {
+
+	name := "PdfWithAcroForm.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	fieldName := "comboboxField"
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	option1 := Option {
+		Name: "one", 
+		Value: "one",
+	}
+
+	option2 := Option {
+		Name: "two", 
+		Value: "two",
+	}
+
+
+	field := ComboBoxField {
+		PageIndex: 1, 
+		IsGroup: false,
+		Color: &Color{A: 255, R: 255, G: 0, B: 0},
+		Selected: 1,
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 160, URY: 140},
+		PartialName: "testField",
+		Options: []Option{option1, option2},
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutComboBoxField(name, fieldName, field, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutComboBoxField - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
