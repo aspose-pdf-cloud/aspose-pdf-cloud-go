@@ -1,6 +1,6 @@
  /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -40,6 +40,8 @@ type Table struct {
 	DefaultCellPadding *MarginInfo `json:"DefaultCellPadding,omitempty"`
 	// Gets or sets the border.
 	Border *BorderInfo `json:"Border,omitempty"`
+	// Gets or sets a outer margin for paragraph (for pdf generation)
+	Margin *MarginInfo `json:"Margin,omitempty"`
 	// Sets the rows of the table.
 	Rows []Row `json:"Rows"`
 	// Gets default cell border;

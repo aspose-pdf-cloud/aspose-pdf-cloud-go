@@ -1,6 +1,6 @@
  /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -19,11 +19,11 @@
  *
  */
 package asposepdfcloud
+// BorderEffect : Describes effect which should be applied to the border of the annotations.
+type BorderEffect string
 
-type DiscUsageResponse struct {
-	// Response status code.
-	Code int32 `json:"Code"`
-	// Response status.
-	Status string `json:"Status,omitempty"`
-	DiscUsage *DiscUsage `json:"DiscUsage,omitempty"`
-}
+// List of BorderEffect
+const (
+	BorderEffectNone BorderEffect = "None"
+	BorderEffectCloudy BorderEffect = "Cloudy"
+)

@@ -1,6 +1,6 @@
  /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -903,5 +903,180 @@ func TestPutComboBoxField(t *testing.T) {
 		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPutComboBoxField - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+// ListBoxField
+
+func TestGetDocumentListBoxFields(t *testing.T) {
+
+	name := "PdfWithAcroForm.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentListBoxFields(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetDocumentListBoxFields - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestGetPageListBoxFields(t *testing.T) {
+
+	name := "PdfWithAcroForm.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	pageNumber := int32(1)
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageListBoxFields(name, pageNumber, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetPageListBoxFields - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestGetListBoxField(t *testing.T) {
+
+	name := "PdfWithAcroForm.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	fieldName := "listboxField"
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetListBoxField(name, fieldName, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetListBoxField - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPostListBoxFields(t *testing.T) {
+
+	name := "4pages.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	option1 := Option {
+		Name: "one", 
+		Value: "one",
+	}
+	
+	option2 := Option {
+		Name: "two", 
+		Value: "two",
+	}
+
+	option3 := Option {
+		Name: "three", 
+		Value: "three",
+	}
+
+	option4 := Option {
+		Name: "four", 
+		Value: "four",
+	}
+
+	field := ListBoxField {
+		PageIndex: 1, 
+		MultiSelect: true,
+		Color: &Color{A: 255, R: 255, G: 0, B: 0},
+		SelectedItems: []int32{1, 4},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 160, URY: 140},
+		PartialName: "testField",
+		Options: []Option{option1, option2, option3, option4},
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostListBoxFields(name, []ListBoxField{field}, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPostListBoxFields - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPutListBoxField(t *testing.T) {
+
+	name := "PdfWithAcroForm.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	fieldName := "ListBoxField"
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	option1 := Option {
+		Name: "one", 
+		Value: "one",
+	}
+	
+	option2 := Option {
+		Name: "two", 
+		Value: "two",
+	}
+
+	option3 := Option {
+		Name: "three", 
+		Value: "three",
+	}
+
+	option4 := Option {
+		Name: "four", 
+		Value: "four",
+	}
+
+	field := ListBoxField {
+		PageIndex: 1, 
+		MultiSelect: true,
+		Color: &Color{A: 255, R: 255, G: 0, B: 0},
+		SelectedItems: []int32{1, 4},
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 160, URY: 140},
+		PartialName: "testField",
+		Options: []Option{option1, option2, option3, option4},
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutListBoxField(name, fieldName, field, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutListBoxField - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }

@@ -45,11 +45,13 @@ Method | HTTP request | Description
 [**GetDocumentCheckBoxFields**](PdfApi.md#GetDocumentCheckBoxFields) | **Get** /pdf/{name}/fields/checkbox | Read document checkbox fields.
 [**GetDocumentCircleAnnotations**](PdfApi.md#GetDocumentCircleAnnotations) | **Get** /pdf/{name}/annotations/circle | Read document circle annotations.
 [**GetDocumentComboBoxFields**](PdfApi.md#GetDocumentComboBoxFields) | **Get** /pdf/{name}/fields/combobox | Read document combobox fields.
+[**GetDocumentDisplayProperties**](PdfApi.md#GetDocumentDisplayProperties) | **Get** /pdf/{name}/displayproperties | Read document display properties.
 [**GetDocumentFileAttachmentAnnotations**](PdfApi.md#GetDocumentFileAttachmentAnnotations) | **Get** /pdf/{name}/annotations/fileattachment | Read document FileAttachment annotations.
 [**GetDocumentFreeTextAnnotations**](PdfApi.md#GetDocumentFreeTextAnnotations) | **Get** /pdf/{name}/annotations/freetext | Read document free text annotations.
 [**GetDocumentHighlightAnnotations**](PdfApi.md#GetDocumentHighlightAnnotations) | **Get** /pdf/{name}/annotations/highlight | Read document highlight annotations.
 [**GetDocumentInkAnnotations**](PdfApi.md#GetDocumentInkAnnotations) | **Get** /pdf/{name}/annotations/ink | Read document ink annotations.
 [**GetDocumentLineAnnotations**](PdfApi.md#GetDocumentLineAnnotations) | **Get** /pdf/{name}/annotations/line | Read document line annotations.
+[**GetDocumentListBoxFields**](PdfApi.md#GetDocumentListBoxFields) | **Get** /pdf/{name}/fields/listbox | Read document listbox fields.
 [**GetDocumentMovieAnnotations**](PdfApi.md#GetDocumentMovieAnnotations) | **Get** /pdf/{name}/annotations/movie | Read document movie annotations.
 [**GetDocumentPolyLineAnnotations**](PdfApi.md#GetDocumentPolyLineAnnotations) | **Get** /pdf/{name}/annotations/polyline | Read document polyline annotations.
 [**GetDocumentPolygonAnnotations**](PdfApi.md#GetDocumentPolygonAnnotations) | **Get** /pdf/{name}/annotations/polygon | Read document polygon annotations.
@@ -98,6 +100,7 @@ Method | HTTP request | Description
 [**GetLaTeXInStorageToPdf**](PdfApi.md#GetLaTeXInStorageToPdf) | **Get** /pdf/create/latex | Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
 [**GetLineAnnotation**](PdfApi.md#GetLineAnnotation) | **Get** /pdf/{name}/annotations/line/{annotationId} | Read document page line annotation by ID.
 [**GetLinkAnnotation**](PdfApi.md#GetLinkAnnotation) | **Get** /pdf/{name}/links/{linkId} | Read document link annotation by ID.
+[**GetListBoxField**](PdfApi.md#GetListBoxField) | **Get** /pdf/{name}/fields/listbox/{fieldName} | Read document listbox field by name.
 [**GetMarkdownInStorageToPdf**](PdfApi.md#GetMarkdownInStorageToPdf) | **Get** /pdf/create/markdown | Convert MD file (located on storage) to PDF format and return resulting file in response. 
 [**GetMhtInStorageToPdf**](PdfApi.md#GetMhtInStorageToPdf) | **Get** /pdf/create/mht | Convert MHT file (located on storage) to PDF format and return resulting file in response. 
 [**GetMovieAnnotation**](PdfApi.md#GetMovieAnnotation) | **Get** /pdf/{name}/annotations/movie/{annotationId} | Read document page movie annotation by ID.
@@ -120,6 +123,7 @@ Method | HTTP request | Description
 [**GetPageLineAnnotations**](PdfApi.md#GetPageLineAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/line | Read document page line annotations.
 [**GetPageLinkAnnotation**](PdfApi.md#GetPageLinkAnnotation) | **Get** /pdf/{name}/pages/{pageNumber}/links/{linkId} | Read document page link annotation by ID.
 [**GetPageLinkAnnotations**](PdfApi.md#GetPageLinkAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/links | Read document page link annotations.
+[**GetPageListBoxFields**](PdfApi.md#GetPageListBoxFields) | **Get** /pdf/{name}/page/{pageNumber}/fields/listbox | Read document page listbox fields.
 [**GetPageMovieAnnotations**](PdfApi.md#GetPageMovieAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/movie | Read document page movie annotations.
 [**GetPagePolyLineAnnotations**](PdfApi.md#GetPagePolyLineAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/polyline | Read document page polyline annotations.
 [**GetPagePolygonAnnotations**](PdfApi.md#GetPagePolygonAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/polygon | Read document page polygon annotations.
@@ -191,6 +195,7 @@ Method | HTTP request | Description
 [**PostChangePasswordDocumentInStorage**](PdfApi.md#PostChangePasswordDocumentInStorage) | **Post** /pdf/{name}/changepassword | Change document password in storage.
 [**PostCheckBoxFields**](PdfApi.md#PostCheckBoxFields) | **Post** /pdf/{name}/fields/checkbox | Add document checkbox fields.
 [**PostComboBoxFields**](PdfApi.md#PostComboBoxFields) | **Post** /pdf/{name}/fields/combobox | Add document combobox fields.
+[**PostCreateDocument**](PdfApi.md#PostCreateDocument) | **Post** /pdf/{name} | Create empty document.
 [**PostCreateField**](PdfApi.md#PostCreateField) | **Post** /pdf/{name}/fields | Create field.
 [**PostDecryptDocumentInStorage**](PdfApi.md#PostDecryptDocumentInStorage) | **Post** /pdf/{name}/decrypt | Decrypt document in storage.
 [**PostDocumentImageFooter**](PdfApi.md#PostDocumentImageFooter) | **Post** /pdf/{name}/footer/image | Add document image footer.
@@ -205,6 +210,7 @@ Method | HTTP request | Description
 [**PostImportFieldsFromXfdf**](PdfApi.md#PostImportFieldsFromXfdf) | **Post** /pdf/{name}/import/xfdf | Update fields from XFDF file in request.
 [**PostImportFieldsFromXml**](PdfApi.md#PostImportFieldsFromXml) | **Post** /pdf/{name}/import/xml | Update fields from XML file in request.
 [**PostInsertImage**](PdfApi.md#PostInsertImage) | **Post** /pdf/{name}/pages/{pageNumber}/images | Insert image to document page.
+[**PostListBoxFields**](PdfApi.md#PostListBoxFields) | **Post** /pdf/{name}/fields/listbox | Add document listbox fields.
 [**PostMovePage**](PdfApi.md#PostMovePage) | **Post** /pdf/{name}/pages/{pageNumber}/movePage | Move page to new position.
 [**PostOptimizeDocument**](PdfApi.md#PostOptimizeDocument) | **Post** /pdf/{name}/optimize | Optimize document.
 [**PostPageCaretAnnotations**](PdfApi.md#PostPageCaretAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/caret | Add document page caret annotations.
@@ -250,6 +256,7 @@ Method | HTTP request | Description
 [**PutComboBoxField**](PdfApi.md#PutComboBoxField) | **Put** /pdf/{name}/fields/combobox/{fieldName} | Replace document combobox field
 [**PutCreateDocument**](PdfApi.md#PutCreateDocument) | **Put** /pdf/{name} | Create empty document.
 [**PutDecryptDocument**](PdfApi.md#PutDecryptDocument) | **Put** /pdf/decrypt | Decrypt document from content.
+[**PutDocumentDisplayProperties**](PdfApi.md#PutDocumentDisplayProperties) | **Put** /pdf/{name}/displayproperties | Update document display properties.
 [**PutEncryptDocument**](PdfApi.md#PutEncryptDocument) | **Put** /pdf/encrypt | Encrypt document from content.
 [**PutEpubInStorageToPdf**](PdfApi.md#PutEpubInStorageToPdf) | **Put** /pdf/{name}/create/epub | Convert EPUB file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutExportFieldsFromPdfToFdfInStorage**](PdfApi.md#PutExportFieldsFromPdfToFdfInStorage) | **Put** /pdf/{name}/export/fdf | Export fields from from PDF in storage to FDF file in storage.
@@ -277,6 +284,7 @@ Method | HTTP request | Description
 [**PutLaTeXInStorageToPdf**](PdfApi.md#PutLaTeXInStorageToPdf) | **Put** /pdf/{name}/create/latex | Convert LaTeX file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutLineAnnotation**](PdfApi.md#PutLineAnnotation) | **Put** /pdf/{name}/annotations/line/{annotationId} | Replace document line annotation
 [**PutLinkAnnotation**](PdfApi.md#PutLinkAnnotation) | **Put** /pdf/{name}/links/{linkId} | Replace document page link annotations
+[**PutListBoxField**](PdfApi.md#PutListBoxField) | **Put** /pdf/{name}/fields/listbox/{fieldName} | Replace document listbox field
 [**PutMarkdownInStorageToPdf**](PdfApi.md#PutMarkdownInStorageToPdf) | **Put** /pdf/{name}/create/markdown | Convert MD file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutMergeDocuments**](PdfApi.md#PutMergeDocuments) | **Put** /pdf/{name}/merge | Merge a list of documents.
 [**PutMhtInStorageToPdf**](PdfApi.md#PutMhtInStorageToPdf) | **Put** /pdf/{name}/create/mht | Convert MHT file (located on storage) to PDF format and upload resulting file to storage. 
@@ -1663,6 +1671,37 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetDocumentDisplayProperties**
+> DisplayPropertiesResponse GetDocumentDisplayProperties(name, optional)
+Read document display properties.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**|  | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**|  | 
+ **storage** | **string**|  | 
+ **folder** | **string**|  | 
+
+### Return type
+
+[**DisplayPropertiesResponse**](DisplayPropertiesResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetDocumentFileAttachmentAnnotations**
 > FileAttachmentAnnotationsResponse GetDocumentFileAttachmentAnnotations(name, optional)
 Read document FileAttachment annotations.
@@ -1810,6 +1849,37 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LineAnnotationsResponse**](LineAnnotationsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDocumentListBoxFields**
+> ListBoxFieldsResponse GetDocumentListBoxFields(name, optional)
+Read document listbox fields.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**ListBoxFieldsResponse**](ListBoxFieldsResponse.md)
 
 ### HTTP request headers
 
@@ -3357,6 +3427,39 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetListBoxField**
+> ListBoxFieldResponse GetListBoxField(name, fieldName, optional)
+Read document listbox field by name.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fieldName** | **string**| The field name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fieldName** | **string**| The field name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**ListBoxFieldResponse**](ListBoxFieldResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetMarkdownInStorageToPdf**
 > []byte GetMarkdownInStorageToPdf(srcPath, optional)
 Convert MD file (located on storage) to PDF format and return resulting file in response. 
@@ -4083,6 +4186,39 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LinkAnnotationsResponse**](LinkAnnotationsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetPageListBoxFields**
+> ListBoxFieldsResponse GetPageListBoxFields(name, pageNumber, optional)
+Read document page listbox fields.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**ListBoxFieldsResponse**](ListBoxFieldsResponse.md)
 
 ### HTTP request headers
 
@@ -4908,6 +5044,7 @@ Name | Type | Description  | Notes
  **trySaveTextUnderliningAndStrikeoutingInCss** | **bool**| PDF itself does not contain underlining markers for texts. It emulated with line situated under text. This option allows converter try guess that this or that line is a text&#39;s underlining and put this info into CSS instead of drawing of underlining graphically. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **flowLayoutParagraphFullWidth** | **bool**| This attribute specifies full width paragraph text for Flow mode, FixedLayout &#x3D; false. | 
 
 ### Return type
 
@@ -6490,6 +6627,39 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PostCreateDocument**
+> DocumentResponse PostCreateDocument(name, documentConfig, optional)
+Create empty document.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The new document name. | 
+  **documentConfig** | [**DocumentConfig**](DocumentConfig.md)| The document config for new document. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The new document name. | 
+ **documentConfig** | [**DocumentConfig**](DocumentConfig.md)| The document config for new document. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The new document folder. | 
+
+### Return type
+
+[**DocumentResponse**](DocumentResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PostCreateField**
 > AsposeResponse PostCreateField(name, page, field, optional)
 Create field.
@@ -6974,6 +7144,39 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostListBoxFields**
+> AsposeResponse PostListBoxFields(name, fields, optional)
+Add document listbox fields.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fields** | [**[]ListBoxField**](ListBoxField.md)| The array of field. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fields** | [**[]ListBoxField**](ListBoxField.md)| The array of field. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -8537,6 +8740,39 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PutDocumentDisplayProperties**
+> DisplayPropertiesResponse PutDocumentDisplayProperties(name, displayProperties, optional)
+Update document display properties.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **displayProperties** | [**DisplayProperties**](DisplayProperties.md)| The display properties. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **displayProperties** | [**DisplayProperties**](DisplayProperties.md)| The display properties. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**DisplayPropertiesResponse**](DisplayPropertiesResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PutEncryptDocument**
 > AsposeResponse PutEncryptDocument(outPath, userPassword, ownerPassword, cryptoAlgorithm, optional)
 Encrypt document from content.
@@ -9477,6 +9713,41 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PutListBoxField**
+> ListBoxFieldResponse PutListBoxField(name, fieldName, field, optional)
+Replace document listbox field
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fieldName** | **string**| The field name. | 
+  **field** | [**ListBoxField**](ListBoxField.md)| The field. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fieldName** | **string**| The field name. | 
+ **field** | [**ListBoxField**](ListBoxField.md)| The field. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**ListBoxFieldResponse**](ListBoxFieldResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PutMarkdownInStorageToPdf**
 > AsposeResponse PutMarkdownInStorageToPdf(name, srcPath, optional)
 Convert MD file (located on storage) to PDF format and upload resulting file to storage. 
@@ -10018,6 +10289,7 @@ Name | Type | Description  | Notes
  **specialFolderForSvgImages** | **string**| The path to directory to which must be saved only SVG-images if they are encountered during saving of document as HTML. If parameter is empty or null then SVG files(if any) wil be saved together with other image-files (near to output file) or in special folder for images (if it specified in SpecialImagesFolderIfAny option). It does not affect anything if CustomImageSavingStrategy property was successfully used to process relevant image file. | 
  **trySaveTextUnderliningAndStrikeoutingInCss** | **bool**| PDF itself does not contain underlining markers for texts. It emulated with line situated under text. This option allows converter try guess that this or that line is a text&#39;s underlining and put this info into CSS instead of drawing of underlining graphically. | 
  **storage** | **string**| The document storage. | 
+ **flowLayoutParagraphFullWidth** | **bool**| This attribute specifies full width paragraph text for Flow mode, FixedLayout &#x3D; false. | 
  **file** | ***os.File**| A file to be converted. | 
 
 ### Return type
@@ -10493,6 +10765,7 @@ Name | Type | Description  | Notes
  **trySaveTextUnderliningAndStrikeoutingInCss** | **bool**| PDF itself does not contain underlining markers for texts. It emulated with line situated under text. This option allows converter try guess that this or that line is a text&#39;s underlining and put this info into CSS instead of drawing of underlining graphically. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **flowLayoutParagraphFullWidth** | **bool**| This attribute specifies full width paragraph text for Flow mode, FixedLayout &#x3D; false. | 
 
 ### Return type
 
