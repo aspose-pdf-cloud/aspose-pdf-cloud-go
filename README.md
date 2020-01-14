@@ -1,6 +1,6 @@
 # Aspose.PDF Cloud
 - API version: 3.0
-- Package version: 19.11.0
+- Package version: 19.12.0
 
 [Aspose.PDF Cloud](https://products.aspose.cloud/pdf) is a true REST API that enables you to perform a wide range of document processing operations including creation, manipulation, conversion and rendering of PDF documents in the cloud.
 
@@ -92,11 +92,13 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetDocumentCheckBoxFields**](docs/PdfApi.md#getdocumentcheckboxfields) | **Get** /pdf/{name}/fields/checkbox | Read document checkbox fields.
 *PdfApi* | [**GetDocumentCircleAnnotations**](docs/PdfApi.md#getdocumentcircleannotations) | **Get** /pdf/{name}/annotations/circle | Read document circle annotations.
 *PdfApi* | [**GetDocumentComboBoxFields**](docs/PdfApi.md#getdocumentcomboboxfields) | **Get** /pdf/{name}/fields/combobox | Read document combobox fields.
+*PdfApi* | [**GetDocumentDisplayProperties**](docs/PdfApi.md#getdocumentdisplayproperties) | **Get** /pdf/{name}/displayproperties | Read document display properties.
 *PdfApi* | [**GetDocumentFileAttachmentAnnotations**](docs/PdfApi.md#getdocumentfileattachmentannotations) | **Get** /pdf/{name}/annotations/fileattachment | Read document FileAttachment annotations.
 *PdfApi* | [**GetDocumentFreeTextAnnotations**](docs/PdfApi.md#getdocumentfreetextannotations) | **Get** /pdf/{name}/annotations/freetext | Read document free text annotations.
 *PdfApi* | [**GetDocumentHighlightAnnotations**](docs/PdfApi.md#getdocumenthighlightannotations) | **Get** /pdf/{name}/annotations/highlight | Read document highlight annotations.
 *PdfApi* | [**GetDocumentInkAnnotations**](docs/PdfApi.md#getdocumentinkannotations) | **Get** /pdf/{name}/annotations/ink | Read document ink annotations.
 *PdfApi* | [**GetDocumentLineAnnotations**](docs/PdfApi.md#getdocumentlineannotations) | **Get** /pdf/{name}/annotations/line | Read document line annotations.
+*PdfApi* | [**GetDocumentListBoxFields**](docs/PdfApi.md#getdocumentlistboxfields) | **Get** /pdf/{name}/fields/listbox | Read document listbox fields.
 *PdfApi* | [**GetDocumentMovieAnnotations**](docs/PdfApi.md#getdocumentmovieannotations) | **Get** /pdf/{name}/annotations/movie | Read document movie annotations.
 *PdfApi* | [**GetDocumentPolyLineAnnotations**](docs/PdfApi.md#getdocumentpolylineannotations) | **Get** /pdf/{name}/annotations/polyline | Read document polyline annotations.
 *PdfApi* | [**GetDocumentPolygonAnnotations**](docs/PdfApi.md#getdocumentpolygonannotations) | **Get** /pdf/{name}/annotations/polygon | Read document polygon annotations.
@@ -145,6 +147,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetLaTeXInStorageToPdf**](docs/PdfApi.md#getlatexinstoragetopdf) | **Get** /pdf/create/latex | Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**GetLineAnnotation**](docs/PdfApi.md#getlineannotation) | **Get** /pdf/{name}/annotations/line/{annotationId} | Read document page line annotation by ID.
 *PdfApi* | [**GetLinkAnnotation**](docs/PdfApi.md#getlinkannotation) | **Get** /pdf/{name}/links/{linkId} | Read document link annotation by ID.
+*PdfApi* | [**GetListBoxField**](docs/PdfApi.md#getlistboxfield) | **Get** /pdf/{name}/fields/listbox/{fieldName} | Read document listbox field by name.
 *PdfApi* | [**GetMarkdownInStorageToPdf**](docs/PdfApi.md#getmarkdowninstoragetopdf) | **Get** /pdf/create/markdown | Convert MD file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**GetMhtInStorageToPdf**](docs/PdfApi.md#getmhtinstoragetopdf) | **Get** /pdf/create/mht | Convert MHT file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**GetMovieAnnotation**](docs/PdfApi.md#getmovieannotation) | **Get** /pdf/{name}/annotations/movie/{annotationId} | Read document page movie annotation by ID.
@@ -167,6 +170,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetPageLineAnnotations**](docs/PdfApi.md#getpagelineannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/line | Read document page line annotations.
 *PdfApi* | [**GetPageLinkAnnotation**](docs/PdfApi.md#getpagelinkannotation) | **Get** /pdf/{name}/pages/{pageNumber}/links/{linkId} | Read document page link annotation by ID.
 *PdfApi* | [**GetPageLinkAnnotations**](docs/PdfApi.md#getpagelinkannotations) | **Get** /pdf/{name}/pages/{pageNumber}/links | Read document page link annotations.
+*PdfApi* | [**GetPageListBoxFields**](docs/PdfApi.md#getpagelistboxfields) | **Get** /pdf/{name}/page/{pageNumber}/fields/listbox | Read document page listbox fields.
 *PdfApi* | [**GetPageMovieAnnotations**](docs/PdfApi.md#getpagemovieannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/movie | Read document page movie annotations.
 *PdfApi* | [**GetPagePolyLineAnnotations**](docs/PdfApi.md#getpagepolylineannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/polyline | Read document page polyline annotations.
 *PdfApi* | [**GetPagePolygonAnnotations**](docs/PdfApi.md#getpagepolygonannotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/polygon | Read document page polygon annotations.
@@ -238,6 +242,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PostChangePasswordDocumentInStorage**](docs/PdfApi.md#postchangepassworddocumentinstorage) | **Post** /pdf/{name}/changepassword | Change document password in storage.
 *PdfApi* | [**PostCheckBoxFields**](docs/PdfApi.md#postcheckboxfields) | **Post** /pdf/{name}/fields/checkbox | Add document checkbox fields.
 *PdfApi* | [**PostComboBoxFields**](docs/PdfApi.md#postcomboboxfields) | **Post** /pdf/{name}/fields/combobox | Add document combobox fields.
+*PdfApi* | [**PostCreateDocument**](docs/PdfApi.md#postcreatedocument) | **Post** /pdf/{name} | Create empty document.
 *PdfApi* | [**PostCreateField**](docs/PdfApi.md#postcreatefield) | **Post** /pdf/{name}/fields | Create field.
 *PdfApi* | [**PostDecryptDocumentInStorage**](docs/PdfApi.md#postdecryptdocumentinstorage) | **Post** /pdf/{name}/decrypt | Decrypt document in storage.
 *PdfApi* | [**PostDocumentImageFooter**](docs/PdfApi.md#postdocumentimagefooter) | **Post** /pdf/{name}/footer/image | Add document image footer.
@@ -252,6 +257,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PostImportFieldsFromXfdf**](docs/PdfApi.md#postimportfieldsfromxfdf) | **Post** /pdf/{name}/import/xfdf | Update fields from XFDF file in request.
 *PdfApi* | [**PostImportFieldsFromXml**](docs/PdfApi.md#postimportfieldsfromxml) | **Post** /pdf/{name}/import/xml | Update fields from XML file in request.
 *PdfApi* | [**PostInsertImage**](docs/PdfApi.md#postinsertimage) | **Post** /pdf/{name}/pages/{pageNumber}/images | Insert image to document page.
+*PdfApi* | [**PostListBoxFields**](docs/PdfApi.md#postlistboxfields) | **Post** /pdf/{name}/fields/listbox | Add document listbox fields.
 *PdfApi* | [**PostMovePage**](docs/PdfApi.md#postmovepage) | **Post** /pdf/{name}/pages/{pageNumber}/movePage | Move page to new position.
 *PdfApi* | [**PostOptimizeDocument**](docs/PdfApi.md#postoptimizedocument) | **Post** /pdf/{name}/optimize | Optimize document.
 *PdfApi* | [**PostPageCaretAnnotations**](docs/PdfApi.md#postpagecaretannotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/caret | Add document page caret annotations.
@@ -297,6 +303,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PutComboBoxField**](docs/PdfApi.md#putcomboboxfield) | **Put** /pdf/{name}/fields/combobox/{fieldName} | Replace document combobox field
 *PdfApi* | [**PutCreateDocument**](docs/PdfApi.md#putcreatedocument) | **Put** /pdf/{name} | Create empty document.
 *PdfApi* | [**PutDecryptDocument**](docs/PdfApi.md#putdecryptdocument) | **Put** /pdf/decrypt | Decrypt document from content.
+*PdfApi* | [**PutDocumentDisplayProperties**](docs/PdfApi.md#putdocumentdisplayproperties) | **Put** /pdf/{name}/displayproperties | Update document display properties.
 *PdfApi* | [**PutEncryptDocument**](docs/PdfApi.md#putencryptdocument) | **Put** /pdf/encrypt | Encrypt document from content.
 *PdfApi* | [**PutEpubInStorageToPdf**](docs/PdfApi.md#putepubinstoragetopdf) | **Put** /pdf/{name}/create/epub | Convert EPUB file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**PutExportFieldsFromPdfToFdfInStorage**](docs/PdfApi.md#putexportfieldsfrompdftofdfinstorage) | **Put** /pdf/{name}/export/fdf | Export fields from from PDF in storage to FDF file in storage.
@@ -324,6 +331,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PutLaTeXInStorageToPdf**](docs/PdfApi.md#putlatexinstoragetopdf) | **Put** /pdf/{name}/create/latex | Convert LaTeX file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**PutLineAnnotation**](docs/PdfApi.md#putlineannotation) | **Put** /pdf/{name}/annotations/line/{annotationId} | Replace document line annotation
 *PdfApi* | [**PutLinkAnnotation**](docs/PdfApi.md#putlinkannotation) | **Put** /pdf/{name}/links/{linkId} | Replace document page link annotations
+*PdfApi* | [**PutListBoxField**](docs/PdfApi.md#putlistboxfield) | **Put** /pdf/{name}/fields/listbox/{fieldName} | Replace document listbox field
 *PdfApi* | [**PutMarkdownInStorageToPdf**](docs/PdfApi.md#putmarkdowninstoragetopdf) | **Put** /pdf/{name}/create/markdown | Convert MD file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**PutMergeDocuments**](docs/PdfApi.md#putmergedocuments) | **Put** /pdf/{name}/merge | Merge a list of documents.
 *PdfApi* | [**PutMhtInStorageToPdf**](docs/PdfApi.md#putmhtinstoragetopdf) | **Put** /pdf/{name}/create/mht | Convert MHT file (located on storage) to PDF format and upload resulting file to storage. 
@@ -405,8 +413,11 @@ Class | Method | HTTP request | Description
  - [AnnotationType](docs/AnnotationType.md)
  - [AntialiasingProcessingType](docs/AntialiasingProcessingType.md)
  - [AsposeResponse](docs/AsposeResponse.md)
+ - [Border](docs/Border.md)
  - [BorderCornerStyle](docs/BorderCornerStyle.md)
+ - [BorderEffect](docs/BorderEffect.md)
  - [BorderInfo](docs/BorderInfo.md)
+ - [BorderStyle](docs/BorderStyle.md)
  - [BoxStyle](docs/BoxStyle.md)
  - [CapStyle](docs/CapStyle.md)
  - [CaptionPosition](docs/CaptionPosition.md)
@@ -418,10 +429,14 @@ Class | Method | HTTP request | Description
  - [ColumnAdjustment](docs/ColumnAdjustment.md)
  - [CompressionType](docs/CompressionType.md)
  - [CryptoAlgorithm](docs/CryptoAlgorithm.md)
+ - [Dash](docs/Dash.md)
+ - [DefaultPageConfig](docs/DefaultPageConfig.md)
+ - [Direction](docs/Direction.md)
  - [DiscUsage](docs/DiscUsage.md)
  - [DocFormat](docs/DocFormat.md)
  - [DocMdpAccessPermissionType](docs/DocMdpAccessPermissionType.md)
  - [DocRecognitionMode](docs/DocRecognitionMode.md)
+ - [DocumentConfig](docs/DocumentConfig.md)
  - [DocumentPrivilege](docs/DocumentPrivilege.md)
  - [EpubRecognitionMode](docs/EpubRecognitionMode.md)
  - [ErrorDetails](docs/ErrorDetails.md)
@@ -456,6 +471,8 @@ Class | Method | HTTP request | Description
  - [ObjectExist](docs/ObjectExist.md)
  - [OptimizeOptions](docs/OptimizeOptions.md)
  - [Option](docs/Option.md)
+ - [PageLayout](docs/PageLayout.md)
+ - [PageMode](docs/PageMode.md)
  - [PageWordCount](docs/PageWordCount.md)
  - [Paragraph](docs/Paragraph.md)
  - [PartsEmbeddingModes](docs/PartsEmbeddingModes.md)
@@ -519,6 +536,8 @@ Class | Method | HTTP request | Description
  - [ComboBoxFieldResponse](docs/ComboBoxFieldResponse.md)
  - [ComboBoxFields](docs/ComboBoxFields.md)
  - [ComboBoxFieldsResponse](docs/ComboBoxFieldsResponse.md)
+ - [DisplayProperties](docs/DisplayProperties.md)
+ - [DisplayPropertiesResponse](docs/DisplayPropertiesResponse.md)
  - [Document](docs/Document.md)
  - [DocumentPageResponse](docs/DocumentPageResponse.md)
  - [DocumentPagesResponse](docs/DocumentPagesResponse.md)
@@ -556,6 +575,9 @@ Class | Method | HTTP request | Description
  - [LinkAnnotationResponse](docs/LinkAnnotationResponse.md)
  - [LinkAnnotations](docs/LinkAnnotations.md)
  - [LinkAnnotationsResponse](docs/LinkAnnotationsResponse.md)
+ - [ListBoxFieldResponse](docs/ListBoxFieldResponse.md)
+ - [ListBoxFields](docs/ListBoxFields.md)
+ - [ListBoxFieldsResponse](docs/ListBoxFieldsResponse.md)
  - [MovieAnnotationResponse](docs/MovieAnnotationResponse.md)
  - [MovieAnnotations](docs/MovieAnnotations.md)
  - [MovieAnnotationsResponse](docs/MovieAnnotationsResponse.md)
@@ -648,6 +670,7 @@ Class | Method | HTTP request | Description
  - [HighlightAnnotation](docs/HighlightAnnotation.md)
  - [InkAnnotation](docs/InkAnnotation.md)
  - [LineAnnotation](docs/LineAnnotation.md)
+ - [ListBoxField](docs/ListBoxField.md)
  - [PolyAnnotation](docs/PolyAnnotation.md)
  - [PopupAnnotationWithParent](docs/PopupAnnotationWithParent.md)
  - [RadioButtonField](docs/RadioButtonField.md)

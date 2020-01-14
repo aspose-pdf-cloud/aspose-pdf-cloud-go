@@ -1,6 +1,6 @@
  /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -20,10 +20,10 @@
  */
 package asposepdfcloud
 
-type StorageExistResponse struct {
-	// Response status code.
-	Code int32 `json:"Code"`
-	// Response status.
-	Status string `json:"Status,omitempty"`
-	IsExist bool `json:"IsExist,omitempty"`
+// Provides link to DefaultPageConfig.
+type DefaultPageConfig struct {
+	// Sets default page Height
+	Height float64 `json:"Height,omitempty"`
+	// Sets default page Width
+	Width float64 `json:"Width,omitempty"`
 }

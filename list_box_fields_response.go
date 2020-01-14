@@ -1,6 +1,6 @@
  /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -20,12 +20,12 @@
  */
 package asposepdfcloud
 
-// Class for appendDocument service request building.
-type AppendDocument struct {
-	// Document to append (server path).
-	Document string `json:"Document"`
-	// Appending start page.
-	StartPage int32 `json:"StartPage"`
-	// Appending end page.
-	EndPage int32 `json:"EndPage"`
+// Represents response containing multiple listbox field objects
+type ListBoxFieldsResponse struct {
+	// Response status code.
+	Code int32 `json:"Code"`
+	// Response status.
+	Status string `json:"Status,omitempty"`
+	// Listbox fields object
+	Fields *ListBoxFields `json:"Fields,omitempty"`
 }

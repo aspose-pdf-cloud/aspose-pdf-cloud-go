@@ -1,6 +1,6 @@
  /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -114,5 +114,98 @@ func TestPutCreateDocument(t *testing.T) {
 		 t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPutCreateDocument - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPostCreateDocument(t *testing.T) {
+	name := "pdf_go_post.pdf"
+	args := map[string]interface{} {
+		"folder": GetBaseTest().remoteFolder,
+	}
+
+	config := DocumentConfig{
+		PagesCount: 2,
+		DocumentProperties: &DocumentProperties {
+			List: []DocumentProperty {
+				DocumentProperty {
+					BuiltIn: false,
+					Name: "prop1",
+                    Value: "Val1",
+				},
+			},
+		},
+		DisplayProperties: &DisplayProperties {
+			CenterWindow: true,
+			HideMenuBar: true,
+		},
+		DefaultPageConfig: &DefaultPageConfig {
+			Height: 100,
+			Width: 100,
+		},
+	}
+            
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostCreateDocument(name, config, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		 t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPostCreateDocument - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestGetDocumentDisplayProperties(t *testing.T) {
+
+	name := "4pages.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentDisplayProperties(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetDocumentDisplayProperties - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPutDocumentDisplayProperties(t *testing.T) {
+
+	name := "4pages.pdf"	
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	displayProperties := DisplayProperties {
+		CenterWindow: true,
+		Direction: DirectionL2R,
+		DisplayDocTitle: true,
+		HideMenuBar: true,
+		HideToolBar: true,
+		HideWindowUI: true,
+		NonFullScreenPageMode: PageModeUseNone,
+		PageLayout: PageLayoutTwoPageLeft,
+		PageMode: PageModeUseOC,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutDocumentDisplayProperties(name, displayProperties, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutDocumentDisplayProperties - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }

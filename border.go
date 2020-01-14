@@ -1,6 +1,6 @@
  /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -20,10 +20,18 @@
  */
 package asposepdfcloud
 
-type FileExistResponse struct {
-	// Response status code.
-	Code int32 `json:"Code"`
-	// Response status.
-	Status string `json:"Status,omitempty"`
-	FileExist *FileExist `json:"FileExist,omitempty"`
+// Class representing characteristics of annotation border.
+type Border struct {
+	// Gets or sets border width.
+	Width int32 `json:"Width,omitempty"`
+	// Gets or sets effect intencity. Valid range of value is [0..2].
+	EffectIntensity int32 `json:"EffectIntensity,omitempty"`
+	// Gets or sets border style.
+	Style BorderStyle `json:"Style,omitempty"`
+	// Gets or sets border effect.
+	Effect BorderEffect `json:"Effect,omitempty"`
+	// Gets or sets dash pattern.
+	Dash *Dash `json:"Dash,omitempty"`
+	// Gets or sets border color.
+	Color *Color `json:"Color,omitempty"`
 }

@@ -1,6 +1,6 @@
  /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -26,6 +26,8 @@ type Document struct {
 	Links []Link `json:"Links,omitempty"`
 	// Document properties.
 	DocumentProperties *DocumentProperties `json:"DocumentProperties,omitempty"`
+	// Document display properties.
+	DisplayProperties *DisplayProperties `json:"DisplayProperties,omitempty"`
 	// Document pages.
 	Pages *Pages `json:"Pages,omitempty"`
 }

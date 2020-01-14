@@ -1,6 +1,6 @@
  /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -39,7 +39,7 @@ type RadioButtonField struct {
 	// Z index.
 	ZIndex int32 `json:"ZIndex,omitempty"`
 	// Is group.
-	IsGroup bool `json:"IsGroup"`
+	IsGroup bool `json:"IsGroup,omitempty"`
 	// Gets field parent.
 	Parent *FormField `json:"Parent,omitempty"`
 	// Property for Generator support. Used when field is added to header or footer. If true, this field will created once and it's appearance will be visible on all pages of the document. If false, separated field will be created for every document page.
@@ -58,14 +58,16 @@ type RadioButtonField struct {
 	HorizontalAlignment HorizontalAlignment `json:"HorizontalAlignment,omitempty"`
 	// Gets VerticalAlignment of the field.
 	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
+	// Gets or sets annotation border characteristics.
+	Border *Border `json:"Border,omitempty"`
 	// Gets or sets multiselection flag.
 	MultiSelect bool `json:"MultiSelect,omitempty"`
+	// Gets or sets index of selected item. Numbering of items is started from 1.
+	Selected int32 `json:"Selected,omitempty"`
 	// Gets collection of options of the radio button.
 	Options []Option `json:"Options,omitempty"`
 	// Gets collection of radio button options field.
 	RadioButtonOptionsField []RadioButtonOptionField `json:"RadioButtonOptionsField,omitempty"`
 	// Style of field box.
 	Style BoxStyle `json:"Style,omitempty"`
-	// Gets or sets index of selected item. Numbering of items is started from 1.
-	Selected int32 `json:"Selected"`
 }
