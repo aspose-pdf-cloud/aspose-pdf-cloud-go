@@ -306,6 +306,102 @@ func TestGetSignatureField(t *testing.T) {
 	}
 }
 
+func TestPostSignatureField(t *testing.T) {
+
+	name := "4pages.pdf"
+	signatureName := "33226.p12"
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	if err := GetBaseTest().UploadFile(signatureName); err != nil {
+		t.Error(err)
+	}
+
+	signature := Signature {
+		Authority: "Sergey Smal",
+		Contact: "test@mail.ru",
+		Date: "08/01/2012 12:15:00.000 PM",
+		FormFieldName: "Signature1",
+		Location: "Ukraine",
+		Password: "sIikZSmz",
+		Rectangle: &Rectangle{ LLX: 100, LLY: 100, URX: 0, URY: 0},
+		SignaturePath: GetBaseTest().remoteFolder + "/" + signatureName,
+		SignatureType: SignatureTypePKCS7,
+		Visible: true,
+		ShowProperties: false, 
+		}
+
+	field := SignatureField {
+		PageIndex: 1,
+		Signature: &signature,
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 0, URY: 0},
+		PartialName: "sign1",
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostSignatureField(name, field, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPostSignatureField - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPutSignatureField(t *testing.T) {
+
+	name := "4pages.pdf"
+	signatureName := "33226.p12"
+	
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	if err := GetBaseTest().UploadFile(signatureName); err != nil {
+		t.Error(err)
+	}
+
+	signature := Signature {
+		Authority: "Sergey Smal",
+		Contact: "test@mail.ru",
+		Date: "08/01/2012 12:15:00.000 PM",
+		FormFieldName: "Signature1",
+		Location: "Ukraine",
+		Password: "sIikZSmz",
+		Rectangle: &Rectangle{ LLX: 100, LLY: 100, URX: 0, URY: 0},
+		SignaturePath: GetBaseTest().remoteFolder + "/" + signatureName,
+		SignatureType: SignatureTypePKCS7,
+		Visible: true,
+		ShowProperties: false, 
+		}
+
+	field := SignatureField {
+		PageIndex: 1,
+		Signature: &signature,
+		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 0, URY: 0},
+		PartialName: "sign1",
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutSignatureField(name, "Signature1", field, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutSignatureField - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
 func TestGetDocumentTextBoxFields(t *testing.T) {
 
 	name := "FormDataTextBox.pdf"	
