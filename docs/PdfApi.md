@@ -243,6 +243,7 @@ Method | HTTP request | Description
 [**PostRadioButtonFields**](PdfApi.md#PostRadioButtonFields) | **Post** /pdf/{name}/fields/radiobutton | Add document RadioButton fields.
 [**PostSignDocument**](PdfApi.md#PostSignDocument) | **Post** /pdf/{name}/sign | Sign document.
 [**PostSignPage**](PdfApi.md#PostSignPage) | **Post** /pdf/{name}/pages/{pageNumber}/sign | Sign page.
+[**PostSignatureField**](PdfApi.md#PostSignatureField) | **Post** /pdf/{name}/fields/signature | Add document signature field.
 [**PostSplitDocument**](PdfApi.md#PostSplitDocument) | **Post** /pdf/{name}/split | Split document to parts.
 [**PostTextBoxFields**](PdfApi.md#PostTextBoxFields) | **Post** /pdf/{name}/fields/textbox | Add document text box fields.
 [**PutAddNewPage**](PdfApi.md#PutAddNewPage) | **Put** /pdf/{name}/pages | Add new page to end of the document.
@@ -335,6 +336,7 @@ Method | HTTP request | Description
 [**PutScreenAnnotationDataExtract**](PdfApi.md#PutScreenAnnotationDataExtract) | **Put** /pdf/{name}/annotations/screen/{annotationId}/data/extract | Extract document screen annotation content to storage
 [**PutSearchableDocument**](PdfApi.md#PutSearchableDocument) | **Put** /pdf/{name}/ocr | Create searchable PDF document. Generate OCR layer for images in input PDF document.
 [**PutSetProperty**](PdfApi.md#PutSetProperty) | **Put** /pdf/{name}/documentproperties/{propertyName} | Add/update document property.
+[**PutSignatureField**](PdfApi.md#PutSignatureField) | **Put** /pdf/{name}/fields/signature/{fieldName} | Replace document signature field.
 [**PutSoundAnnotation**](PdfApi.md#PutSoundAnnotation) | **Put** /pdf/{name}/annotations/sound/{annotationId} | Replace document sound annotation
 [**PutSoundAnnotationDataExtract**](PdfApi.md#PutSoundAnnotationDataExtract) | **Put** /pdf/{name}/annotations/sound/{annotationId}/data/extract | Extract document sound annotation content to storage
 [**PutSquareAnnotation**](PdfApi.md#PutSquareAnnotation) | **Put** /pdf/{name}/annotations/square/{annotationId} | Replace document square annotation
@@ -8297,6 +8299,39 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PostSignatureField**
+> AsposeResponse PostSignatureField(name, field, optional)
+Add document signature field.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **field** | [**SignatureField**](SignatureField.md)| The field. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **field** | [**SignatureField**](SignatureField.md)| The field. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PostSplitDocument**
 > SplitResultResponse PostSplitDocument(name, optional)
 Split document to parts.
@@ -11541,6 +11576,41 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DocumentPropertyResponse**](DocumentPropertyResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutSignatureField**
+> SignatureFieldResponse PutSignatureField(name, fieldName, field, optional)
+Replace document signature field.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **fieldName** | **string**| The field name. | 
+  **field** | [**SignatureField**](SignatureField.md)| The field. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **fieldName** | **string**| The field name. | 
+ **field** | [**SignatureField**](SignatureField.md)| The field. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**SignatureFieldResponse**](SignatureFieldResponse.md)
 
 ### HTTP request headers
 

@@ -1,6 +1,6 @@
 # Aspose.PDF Cloud
 - API version: 3.0
-- Package version: 19.12.0
+- Package version: 20.1.0
 
 [Aspose.PDF Cloud](https://products.aspose.cloud/pdf) is a true REST API that enables you to perform a wide range of document processing operations including creation, manipulation, conversion and rendering of PDF documents in the cloud.
 
@@ -292,6 +292,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PostRadioButtonFields**](docs/PdfApi.md#postradiobuttonfields) | **Post** /pdf/{name}/fields/radiobutton | Add document RadioButton fields.
 *PdfApi* | [**PostSignDocument**](docs/PdfApi.md#postsigndocument) | **Post** /pdf/{name}/sign | Sign document.
 *PdfApi* | [**PostSignPage**](docs/PdfApi.md#postsignpage) | **Post** /pdf/{name}/pages/{pageNumber}/sign | Sign page.
+*PdfApi* | [**PostSignatureField**](docs/PdfApi.md#postsignaturefield) | **Post** /pdf/{name}/fields/signature | Add document signature field.
 *PdfApi* | [**PostSplitDocument**](docs/PdfApi.md#postsplitdocument) | **Post** /pdf/{name}/split | Split document to parts.
 *PdfApi* | [**PostTextBoxFields**](docs/PdfApi.md#posttextboxfields) | **Post** /pdf/{name}/fields/textbox | Add document text box fields.
 *PdfApi* | [**PutAddNewPage**](docs/PdfApi.md#putaddnewpage) | **Put** /pdf/{name}/pages | Add new page to end of the document.
@@ -384,6 +385,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PutScreenAnnotationDataExtract**](docs/PdfApi.md#putscreenannotationdataextract) | **Put** /pdf/{name}/annotations/screen/{annotationId}/data/extract | Extract document screen annotation content to storage
 *PdfApi* | [**PutSearchableDocument**](docs/PdfApi.md#putsearchabledocument) | **Put** /pdf/{name}/ocr | Create searchable PDF document. Generate OCR layer for images in input PDF document.
 *PdfApi* | [**PutSetProperty**](docs/PdfApi.md#putsetproperty) | **Put** /pdf/{name}/documentproperties/{propertyName} | Add/update document property.
+*PdfApi* | [**PutSignatureField**](docs/PdfApi.md#putsignaturefield) | **Put** /pdf/{name}/fields/signature/{fieldName} | Replace document signature field.
 *PdfApi* | [**PutSoundAnnotation**](docs/PdfApi.md#putsoundannotation) | **Put** /pdf/{name}/annotations/sound/{annotationId} | Replace document sound annotation
 *PdfApi* | [**PutSoundAnnotationDataExtract**](docs/PdfApi.md#putsoundannotationdataextract) | **Put** /pdf/{name}/annotations/sound/{annotationId}/data/extract | Extract document sound annotation content to storage
 *PdfApi* | [**PutSquareAnnotation**](docs/PdfApi.md#putsquareannotation) | **Put** /pdf/{name}/annotations/square/{annotationId} | Replace document square annotation
