@@ -145,6 +145,7 @@ Method | HTTP request | Description
 [**GetPageUnderlineAnnotations**](PdfApi.md#GetPageUnderlineAnnotations) | **Get** /pdf/{name}/pages/{pageNumber}/annotations/underline | Read document page underline annotations.
 [**GetPages**](PdfApi.md#GetPages) | **Get** /pdf/{name}/pages | Read document pages info.
 [**GetPclInStorageToPdf**](PdfApi.md#GetPclInStorageToPdf) | **Get** /pdf/create/pcl | Convert PCL file (located on storage) to PDF format and return resulting file in response. 
+[**GetPdfAInStorageToPdf**](PdfApi.md#GetPdfAInStorageToPdf) | **Get** /pdf/create/pdfa | Convert PDFA file (located on storage) to PDF format and return resulting file in response. 
 [**GetPdfInStorageToDoc**](PdfApi.md#GetPdfInStorageToDoc) | **Get** /pdf/{name}/convert/doc | Converts PDF document (located on storage) to DOC format and returns resulting file in response content
 [**GetPdfInStorageToEpub**](PdfApi.md#GetPdfInStorageToEpub) | **Get** /pdf/{name}/convert/epub | Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
 [**GetPdfInStorageToHtml**](PdfApi.md#GetPdfInStorageToHtml) | **Get** /pdf/{name}/convert/html | Converts PDF document (located on storage) to Html format and returns resulting file in response content
@@ -298,6 +299,7 @@ Method | HTTP request | Description
 [**PutPageConvertToPng**](PdfApi.md#PutPageConvertToPng) | **Put** /pdf/{name}/pages/{pageNumber}/convert/png | Convert document page to png image and upload resulting file to storage.
 [**PutPageConvertToTiff**](PdfApi.md#PutPageConvertToTiff) | **Put** /pdf/{name}/pages/{pageNumber}/convert/tiff | Convert document page to Tiff image and upload resulting file to storage.
 [**PutPclInStorageToPdf**](PdfApi.md#PutPclInStorageToPdf) | **Put** /pdf/{name}/create/pcl | Convert PCL file (located on storage) to PDF format and upload resulting file to storage. 
+[**PutPdfAInStorageToPdf**](PdfApi.md#PutPdfAInStorageToPdf) | **Put** /pdf/{name}/create/pdfa | Convert PDFA file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutPdfInRequestToDoc**](PdfApi.md#PutPdfInRequestToDoc) | **Put** /pdf/convert/doc | Converts PDF document (in request content) to DOC format and uploads resulting file to storage.
 [**PutPdfInRequestToEpub**](PdfApi.md#PutPdfInRequestToEpub) | **Put** /pdf/convert/epub | Converts PDF document (in request content) to EPUB format and uploads resulting file to storage.
 [**PutPdfInRequestToHtml**](PdfApi.md#PutPdfInRequestToHtml) | **Put** /pdf/convert/html | Converts PDF document (in request content) to Html format and uploads resulting file to storage.
@@ -4928,6 +4930,37 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetPdfAInStorageToPdf**
+> []byte GetPdfAInStorageToPdf(srcPath, optional)
+Convert PDFA file (located on storage) to PDF format and return resulting file in response. 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.pdf) | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.pdf) | 
+ **dontOptimize** | **bool**| If set, document resources will not be optimized. | 
+ **storage** | **string**| The document storage. | 
+
+### Return type
+
+**[]byte**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetPdfInStorageToDoc**
 > []byte GetPdfInStorageToDoc(name, optional)
 Converts PDF document (located on storage) to DOC format and returns resulting file in response content
@@ -6500,7 +6533,7 @@ Add document bookmarks.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
-  **bookmarkPath** | **string**| The bookmark path. | 
+  **bookmarkPath** | **string**| The parent bookmark path. Specify an empty string when adding a bookmark to the root. | 
   **bookmarks** | [**[]Bookmark**](Bookmark.md)| The array of bookmark. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -6510,7 +6543,7 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
- **bookmarkPath** | **string**| The bookmark path. | 
+ **bookmarkPath** | **string**| The parent bookmark path. Specify an empty string when adding a bookmark to the root. | 
  **bookmarks** | [**[]Bookmark**](Bookmark.md)| The array of bookmark. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
@@ -10194,6 +10227,40 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.pcl) | 
  **dstFolder** | **string**| The destination document folder. | 
+ **storage** | **string**| The document storage. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutPdfAInStorageToPdf**
+> AsposeResponse PutPdfAInStorageToPdf(name, srcPath, optional)
+Convert PDFA file (located on storage) to PDF format and upload resulting file to storage. 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.pdf) | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.pdf) | 
+ **dstFolder** | **string**| The destination document folder. | 
+ **dontOptimize** | **bool**| If set, document resources will not be optimized. | 
  **storage** | **string**| The document storage. | 
 
 ### Return type
