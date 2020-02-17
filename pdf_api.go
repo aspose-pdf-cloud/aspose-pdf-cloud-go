@@ -11200,6 +11200,83 @@ func (a *PdfApiService) GetPclInStorageToPdf(srcPath string, localVarOptionals m
 	return successPayload, localVarHttpResponse, err
 }
 
+/* PdfApiService Convert PDFA file (located on storage) to PDF format and return resulting file in response. 
+ @param srcPath Full source filename (ex. /folder1/folder2/template.pdf)
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "dontOptimize" (bool) If set, document resources will not be optimized.
+     @param "storage" (string) The document storage.
+ @return []byte*/
+func (a *PdfApiService) GetPdfAInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload []byte
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/pdf/create/pdfa"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _url.Values{}
+	localVarFormParams := _url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["dontOptimize"], "bool", "dontOptimize"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("srcPath", parameterToString(srcPath, ""))
+	if localVarTempParam, localVarOk := localVarOptionals["dontOptimize"].(bool); localVarOk {
+		localVarQueryParams.Add("dontOptimize", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
+		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"multipart/form-data",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	defer localVarHttpResponse.Body.Close()
+	if localVarHttpResponse.StatusCode >= 300 {
+		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
+	}
+    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    if err != nil {
+        return successPayload, localVarHttpResponse, err
+    }
+
+	return successPayload, localVarHttpResponse, err
+}
+
 /* PdfApiService Converts PDF document (located on storage) to DOC format and returns resulting file in response content
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -15351,7 +15428,7 @@ func (a *PdfApiService) PostAppendDocument(name string, appendFile string, local
 
 /* PdfApiService Add document bookmarks.
  @param name The document name.
- @param bookmarkPath The bookmark path.
+ @param bookmarkPath The parent bookmark path. Specify an empty string when adding a bookmark to the root.
  @param bookmarks The array of bookmark.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
@@ -24462,6 +24539,92 @@ func (a *PdfApiService) PutPclInStorageToPdf(name string, srcPath string, localV
 	localVarQueryParams.Add("srcPath", parameterToString(srcPath, ""))
 	if localVarTempParam, localVarOk := localVarOptionals["dstFolder"].(string); localVarOk {
 		localVarQueryParams.Add("dstFolder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
+		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	defer localVarHttpResponse.Body.Close()
+	if localVarHttpResponse.StatusCode >= 300 {
+		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
+	}
+    
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* PdfApiService Convert PDFA file (located on storage) to PDF format and upload resulting file to storage. 
+ @param name The document name.
+ @param srcPath Full source filename (ex. /folder1/folder2/template.pdf)
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "dstFolder" (string) The destination document folder.
+     @param "dontOptimize" (bool) If set, document resources will not be optimized.
+     @param "storage" (string) The document storage.
+ @return AsposeResponse*/
+func (a *PdfApiService) PutPdfAInStorageToPdf(name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload AsposeResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/pdf/{name}/create/pdfa"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", name), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _url.Values{}
+	localVarFormParams := _url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["dstFolder"], "string", "dstFolder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["dontOptimize"], "bool", "dontOptimize"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("srcPath", parameterToString(srcPath, ""))
+	if localVarTempParam, localVarOk := localVarOptionals["dstFolder"].(string); localVarOk {
+		localVarQueryParams.Add("dstFolder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["dontOptimize"].(bool); localVarOk {
+		localVarQueryParams.Add("dontOptimize", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))

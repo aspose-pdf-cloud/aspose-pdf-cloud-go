@@ -595,8 +595,8 @@ func TestGetMarkdownInStorageToPdf(t *testing.T) {
 
 func TestPutMarkdownInStorageToPdf(t *testing.T) {
 
-	name := "Typography.PS"
-	resFileName := "mixed.md"
+	name := "mixed.md"
+	resFileName := "mixed.pdf"
 	srcPath := GetBaseTest().remoteFolder + "/" + name
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
@@ -614,5 +614,51 @@ func TestPutMarkdownInStorageToPdf(t *testing.T) {
 		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPutMarkdownInStorageToPdf - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+// from PDFA
+func TestGetPdfAInStorageToPdf(t *testing.T) {
+
+	name := "4pagesPdfA.pdf"
+	srcPath := GetBaseTest().remoteFolder + "/" + name
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := make(map[string]interface{})
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetPdfAInStorageToPdf(srcPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetPdfAInStorageToPdf - %db\n", GetBaseTest().GetTestNumber(), len(response))
+	}
+}
+
+func TestPutPdfAInStorageToPdf(t *testing.T) {
+
+	name := "4pagesPdfA.pdf"
+	resFileName := "fromPdfA.pdf"
+	srcPath := GetBaseTest().remoteFolder + "/" + name
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{} {
+		"folder":  GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfAInStorageToPdf(resFileName, srcPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutPdfAInStorageToPdf - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
