@@ -5109,7 +5109,6 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
- **pagesCount** | **int32**| Pages count. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 
@@ -10422,7 +10421,6 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.tex) | 
- **pagesCount** | **int32**| Pages count. | 
  **storage** | **string**| The document storage. | 
  **file** | ***os.File**| A file to be converted. | 
 
@@ -10899,7 +10897,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.tex) | 
- **pagesCount** | **int32**| Pages count. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
 

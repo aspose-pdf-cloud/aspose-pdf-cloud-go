@@ -11774,7 +11774,6 @@ func (a *PdfApiService) GetPdfInStorageToHtml(name string, localVarOptionals map
 /* PdfApiService Converts PDF document (located on storage) to LaTeX format and returns resulting file in response content
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "pagesCount" (int32) Pages count.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return []byte*/
@@ -11795,9 +11794,6 @@ func (a *PdfApiService) GetPdfInStorageToLaTeX(name string, localVarOptionals ma
 	localVarQueryParams := _url.Values{}
 	localVarFormParams := _url.Values{}
 
-	if err := typeCheckParameter(localVarOptionals["pagesCount"], "int32", "pagesCount"); err != nil {
-		return successPayload, nil, err
-	}
 	if err := typeCheckParameter(localVarOptionals["folder"], "string", "folder"); err != nil {
 		return successPayload, nil, err
 	}
@@ -11805,9 +11801,6 @@ func (a *PdfApiService) GetPdfInStorageToLaTeX(name string, localVarOptionals ma
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam, localVarOk := localVarOptionals["pagesCount"].(int32); localVarOk {
-		localVarQueryParams.Add("pagesCount", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
 	}
@@ -25179,7 +25172,6 @@ func (a *PdfApiService) PutPdfInRequestToHtml(outPath string, localVarOptionals 
 /* PdfApiService Converts PDF document (in request content) to LaTeX format and uploads resulting file to storage.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.tex)
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "pagesCount" (int32) Pages count.
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
@@ -25199,17 +25191,11 @@ func (a *PdfApiService) PutPdfInRequestToLaTeX(outPath string, localVarOptionals
 	localVarQueryParams := _url.Values{}
 	localVarFormParams := _url.Values{}
 
-	if err := typeCheckParameter(localVarOptionals["pagesCount"], "int32", "pagesCount"); err != nil {
-		return successPayload, nil, err
-	}
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
 
 	localVarQueryParams.Add("outPath", parameterToString(outPath, ""))
-	if localVarTempParam, localVarOk := localVarOptionals["pagesCount"].(int32); localVarOk {
-		localVarQueryParams.Add("pagesCount", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
@@ -26674,7 +26660,6 @@ func (a *PdfApiService) PutPdfInStorageToHtml(name string, outPath string, local
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.tex)
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "pagesCount" (int32) Pages count.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
@@ -26695,9 +26680,6 @@ func (a *PdfApiService) PutPdfInStorageToLaTeX(name string, outPath string, loca
 	localVarQueryParams := _url.Values{}
 	localVarFormParams := _url.Values{}
 
-	if err := typeCheckParameter(localVarOptionals["pagesCount"], "int32", "pagesCount"); err != nil {
-		return successPayload, nil, err
-	}
 	if err := typeCheckParameter(localVarOptionals["folder"], "string", "folder"); err != nil {
 		return successPayload, nil, err
 	}
@@ -26706,9 +26688,6 @@ func (a *PdfApiService) PutPdfInStorageToLaTeX(name string, outPath string, loca
 	}
 
 	localVarQueryParams.Add("outPath", parameterToString(outPath, ""))
-	if localVarTempParam, localVarOk := localVarOptionals["pagesCount"].(int32); localVarOk {
-		localVarQueryParams.Add("pagesCount", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
 	}

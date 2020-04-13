@@ -32,6 +32,8 @@ type Cell struct {
 	BackgroundColor *Color `json:"BackgroundColor,omitempty"`
 	// Gets or sets the background image file.
 	BackgroundImageFile string `json:"BackgroundImageFile,omitempty"`
+	// Gets or sets path of the background image file from storage.
+	BackgroundImageStorageFile string `json:"BackgroundImageStorageFile,omitempty"`
 	// Gets or sets the alignment.
 	Alignment HorizontalAlignment `json:"Alignment,omitempty"`
 	// Gets or sets the default cell text state.
@@ -48,4 +50,8 @@ type Cell struct {
 	RowSpan int32 `json:"RowSpan,omitempty"`
 	// Gets or sets the column width.
 	Width float64 `json:"Width,omitempty"`
+	// Gets or sets Html fragment.
+	HtmlFragment string `json:"HtmlFragment,omitempty"`
+	// Gets or sets ImageFragment list.
+	Images []ImageFragment `json:"Images,omitempty"`
 }

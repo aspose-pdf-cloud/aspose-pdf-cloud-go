@@ -285,10 +285,10 @@ func DrawTable() Table {
 				// change properties on paragraph
 				cell.Paragraphs[0].TextState = &textState
 				cell.Paragraphs[0].TextState.ForegroundColor = &Color { A: int32(0xFF), R: int32(0), G: 0, B: int32(0xFF)}
-			} else if (c == 4) {// change properties on paragraph AFTER first clearing and re-adding paragraphs
-				cell.Paragraphs[0] = TextRect{ Text: "y" }
-				cell.Paragraphs[0].TextState = &textState
-				cell.Paragraphs[0].TextState.ForegroundColor = &Color { A: int32(0xFF), R: int32(0), G: 0, B: int32(0xFF)}
+			} else if (c == 4) { 
+				// HTML Fragment
+				cell.Paragraphs = nil
+				cell.HtmlFragment = "<ul><li>First</li><li>Second</li></ul>"
 			}
 			row.Cells[c] = cell
 
