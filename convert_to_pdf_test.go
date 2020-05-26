@@ -106,8 +106,8 @@ func TestPutWebInStorageToPdf(t *testing.T) {
 	}
 }
 
-// from LaTeX
-func TestGetLaTeXInStorageToPdf(t *testing.T) {
+// from TeX
+func TestGetTeXInStorageToPdf(t *testing.T) {
 
 	name := "sample.tex"
 	srcPath := GetBaseTest().remoteFolder + "/" + name
@@ -118,20 +118,20 @@ func TestGetLaTeXInStorageToPdf(t *testing.T) {
 
 	args := make(map[string]interface{})
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.GetLaTeXInStorageToPdf(srcPath, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetTeXInStorageToPdf(srcPath, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		t.Fail()
 	} else {
-		fmt.Printf("%d\tTestGetLaTeXInStorageToPdf - %db\n", GetBaseTest().GetTestNumber(), len(response))
+		fmt.Printf("%d\tTestGetTeXInStorageToPdf - %db\n", GetBaseTest().GetTestNumber(), len(response))
 	}
 }
 
-func TestPutLaTeXInStorageToPdf(t *testing.T) {
+func TestPutTeXInStorageToPdf(t *testing.T) {
 
 	name := "sample.tex"	
-	resFileName := "fromLaTeX.pdf"
+	resFileName := "fromTeX.pdf"
 	srcPath := GetBaseTest().remoteFolder + "/" + name
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
@@ -142,13 +142,13 @@ func TestPutLaTeXInStorageToPdf(t *testing.T) {
 		"folder":  GetBaseTest().remoteFolder,
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PutLaTeXInStorageToPdf(resFileName, srcPath, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutTeXInStorageToPdf(resFileName, srcPath, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		t.Fail()
 	} else {
-		fmt.Printf("%d\tTestPutLaTeXInStorageToPdf - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tTestPutTeXInStorageToPdf - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
 

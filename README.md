@@ -1,6 +1,6 @@
 # Aspose.PDF Cloud
 - API version: 3.0
-- Package version: 20.4.0
+- Package version: 20.5.0
 
 [Aspose.PDF Cloud](https://products.aspose.cloud/pdf) is a true REST API that enables you to perform a wide range of document processing operations including creation, manipulation, conversion and rendering of PDF documents in the cloud.
 
@@ -146,7 +146,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetImportFieldsFromXfdfInStorage**](docs/PdfApi.md#getimportfieldsfromxfdfinstorage) | **Get** /pdf/{name}/import/xfdf | Update fields from XFDF file in storage.
 *PdfApi* | [**GetImportFieldsFromXmlInStorage**](docs/PdfApi.md#getimportfieldsfromxmlinstorage) | **Get** /pdf/{name}/import/xml | Import from XML file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**GetInkAnnotation**](docs/PdfApi.md#getinkannotation) | **Get** /pdf/{name}/annotations/ink/{annotationId} | Read document page ink annotation by ID.
-*PdfApi* | [**GetLaTeXInStorageToPdf**](docs/PdfApi.md#getlatexinstoragetopdf) | **Get** /pdf/create/latex | Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
+*PdfApi* | [**GetLaTeXInStorageToPdf**](docs/PdfApi.md#getlatexinstoragetopdf) | **Get** /pdf/create/latex | Convert TeX file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**GetLineAnnotation**](docs/PdfApi.md#getlineannotation) | **Get** /pdf/{name}/annotations/line/{annotationId} | Read document page line annotation by ID.
 *PdfApi* | [**GetLinkAnnotation**](docs/PdfApi.md#getlinkannotation) | **Get** /pdf/{name}/links/{linkId} | Read document link annotation by ID.
 *PdfApi* | [**GetListBoxField**](docs/PdfApi.md#getlistboxfield) | **Get** /pdf/{name}/fields/listbox/{fieldName} | Read document listbox field by name.
@@ -198,11 +198,12 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetPdfInStorageToDoc**](docs/PdfApi.md#getpdfinstoragetodoc) | **Get** /pdf/{name}/convert/doc | Converts PDF document (located on storage) to DOC format and returns resulting file in response content
 *PdfApi* | [**GetPdfInStorageToEpub**](docs/PdfApi.md#getpdfinstoragetoepub) | **Get** /pdf/{name}/convert/epub | Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
 *PdfApi* | [**GetPdfInStorageToHtml**](docs/PdfApi.md#getpdfinstoragetohtml) | **Get** /pdf/{name}/convert/html | Converts PDF document (located on storage) to Html format and returns resulting file in response content
-*PdfApi* | [**GetPdfInStorageToLaTeX**](docs/PdfApi.md#getpdfinstoragetolatex) | **Get** /pdf/{name}/convert/latex | Converts PDF document (located on storage) to LaTeX format and returns resulting file in response content
+*PdfApi* | [**GetPdfInStorageToLaTeX**](docs/PdfApi.md#getpdfinstoragetolatex) | **Get** /pdf/{name}/convert/latex | Converts PDF document (located on storage) to TeX format and returns resulting file in response content
 *PdfApi* | [**GetPdfInStorageToMobiXml**](docs/PdfApi.md#getpdfinstoragetomobixml) | **Get** /pdf/{name}/convert/mobixml | Converts PDF document (located on storage) to MOBIXML format and returns resulting file in response content
 *PdfApi* | [**GetPdfInStorageToPdfA**](docs/PdfApi.md#getpdfinstoragetopdfa) | **Get** /pdf/{name}/convert/pdfa | Converts PDF document (located on storage) to PdfA format and returns resulting file in response content
 *PdfApi* | [**GetPdfInStorageToPptx**](docs/PdfApi.md#getpdfinstoragetopptx) | **Get** /pdf/{name}/convert/pptx | Converts PDF document (located on storage) to PPTX format and returns resulting file in response content
 *PdfApi* | [**GetPdfInStorageToSvg**](docs/PdfApi.md#getpdfinstoragetosvg) | **Get** /pdf/{name}/convert/svg | Converts PDF document (located on storage) to SVG format and returns resulting file in response content
+*PdfApi* | [**GetPdfInStorageToTeX**](docs/PdfApi.md#getpdfinstoragetotex) | **Get** /pdf/{name}/convert/tex | Converts PDF document (located on storage) to TeX format and returns resulting file in response content
 *PdfApi* | [**GetPdfInStorageToTiff**](docs/PdfApi.md#getpdfinstoragetotiff) | **Get** /pdf/{name}/convert/tiff | Converts PDF document (located on storage) to TIFF format and returns resulting file in response content
 *PdfApi* | [**GetPdfInStorageToXls**](docs/PdfApi.md#getpdfinstoragetoxls) | **Get** /pdf/{name}/convert/xls | Converts PDF document (located on storage) to XLS format and returns resulting file in response content
 *PdfApi* | [**GetPdfInStorageToXlsx**](docs/PdfApi.md#getpdfinstoragetoxlsx) | **Get** /pdf/{name}/convert/xlsx | Converts PDF document (located on storage) to XLSX format and returns resulting file in response content
@@ -226,6 +227,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetStrikeOutAnnotation**](docs/PdfApi.md#getstrikeoutannotation) | **Get** /pdf/{name}/annotations/strikeout/{annotationId} | Read document page StrikeOut annotation by ID.
 *PdfApi* | [**GetSvgInStorageToPdf**](docs/PdfApi.md#getsvginstoragetopdf) | **Get** /pdf/create/svg | Convert SVG file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**GetTable**](docs/PdfApi.md#gettable) | **Get** /pdf/{name}/tables/{tableId} | Read document page table by ID.
+*PdfApi* | [**GetTeXInStorageToPdf**](docs/PdfApi.md#gettexinstoragetopdf) | **Get** /pdf/create/tex | Convert TeX file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**GetText**](docs/PdfApi.md#gettext) | **Get** /pdf/{name}/text | Read document text.
 *PdfApi* | [**GetTextAnnotation**](docs/PdfApi.md#gettextannotation) | **Get** /pdf/{name}/annotations/text/{annotationId} | Read document page text annotation by ID.
 *PdfApi* | [**GetTextBoxField**](docs/PdfApi.md#gettextboxfield) | **Get** /pdf/{name}/fields/textbox/{fieldName} | Read document text box field by name.
@@ -332,7 +334,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PutImportFieldsFromXfdfInStorage**](docs/PdfApi.md#putimportfieldsfromxfdfinstorage) | **Put** /pdf/{name}/import/xfdf | Update fields from XFDF file in storage.
 *PdfApi* | [**PutImportFieldsFromXmlInStorage**](docs/PdfApi.md#putimportfieldsfromxmlinstorage) | **Put** /pdf/{name}/import/xml | Update fields from XML file in storage.
 *PdfApi* | [**PutInkAnnotation**](docs/PdfApi.md#putinkannotation) | **Put** /pdf/{name}/annotations/ink/{annotationId} | Replace document ink annotation
-*PdfApi* | [**PutLaTeXInStorageToPdf**](docs/PdfApi.md#putlatexinstoragetopdf) | **Put** /pdf/{name}/create/latex | Convert LaTeX file (located on storage) to PDF format and upload resulting file to storage. 
+*PdfApi* | [**PutLaTeXInStorageToPdf**](docs/PdfApi.md#putlatexinstoragetopdf) | **Put** /pdf/{name}/create/latex | Convert TeX file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**PutLineAnnotation**](docs/PdfApi.md#putlineannotation) | **Put** /pdf/{name}/annotations/line/{annotationId} | Replace document line annotation
 *PdfApi* | [**PutLinkAnnotation**](docs/PdfApi.md#putlinkannotation) | **Put** /pdf/{name}/links/{linkId} | Replace document page link annotations
 *PdfApi* | [**PutListBoxField**](docs/PdfApi.md#putlistboxfield) | **Put** /pdf/{name}/fields/listbox/{fieldName} | Replace document listbox field
@@ -352,11 +354,12 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PutPdfInRequestToDoc**](docs/PdfApi.md#putpdfinrequesttodoc) | **Put** /pdf/convert/doc | Converts PDF document (in request content) to DOC format and uploads resulting file to storage.
 *PdfApi* | [**PutPdfInRequestToEpub**](docs/PdfApi.md#putpdfinrequesttoepub) | **Put** /pdf/convert/epub | Converts PDF document (in request content) to EPUB format and uploads resulting file to storage.
 *PdfApi* | [**PutPdfInRequestToHtml**](docs/PdfApi.md#putpdfinrequesttohtml) | **Put** /pdf/convert/html | Converts PDF document (in request content) to Html format and uploads resulting file to storage.
-*PdfApi* | [**PutPdfInRequestToLaTeX**](docs/PdfApi.md#putpdfinrequesttolatex) | **Put** /pdf/convert/latex | Converts PDF document (in request content) to LaTeX format and uploads resulting file to storage.
+*PdfApi* | [**PutPdfInRequestToLaTeX**](docs/PdfApi.md#putpdfinrequesttolatex) | **Put** /pdf/convert/latex | Converts PDF document (in request content) to TeX format and uploads resulting file to storage.
 *PdfApi* | [**PutPdfInRequestToMobiXml**](docs/PdfApi.md#putpdfinrequesttomobixml) | **Put** /pdf/convert/mobixml | Converts PDF document (in request content) to MOBIXML format and uploads resulting file to storage.
 *PdfApi* | [**PutPdfInRequestToPdfA**](docs/PdfApi.md#putpdfinrequesttopdfa) | **Put** /pdf/convert/pdfa | Converts PDF document (in request content) to PdfA format and uploads resulting file to storage.
 *PdfApi* | [**PutPdfInRequestToPptx**](docs/PdfApi.md#putpdfinrequesttopptx) | **Put** /pdf/convert/pptx | Converts PDF document (in request content) to PPTX format and uploads resulting file to storage.
 *PdfApi* | [**PutPdfInRequestToSvg**](docs/PdfApi.md#putpdfinrequesttosvg) | **Put** /pdf/convert/svg | Converts PDF document (in request content) to SVG format and uploads resulting file to storage.
+*PdfApi* | [**PutPdfInRequestToTeX**](docs/PdfApi.md#putpdfinrequesttotex) | **Put** /pdf/convert/tex | Converts PDF document (in request content) to TeX format and uploads resulting file to storage.
 *PdfApi* | [**PutPdfInRequestToTiff**](docs/PdfApi.md#putpdfinrequesttotiff) | **Put** /pdf/convert/tiff | Converts PDF document (in request content) to TIFF format and uploads resulting file to storage.
 *PdfApi* | [**PutPdfInRequestToXls**](docs/PdfApi.md#putpdfinrequesttoxls) | **Put** /pdf/convert/xls | Converts PDF document (in request content) to XLS format and uploads resulting file to storage.
 *PdfApi* | [**PutPdfInRequestToXlsx**](docs/PdfApi.md#putpdfinrequesttoxlsx) | **Put** /pdf/convert/xlsx | Converts PDF document (in request content) to XLSX format and uploads resulting file to storage.
@@ -365,11 +368,12 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PutPdfInStorageToDoc**](docs/PdfApi.md#putpdfinstoragetodoc) | **Put** /pdf/{name}/convert/doc | Converts PDF document (located on storage) to DOC format and uploads resulting file to storage
 *PdfApi* | [**PutPdfInStorageToEpub**](docs/PdfApi.md#putpdfinstoragetoepub) | **Put** /pdf/{name}/convert/epub | Converts PDF document (located on storage) to EPUB format and uploads resulting file to storage
 *PdfApi* | [**PutPdfInStorageToHtml**](docs/PdfApi.md#putpdfinstoragetohtml) | **Put** /pdf/{name}/convert/html | Converts PDF document (located on storage) to Html format and uploads resulting file to storage
-*PdfApi* | [**PutPdfInStorageToLaTeX**](docs/PdfApi.md#putpdfinstoragetolatex) | **Put** /pdf/{name}/convert/latex | Converts PDF document (located on storage) to LaTeX format and uploads resulting file to storage
+*PdfApi* | [**PutPdfInStorageToLaTeX**](docs/PdfApi.md#putpdfinstoragetolatex) | **Put** /pdf/{name}/convert/latex | Converts PDF document (located on storage) to TeX format and uploads resulting file to storage
 *PdfApi* | [**PutPdfInStorageToMobiXml**](docs/PdfApi.md#putpdfinstoragetomobixml) | **Put** /pdf/{name}/convert/mobixml | Converts PDF document (located on storage) to MOBIXML format and uploads resulting file to storage
 *PdfApi* | [**PutPdfInStorageToPdfA**](docs/PdfApi.md#putpdfinstoragetopdfa) | **Put** /pdf/{name}/convert/pdfa | Converts PDF document (located on storage) to PdfA format and uploads resulting file to storage
 *PdfApi* | [**PutPdfInStorageToPptx**](docs/PdfApi.md#putpdfinstoragetopptx) | **Put** /pdf/{name}/convert/pptx | Converts PDF document (located on storage) to PPTX format and uploads resulting file to storage
 *PdfApi* | [**PutPdfInStorageToSvg**](docs/PdfApi.md#putpdfinstoragetosvg) | **Put** /pdf/{name}/convert/svg | Converts PDF document (located on storage) to SVG format and uploads resulting file to storage
+*PdfApi* | [**PutPdfInStorageToTeX**](docs/PdfApi.md#putpdfinstoragetotex) | **Put** /pdf/{name}/convert/tex | Converts PDF document (located on storage) to TeX format and uploads resulting file to storage
 *PdfApi* | [**PutPdfInStorageToTiff**](docs/PdfApi.md#putpdfinstoragetotiff) | **Put** /pdf/{name}/convert/tiff | Converts PDF document (located on storage) to TIFF format and uploads resulting file to storage
 *PdfApi* | [**PutPdfInStorageToXls**](docs/PdfApi.md#putpdfinstoragetoxls) | **Put** /pdf/{name}/convert/xls | Converts PDF document (located on storage) to XLS format and uploads resulting file to storage
 *PdfApi* | [**PutPdfInStorageToXlsx**](docs/PdfApi.md#putpdfinstoragetoxlsx) | **Put** /pdf/{name}/convert/xlsx | Converts PDF document (located on storage) to XLSX format and uploads resulting file to storage
@@ -397,6 +401,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PutStrikeOutAnnotation**](docs/PdfApi.md#putstrikeoutannotation) | **Put** /pdf/{name}/annotations/strikeout/{annotationId} | Replace document StrikeOut annotation
 *PdfApi* | [**PutSvgInStorageToPdf**](docs/PdfApi.md#putsvginstoragetopdf) | **Put** /pdf/{name}/create/svg | Convert SVG file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**PutTable**](docs/PdfApi.md#puttable) | **Put** /pdf/{name}/tables/{tableId} | Replace document page table.
+*PdfApi* | [**PutTeXInStorageToPdf**](docs/PdfApi.md#puttexinstoragetopdf) | **Put** /pdf/{name}/create/tex | Convert TeX file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**PutTextAnnotation**](docs/PdfApi.md#puttextannotation) | **Put** /pdf/{name}/annotations/text/{annotationId} | Replace document text annotation
 *PdfApi* | [**PutTextBoxField**](docs/PdfApi.md#puttextboxfield) | **Put** /pdf/{name}/fields/textbox/{fieldName} | Replace document text box field
 *PdfApi* | [**PutUnderlineAnnotation**](docs/PdfApi.md#putunderlineannotation) | **Put** /pdf/{name}/annotations/underline/{annotationId} | Replace document underline annotation
