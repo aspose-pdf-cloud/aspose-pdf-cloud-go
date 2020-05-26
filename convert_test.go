@@ -765,8 +765,8 @@ func TestPutPdfInRequestToPptx(t *testing.T) {
 	}
 }
 
-// To LaTeX
-func TestGetPdfInStorageToLaTeX(t *testing.T) {
+// To TeX
+func TestGetPdfInStorageToTeX(t *testing.T) {
 
 	name := "4pages.pdf"	
 
@@ -779,17 +779,17 @@ func TestGetPdfInStorageToLaTeX(t *testing.T) {
 
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.GetPdfInStorageToLaTeX(name, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetPdfInStorageToTeX(name, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		t.Fail()
 	} else {
-		fmt.Printf("%d\tTestGetPdfInStorageToLaTeX - %db\n", GetBaseTest().GetTestNumber(), len(response))
+		fmt.Printf("%d\tTestGetPdfInStorageToTeX - %db\n", GetBaseTest().GetTestNumber(), len(response))
 	}
 }
 
-func TestPutPdfInStorageToLaTeX(t *testing.T) {
+func TestPutPdfInStorageToTeX(t *testing.T) {
 
 	name := "4pages.pdf"	
 
@@ -804,17 +804,17 @@ func TestPutPdfInStorageToLaTeX(t *testing.T) {
 		"folder":  GetBaseTest().remoteFolder,
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInStorageToLaTeX(name, outPath, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInStorageToTeX(name, outPath, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		t.Fail()
 	} else {
-		fmt.Printf("%d\tTestPutPdfInStorageToLaTeX - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tTestPutPdfInStorageToTeX - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
 
-func TestPutPdfInRequestToLaTeX(t *testing.T) {
+func TestPutPdfInRequestToTeX(t *testing.T) {
 	name := "4pages.pdf"
 	resFileName := "result.tex";
     outPath := GetBaseTest().remoteFolder + "/" + resFileName;
@@ -829,13 +829,13 @@ func TestPutPdfInRequestToLaTeX(t *testing.T) {
 		"file": file,
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInRequestToLaTeX(outPath, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInRequestToTeX(outPath, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		t.Fail()
 	} else {
-		fmt.Printf("%d\tTestPutPdfInRequestToLaTeX - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+		fmt.Printf("%d\tTestPutPdfInRequestToTeX - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
 

@@ -172,6 +172,10 @@ func (c *APIClient) prepareRequest (
     fileBytes []byte) (localVarRequest *http.Request, err error) {
 
     var body *bytes.Buffer
+    
+    // set custom header
+    headerParams["x-aspose-client"] = "go sdk"
+    headerParams["x-aspose-client-version"] = "20.5.0"
 
     // Detect postBody type and post.
     if postBody != nil {
