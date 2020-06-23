@@ -10457,6 +10457,7 @@ Name | Type | Description  | Notes
  **trySaveTextUnderliningAndStrikeoutingInCss** | **bool**| PDF itself does not contain underlining markers for texts. It emulated with line situated under text. This option allows converter try guess that this or that line is a text&#39;s underlining and put this info into CSS instead of drawing of underlining graphically. | 
  **storage** | **string**| The document storage. | 
  **flowLayoutParagraphFullWidth** | **bool**| This attribute specifies full width paragraph text for Flow mode, FixedLayout &#x3D; false. | 
+ **outputFormat** | **string**| This parameter determines the type of result. The zip archive will be uploaded into the storage if the parameter is &quot;Zip&quot; or missed (default). In case of the &quot;Folder&quot;, all resulting files and directories will be uploaded to the folder of the resulting HTML file. | [default to Zip]
  **file** | ***os.File**| A file to be converted. | 
 
 ### Return type
@@ -10963,6 +10964,7 @@ Name | Type | Description  | Notes
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
  **flowLayoutParagraphFullWidth** | **bool**| This attribute specifies full width paragraph text for Flow mode, FixedLayout &#x3D; false. | 
+ **outputFormat** | **string**| This parameter determines the type of result. The zip archive will be uploaded into the storage if the parameter is &quot;Zip&quot; or missed (default). In case of the &quot;Folder&quot;, all resulting files and directories will be uploaded to the folder of the resulting HTML file. | [default to Zip]
 
 ### Return type
 

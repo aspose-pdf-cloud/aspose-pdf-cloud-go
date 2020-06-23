@@ -575,11 +575,12 @@ func TestPutPdfInStorageToHtml(t *testing.T) {
 		t.Error(err)
 	}
 
-	resFileName := "result.zip";
+	resFileName := "result.html";
     outPath := GetBaseTest().remoteFolder + "/" + resFileName;
 
 	args := map[string]interface{} {
 		"folder":  GetBaseTest().remoteFolder,
+		"outputFormat": fmt.Sprintf("%v", OutputFormatFolder),
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInStorageToHtml(name, outPath, args)
