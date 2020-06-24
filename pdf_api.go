@@ -25068,6 +25068,7 @@ func (a *PdfApiService) PutPdfInRequestToEpub(outPath string, localVarOptionals 
      @param "trySaveTextUnderliningAndStrikeoutingInCss" (bool) PDF itself does not contain underlining markers for texts. It emulated with line situated under text. This option allows converter try guess that this or that line is a text&#39;s underlining and put this info into CSS instead of drawing of underlining graphically.
      @param "storage" (string) The document storage.
      @param "flowLayoutParagraphFullWidth" (bool) This attribute specifies full width paragraph text for Flow mode, FixedLayout &#x3D; false.
+     @param "outputFormat" (string) This parameter determines the type of result. The zip archive will be uploaded into the storage if the parameter is \&quot;Zip\&quot; or missed (default). In case of the \&quot;Folder\&quot;, all resulting files and directories will be uploaded to the folder of the resulting HTML file.
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
 func (a *PdfApiService) PutPdfInRequestToHtml(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
@@ -25173,6 +25174,9 @@ func (a *PdfApiService) PutPdfInRequestToHtml(outPath string, localVarOptionals 
 	if err := typeCheckParameter(localVarOptionals["flowLayoutParagraphFullWidth"], "bool", "flowLayoutParagraphFullWidth"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["outputFormat"], "string", "outputFormat"); err != nil {
+		return successPayload, nil, err
+	}
 
 	localVarQueryParams.Add("outPath", parameterToString(outPath, ""))
 	if localVarTempParam, localVarOk := localVarOptionals["additionalMarginWidthInPoints"].(int32); localVarOk {
@@ -25264,6 +25268,9 @@ func (a *PdfApiService) PutPdfInRequestToHtml(outPath string, localVarOptionals 
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["flowLayoutParagraphFullWidth"].(bool); localVarOk {
 		localVarQueryParams.Add("flowLayoutParagraphFullWidth", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["outputFormat"].(string); localVarOk {
+		localVarQueryParams.Add("outputFormat", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "multipart/form-data",  }
@@ -26640,6 +26647,7 @@ func (a *PdfApiService) PutPdfInStorageToEpub(name string, outPath string, local
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
      @param "flowLayoutParagraphFullWidth" (bool) This attribute specifies full width paragraph text for Flow mode, FixedLayout &#x3D; false.
+     @param "outputFormat" (string) This parameter determines the type of result. The zip archive will be uploaded into the storage if the parameter is \&quot;Zip\&quot; or missed (default). In case of the \&quot;Folder\&quot;, all resulting files and directories will be uploaded to the folder of the resulting HTML file.
  @return AsposeResponse*/
 func (a *PdfApiService) PutPdfInStorageToHtml(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
@@ -26748,6 +26756,9 @@ func (a *PdfApiService) PutPdfInStorageToHtml(name string, outPath string, local
 	if err := typeCheckParameter(localVarOptionals["flowLayoutParagraphFullWidth"], "bool", "flowLayoutParagraphFullWidth"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["outputFormat"], "string", "outputFormat"); err != nil {
+		return successPayload, nil, err
+	}
 
 	localVarQueryParams.Add("outPath", parameterToString(outPath, ""))
 	if localVarTempParam, localVarOk := localVarOptionals["additionalMarginWidthInPoints"].(int32); localVarOk {
@@ -26842,6 +26853,9 @@ func (a *PdfApiService) PutPdfInStorageToHtml(name string, outPath string, local
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["flowLayoutParagraphFullWidth"].(bool); localVarOk {
 		localVarQueryParams.Add("flowLayoutParagraphFullWidth", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["outputFormat"].(string); localVarOk {
+		localVarQueryParams.Add("outputFormat", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }

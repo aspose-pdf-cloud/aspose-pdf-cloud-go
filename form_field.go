@@ -26,6 +26,8 @@ type FormField struct {
 	Links []Link `json:"Links,omitempty"`
 	// Field name.
 	PartialName string `json:"PartialName,omitempty"`
+	// Full Field name.
+	FullName string `json:"FullName,omitempty"`
 	// Field rectangle.
 	Rect *Rectangle `json:"Rect,omitempty"`
 	// Field value.

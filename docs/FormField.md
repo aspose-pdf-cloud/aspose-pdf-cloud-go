@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Links** | [**[]Link**](Link.md) | Link to the document. | [optional] [default to null]
 **PartialName** | **string** | Field name. | [optional] [default to null]
+**FullName** | **string** | Full Field name. | [optional] [default to null]
 **Rect** | [***Rectangle**](Rectangle.md) | Field rectangle. | [optional] [default to null]
 **Value** | **string** | Field value. | [optional] [default to null]
 **PageIndex** | **int32** | Page index. | [default to null]
