@@ -19,12 +19,13 @@
  *
  */
 package asposepdfcloud
-// PdfAType : Allows to specify PdfA file format.
-type PdfAType string
+// ImageEncoding : Image encoding type.
+type ImageEncoding string
 
-// List of PdfAType
+// List of ImageEncoding
 const (
-	PdfATypePDFA1A PdfAType = "PDFA1A"
-	PdfATypePDFA1B PdfAType = "PDFA1B"
-	PdfATypePDFA3A PdfAType = "PDFA3A"
+	ImageEncodingUnchanged ImageEncoding = "Unchanged"
+	ImageEncodingJpeg ImageEncoding = "Jpeg"
+	ImageEncodingFlate ImageEncoding = "Flate"
+	ImageEncodingJpeg2000 ImageEncoding = "Jpeg2000"
 )

@@ -175,7 +175,7 @@ func (c *APIClient) prepareRequest (
     
     // set custom header
     headerParams["x-aspose-client"] = "go sdk"
-    headerParams["x-aspose-client-version"] = "20.6.0"
+    headerParams["x-aspose-client-version"] = "20.7.0"
 
     // Detect postBody type and post.
     if postBody != nil {

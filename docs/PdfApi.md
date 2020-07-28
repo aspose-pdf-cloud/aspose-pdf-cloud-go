@@ -29,6 +29,7 @@ Method | HTTP request | Description
 [**DeleteStamp**](PdfApi.md#DeleteStamp) | **Delete** /pdf/{name}/stamps/{stampId} | Delete document stamp by ID
 [**DeleteTable**](PdfApi.md#DeleteTable) | **Delete** /pdf/{name}/tables/{tableId} | Delete document table by ID
 [**DownloadFile**](PdfApi.md#DownloadFile) | **Get** /pdf/storage/file/{path} | Download file
+[**GetApiInfo**](PdfApi.md#GetApiInfo) | **Get** /pdf/info | 
 [**GetBookmark**](PdfApi.md#GetBookmark) | **Get** /pdf/{name}/bookmarks/bookmark/{bookmarkPath} | Read document bookmark.
 [**GetBookmarks**](PdfApi.md#GetBookmarks) | **Get** /pdf/{name}/bookmarks/list/{bookmarkPath} | Read document bookmarks node list.
 [**GetCaretAnnotation**](PdfApi.md#GetCaretAnnotation) | **Get** /pdf/{name}/annotations/caret/{annotationId} | Read document page caret annotation by ID.
@@ -37,7 +38,7 @@ Method | HTTP request | Description
 [**GetComboBoxField**](PdfApi.md#GetComboBoxField) | **Get** /pdf/{name}/fields/combobox/{fieldName} | Read document combobox field by name.
 [**GetDiscUsage**](PdfApi.md#GetDiscUsage) | **Get** /pdf/storage/disc | Get disc usage
 [**GetDocument**](PdfApi.md#GetDocument) | **Get** /pdf/{name} | Read common document info.
-[**GetDocumentAnnotations**](PdfApi.md#GetDocumentAnnotations) | **Get** /pdf/{name}/annotations | Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
+[**GetDocumentAnnotations**](PdfApi.md#GetDocumentAnnotations) | **Get** /pdf/{name}/annotations | Read document page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
 [**GetDocumentAttachmentByIndex**](PdfApi.md#GetDocumentAttachmentByIndex) | **Get** /pdf/{name}/attachments/{attachmentIndex} | Read document attachment info by its index.
 [**GetDocumentAttachments**](PdfApi.md#GetDocumentAttachments) | **Get** /pdf/{name}/attachments | Read document attachments info.
 [**GetDocumentBookmarks**](PdfApi.md#GetDocumentBookmarks) | **Get** /pdf/{name}/bookmarks/tree | Read document bookmarks tree.
@@ -186,7 +187,7 @@ Method | HTTP request | Description
 [**GetVerifySignature**](PdfApi.md#GetVerifySignature) | **Get** /pdf/{name}/verifySignature | Verify signature document.
 [**GetWebInStorageToPdf**](PdfApi.md#GetWebInStorageToPdf) | **Get** /pdf/create/web | Convert web page to PDF format and return resulting file in response. 
 [**GetWordsPerPage**](PdfApi.md#GetWordsPerPage) | **Get** /pdf/{name}/pages/wordCount | Get number of words per document page.
-[**GetXfaPdfInStorageToAcroForm**](PdfApi.md#GetXfaPdfInStorageToAcroForm) | **Get** /pdf/{name}/convert/xfatoacroform | Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
+[**GetXfaPdfInStorageToAcroForm**](PdfApi.md#GetXfaPdfInStorageToAcroForm) | **Get** /pdf/{name}/convert/xfatoacroform | Converts PDF document which contains XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
 [**GetXmlInStorageToPdf**](PdfApi.md#GetXmlInStorageToPdf) | **Get** /pdf/create/xml | Convert XML file (located on storage) to PDF format and return resulting file in response. 
 [**GetXpsInStorageToPdf**](PdfApi.md#GetXpsInStorageToPdf) | **Get** /pdf/create/xps | Convert XPS file (located on storage) to PDF format and return resulting file in response. 
 [**GetXslFoInStorageToPdf**](PdfApi.md#GetXslFoInStorageToPdf) | **Get** /pdf/create/xslfo | Convert XslFo file (located on storage) to PDF format and return resulting file in response. 
@@ -359,8 +360,8 @@ Method | HTTP request | Description
 [**PutUpdateField**](PdfApi.md#PutUpdateField) | **Put** /pdf/{name}/fields/{fieldName} | Update field.
 [**PutUpdateFields**](PdfApi.md#PutUpdateFields) | **Put** /pdf/{name}/fields | Update fields.
 [**PutWebInStorageToPdf**](PdfApi.md#PutWebInStorageToPdf) | **Put** /pdf/{name}/create/web | Convert web page to PDF format and upload resulting file to storage. 
-[**PutXfaPdfInRequestToAcroForm**](PdfApi.md#PutXfaPdfInRequestToAcroForm) | **Put** /pdf/convert/xfatoacroform | Converts PDF document which contatins XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
-[**PutXfaPdfInStorageToAcroForm**](PdfApi.md#PutXfaPdfInStorageToAcroForm) | **Put** /pdf/{name}/convert/xfatoacroform | Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
+[**PutXfaPdfInRequestToAcroForm**](PdfApi.md#PutXfaPdfInRequestToAcroForm) | **Put** /pdf/convert/xfatoacroform | Converts PDF document which contains XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
+[**PutXfaPdfInStorageToAcroForm**](PdfApi.md#PutXfaPdfInStorageToAcroForm) | **Put** /pdf/{name}/convert/xfatoacroform | Converts PDF document which contains XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
 [**PutXmlInStorageToPdf**](PdfApi.md#PutXmlInStorageToPdf) | **Put** /pdf/{name}/create/xml | Convert XML file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutXpsInStorageToPdf**](PdfApi.md#PutXpsInStorageToPdf) | **Put** /pdf/{name}/create/xps | Convert XPS file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutXslFoInStorageToPdf**](PdfApi.md#PutXslFoInStorageToPdf) | **Put** /pdf/{name}/create/xslfo | Convert XslFo file (located on storage) to PDF format and upload resulting file to storage. 
@@ -1173,6 +1174,24 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetApiInfo**
+> ApiInfo GetApiInfo()
+
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ApiInfo**](ApiInfo.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetBookmark**
 > BookmarkResponse GetBookmark(name, bookmarkPath, optional)
 Read document bookmark.
@@ -1432,7 +1451,7 @@ Name | Type | Description  | Notes
 
 # **GetDocumentAnnotations**
 > AnnotationsInfoResponse GetDocumentAnnotations(name, optional)
-Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
+Read document page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
 
 ### Required Parameters
 
@@ -6336,7 +6355,7 @@ Name | Type | Description  | Notes
 
 # **GetXfaPdfInStorageToAcroForm**
 > []byte GetXfaPdfInStorageToAcroForm(name, optional)
-Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
+Converts PDF document which contains XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
 
 ### Required Parameters
 
@@ -7676,7 +7695,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
   **pageNumber** | **int32**| The page number. | 
-  **links** | [**[]LinkAnnotation**](LinkAnnotation.md)| Array of link anotation. | 
+  **links** | [**[]LinkAnnotation**](LinkAnnotation.md)| Array of link annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -7686,7 +7705,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **pageNumber** | **int32**| The page number. | 
- **links** | [**[]LinkAnnotation**](LinkAnnotation.md)| Array of link anotation. | 
+ **links** | [**[]LinkAnnotation**](LinkAnnotation.md)| Array of link annotation. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -8860,7 +8879,7 @@ Name | Type | Description  | Notes
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.doc) | 
  **password** | **string**| The password (encrypted Base64). | 
  **storage** | **string**| The document storage. | 
- **file** | ***os.File**| A file to be derypted. | 
+ **file** | ***os.File**| A file to be decrypted. | 
 
 ### Return type
 
@@ -9821,7 +9840,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
   **linkId** | **string**| The link ID. | 
-  **link** | [**LinkAnnotation**](LinkAnnotation.md)| Link anotation. | 
+  **link** | [**LinkAnnotation**](LinkAnnotation.md)| Link annotation. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -9831,7 +9850,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **linkId** | **string**| The link ID. | 
- **link** | [**LinkAnnotation**](LinkAnnotation.md)| Link anotation. | 
+ **link** | [**LinkAnnotation**](LinkAnnotation.md)| Link annotation. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
 
@@ -9922,7 +9941,7 @@ Merge a list of documents.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**| Resulting documen name. | 
+ **name** | **string**| Resulting document name. | 
   **mergeDocuments** | [**MergeDocuments**](MergeDocuments.md)| MergeDocuments with a list of documents. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -9931,7 +9950,7 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**| Resulting documen name. | 
+ **name** | **string**| Resulting document name. | 
  **mergeDocuments** | [**MergeDocuments**](MergeDocuments.md)| MergeDocuments with a list of documents. | 
  **storage** | **string**| Resulting document storage. | 
  **folder** | **string**| Resulting document folder. | 
@@ -12384,7 +12403,7 @@ Name | Type | Description  | Notes
 
 # **PutXfaPdfInRequestToAcroForm**
 > AsposeResponse PutXfaPdfInRequestToAcroForm(outPath, optional)
-Converts PDF document which contatins XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
+Converts PDF document which contains XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
 
 ### Required Parameters
 
@@ -12415,7 +12434,7 @@ Name | Type | Description  | Notes
 
 # **PutXfaPdfInStorageToAcroForm**
 > AsposeResponse PutXfaPdfInStorageToAcroForm(name, outPath, optional)
-Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
+Converts PDF document which contains XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
 
 ### Required Parameters
 

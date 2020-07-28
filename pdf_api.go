@@ -1973,6 +1973,66 @@ func (a *PdfApiService) DownloadFile(path string, localVarOptionals map[string]i
 	return successPayload, localVarHttpResponse, err
 }
 
+/* PdfApiService 
+ @return ApiInfo*/
+func (a *PdfApiService) GetApiInfo() (ApiInfo,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload ApiInfo
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/pdf/info"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _url.Values{}
+	localVarFormParams := _url.Values{}
+
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	defer localVarHttpResponse.Body.Close()
+	if localVarHttpResponse.StatusCode >= 300 {
+		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
+	}
+    
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
 /* PdfApiService Read document bookmark.
  @param name The document name.
  @param bookmarkPath The bookmark path.
@@ -2592,7 +2652,7 @@ func (a *PdfApiService) GetDocument(name string, localVarOptionals map[string]in
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PdfApiService Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
+/* PdfApiService Read document page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
@@ -14947,7 +15007,7 @@ func (a *PdfApiService) GetWordsPerPage(name string, localVarOptionals map[strin
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PdfApiService Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
+/* PdfApiService Converts PDF document which contains XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
  @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
@@ -18227,7 +18287,7 @@ func (a *PdfApiService) PostPageLineAnnotations(name string, pageNumber int32, a
 /* PdfApiService Add document page link annotations.
  @param name The document name.
  @param pageNumber The page number.
- @param links Array of link anotation.
+ @param links Array of link annotation.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
@@ -21033,7 +21093,7 @@ func (a *PdfApiService) PutCreateDocument(name string, localVarOptionals map[str
  @param password The password (encrypted Base64).
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
-     @param "file" (*os.File) A file to be derypted.
+     @param "file" (*os.File) A file to be decrypted.
  @return AsposeResponse*/
 func (a *PdfApiService) PutDecryptDocument(outPath string, password string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
@@ -23512,7 +23572,7 @@ func (a *PdfApiService) PutLineAnnotation(name string, annotationId string, anno
 /* PdfApiService Replace document page link annotations
  @param name The document name.
  @param linkId The link ID.
- @param link Link anotation.
+ @param link Link annotation.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
@@ -23753,7 +23813,7 @@ func (a *PdfApiService) PutMarkdownInStorageToPdf(name string, srcPath string, l
 }
 
 /* PdfApiService Merge a list of documents.
- @param name Resulting documen name.
+ @param name Resulting document name.
  @param mergeDocuments MergeDocuments with a list of documents.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) Resulting document storage.
@@ -30424,7 +30484,7 @@ func (a *PdfApiService) PutWebInStorageToPdf(name string, url string, localVarOp
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PdfApiService Converts PDF document which contatins XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
+/* PdfApiService Converts PDF document which contains XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.pdf)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
@@ -30505,7 +30565,7 @@ func (a *PdfApiService) PutXfaPdfInRequestToAcroForm(outPath string, localVarOpt
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PdfApiService Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
+/* PdfApiService Converts PDF document which contains XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
  @param name The document name.
  @param outPath Full resulting filename (ex. /folder1/folder2/result.pdf)
  @param optional (nil or map[string]interface{}) with one or more of:
