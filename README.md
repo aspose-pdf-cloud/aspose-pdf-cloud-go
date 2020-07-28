@@ -1,6 +1,6 @@
 # Aspose.PDF Cloud
 - API version: 3.0
-- Package version: 20.6.0
+- Package version: 20.7.0
 
 [Aspose.PDF Cloud](https://products.aspose.cloud/pdf) is a true REST API that enables you to perform a wide range of document processing operations including creation, manipulation, conversion and rendering of PDF documents in the cloud.
 
@@ -78,6 +78,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**DeleteStamp**](docs/PdfApi.md#deletestamp) | **Delete** /pdf/{name}/stamps/{stampId} | Delete document stamp by ID
 *PdfApi* | [**DeleteTable**](docs/PdfApi.md#deletetable) | **Delete** /pdf/{name}/tables/{tableId} | Delete document table by ID
 *PdfApi* | [**DownloadFile**](docs/PdfApi.md#downloadfile) | **Get** /pdf/storage/file/{path} | Download file
+*PdfApi* | [**GetApiInfo**](docs/PdfApi.md#getapiinfo) | **Get** /pdf/info | 
 *PdfApi* | [**GetBookmark**](docs/PdfApi.md#getbookmark) | **Get** /pdf/{name}/bookmarks/bookmark/{bookmarkPath} | Read document bookmark.
 *PdfApi* | [**GetBookmarks**](docs/PdfApi.md#getbookmarks) | **Get** /pdf/{name}/bookmarks/list/{bookmarkPath} | Read document bookmarks node list.
 *PdfApi* | [**GetCaretAnnotation**](docs/PdfApi.md#getcaretannotation) | **Get** /pdf/{name}/annotations/caret/{annotationId} | Read document page caret annotation by ID.
@@ -86,7 +87,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetComboBoxField**](docs/PdfApi.md#getcomboboxfield) | **Get** /pdf/{name}/fields/combobox/{fieldName} | Read document combobox field by name.
 *PdfApi* | [**GetDiscUsage**](docs/PdfApi.md#getdiscusage) | **Get** /pdf/storage/disc | Get disc usage
 *PdfApi* | [**GetDocument**](docs/PdfApi.md#getdocument) | **Get** /pdf/{name} | Read common document info.
-*PdfApi* | [**GetDocumentAnnotations**](docs/PdfApi.md#getdocumentannotations) | **Get** /pdf/{name}/annotations | Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
+*PdfApi* | [**GetDocumentAnnotations**](docs/PdfApi.md#getdocumentannotations) | **Get** /pdf/{name}/annotations | Read document page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
 *PdfApi* | [**GetDocumentAttachmentByIndex**](docs/PdfApi.md#getdocumentattachmentbyindex) | **Get** /pdf/{name}/attachments/{attachmentIndex} | Read document attachment info by its index.
 *PdfApi* | [**GetDocumentAttachments**](docs/PdfApi.md#getdocumentattachments) | **Get** /pdf/{name}/attachments | Read document attachments info.
 *PdfApi* | [**GetDocumentBookmarks**](docs/PdfApi.md#getdocumentbookmarks) | **Get** /pdf/{name}/bookmarks/tree | Read document bookmarks tree.
@@ -235,7 +236,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**GetVerifySignature**](docs/PdfApi.md#getverifysignature) | **Get** /pdf/{name}/verifySignature | Verify signature document.
 *PdfApi* | [**GetWebInStorageToPdf**](docs/PdfApi.md#getwebinstoragetopdf) | **Get** /pdf/create/web | Convert web page to PDF format and return resulting file in response. 
 *PdfApi* | [**GetWordsPerPage**](docs/PdfApi.md#getwordsperpage) | **Get** /pdf/{name}/pages/wordCount | Get number of words per document page.
-*PdfApi* | [**GetXfaPdfInStorageToAcroForm**](docs/PdfApi.md#getxfapdfinstoragetoacroform) | **Get** /pdf/{name}/convert/xfatoacroform | Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
+*PdfApi* | [**GetXfaPdfInStorageToAcroForm**](docs/PdfApi.md#getxfapdfinstoragetoacroform) | **Get** /pdf/{name}/convert/xfatoacroform | Converts PDF document which contains XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
 *PdfApi* | [**GetXmlInStorageToPdf**](docs/PdfApi.md#getxmlinstoragetopdf) | **Get** /pdf/create/xml | Convert XML file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**GetXpsInStorageToPdf**](docs/PdfApi.md#getxpsinstoragetopdf) | **Get** /pdf/create/xps | Convert XPS file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**GetXslFoInStorageToPdf**](docs/PdfApi.md#getxslfoinstoragetopdf) | **Get** /pdf/create/xslfo | Convert XslFo file (located on storage) to PDF format and return resulting file in response. 
@@ -408,8 +409,8 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**PutUpdateField**](docs/PdfApi.md#putupdatefield) | **Put** /pdf/{name}/fields/{fieldName} | Update field.
 *PdfApi* | [**PutUpdateFields**](docs/PdfApi.md#putupdatefields) | **Put** /pdf/{name}/fields | Update fields.
 *PdfApi* | [**PutWebInStorageToPdf**](docs/PdfApi.md#putwebinstoragetopdf) | **Put** /pdf/{name}/create/web | Convert web page to PDF format and upload resulting file to storage. 
-*PdfApi* | [**PutXfaPdfInRequestToAcroForm**](docs/PdfApi.md#putxfapdfinrequesttoacroform) | **Put** /pdf/convert/xfatoacroform | Converts PDF document which contatins XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
-*PdfApi* | [**PutXfaPdfInStorageToAcroForm**](docs/PdfApi.md#putxfapdfinstoragetoacroform) | **Put** /pdf/{name}/convert/xfatoacroform | Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
+*PdfApi* | [**PutXfaPdfInRequestToAcroForm**](docs/PdfApi.md#putxfapdfinrequesttoacroform) | **Put** /pdf/convert/xfatoacroform | Converts PDF document which contains XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
+*PdfApi* | [**PutXfaPdfInStorageToAcroForm**](docs/PdfApi.md#putxfapdfinstoragetoacroform) | **Put** /pdf/{name}/convert/xfatoacroform | Converts PDF document which contains XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
 *PdfApi* | [**PutXmlInStorageToPdf**](docs/PdfApi.md#putxmlinstoragetopdf) | **Put** /pdf/{name}/create/xml | Convert XML file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**PutXpsInStorageToPdf**](docs/PdfApi.md#putxpsinstoragetopdf) | **Put** /pdf/{name}/create/xps | Convert XPS file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**PutXslFoInStorageToPdf**](docs/PdfApi.md#putxslfoinstoragetopdf) | **Put** /pdf/{name}/create/xslfo | Convert XslFo file (located on storage) to PDF format and upload resulting file to storage. 
@@ -423,6 +424,7 @@ Class | Method | HTTP request | Description
  - [AnnotationState](docs/AnnotationState.md)
  - [AnnotationType](docs/AnnotationType.md)
  - [AntialiasingProcessingType](docs/AntialiasingProcessingType.md)
+ - [ApiInfo](docs/ApiInfo.md)
  - [AsposeResponse](docs/AsposeResponse.md)
  - [Border](docs/Border.md)
  - [BorderCornerStyle](docs/BorderCornerStyle.md)
@@ -464,6 +466,8 @@ Class | Method | HTTP request | Description
  - [HorizontalAlignment](docs/HorizontalAlignment.md)
  - [HtmlDocumentType](docs/HtmlDocumentType.md)
  - [HtmlMarkupGenerationModes](docs/HtmlMarkupGenerationModes.md)
+ - [ImageCompressionVersion](docs/ImageCompressionVersion.md)
+ - [ImageEncoding](docs/ImageEncoding.md)
  - [ImageFragment](docs/ImageFragment.md)
  - [ImageSrcType](docs/ImageSrcType.md)
  - [ImageTemplate](docs/ImageTemplate.md)

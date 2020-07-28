@@ -19,12 +19,11 @@
  *
  */
 package asposepdfcloud
-// PdfAType : Allows to specify PdfA file format.
-type PdfAType string
 
-// List of PdfAType
-const (
-	PdfATypePDFA1A PdfAType = "PDFA1A"
-	PdfATypePDFA1B PdfAType = "PDFA1B"
-	PdfATypePDFA3A PdfAType = "PDFA3A"
-)
+// Represents response for ApiInfo  DTO
+type ApiInfo struct {
+	// Product name.
+	Name string `json:"Name,omitempty"`
+	// API version.
+	Version string `json:"Version,omitempty"`
+}

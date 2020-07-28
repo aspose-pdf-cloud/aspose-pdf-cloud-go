@@ -19,12 +19,12 @@
  *
  */
 package asposepdfcloud
-// PdfAType : Allows to specify PdfA file format.
-type PdfAType string
+// ImageCompressionVersion : Describes versions of image compression algorithm.
+type ImageCompressionVersion string
 
-// List of PdfAType
+// List of ImageCompressionVersion
 const (
-	PdfATypePDFA1A PdfAType = "PDFA1A"
-	PdfATypePDFA1B PdfAType = "PDFA1B"
-	PdfATypePDFA3A PdfAType = "PDFA3A"
+	ImageCompressionVersionStandard ImageCompressionVersion = "Standard"
+	ImageCompressionVersionFast ImageCompressionVersion = "Fast"
+	ImageCompressionVersionMixed ImageCompressionVersion = "Mixed"
 )
