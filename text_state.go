@@ -1,4 +1,4 @@
- /**
+ /*
  *
  *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,7 +24,7 @@ package asposepdfcloud
 type TextState struct {
 	// Gets or sets font size of the text.
 	FontSize float64 `json:"FontSize"`
-	// Gets or sets font of the text.
+	// Gets or sets font name of the text.
 	Font string `json:"Font,omitempty"`
 	// Gets or sets foreground color of the text.
 	ForegroundColor *Color `json:"ForegroundColor,omitempty"`
@@ -32,4 +32,6 @@ type TextState struct {
 	BackgroundColor *Color `json:"BackgroundColor,omitempty"`
 	// Sets font style of the text.
 	FontStyle FontStyles `json:"FontStyle"`
+	// Sets path of font file in storage.
+	FontFile string `json:"FontFile,omitempty"`
 }

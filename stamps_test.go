@@ -146,7 +146,7 @@ func TestPostPageTextStamps(t *testing.T) {
 		Zoom: 1,
 		TextAlignment: HorizontalAlignmentCenter,
 		Value: "Text Stamp",
-		TextState: &TextState{FontSize: 14, FontStyle: FontStylesRegular},
+		TextState: &TextState{FontSize: 14, FontStyle: FontStylesRegular, Font: "Arial"},
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostPageTextStamps(name, pageNumber, []TextStamp{stamp}, args)

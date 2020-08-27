@@ -89,6 +89,12 @@ func TestPutAddText(t *testing.T) {
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
+
+	fontName := "Righteous-Regular.ttf"
+	if err := GetBaseTest().UploadFile(fontName); err != nil {
+		t.Error(err)
+	}
+
 	pageNumber := int32(1)
 	paragraph := Paragraph {
 		Rectangle: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
@@ -115,6 +121,7 @@ func TestPutAddText(t *testing.T) {
 							ForegroundColor: &Color {A: 0x00, R: 0x00, G: 0xFF, B: 0x00 },
 							BackgroundColor: &Color {A: 0x00, R: 0xFF, G: 0x00, B: 0x00},
 							FontStyle: FontStylesBold,
+							FontFile: GetBaseTest().remoteFolder + "/" + fontName,
 						},
 					},
 				},

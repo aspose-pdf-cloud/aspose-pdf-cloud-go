@@ -1,4 +1,4 @@
- /**
+ /*
  *
  *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -175,7 +175,7 @@ func (c *APIClient) prepareRequest (
     
     // set custom header
     headerParams["x-aspose-client"] = "go sdk"
-    headerParams["x-aspose-client-version"] = "20.7.0"
+    headerParams["x-aspose-client-version"] = "20.8.0"
 
     // Detect postBody type and post.
     if postBody != nil {
