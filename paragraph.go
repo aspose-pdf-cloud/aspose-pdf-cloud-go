@@ -1,4 +1,4 @@
- /**
+ /*
  *
  *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,7 +26,7 @@ type Paragraph struct {
 	LineSpacing LineSpacing `json:"LineSpacing,omitempty"`
 	// Word wrap mode.
 	WrapMode WrapMode `json:"WrapMode,omitempty"`
-	// Horizontal alignment for the text inside paragrph's rectangle.
+	// Horizontal alignment for the text inside paragraph's rectangle.
 	HorizontalAlignment TextHorizontalAlignment `json:"HorizontalAlignment,omitempty"`
 	// Left margin.
 	LeftMargin float64 `json:"LeftMargin,omitempty"`
@@ -42,7 +42,7 @@ type Paragraph struct {
 	Rotation float64 `json:"Rotation,omitempty"`
 	// Subsequent lines indent value.
 	SubsequentLinesIndent float64 `json:"SubsequentLinesIndent,omitempty"`
-	// Vertical alignment for the text inside paragrph's rectangle
+	// Vertical alignment for the text inside paragraph's rectangle
 	VerticalAlignment VerticalAlignment `json:"VerticalAlignment,omitempty"`
 	// An array of text lines.
 	Lines []TextLine `json:"Lines"`

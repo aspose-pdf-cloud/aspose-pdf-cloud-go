@@ -53,7 +53,7 @@ func TestPostDocumentTextHeader(t *testing.T) {
 		YIndent: 0,
 		Zoom: 1,
 		Value: "Header",
-		TextState: &TextState{FontSize: 14, FontStyle: FontStylesRegular},
+		TextState: &TextState{FontSize: 14, Font: "Arial", FontStyle: FontStylesRegular},
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentTextHeader(name, header, args)
@@ -94,7 +94,7 @@ func TestPostDocumentTextFooter(t *testing.T) {
 		YIndent: 0,
 		Zoom: 1,
 		Value: "Header",
-		TextState: &TextState{FontSize: 14, FontStyle: FontStylesRegular},
+		TextState: &TextState{FontSize: 14, Font: "Arial", FontStyle: FontStylesRegular},
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentTextFooter(name, footer, args)
