@@ -30,4 +30,6 @@ type TextStyle struct {
 	ForegroundColor *Color `json:"ForegroundColor,omitempty"`
 	// Sets background color of the text.
 	BackgroundColor *Color `json:"BackgroundColor,omitempty"`
+	// Sets path of font file in storage.
+	FontFile string `json:"FontFile,omitempty"`
 }

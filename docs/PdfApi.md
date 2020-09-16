@@ -7883,6 +7883,7 @@ Name | Type | Description  | Notes
  **annotations** | [**[]RedactionAnnotation**](RedactionAnnotation.md)| The array of annotation. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
+ **apply** | **bool**| Apply redaction immediately after adding. | [default to false]
 
 ### Return type
 
@@ -11615,6 +11616,7 @@ Name | Type | Description  | Notes
  **annotation** | [**RedactionAnnotation**](RedactionAnnotation.md)| Annotation. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
+ **apply** | **bool**| Apply redaction immediately after adding. | [default to false]
 
 ### Return type
 

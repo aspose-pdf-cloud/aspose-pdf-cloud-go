@@ -20,7 +20,7 @@
  */
 package asposepdfcloud
 
-// An abstract class which represents signature custon appearance object.
+// An abstract class which represents signature custom appearance object.
 type SignatureCustomAppearance struct {
 	// Gets/sets font family name. It should be existed in the document. Default value: Arial.
 	FontFamilyName string `json:"FontFamilyName,omitempty"`
