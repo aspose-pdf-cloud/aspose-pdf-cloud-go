@@ -54,7 +54,7 @@ type RedactionAnnotation struct {
 	BorderColor *Color `json:"BorderColor,omitempty"`
 	// Text to print on redact annotation.
 	OverlayText string `json:"OverlayText,omitempty"`
-	// If true overlay text will be repated on the annotation. 
+	// If true overlay text will be repeated on the annotation. 
 	Repeat bool `json:"Repeat,omitempty"`
 	// Gets or sets. Alignment of Overlay Text.
 	TextAlignment HorizontalAlignment `json:"TextAlignment,omitempty"`

@@ -18701,6 +18701,7 @@ func (a *PdfApiService) PostPagePolygonAnnotations(name string, pageNumber int32
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
+     @param "apply" (bool) Apply redaction immediately after adding.
  @return AsposeResponse*/
 func (a *PdfApiService) PostPageRedactionAnnotations(name string, pageNumber int32, annotations []RedactionAnnotation, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
@@ -18726,12 +18727,18 @@ func (a *PdfApiService) PostPageRedactionAnnotations(name string, pageNumber int
 	if err := typeCheckParameter(localVarOptionals["folder"], "string", "folder"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["apply"], "bool", "apply"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["apply"].(bool); localVarOk {
+		localVarQueryParams.Add("apply", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -28498,6 +28505,7 @@ func (a *PdfApiService) PutRadioButtonField(name string, fieldName string, field
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
+     @param "apply" (bool) Apply redaction immediately after adding.
  @return RedactionAnnotationResponse*/
 func (a *PdfApiService) PutRedactionAnnotation(name string, annotationId string, annotation RedactionAnnotation, localVarOptionals map[string]interface{}) (RedactionAnnotationResponse,  *http.Response, error) {
 	var (
@@ -28523,12 +28531,18 @@ func (a *PdfApiService) PutRedactionAnnotation(name string, annotationId string,
 	if err := typeCheckParameter(localVarOptionals["folder"], "string", "folder"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["apply"], "bool", "apply"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["apply"].(bool); localVarOk {
+		localVarQueryParams.Add("apply", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }

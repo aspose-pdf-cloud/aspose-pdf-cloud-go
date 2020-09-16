@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **FillColor** | [***Color**](Color.md) | Gets or sets color to fill annotation. | [optional] [default to null]
 **BorderColor** | [***Color**](Color.md) | Gets or sets color of border which is drawn when redaction is not active. | [optional] [default to null]
 **OverlayText** | **string** | Text to print on redact annotation. | [optional] [default to null]
-**Repeat** | **bool** | If true overlay text will be repated on the annotation.  | [optional] [default to null]
+**Repeat** | **bool** | If true overlay text will be repeated on the annotation.  | [optional] [default to null]
 **TextAlignment** | [***HorizontalAlignment**](HorizontalAlignment.md) | Gets or sets. Alignment of Overlay Text. | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)[[View Source]](../redaction_annotation.go)
