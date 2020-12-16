@@ -1,4 +1,4 @@
- /**
+/**
  *
  *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -18,51 +18,52 @@
  * SOFTWARE.
  *
  */
-package asposepdfcloud
+ package asposepdfcloud
 
-import (
-	"os"
-)
-var BaseTestInstance *BaseTest
-
-type BaseTest struct {
-	remoteFolder string
-	localTestDataFolder string
-	PdfAPI *PdfApiService
-	TestNumber int
-}
-
-func (bt *BaseTest) UploadFile(name string) (err error) {
-	args := make(map[string]interface{}) 
-
-	file, err := os.Open(bt.localTestDataFolder + "/" + name) 
-	if err != nil {
-		return err
-	}
-
-	_, _, err = GetBaseTest().PdfAPI.UploadFile(GetBaseTest().remoteFolder + "/" + name, file, args)
-	return err
-}
-
-func (bt *BaseTest) GetTestNumber() int {
-	bt.TestNumber++
-	return bt.TestNumber
-}
-
-func NewBaseTest() *BaseTest {
-	bt := &BaseTest{
-		remoteFolder: "TempPdfCloud",
-		localTestDataFolder: "test_data",
-		TestNumber: 0,
-		// Get App key and App SID from https://aspose.cloud
-		PdfAPI: NewPdfApiService("AppSid", "AppKey", "https://api-qa.aspose.cloud/v3.0"),
-	}
-	return bt
-}
-
-func GetBaseTest() *BaseTest {
-	if BaseTestInstance == nil {
-		BaseTestInstance = NewBaseTest()
-	}
-	return BaseTestInstance
-}
+ import (
+	 "os"
+ )
+ var BaseTestInstance *BaseTest
+ 
+ type BaseTest struct {
+	 remoteFolder string
+	 localTestDataFolder string
+	 PdfAPI *PdfApiService
+	 TestNumber int
+ }
+ 
+ func (bt *BaseTest) UploadFile(name string) (err error) {
+	 args := make(map[string]interface{}) 
+ 
+	 file, err := os.Open(bt.localTestDataFolder + "/" + name) 
+	 if err != nil {
+		 return err
+	 }
+ 
+	 _, _, err = GetBaseTest().PdfAPI.UploadFile(GetBaseTest().remoteFolder + "/" + name, file, args)
+	 return err
+ }
+ 
+ func (bt *BaseTest) GetTestNumber() int {
+	 bt.TestNumber++
+	 return bt.TestNumber
+ }
+ 
+ func NewBaseTest() *BaseTest {
+	 bt := &BaseTest{
+		 remoteFolder: "TempPdfCloud",
+		 localTestDataFolder: "test_data",
+		 TestNumber: 0,
+		 // Get App key and App SID from https://aspose.cloud
+		 PdfAPI: NewPdfApiService("AppSid", "AppKey", "https://api-qa.aspose.cloud/v3.0"),
+	 }
+	 return bt
+ }
+ 
+ func GetBaseTest() *BaseTest {
+	 if BaseTestInstance == nil {
+		 BaseTestInstance = NewBaseTest()
+	 }
+	 return BaseTestInstance
+ }
+ 
