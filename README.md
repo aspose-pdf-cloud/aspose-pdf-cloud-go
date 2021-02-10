@@ -1,6 +1,7 @@
 ![](https://img.shields.io/badge/api-v3.0-lightgrey) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aspose-words-cloud/aspose-words-cloud-go)   [![GitHub license](https://img.shields.io/github/license/aspose-pdf-cloud/aspose-pdf-cloud-go)](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/blob/master/LICENSE)
 
-# Go REST API to Process PDF in Cloud
+
+# Go SDK for Aspose.PDF Cloud REST API
 [Aspose.PDF Cloud](https://products.aspose.cloud/pdf) is a true REST API that enables you to perform a wide range of document processing operations including creation, manipulation, conversion and rendering of PDF documents in the cloud.
 
 Our Cloud SDKs are wrappers around REST API in various programming languages, allowing you to process documents in language of your choice quickly and easily, gaining all benefits of strong types and IDE highlights. This repository contains new generation SDKs for Aspose.PDF Cloud and examples.
@@ -13,7 +14,12 @@ Extract Text & Images of a PDF document online https://products.aspose.app/pdf/p
 Put the package under your project folder and add the following in import:
 ```
     "./asposepdfcloud"
-```## Get PDF Page Circle Annotations in GO
+```
+
+## Getting Started
+
+Please follow the [installation](#installation) instruction and execute the following Java code:
+## Get PDF Page Circle Annotations in GO
 
 ```
 	// Get your ClientId and ClientSecret from https://dashboard.aspose.cloud (free registration required).
@@ -28,7 +34,6 @@ Put the package under your project folder and add the following in import:
 
 	return pdfAPI.GetDocumentCircleAnnotations(name, args)
 ```
-
 
 ## Unit Tests
 Aspose PDF Cloud SDK includes a suite of unit tests within the "test" subdirectory. These Unit Tests also serves as examples of how to use the Aspose PDF Cloud SDK.
@@ -689,7 +694,6 @@ Class | Method | HTTP request | Description
  - [PolyLineAnnotation](docs/PolyLineAnnotation.md)
  - [PolygonAnnotation](docs/PolygonAnnotation.md)
  - [SquareAnnotation](docs/SquareAnnotation.md)
-
 
  ## Aspose.PDF Cloud SDKs in Popular Languages
 
