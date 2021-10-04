@@ -28,3 +28,4 @@ api
 
 # IDE
 .vscode
+*.url
