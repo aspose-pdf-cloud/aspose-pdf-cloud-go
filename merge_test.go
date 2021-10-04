@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,16 +18,16 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
 
- import (
-	 "fmt"
-	 "testing"
- )
+import (
+	"fmt"
+	"testing"
+)
 
- func TestPutMergeDocuments(t *testing.T) {
+func TestPutMergeDocuments(t *testing.T) {
 
-	names := []string { "4pages.pdf", "PdfWithImages2.pdf", "marketing.pdf" }
+	names := []string{"4pages.pdf", "PdfWithImages2.pdf", "marketing.pdf"}
 	resultName := "MergingResult.pdf"
 
 	mergeDocuments := MergeDocuments{
@@ -38,11 +38,11 @@
 		if err := GetBaseTest().UploadFile(name); err != nil {
 			t.Error(err)
 		}
-		mergeDocuments.List = append(mergeDocuments.List, GetBaseTest().remoteFolder + "/" + name)
+		mergeDocuments.List = append(mergeDocuments.List, GetBaseTest().remoteFolder+"/"+name)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutMergeDocuments(resultName, mergeDocuments, args)

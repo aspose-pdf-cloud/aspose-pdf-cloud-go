@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,23 +18,23 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
 
- import (
-	 "fmt"
-	 "testing"
- )
- 
- func TestGetDocumentScreenAnnotations(t *testing.T) {
+import (
+	"fmt"
+	"testing"
+)
 
-	name := "PdfWithScreenAnnotations.pdf"	
-	
+func TestGetDocumentScreenAnnotations(t *testing.T) {
+
+	name := "PdfWithScreenAnnotations.pdf"
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentScreenAnnotations(name, args)
@@ -49,14 +49,14 @@
 
 func TestGetPageScreenAnnotations(t *testing.T) {
 
-	name := "PdfWithScreenAnnotations.pdf"	
+	name := "PdfWithScreenAnnotations.pdf"
 	var pageNumber int32 = 2
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageScreenAnnotations(name, pageNumber, args)
@@ -70,15 +70,15 @@ func TestGetPageScreenAnnotations(t *testing.T) {
 }
 
 func TestGetScreenAnnotation(t *testing.T) {
- 
+
 	name := "PdfWithScreenAnnotations.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentScreenAnnotations(name, args)
@@ -91,7 +91,7 @@ func TestGetScreenAnnotation(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestGetScreenAnnotation - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
@@ -99,7 +99,7 @@ func TestGetScreenAnnotation(t *testing.T) {
 
 func TestPostPageScreenAnnotations(t *testing.T) {
 
-	name := "PdfWithScreenAnnotations.pdf"	
+	name := "PdfWithScreenAnnotations.pdf"
 	var pageNumber int32 = 2
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
@@ -110,21 +110,20 @@ func TestPostPageScreenAnnotations(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	annotation := ScreenAnnotation {
-		Name: "Name",
-		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
-		Flags: []AnnotationFlags{AnnotationFlagsDefault},
+	annotation := ScreenAnnotation{
+		Name:                "Name",
+		Rect:                &Rectangle{LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Flags:               []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		ZIndex: 1,
-		Title: "Title",
-		FilePath: GetBaseTest().remoteFolder + "/" + attachmentFile,
-		Modified: "02/02/2018 12:00:00.000 AM",
+		ZIndex:              1,
+		Title:               "Title",
+		FilePath:            GetBaseTest().remoteFolder + "/" + attachmentFile,
+		Modified:            "02/02/2018 12:00:00.000 AM",
 	}
-
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostPageScreenAnnotations(name, pageNumber, []ScreenAnnotation{annotation}, args)
 	if err != nil {
@@ -148,19 +147,19 @@ func TestPutScreenAnnotation(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	annotation := ScreenAnnotation {
-		Name: "Name Updated",
-		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
-		Flags: []AnnotationFlags{AnnotationFlagsDefault},
+	annotation := ScreenAnnotation{
+		Name:                "Name Updated",
+		Rect:                &Rectangle{LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Flags:               []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		ZIndex: 1,
-		Title: "Title Updated",
-		FilePath: GetBaseTest().remoteFolder + "/" + attachmentFile,
-		Modified: "02/02/2018 12:01:02.000 AM",
+		ZIndex:              1,
+		Title:               "Title Updated",
+		FilePath:            GetBaseTest().remoteFolder + "/" + attachmentFile,
+		Modified:            "02/02/2018 12:01:02.000 AM",
 	}
 
 	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentScreenAnnotations(name, args)
@@ -180,15 +179,15 @@ func TestPutScreenAnnotation(t *testing.T) {
 }
 
 func TestGetScreenAnnotationData(t *testing.T) {
- 
+
 	name := "PdfWithScreenAnnotations.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentScreenAnnotations(name, args)
@@ -201,22 +200,22 @@ func TestGetScreenAnnotationData(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestGetScreenAnnotationData - %db\n", GetBaseTest().GetTestNumber(), len(response))
 	}
 }
 
 func TestPutScreenAnnotationDataExtract(t *testing.T) {
- 
+
 	name := "PdfWithScreenAnnotations.pdf"
 	outFilePath := GetBaseTest().remoteFolder + "/screen.dat"
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentScreenAnnotations(name, args)
@@ -229,7 +228,7 @@ func TestPutScreenAnnotationDataExtract(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestGetScreenAnnotation - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}

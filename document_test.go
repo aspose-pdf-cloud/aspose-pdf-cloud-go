@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -17,7 +17,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
-*/
+ */
 package asposepdfcloud
 
 import (
@@ -28,13 +28,13 @@ import (
 func TestGetDocument(t *testing.T) {
 
 	name := "4pages.pdf"
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocument(name, args)
@@ -50,23 +50,23 @@ func TestGetDocument(t *testing.T) {
 func TestPostOptimizeDocument(t *testing.T) {
 
 	name := "4pages.pdf"
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	optimizeOptions := OptimizeOptions {
+	optimizeOptions := OptimizeOptions{
 		AllowReusePageContent: false,
-		CompressImages: true,
-		ImageQuality: int32(100),
-		LinkDuplcateStreams: true,
-		RemoveUnusedObjects: true,
-		RemoveUnusedStreams: true,
-		UnembedFonts: true,
+		CompressImages:        true,
+		ImageQuality:          int32(100),
+		LinkDuplcateStreams:   true,
+		RemoveUnusedObjects:   true,
+		RemoveUnusedStreams:   true,
+		UnembedFonts:          true,
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostOptimizeDocument(name, optimizeOptions, args)
@@ -82,13 +82,13 @@ func TestPostOptimizeDocument(t *testing.T) {
 func TestPostSplitDocument(t *testing.T) {
 
 	name := "4pages.pdf"
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostSplitDocument(name, args)
@@ -103,7 +103,7 @@ func TestPostSplitDocument(t *testing.T) {
 
 func TestPutCreateDocument(t *testing.T) {
 	name := "pdf_go.pdf"
-	args := map[string]interface{} {
+	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
 	}
 
@@ -111,7 +111,7 @@ func TestPutCreateDocument(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPutCreateDocument - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
@@ -119,36 +119,36 @@ func TestPutCreateDocument(t *testing.T) {
 
 func TestPostCreateDocument(t *testing.T) {
 	name := "pdf_go_post.pdf"
-	args := map[string]interface{} {
+	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
 	}
 
 	config := DocumentConfig{
 		PagesCount: 2,
-		DocumentProperties: &DocumentProperties {
-			List: []DocumentProperty {
-				DocumentProperty {
+		DocumentProperties: &DocumentProperties{
+			List: []DocumentProperty{
+				DocumentProperty{
 					BuiltIn: false,
-					Name: "prop1",
-                    Value: "Val1",
+					Name:    "prop1",
+					Value:   "Val1",
 				},
 			},
 		},
-		DisplayProperties: &DisplayProperties {
+		DisplayProperties: &DisplayProperties{
 			CenterWindow: true,
-			HideMenuBar: true,
+			HideMenuBar:  true,
 		},
-		DefaultPageConfig: &DefaultPageConfig {
+		DefaultPageConfig: &DefaultPageConfig{
 			Height: 100,
-			Width: 100,
+			Width:  100,
 		},
 	}
-            
+
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostCreateDocument(name, config, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPostCreateDocument - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
@@ -156,14 +156,14 @@ func TestPostCreateDocument(t *testing.T) {
 
 func TestGetDocumentDisplayProperties(t *testing.T) {
 
-	name := "4pages.pdf"	
-	
+	name := "4pages.pdf"
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentDisplayProperties(name, args)
@@ -178,26 +178,26 @@ func TestGetDocumentDisplayProperties(t *testing.T) {
 
 func TestPutDocumentDisplayProperties(t *testing.T) {
 
-	name := "4pages.pdf"	
-	
+	name := "4pages.pdf"
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	displayProperties := DisplayProperties {
-		CenterWindow: true,
-		Direction: DirectionL2R,
-		DisplayDocTitle: true,
-		HideMenuBar: true,
-		HideToolBar: true,
-		HideWindowUI: true,
+	displayProperties := DisplayProperties{
+		CenterWindow:          true,
+		Direction:             DirectionL2R,
+		DisplayDocTitle:       true,
+		HideMenuBar:           true,
+		HideToolBar:           true,
+		HideWindowUI:          true,
 		NonFullScreenPageMode: PageModeUseNone,
-		PageLayout: PageLayoutTwoPageLeft,
-		PageMode: PageModeUseOC,
+		PageLayout:            PageLayoutTwoPageLeft,
+		PageMode:              PageModeUseOC,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutDocumentDisplayProperties(name, displayProperties, args)

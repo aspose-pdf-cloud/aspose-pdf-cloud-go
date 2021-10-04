@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,23 +18,23 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
 
- import (
-	 "fmt"
-	 "testing"
- )
- 
- func TestGetDocumentSoundAnnotations(t *testing.T) {
+import (
+	"fmt"
+	"testing"
+)
 
-	name := "PdfWithAnnotations.pdf"	
-	
+func TestGetDocumentSoundAnnotations(t *testing.T) {
+
+	name := "PdfWithAnnotations.pdf"
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentSoundAnnotations(name, args)
@@ -49,14 +49,14 @@
 
 func TestGetPageSoundAnnotations(t *testing.T) {
 
-	name := "PdfWithAnnotations.pdf"	
+	name := "PdfWithAnnotations.pdf"
 	var pageNumber int32 = 2
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageSoundAnnotations(name, pageNumber, args)
@@ -70,15 +70,15 @@ func TestGetPageSoundAnnotations(t *testing.T) {
 }
 
 func TestGetSoundAnnotation(t *testing.T) {
- 
+
 	name := "PdfWithAnnotations.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentSoundAnnotations(name, args)
@@ -91,7 +91,7 @@ func TestGetSoundAnnotation(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestGetSoundAnnotation - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
@@ -99,7 +99,7 @@ func TestGetSoundAnnotation(t *testing.T) {
 
 func TestPostPageSoundAnnotations(t *testing.T) {
 
-	name := "PdfWithAnnotations.pdf"	
+	name := "PdfWithAnnotations.pdf"
 	var pageNumber int32 = 2
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
@@ -110,23 +110,22 @@ func TestPostPageSoundAnnotations(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	annotation := SoundAnnotation {
-		Name: "Name",
-		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
-		Flags: []AnnotationFlags{AnnotationFlagsDefault},
+	annotation := SoundAnnotation{
+		Name:                "Name",
+		Rect:                &Rectangle{LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Flags:               []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		RichText: "Rich Text",
-		Subject: "Text Box Subj",
-		ZIndex: 1,
-		Title: "Title",
-		FilePath: GetBaseTest().remoteFolder + "/" + attachmentFile,
-		Modified: "02/02/2018 12:00:00.000 AM",
+		RichText:            "Rich Text",
+		Subject:             "Text Box Subj",
+		ZIndex:              1,
+		Title:               "Title",
+		FilePath:            GetBaseTest().remoteFolder + "/" + attachmentFile,
+		Modified:            "02/02/2018 12:00:00.000 AM",
 	}
-
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostPageSoundAnnotations(name, pageNumber, []SoundAnnotation{annotation}, args)
 	if err != nil {
@@ -150,21 +149,21 @@ func TestPutSoundAnnotation(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	annotation := SoundAnnotation {
-		Name: "Name Updated",
-		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
-		Flags: []AnnotationFlags{AnnotationFlagsDefault},
+	annotation := SoundAnnotation{
+		Name:                "Name Updated",
+		Rect:                &Rectangle{LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Flags:               []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		RichText: "Rich Text Updated",
-		Subject: "Text Box Subj Updated",
-		ZIndex: 1,
-		Title: "Title Updated",
-		FilePath: GetBaseTest().remoteFolder + "/" + attachmentFile,
-		Modified: "02/02/2018 12:01:02.000 AM",
+		RichText:            "Rich Text Updated",
+		Subject:             "Text Box Subj Updated",
+		ZIndex:              1,
+		Title:               "Title Updated",
+		FilePath:            GetBaseTest().remoteFolder + "/" + attachmentFile,
+		Modified:            "02/02/2018 12:01:02.000 AM",
 	}
 
 	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentSoundAnnotations(name, args)
@@ -184,15 +183,15 @@ func TestPutSoundAnnotation(t *testing.T) {
 }
 
 func TestGetSoundAnnotationData(t *testing.T) {
- 
+
 	name := "PdfWithAnnotations.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentSoundAnnotations(name, args)
@@ -205,22 +204,22 @@ func TestGetSoundAnnotationData(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestGetSoundAnnotationData - %db\n", GetBaseTest().GetTestNumber(), len(response))
 	}
 }
 
 func TestPutSoundAnnotationDataExtract(t *testing.T) {
- 
+
 	name := "PdfWithAnnotations.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentSoundAnnotations(name, args)
@@ -233,7 +232,7 @@ func TestPutSoundAnnotationDataExtract(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestGetSoundAnnotation - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}

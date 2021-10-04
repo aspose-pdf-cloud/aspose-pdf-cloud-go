@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -24,7 +24,7 @@ import (
 	"fmt"
 	"testing"
 )
- 
+
 func TestDeletePage(t *testing.T) {
 
 	name := "4pages.pdf"
@@ -34,8 +34,8 @@ func TestDeletePage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.DeletePage(name, pageNumber, args)
@@ -57,8 +57,8 @@ func TestGetPage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPage(name, pageNumber, args)
@@ -79,8 +79,8 @@ func TestGetPages(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPages(name, args)
@@ -101,8 +101,8 @@ func TestGetWordsPerPage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetWordsPerPage(name, args)
@@ -125,8 +125,8 @@ func TestPostMovePage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostMovePage(name, pageNumber, newIndex, args)
@@ -147,8 +147,8 @@ func TestPutAddNewPage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutAddNewPage(name, args)
@@ -174,18 +174,18 @@ func TestPutPageAddStamp(t *testing.T) {
 	}
 
 	pageNumber := int32(1)
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	stamp := Stamp {
-		Type_: StampTypeImage,
-		FileName: GetBaseTest().remoteFolder + "/" + stampFile,
+	stamp := Stamp{
+		Type_:      StampTypeImage,
+		FileName:   GetBaseTest().remoteFolder + "/" + stampFile,
 		Background: true,
-		Width: 200,
-		Height: 200,
-		XIndent: 100,
-		YIndent: 100,
+		Width:      200,
+		Height:     200,
+		XIndent:    100,
+		YIndent:    100,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPageAddStamp(name, pageNumber, stamp, args)

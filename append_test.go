@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -30,8 +30,8 @@ func TestPostAppendDocument(t *testing.T) {
 	name := "PdfWithImages2.pdf"
 	appendFile := "4pages.pdf"
 	appendFilePath := GetBaseTest().remoteFolder + "/" + appendFile
-    startPage := int32(2)
-    endPage := int32(4)
+	startPage := int32(2)
+	endPage := int32(4)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
@@ -41,17 +41,17 @@ func TestPostAppendDocument(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":    GetBaseTest().remoteFolder,
 		"startPage": startPage,
-		"endPage": endPage,
+		"endPage":   endPage,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostAppendDocument(name, appendFilePath, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPostAppendDocument - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}

@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,42 +18,42 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
 
- import (
-	 "fmt"
-	 "testing"
- )
+import (
+	"fmt"
+	"testing"
+)
 
 func TestPostDocumentTextHeader(t *testing.T) {
 
 	name := "4pages.pdf"
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":          GetBaseTest().remoteFolder,
 		"startPageNumber": int32(2),
-		"endPageNumber": int32(3),
+		"endPageNumber":   int32(3),
 	}
 
-	header := TextHeader {
-		Background: true,
-		LeftMargin: 1,
-		RightMargin: 2,
-		TopMargin: 3,
+	header := TextHeader{
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		TopMargin:           3,
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		TextAlignment: HorizontalAlignmentCenter,
-		Opacity: 1,
-		Rotate: RotationNone,
-		RotateAngle: 0,
-		XIndent: 0,
-		YIndent: 0,
-		Zoom: 1,
-		Value: "Header",
-		TextState: &TextState{FontSize: 14, Font: "Arial", FontStyle: FontStylesRegular},
+		TextAlignment:       HorizontalAlignmentCenter,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		Value:               "Header",
+		TextState:           &TextState{FontSize: 14, Font: "Arial", FontStyle: FontStylesRegular},
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentTextHeader(name, header, args)
@@ -69,32 +69,32 @@ func TestPostDocumentTextHeader(t *testing.T) {
 func TestPostDocumentTextFooter(t *testing.T) {
 
 	name := "4pages.pdf"
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":          GetBaseTest().remoteFolder,
 		"startPageNumber": int32(2),
-		"endPageNumber": int32(3),
+		"endPageNumber":   int32(3),
 	}
 
-	footer := TextFooter {
-		Background: true,
-		LeftMargin: 1,
-		RightMargin: 2,
-		BottomMargin: 3,
+	footer := TextFooter{
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		BottomMargin:        3,
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		TextAlignment: HorizontalAlignmentCenter,
-		Opacity: 1,
-		Rotate: RotationNone,
-		RotateAngle: 0,
-		XIndent: 0,
-		YIndent: 0,
-		Zoom: 1,
-		Value: "Header",
-		TextState: &TextState{FontSize: 14, Font: "Arial", FontStyle: FontStylesRegular},
+		TextAlignment:       HorizontalAlignmentCenter,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		Value:               "Header",
+		TextState:           &TextState{FontSize: 14, Font: "Arial", FontStyle: FontStylesRegular},
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentTextFooter(name, footer, args)
@@ -110,36 +110,36 @@ func TestPostDocumentTextFooter(t *testing.T) {
 func TestPostDocumentImageHeader(t *testing.T) {
 
 	name := "4pages.pdf"
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
 	image := "Koala.jpg"
-	
+
 	if err := GetBaseTest().UploadFile(image); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":          GetBaseTest().remoteFolder,
 		"startPageNumber": int32(2),
-		"endPageNumber": int32(3),
+		"endPageNumber":   int32(3),
 	}
 
-	header := ImageHeader {
-		Background: true,
-		LeftMargin: 1,
-		RightMargin: 2,
-		TopMargin: 3,
+	header := ImageHeader{
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		TopMargin:           3,
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		Opacity: 1,
-		Rotate: RotationNone,
-		RotateAngle: 0,
-		XIndent: 0,
-		YIndent: 0,
-		Zoom: 1,
-		FileName: GetBaseTest().remoteFolder + "/" + image,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		FileName:            GetBaseTest().remoteFolder + "/" + image,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentImageHeader(name, header, args)
@@ -155,36 +155,36 @@ func TestPostDocumentImageHeader(t *testing.T) {
 func TestPostDocumentImageFooter(t *testing.T) {
 
 	name := "4pages.pdf"
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
 	image := "Koala.jpg"
-	
+
 	if err := GetBaseTest().UploadFile(image); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":          GetBaseTest().remoteFolder,
 		"startPageNumber": int32(2),
-		"endPageNumber": int32(3),
+		"endPageNumber":   int32(3),
 	}
 
-	footer := ImageFooter {
-		Background: true,
-		LeftMargin: 1,
-		RightMargin: 2,
-		BottomMargin: 3,
+	footer := ImageFooter{
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		BottomMargin:        3,
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		Opacity: 1,
-		Rotate: RotationNone,
-		RotateAngle: 0,
-		XIndent: 0,
-		YIndent: 0,
-		Zoom: 1,
-		FileName: GetBaseTest().remoteFolder + "/" + image,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		FileName:            GetBaseTest().remoteFolder + "/" + image,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentImageFooter(name, footer, args)

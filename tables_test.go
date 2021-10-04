@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,24 +18,23 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
 
- import (
-	 "fmt"
-	 "testing"
- )
- 
+import (
+	"fmt"
+	"testing"
+)
+
 func TestGetDocumentTables(t *testing.T) {
 
 	name := "PdfWithTable.pdf"
-	
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentTables(name, args)
@@ -51,14 +50,13 @@ func TestGetDocumentTables(t *testing.T) {
 func TestDeleteDocumentTables(t *testing.T) {
 
 	name := "PdfWithTable.pdf"
-	
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.DeleteDocumentTables(name, args)
@@ -75,13 +73,13 @@ func TestGetPageTables(t *testing.T) {
 
 	name := "PdfWithTable.pdf"
 	var pageNumber int32 = 1
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageTables(name, pageNumber, args)
@@ -98,13 +96,13 @@ func TestDeletePageTables(t *testing.T) {
 
 	name := "PdfWithTable.pdf"
 	var pageNumber int32 = 1
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.DeletePageTables(name, pageNumber, args)
@@ -118,15 +116,15 @@ func TestDeletePageTables(t *testing.T) {
 }
 
 func TestGetTable(t *testing.T) {
- 
+
 	name := "PdfWithTable.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	responseTables, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentTables(name, args)
@@ -139,23 +137,22 @@ func TestGetTable(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestGetTable - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
 
-
 func TestDeleteTable(t *testing.T) {
- 
+
 	name := "PdfWithTable.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	responseTables, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentTables(name, args)
@@ -168,7 +165,7 @@ func TestDeleteTable(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestDeleteTable - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
@@ -183,8 +180,8 @@ func TestPostPageTables(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	table := DrawTable()
@@ -193,7 +190,7 @@ func TestPostPageTables(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPostPageTables - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
@@ -207,10 +204,10 @@ func TestPutTable(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
-	
+
 	responseTables, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentTables(name, args)
 	if err != nil {
 		t.Error(err)
@@ -223,7 +220,7 @@ func TestPutTable(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPutTable - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
@@ -235,7 +232,7 @@ func DrawTable() Table {
 	numOfCols := int32(5)
 	numOfRows := int32(5)
 
-	table := Table {
+	table := Table{
 		Rows: make([]Row, numOfRows),
 	}
 	colWidths := ""
@@ -247,45 +244,45 @@ func DrawTable() Table {
 
 	table.DefaultCellTextState = &textState
 
-	borderTableBorder := GraphInfo {
-		Color: &Color { A: int32(0xFF), R: 0, G: int32(0xFF), B: 0},
+	borderTableBorder := GraphInfo{
+		Color:     &Color{A: int32(0xFF), R: 0, G: int32(0xFF), B: 0},
 		LineWidth: 1,
 	}
 
-	table.DefaultCellBorder = &BorderInfo {
-		Top: &borderTableBorder,
-		Right: &borderTableBorder,
+	table.DefaultCellBorder = &BorderInfo{
+		Top:    &borderTableBorder,
+		Right:  &borderTableBorder,
 		Bottom: &borderTableBorder,
-		Left: &borderTableBorder,
+		Left:   &borderTableBorder,
 	}
 	table.Top = 100
 
 	for r := int32(0); r < numOfRows; r++ {
 
-		row := Row{Cells: make([]Cell, numOfCols),}
+		row := Row{Cells: make([]Cell, numOfCols)}
 
 		for c := int32(0); c < numOfCols; c++ {
 
-			cell := Cell {
-				BackgroundColor: &Color { A: int32(0xFF), R: int32(0x88), G: int32(0xFF), B: 0},
+			cell := Cell{
+				BackgroundColor:      &Color{A: int32(0xFF), R: int32(0x88), G: int32(0xFF), B: 0},
 				DefaultCellTextState: &textState,
-				Paragraphs: []TextRect {
-					TextRect{ Text: "value" },
+				Paragraphs: []TextRect{
+					TextRect{Text: "value"},
 				},
 			}
-			
+
 			// change properties on cell
 			if c == 1 {
-				cell.DefaultCellTextState.ForegroundColor = &Color { A: int32(0xFF), R: int32(0x88), G: 0, B: int32(0xFF)}
+				cell.DefaultCellTextState.ForegroundColor = &Color{A: int32(0xFF), R: int32(0x88), G: 0, B: int32(0xFF)}
 			} else if c == 2 {
 				// change properties on cell AFTER first clearing and re-adding paragraphs
-				cell.Paragraphs[0] = TextRect{ Text: "y" }
-				cell.DefaultCellTextState.ForegroundColor = &Color { A: int32(0xFF), R: int32(0), G: 0, B: int32(0xFF)}
-			} else if (c == 3) {
+				cell.Paragraphs[0] = TextRect{Text: "y"}
+				cell.DefaultCellTextState.ForegroundColor = &Color{A: int32(0xFF), R: int32(0), G: 0, B: int32(0xFF)}
+			} else if c == 3 {
 				// change properties on paragraph
 				cell.Paragraphs[0].TextState = &textState
-				cell.Paragraphs[0].TextState.ForegroundColor = &Color { A: int32(0xFF), R: int32(0), G: 0, B: int32(0xFF)}
-			} else if (c == 4) { 
+				cell.Paragraphs[0].TextState.ForegroundColor = &Color{A: int32(0xFF), R: int32(0), G: 0, B: int32(0xFF)}
+			} else if c == 4 {
 				// HTML Fragment
 				cell.Paragraphs = nil
 				cell.HtmlFragment = "<ul><li>First</li><li>Second</li></ul>"
@@ -293,8 +290,8 @@ func DrawTable() Table {
 			row.Cells[c] = cell
 
 		}
-		table.Rows[r] = row;
+		table.Rows[r] = row
 	}
 
-	return table;
+	return table
 }

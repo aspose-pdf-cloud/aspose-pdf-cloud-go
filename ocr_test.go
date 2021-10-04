@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -33,16 +33,16 @@ func TestPutSearchableDocument(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
+	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
-		"lang": "rus,eng",
+		"lang":   "rus,eng",
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutSearchableDocument(name, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPutSearchableDocument - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
@@ -56,7 +56,7 @@ func TestPutSearchableDocumentWithDefaultLang(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
+	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
 	}
 
@@ -64,7 +64,7 @@ func TestPutSearchableDocumentWithDefaultLang(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPutSearchableDocumentWithDefaultLang - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}

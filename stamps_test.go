@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,24 +18,23 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
 
- import (
-	 "fmt"
-	 "testing"
- )
- 
+import (
+	"fmt"
+	"testing"
+)
+
 func TestGetDocumentStamps(t *testing.T) {
 
 	name := "PageNumberStamp.pdf"
-	
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentStamps(name, args)
@@ -51,14 +50,13 @@ func TestGetDocumentStamps(t *testing.T) {
 func TestDeleteDocumentStamps(t *testing.T) {
 
 	name := "PageNumberStamp.pdf"
-	
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.DeleteDocumentStamps(name, args)
@@ -75,13 +73,13 @@ func TestGetPageStamps(t *testing.T) {
 
 	name := "PageNumberStamp.pdf"
 	var pageNumber int32 = 1
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageStamps(name, pageNumber, args)
@@ -98,13 +96,13 @@ func TestDeletePageStamps(t *testing.T) {
 
 	name := "PageNumberStamp.pdf"
 	var pageNumber int32 = 1
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.DeletePageStamps(name, pageNumber, args)
@@ -121,32 +119,32 @@ func TestPostPageTextStamps(t *testing.T) {
 
 	name := "PageNumberStamp.pdf"
 	var pageNumber int32 = 1
-	
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	stamp := TextStamp {
-		Background: true,
-		LeftMargin: 1,
-		RightMargin: 2,
-		TopMargin: 3,
-		BottomMargin: 4,
+	stamp := TextStamp{
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		TopMargin:           3,
+		BottomMargin:        4,
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		VerticalAlignment: VerticalAlignmentCenter,
-		Opacity: 1,
-		Rotate: RotationNone,
-		RotateAngle: 0,
-		XIndent: 0,
-		YIndent: 0,
-		Zoom: 1,
-		TextAlignment: HorizontalAlignmentCenter,
-		Value: "Text Stamp",
-		TextState: &TextState{FontSize: 14, FontStyle: FontStylesRegular, Font: "Arial"},
+		VerticalAlignment:   VerticalAlignmentCenter,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		TextAlignment:       HorizontalAlignmentCenter,
+		Value:               "Text Stamp",
+		TextState:           &TextState{FontSize: 14, FontStyle: FontStylesRegular, Font: "Arial"},
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostPageTextStamps(name, pageNumber, []TextStamp{stamp}, args)
@@ -172,25 +170,25 @@ func TestPostPageImageStamps(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	stamp := ImageStamp {
-		Background: true,
-		LeftMargin: 1,
-		RightMargin: 2,
-		TopMargin: 3,
-		BottomMargin: 4,
+	stamp := ImageStamp{
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		TopMargin:           3,
+		BottomMargin:        4,
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		VerticalAlignment: VerticalAlignmentCenter,
-		Opacity: 1,
-		Rotate: RotationNone,
-		RotateAngle: 0,
-		XIndent: 0,
-		YIndent: 0,
-		Zoom: 1,
-		FileName: GetBaseTest().remoteFolder + "/" + image,
+		VerticalAlignment:   VerticalAlignmentCenter,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		FileName:            GetBaseTest().remoteFolder + "/" + image,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostPageImageStamps(name, pageNumber, []ImageStamp{stamp}, args)
@@ -216,26 +214,26 @@ func TestPostPagePdfPageStamps(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	stamp := PdfPageStamp {
-		Background: true,
-		LeftMargin: 1,
-		RightMargin: 2,
-		TopMargin: 3,
-		BottomMargin: 4,
+	stamp := PdfPageStamp{
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		TopMargin:           3,
+		BottomMargin:        4,
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		VerticalAlignment: VerticalAlignmentCenter,
-		Opacity: 1,
-		Rotate: RotationNone,
-		RotateAngle: 0,
-		XIndent: 0,
-		YIndent: 0,
-		Zoom: 1,
-		FileName: GetBaseTest().remoteFolder + "/" + pdf,
-		PageIndex: 2,
+		VerticalAlignment:   VerticalAlignmentCenter,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		FileName:            GetBaseTest().remoteFolder + "/" + pdf,
+		PageIndex:           2,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostPagePdfPageStamps(name, pageNumber, []PdfPageStamp{stamp}, args)
@@ -249,15 +247,15 @@ func TestPostPagePdfPageStamps(t *testing.T) {
 }
 
 func TestDeleteStamp(t *testing.T) {
- 
+
 	name := "PageNumberStamp.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	responseStamps, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentStamps(name, args)
@@ -270,7 +268,7 @@ func TestDeleteStamp(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestDeleteStamp - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
@@ -284,28 +282,28 @@ func TestPostDocumentPageNumberStamps(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":          GetBaseTest().remoteFolder,
 		"startPageNumber": int32(2),
-		"endPageNumber": int32(3),
+		"endPageNumber":   int32(3),
 	}
 
-	stamp := PageNumberStamp {
-		Background: true,
-		LeftMargin: 1,
-		RightMargin: 2,
-		TopMargin: 3,
-		BottomMargin: 4,
+	stamp := PageNumberStamp{
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		TopMargin:           3,
+		BottomMargin:        4,
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		VerticalAlignment: VerticalAlignmentCenter,
-		Opacity: 1,
-		Rotate: RotationNone,
-		RotateAngle: 0,
-		XIndent: 0,
-		YIndent: 0,
-		Zoom: 1,
-		StartingNumber: int32(3),
-		Value: "Page #",
+		VerticalAlignment:   VerticalAlignmentCenter,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		StartingNumber:      int32(3),
+		Value:               "Page #",
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentPageNumberStamps(name, stamp, args)

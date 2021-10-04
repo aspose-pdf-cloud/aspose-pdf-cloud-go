@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -17,7 +17,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
-*/
+ */
 package asposepdfcloud
 
 import (
@@ -49,7 +49,7 @@ func TestGetEpubInStorageToPdf(t *testing.T) {
 
 func TestPutEpubInStorageToPdf(t *testing.T) {
 
-	name := "4pages.epub"	
+	name := "4pages.epub"
 	resFileName := "fromEpub.pdf"
 	srcPath := GetBaseTest().remoteFolder + "/" + name
 
@@ -57,8 +57,8 @@ func TestPutEpubInStorageToPdf(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutEpubInStorageToPdf(resFileName, srcPath, args)
@@ -90,10 +90,10 @@ func TestGetWebInStorageToPdf(t *testing.T) {
 func TestPutWebInStorageToPdf(t *testing.T) {
 
 	sourceURL := "http://google.com"
-    resFileName := "fromWeb.pdf"
+	resFileName := "fromWeb.pdf"
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutWebInStorageToPdf(resFileName, sourceURL, args)
@@ -130,7 +130,7 @@ func TestGetTeXInStorageToPdf(t *testing.T) {
 
 func TestPutTeXInStorageToPdf(t *testing.T) {
 
-	name := "sample.tex"	
+	name := "sample.tex"
 	resFileName := "fromTeX.pdf"
 	srcPath := GetBaseTest().remoteFolder + "/" + name
 
@@ -138,8 +138,8 @@ func TestPutTeXInStorageToPdf(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutTeXInStorageToPdf(resFileName, srcPath, args)
@@ -176,7 +176,7 @@ func TestGetMhtInStorageToPdf(t *testing.T) {
 
 func TestPutMhtInStorageToPdf(t *testing.T) {
 
-	name := "MhtExample.mht"	
+	name := "MhtExample.mht"
 	resFileName := "fromMht.pdf"
 	srcPath := GetBaseTest().remoteFolder + "/" + name
 
@@ -184,8 +184,8 @@ func TestPutMhtInStorageToPdf(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutMhtInStorageToPdf(resFileName, srcPath, args)
@@ -204,16 +204,16 @@ func TestGetHtmlInStorageToPdf(t *testing.T) {
 	name := "HtmlWithImage.zip"
 	htmlFileName := "HtmlWithImage.html"
 	height := float64(650)
-    width := float64(250)
+	width := float64(250)
 	srcPath := GetBaseTest().remoteFolder + "/" + name
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"height": height,
-		"width": width,
+	args := map[string]interface{}{
+		"height":       height,
+		"width":        width,
 		"htmlFileName": htmlFileName,
 	}
 
@@ -233,17 +233,17 @@ func TestPutHtmlInStorageToPdf(t *testing.T) {
 	htmlFileName := "HtmlWithImage.html"
 	resFileName := "fromHtml.pdf"
 	height := float64(650)
-    width := float64(250)
+	width := float64(250)
 	srcPath := GetBaseTest().remoteFolder + "/" + name
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
-		"height": height,
-		"width": width,
+	args := map[string]interface{}{
+		"folder":       GetBaseTest().remoteFolder,
+		"height":       height,
+		"width":        width,
 		"htmlFileName": htmlFileName,
 	}
 
@@ -281,7 +281,7 @@ func TestGetXslFoInStorageToPdf(t *testing.T) {
 
 func TestPutXslFoInStorageToPdf(t *testing.T) {
 
-	name := "XslfoExample.xslfo"	
+	name := "XslfoExample.xslfo"
 	resFileName := "fromXlsFo.pdf"
 	srcPath := GetBaseTest().remoteFolder + "/" + name
 
@@ -289,8 +289,8 @@ func TestPutXslFoInStorageToPdf(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutXslFoInStorageToPdf(resFileName, srcPath, args)
@@ -327,7 +327,7 @@ func TestGetXpsInStorageToPdf(t *testing.T) {
 
 func TestPutXpsInStorageToPdf(t *testing.T) {
 
-	name := "Simple.xps"	
+	name := "Simple.xps"
 	resFileName := "fromXps.pdf"
 	srcPath := GetBaseTest().remoteFolder + "/" + name
 
@@ -335,8 +335,8 @@ func TestPutXpsInStorageToPdf(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutXpsInStorageToPdf(resFileName, srcPath, args)
@@ -373,7 +373,7 @@ func TestGetSvgInStorageToPdf(t *testing.T) {
 
 func TestPutSvgInStorageToPdf(t *testing.T) {
 
-	name := "Simple.svg"	
+	name := "Simple.svg"
 	resFileName := "fromSvg.pdf"
 	srcPath := GetBaseTest().remoteFolder + "/" + name
 
@@ -381,8 +381,8 @@ func TestPutSvgInStorageToPdf(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutSvgInStorageToPdf(resFileName, srcPath, args)
@@ -427,8 +427,8 @@ func TestPutPclInStorageToPdf(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPclInStorageToPdf(resFileName, srcPath, args)
@@ -473,8 +473,8 @@ func TestPutXmlInStorageToPdf(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutXmlInStorageToPdf(resFileName, srcPath, args)
@@ -519,8 +519,8 @@ func TestPutPsInStorageToPdf(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPsInStorageToPdf(resFileName, srcPath, args)
@@ -536,12 +536,12 @@ func TestPutPsInStorageToPdf(t *testing.T) {
 func TestPutImageInStorageToPdf(t *testing.T) {
 
 	images := []string{"33539.jpg", "44781.jpg"}
-    resFileName := "fromImages.pdf"
-	imageTemplateList := []ImageTemplate {}
+	resFileName := "fromImages.pdf"
+	imageTemplateList := []ImageTemplate{}
 
 	for _, fileName := range images {
-		imageTemplate := ImageTemplate {
-			ImagePath: GetBaseTest().remoteFolder + "/" + fileName,
+		imageTemplate := ImageTemplate{
+			ImagePath:    GetBaseTest().remoteFolder + "/" + fileName,
 			ImageSrcType: ImageSrcTypeCommon,
 		}
 		imageTemplateList = append(imageTemplateList, imageTemplate)
@@ -551,14 +551,14 @@ func TestPutImageInStorageToPdf(t *testing.T) {
 		}
 	}
 
-	imageTemplatesRequest := ImageTemplatesRequest {
-		IsOCR: true,
-		OCRLangs: "eng",
+	imageTemplatesRequest := ImageTemplatesRequest{
+		IsOCR:      true,
+		OCRLangs:   "eng",
 		ImagesList: imageTemplateList,
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutImageInStorageToPdf(resFileName, imageTemplatesRequest, args)
@@ -603,8 +603,8 @@ func TestPutMarkdownInStorageToPdf(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutMarkdownInStorageToPdf(resFileName, srcPath, args)
@@ -649,8 +649,8 @@ func TestPutPdfAInStorageToPdf(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfAInStorageToPdf(resFileName, srcPath, args)

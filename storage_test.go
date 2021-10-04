@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -21,8 +21,8 @@
 package asposepdfcloud
 
 import (
-	"os"
 	"fmt"
+	"os"
 	"testing"
 )
 
@@ -31,20 +31,20 @@ func TestUploadFile(t *testing.T) {
 
 	args := make(map[string]interface{})
 
-	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + name) 
+	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + name)
 	if err != nil {
 		t.Error(err)
 	}
 
-	_, httpResponse, err := GetBaseTest().PdfAPI.UploadFile(GetBaseTest().remoteFolder + "/" + name, file, args)
+	_, httpResponse, err := GetBaseTest().PdfAPI.UploadFile(GetBaseTest().remoteFolder+"/"+name, file, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestUploadFile - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
-	
+
 }
 
 func TestDownloadFile(t *testing.T) {
@@ -56,15 +56,15 @@ func TestDownloadFile(t *testing.T) {
 		t.Error(err)
 	}
 
-	response, httpResponse, err := GetBaseTest().PdfAPI.DownloadFile(GetBaseTest().remoteFolder + "/" + name, args)
+	response, httpResponse, err := GetBaseTest().PdfAPI.DownloadFile(GetBaseTest().remoteFolder+"/"+name, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestDownloadFile - %db\n", GetBaseTest().GetTestNumber(), len(response))
 	}
-	
+
 }
 
 func TestMoveFile(t *testing.T) {
@@ -82,7 +82,7 @@ func TestMoveFile(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestMoveFile - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
@@ -102,7 +102,7 @@ func TestDeleteFile(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestDeleteFile - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
@@ -117,7 +117,7 @@ func TestGetFilesList(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestGetFilesList - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
@@ -133,7 +133,7 @@ func TestPutCreateFolder(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tPutCreateFolder - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
@@ -149,13 +149,13 @@ func TestMoveFolder(t *testing.T) {
 		t.Error(err)
 	}
 
-	dest :=  GetBaseTest().remoteFolder + "/testFolderRenamed"
+	dest := GetBaseTest().remoteFolder + "/testFolderRenamed"
 
 	httpResponse, err := GetBaseTest().PdfAPI.MoveFolder(src, dest, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tPostMoveFolder - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
@@ -175,7 +175,7 @@ func TestDeleteFolder(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tDeleteFolder - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
@@ -189,7 +189,7 @@ func TestStorageExists(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestStorageExists - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
@@ -209,7 +209,7 @@ func TestObjectExists(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestObjectExists - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
@@ -220,7 +220,7 @@ func TestGetDiscUsage(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tGetDiscUsage - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
@@ -240,7 +240,7 @@ func TestGetFileVersions(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		 t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestGetFileVersions - %d\n", GetBaseTest().GetTestNumber(), httpResponse.StatusCode)
 	}
