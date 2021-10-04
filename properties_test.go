@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -27,17 +27,17 @@ import (
 
 func TestDeleteProperties(t *testing.T) {
 
-	name := "PdfWithAcroForm.pdf"	
+	name := "PdfWithAcroForm.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	propertyNames := []string { "prop1", "prop2" }
-    propertyValues := []string { "val1", "val2" }
-	
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	propertyNames := []string{"prop1", "prop2"}
+	propertyValues := []string{"val1", "val2"}
+
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	_, _, err := GetBaseTest().PdfAPI.PutSetProperty(name, propertyNames[0], propertyValues[0], args)
@@ -61,17 +61,17 @@ func TestDeleteProperties(t *testing.T) {
 
 func TestDeleteProperty(t *testing.T) {
 
-	name := "PdfWithAcroForm.pdf"	
+	name := "PdfWithAcroForm.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	propertyNames := []string { "prop1", "prop2" }
-    propertyValues := []string { "val1", "val2" }
-	
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	propertyNames := []string{"prop1", "prop2"}
+	propertyValues := []string{"val1", "val2"}
+
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	_, _, err := GetBaseTest().PdfAPI.PutSetProperty(name, propertyNames[0], propertyValues[0], args)
@@ -91,17 +91,17 @@ func TestDeleteProperty(t *testing.T) {
 
 func TestGetDocumentProperties(t *testing.T) {
 
-	name := "PdfWithAcroForm.pdf"	
+	name := "PdfWithAcroForm.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	propertyNames := []string { "prop1", "prop2" }
-    propertyValues := []string { "val1", "val2" }
-	
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	propertyNames := []string{"prop1", "prop2"}
+	propertyValues := []string{"val1", "val2"}
+
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	_, _, err := GetBaseTest().PdfAPI.PutSetProperty(name, propertyNames[0], propertyValues[0], args)
@@ -125,17 +125,17 @@ func TestGetDocumentProperties(t *testing.T) {
 
 func TestGetDocumentProperty(t *testing.T) {
 
-	name := "PdfWithAcroForm.pdf"	
+	name := "PdfWithAcroForm.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	propertyNames := []string { "prop1", "prop2" }
-    propertyValues := []string { "val1", "val2" }
-	
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	propertyNames := []string{"prop1", "prop2"}
+	propertyValues := []string{"val1", "val2"}
+
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	_, _, err := GetBaseTest().PdfAPI.PutSetProperty(name, propertyNames[0], propertyValues[0], args)
@@ -155,17 +155,17 @@ func TestGetDocumentProperty(t *testing.T) {
 
 func TestPutSetProperty(t *testing.T) {
 
-	name := "PdfWithAcroForm.pdf"	
+	name := "PdfWithAcroForm.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	propertyNames := []string { "prop1", "prop2" }
-    propertyValues := []string { "val1", "val2" }
-	
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	propertyNames := []string{"prop1", "prop2"}
+	propertyValues := []string{"val1", "val2"}
+
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutSetProperty(name, propertyNames[0], propertyValues[0], args)

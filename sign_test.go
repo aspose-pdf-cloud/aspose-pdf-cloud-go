@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -26,10 +26,10 @@ import (
 )
 
 func TestPostSignDocument(t *testing.T) {
- 
+
 	name := "BlankWithSignature.pdf"
 	signatureName := "test1234.pfx"
- 
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
@@ -38,22 +38,22 @@ func TestPostSignDocument(t *testing.T) {
 		t.Error(err)
 	}
 
-	signature := Signature {
-		Authority: "Sergey Smal",
-		Contact: "test@mail.ru",
-		Date: "08/01/2012 12:15:00.000 PM",
-		FormFieldName: "Signature1",
-		Location: "Ukraine",
-		Password: "test1234",
-		Rectangle: &Rectangle{ LLX: 100, LLY: 100, URX: 0, URY: 0},
-		SignaturePath: GetBaseTest().remoteFolder + "/" + signatureName,
-		SignatureType: SignatureTypePKCS7,
-		Visible: true,
-		ShowProperties: false, 
-		}
+	signature := Signature{
+		Authority:      "Sergey Smal",
+		Contact:        "test@mail.ru",
+		Date:           "08/01/2012 12:15:00.000 PM",
+		FormFieldName:  "Signature1",
+		Location:       "Ukraine",
+		Password:       "test1234",
+		Rectangle:      &Rectangle{LLX: 100, LLY: 100, URX: 0, URY: 0},
+		SignaturePath:  GetBaseTest().remoteFolder + "/" + signatureName,
+		SignatureType:  SignatureTypePKCS7,
+		Visible:        true,
+		ShowProperties: false,
+	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostSignDocument(name, signature, args)
@@ -67,7 +67,7 @@ func TestPostSignDocument(t *testing.T) {
 }
 
 func TestPostSignPage(t *testing.T) {
- 
+
 	name := "BlankWithSignature.pdf"
 	signatureName := "test1234.pfx"
 	pageNumber := int32(1)
@@ -79,22 +79,22 @@ func TestPostSignPage(t *testing.T) {
 		t.Error(err)
 	}
 
-	signature := Signature {
-		Authority: "Sergey Smal",
-		Contact: "test@mail.ru",
-		Date: "08/01/2012 12:15:00.000 PM",
-		FormFieldName: "Signature1",
-		Location: "Ukraine",
-		Password: "test1234",
-		Rectangle: &Rectangle{ LLX: 100, LLY: 100, URX: 0, URY: 0},
-		SignaturePath: GetBaseTest().remoteFolder + "/" + signatureName,
-		SignatureType: SignatureTypePKCS7,
-		Visible: true,
-		ShowProperties: false, 
-		}
+	signature := Signature{
+		Authority:      "Sergey Smal",
+		Contact:        "test@mail.ru",
+		Date:           "08/01/2012 12:15:00.000 PM",
+		FormFieldName:  "Signature1",
+		Location:       "Ukraine",
+		Password:       "test1234",
+		Rectangle:      &Rectangle{LLX: 100, LLY: 100, URX: 0, URY: 0},
+		SignaturePath:  GetBaseTest().remoteFolder + "/" + signatureName,
+		SignatureType:  SignatureTypePKCS7,
+		Visible:        true,
+		ShowProperties: false,
+	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostSignPage(name, pageNumber, signature, args)
@@ -108,10 +108,10 @@ func TestPostSignPage(t *testing.T) {
 }
 
 func TestGetVerifySignature(t *testing.T) {
- 
+
 	name := "BlankWithSignature.pdf"
 	signatureName := "test1234.pfx"
- 
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
@@ -120,22 +120,22 @@ func TestGetVerifySignature(t *testing.T) {
 		t.Error(err)
 	}
 
-	signature := Signature {
-		Authority: "Sergey Smal",
-		Contact: "test@mail.ru",
-		Date: "08/01/2012 12:15:00.000 PM",
-		FormFieldName: "Signature1",
-		Location: "Ukraine",
-		Password: "test1234",
-		Rectangle: &Rectangle{ LLX: 100, LLY: 100, URX: 0, URY: 0},
-		SignaturePath: GetBaseTest().remoteFolder + "/" + signatureName,
-		SignatureType: SignatureTypePKCS7,
-		Visible: true,
-		ShowProperties: false, 
-		}
+	signature := Signature{
+		Authority:      "Sergey Smal",
+		Contact:        "test@mail.ru",
+		Date:           "08/01/2012 12:15:00.000 PM",
+		FormFieldName:  "Signature1",
+		Location:       "Ukraine",
+		Password:       "test1234",
+		Rectangle:      &Rectangle{LLX: 100, LLY: 100, URX: 0, URY: 0},
+		SignaturePath:  GetBaseTest().remoteFolder + "/" + signatureName,
+		SignatureType:  SignatureTypePKCS7,
+		Visible:        true,
+		ShowProperties: false,
+	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	_, _, err := GetBaseTest().PdfAPI.PostSignDocument(name, signature, args)
@@ -154,7 +154,7 @@ func TestGetVerifySignature(t *testing.T) {
 }
 
 func TestPostPageCertify(t *testing.T) {
- 
+
 	name := "4pages.pdf"
 	signatureName := "33226.p12"
 	pageNumber := int32(1)
@@ -166,22 +166,22 @@ func TestPostPageCertify(t *testing.T) {
 		t.Error(err)
 	}
 
-	signature := Signature {
-		Authority: "Sergey Smal",
-		Contact: "test@mail.ru",
-		Date: "08/01/2012 12:15:00.000 PM",
-		FormFieldName: "Signature1",
-		Location: "Ukraine",
-		Password: "sIikZSmz",
-		Rectangle: &Rectangle{ LLX: 100, LLY: 100, URX: 0, URY: 0},
-		SignaturePath: GetBaseTest().remoteFolder + "/" + signatureName,
-		SignatureType: SignatureTypePKCS7,
-		Visible: true,
-		ShowProperties: false, 
-		}
+	signature := Signature{
+		Authority:      "Sergey Smal",
+		Contact:        "test@mail.ru",
+		Date:           "08/01/2012 12:15:00.000 PM",
+		FormFieldName:  "Signature1",
+		Location:       "Ukraine",
+		Password:       "sIikZSmz",
+		Rectangle:      &Rectangle{LLX: 100, LLY: 100, URX: 0, URY: 0},
+		SignaturePath:  GetBaseTest().remoteFolder + "/" + signatureName,
+		SignatureType:  SignatureTypePKCS7,
+		Visible:        true,
+		ShowProperties: false,
+	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	permissionType := string(DocMdpAccessPermissionTypeNoChanges)

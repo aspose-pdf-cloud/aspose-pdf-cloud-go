@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,21 +18,21 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
 
- import (
-	 "fmt"
-	 "testing"
- )
- 
+import (
+	"fmt"
+	"testing"
+)
+
 func TestGetDocumentBookmarks(t *testing.T) {
 	name := "PdfWithBookmarks.pdf"
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentBookmarks(name, args)
@@ -51,8 +51,8 @@ func TestGetBookmarks(t *testing.T) {
 		t.Error(err)
 	}
 	bookmarkPath := "1"
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetBookmarks(name, bookmarkPath, args)
@@ -71,8 +71,8 @@ func TestGetBookmark(t *testing.T) {
 		t.Error(err)
 	}
 	bookmarkPath := "1"
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetBookmark(name, bookmarkPath, args)
@@ -91,8 +91,8 @@ func TestDeleteDocumentBookmarks(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.DeleteDocumentBookmarks(name, args)
@@ -111,8 +111,8 @@ func TestDeleteBookmark(t *testing.T) {
 		t.Error(err)
 	}
 	bookmarkPath := "1"
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.DeleteBookmark(name, bookmarkPath, args)
@@ -131,23 +131,23 @@ func TestPostBookmark(t *testing.T) {
 		t.Error(err)
 	}
 	bookmarkPath := "1"
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	bookmark := Bookmark {
-		Action: "GoTo",
-		Bold: true,
-		Italic: false,
-		Title: "New Bookmark XYZ",
-		PageDisplay: "XYZ",
+	bookmark := Bookmark{
+		Action:            "GoTo",
+		Bold:              true,
+		Italic:            false,
+		Title:             "New Bookmark XYZ",
+		PageDisplay:       "XYZ",
 		PageDisplayBottom: 10,
-		PageDisplayLeft: 10,
-		PageDisplayRight: 10,
-		PageDisplayTop: 10,
-		PageDisplayZoom: 2,
-		PageNumber: 2,
-		Color: &Color {A: 0x00, R: 0x00, G: 0xFF, B: 0x00 },
+		PageDisplayLeft:   10,
+		PageDisplayRight:  10,
+		PageDisplayTop:    10,
+		PageDisplayZoom:   2,
+		PageNumber:        2,
+		Color:             &Color{A: 0x00, R: 0x00, G: 0xFF, B: 0x00},
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostBookmark(name, bookmarkPath, []Bookmark{bookmark}, args)
@@ -166,23 +166,23 @@ func TestPutBookmark(t *testing.T) {
 		t.Error(err)
 	}
 	bookmarkPath := "1"
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	bookmark := Bookmark {
-		Action: "GoTo",
-		Bold: true,
-		Italic: false,
-		Title: "New Bookmark XYZ",
-		PageDisplay: "XYZ",
+	bookmark := Bookmark{
+		Action:            "GoTo",
+		Bold:              true,
+		Italic:            false,
+		Title:             "New Bookmark XYZ",
+		PageDisplay:       "XYZ",
 		PageDisplayBottom: 10,
-		PageDisplayLeft: 10,
-		PageDisplayRight: 10,
-		PageDisplayTop: 10,
-		PageDisplayZoom: 2,
-		PageNumber: 2,
-		Color: &Color {A: 0x00, R: 0x00, G: 0xFF, B: 0x00 },
+		PageDisplayLeft:   10,
+		PageDisplayRight:  10,
+		PageDisplayTop:    10,
+		PageDisplayZoom:   2,
+		PageNumber:        2,
+		Color:             &Color{A: 0x00, R: 0x00, G: 0xFF, B: 0x00},
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutBookmark(name, bookmarkPath, bookmark, args)

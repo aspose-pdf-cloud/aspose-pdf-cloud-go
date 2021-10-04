@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -27,15 +27,15 @@ import (
 
 func TestGetImage(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	responseImages, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
@@ -56,15 +56,15 @@ func TestGetImage(t *testing.T) {
 
 func TestGetImages(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
@@ -79,15 +79,15 @@ func TestGetImages(t *testing.T) {
 
 func TestDeleteImage(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	responseImages, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
@@ -108,7 +108,7 @@ func TestDeleteImage(t *testing.T) {
 
 func TestPutReplaceImage(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
@@ -120,8 +120,8 @@ func TestPutReplaceImage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":        GetBaseTest().remoteFolder,
 		"imageFilePath": GetBaseTest().remoteFolder + "/" + imageFileName,
 	}
 
@@ -143,7 +143,7 @@ func TestPutReplaceImage(t *testing.T) {
 
 func TestPostInsertImage(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
@@ -155,12 +155,12 @@ func TestPostInsertImage(t *testing.T) {
 
 	pageNumber := int32(1)
 	llx := float64(10)
-    lly := float64(10)
-    urx := float64(100)
-    ury := float64(100)
+	lly := float64(10)
+	urx := float64(100)
+	ury := float64(100)
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":        GetBaseTest().remoteFolder,
 		"imageFilePath": GetBaseTest().remoteFolder + "/" + imageFileName,
 	}
 
@@ -176,7 +176,7 @@ func TestPostInsertImage(t *testing.T) {
 
 func TestPutImagesExtractAsJpeg(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
@@ -185,8 +185,8 @@ func TestPutImagesExtractAsJpeg(t *testing.T) {
 
 	destFolder := "extract_jpg"
 
-	args := map[string]interface{} {
-		"folder": GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":     GetBaseTest().remoteFolder,
 		"destFolder": GetBaseTest().remoteFolder + "/" + destFolder,
 	}
 
@@ -202,7 +202,7 @@ func TestPutImagesExtractAsJpeg(t *testing.T) {
 
 func TestPutImagesExtractAsTiff(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
@@ -211,8 +211,8 @@ func TestPutImagesExtractAsTiff(t *testing.T) {
 
 	destFolder := "extract_tiff"
 
-	args := map[string]interface{} {
-		"folder": GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":     GetBaseTest().remoteFolder,
 		"destFolder": GetBaseTest().remoteFolder + "/" + destFolder,
 	}
 
@@ -228,7 +228,7 @@ func TestPutImagesExtractAsTiff(t *testing.T) {
 
 func TestPutImagesExtractAsGif(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
@@ -237,8 +237,8 @@ func TestPutImagesExtractAsGif(t *testing.T) {
 
 	destFolder := "extract_gif"
 
-	args := map[string]interface{} {
-		"folder": GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":     GetBaseTest().remoteFolder,
 		"destFolder": GetBaseTest().remoteFolder + "/" + destFolder,
 	}
 
@@ -254,7 +254,7 @@ func TestPutImagesExtractAsGif(t *testing.T) {
 
 func TestPutImagesExtractAsPng(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
@@ -263,8 +263,8 @@ func TestPutImagesExtractAsPng(t *testing.T) {
 
 	destFolder := "extract_png"
 
-	args := map[string]interface{} {
-		"folder": GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":     GetBaseTest().remoteFolder,
 		"destFolder": GetBaseTest().remoteFolder + "/" + destFolder,
 	}
 
@@ -280,7 +280,7 @@ func TestPutImagesExtractAsPng(t *testing.T) {
 
 func TestPutImageExtractAsJpeg(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
@@ -289,8 +289,8 @@ func TestPutImageExtractAsJpeg(t *testing.T) {
 
 	destFolder := "extract_jpg"
 
-	args := map[string]interface{} {
-		"folder": GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":     GetBaseTest().remoteFolder,
 		"destFolder": GetBaseTest().remoteFolder + "/" + destFolder,
 	}
 
@@ -312,14 +312,14 @@ func TestPutImageExtractAsJpeg(t *testing.T) {
 
 func TestGetImageExtractAsJpeg(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
+	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
 	}
 
@@ -341,7 +341,7 @@ func TestGetImageExtractAsJpeg(t *testing.T) {
 
 func TestPutImageExtractAsTiff(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
@@ -350,8 +350,8 @@ func TestPutImageExtractAsTiff(t *testing.T) {
 
 	destFolder := "extract_tiff"
 
-	args := map[string]interface{} {
-		"folder": GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":     GetBaseTest().remoteFolder,
 		"destFolder": GetBaseTest().remoteFolder + "/" + destFolder,
 	}
 
@@ -373,14 +373,14 @@ func TestPutImageExtractAsTiff(t *testing.T) {
 
 func TestGetImageExtractAsTiff(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
+	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
 	}
 
@@ -402,7 +402,7 @@ func TestGetImageExtractAsTiff(t *testing.T) {
 
 func TestPutImageExtractAsGif(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
@@ -411,8 +411,8 @@ func TestPutImageExtractAsGif(t *testing.T) {
 
 	destFolder := "extract_gif"
 
-	args := map[string]interface{} {
-		"folder": GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":     GetBaseTest().remoteFolder,
 		"destFolder": GetBaseTest().remoteFolder + "/" + destFolder,
 	}
 
@@ -434,14 +434,14 @@ func TestPutImageExtractAsGif(t *testing.T) {
 
 func TestGetImageExtractAsGif(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
+	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
 	}
 
@@ -463,7 +463,7 @@ func TestGetImageExtractAsGif(t *testing.T) {
 
 func TestPutImageExtractAsPng(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
@@ -472,8 +472,8 @@ func TestPutImageExtractAsPng(t *testing.T) {
 
 	destFolder := "extract_png"
 
-	args := map[string]interface{} {
-		"folder": GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":     GetBaseTest().remoteFolder,
 		"destFolder": GetBaseTest().remoteFolder + "/" + destFolder,
 	}
 
@@ -495,14 +495,14 @@ func TestPutImageExtractAsPng(t *testing.T) {
 
 func TestGetImageExtractAsPng(t *testing.T) {
 
-	name := "PdfWithImages2.pdf"	
+	name := "PdfWithImages2.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
+	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
 	}
 

@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,13 +18,13 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
 
- import (
-	 "fmt"
-	 "testing"
- )
- 
+import (
+	"fmt"
+	"testing"
+)
+
 func TestGetPageConvertToTiff(t *testing.T) {
 
 	name := "4pages.pdf"
@@ -33,8 +33,8 @@ func TestGetPageConvertToTiff(t *testing.T) {
 	}
 	pageNumber := int32(2)
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageConvertToTiff(name, pageNumber, args)
@@ -58,8 +58,8 @@ func TestPutPageConvertToTiff(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPageConvertToTiff(name, pageNumber, outPath, args)
@@ -80,8 +80,8 @@ func TestGetPageConvertToJpeg(t *testing.T) {
 	}
 	pageNumber := int32(2)
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageConvertToJpeg(name, pageNumber, args)
@@ -105,8 +105,8 @@ func TestPutPageConvertToJpeg(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPageConvertToJpeg(name, pageNumber, outPath, args)
@@ -127,8 +127,8 @@ func TestGetPageConvertToPng(t *testing.T) {
 	}
 	pageNumber := int32(2)
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageConvertToPng(name, pageNumber, args)
@@ -152,8 +152,8 @@ func TestPutPageConvertToPng(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPageConvertToPng(name, pageNumber, outPath, args)
@@ -174,8 +174,8 @@ func TestGetPageConvertToEmf(t *testing.T) {
 	}
 	pageNumber := int32(2)
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageConvertToEmf(name, pageNumber, args)
@@ -199,8 +199,8 @@ func TestPutPageConvertToEmf(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPageConvertToEmf(name, pageNumber, outPath, args)
@@ -221,8 +221,8 @@ func TestGetPageConvertToBmp(t *testing.T) {
 	}
 	pageNumber := int32(2)
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageConvertToBmp(name, pageNumber, args)
@@ -246,8 +246,8 @@ func TestPutPageConvertToBmp(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPageConvertToBmp(name, pageNumber, outPath, args)
@@ -268,8 +268,8 @@ func TestGetPageConvertToGif(t *testing.T) {
 	}
 	pageNumber := int32(2)
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageConvertToGif(name, pageNumber, args)
@@ -293,8 +293,8 @@ func TestPutPageConvertToGif(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPageConvertToGif(name, pageNumber, outPath, args)

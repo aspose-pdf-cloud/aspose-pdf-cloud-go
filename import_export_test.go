@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,22 +18,22 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
 
- import (
-	 "os"
-	 "fmt"
-	 "testing"
- )
- 
+import (
+	"fmt"
+	"os"
+	"testing"
+)
+
 func TestGetExportFieldsFromPdfToXmlInStorage(t *testing.T) {
 	name := "FormData.pdf"
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetExportFieldsFromPdfToXmlInStorage(name, args)
@@ -52,8 +52,8 @@ func TestGetExportFieldsFromPdfToFdfInStorage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetExportFieldsFromPdfToFdfInStorage(name, args)
@@ -72,8 +72,8 @@ func TestGetExportFieldsFromPdfToXfdfInStorage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetExportFieldsFromPdfToXfdfInStorage(name, args)
@@ -92,8 +92,8 @@ func TestPutExportFieldsFromPdfToXmlInStorage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	outPath := GetBaseTest().remoteFolder + "/exportData.xml"
@@ -114,8 +114,8 @@ func TestPutExportFieldsFromPdfToFdfInStorage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	outPath := GetBaseTest().remoteFolder + "/exportData.fdf"
@@ -136,8 +136,8 @@ func TestPutExportFieldsFromPdfToXfdfInStorage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	outPath := GetBaseTest().remoteFolder + "/exportData.xfdf"
@@ -163,8 +163,8 @@ func TestGetImportFieldsFromFdfInStorage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	dataPath := GetBaseTest().remoteFolder + "/" + dataFile
@@ -190,8 +190,8 @@ func TestGetImportFieldsFromXfdfInStorage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	dataPath := GetBaseTest().remoteFolder + "/" + dataFile
@@ -217,8 +217,8 @@ func TestGetImportFieldsFromXmlInStorage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	dataPath := GetBaseTest().remoteFolder + "/" + dataFile
@@ -244,8 +244,8 @@ func TestPutImportFieldsFromFdfInStorage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	dataPath := GetBaseTest().remoteFolder + "/" + dataFile
@@ -271,8 +271,8 @@ func TestPutImportFieldsFromXfdfInStorage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	dataPath := GetBaseTest().remoteFolder + "/" + dataFile
@@ -298,8 +298,8 @@ func TestPutImportFieldsFromXmlInStorage(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	dataPath := GetBaseTest().remoteFolder + "/" + dataFile
@@ -321,13 +321,13 @@ func TestPostImportFieldsFromFdf(t *testing.T) {
 	}
 
 	dataFile := "FormData.fdf"
-	
-	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + dataFile) 
+
+	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + dataFile)
 	if err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
+	args := map[string]interface{}{
 		"folder":  GetBaseTest().remoteFolder,
 		"fdfData": file,
 	}
@@ -350,13 +350,13 @@ func TestPostImportFieldsFromXfdf(t *testing.T) {
 
 	dataFile := "FormDataXfdf_in.xfdf"
 
-	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + dataFile) 
+	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + dataFile)
 	if err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder":   GetBaseTest().remoteFolder,
 		"xfdfData": file,
 	}
 
@@ -377,13 +377,13 @@ func TestPostImportFieldsFromXml(t *testing.T) {
 	}
 
 	dataFile := "FormDataXfa_in.xml"
-	
-	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + dataFile) 
+
+	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + dataFile)
 	if err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
+	args := map[string]interface{}{
 		"folder":  GetBaseTest().remoteFolder,
 		"xmlData": file,
 	}

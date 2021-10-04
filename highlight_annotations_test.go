@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,23 +18,23 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
 
- import (
-	 "fmt"
-	 "testing"
- )
- 
- func TestGetDocumentHighlightAnnotations(t *testing.T) {
+import (
+	"fmt"
+	"testing"
+)
 
-	name := "PdfWithAnnotations.pdf"	
+func TestGetDocumentHighlightAnnotations(t *testing.T) {
+
+	name := "PdfWithAnnotations.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentHighlightAnnotations(name, args)
@@ -49,14 +49,14 @@
 
 func TestGetPageHighlightAnnotations(t *testing.T) {
 
-	name := "PdfWithAnnotations.pdf"	
+	name := "PdfWithAnnotations.pdf"
 	var pageNumber int32 = 2
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageHighlightAnnotations(name, pageNumber, args)
@@ -70,15 +70,15 @@ func TestGetPageHighlightAnnotations(t *testing.T) {
 }
 
 func TestGetHighlightAnnotation(t *testing.T) {
- 
+
 	name := "PdfWithAnnotations.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentHighlightAnnotations(name, args)
@@ -91,7 +91,7 @@ func TestGetHighlightAnnotation(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestGetHighlightAnnotation - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
@@ -99,25 +99,25 @@ func TestGetHighlightAnnotation(t *testing.T) {
 
 func TestPostPageHighlightAnnotations(t *testing.T) {
 
-	name := "PdfWithAnnotations.pdf"	
+	name := "PdfWithAnnotations.pdf"
 	var pageNumber int32 = 2
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	annotation := HighlightAnnotation {
-		Name: "Name",
-		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
-		Flags: []AnnotationFlags{AnnotationFlagsDefault},
+	annotation := HighlightAnnotation{
+		Name:                "Name",
+		Rect:                &Rectangle{LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Flags:               []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		RichText: "Rich Text",
-		Subject: "Text Box Subj",
-		ZIndex: 1,
-		Title: "Title",
+		RichText:            "Rich Text",
+		Subject:             "Text Box Subj",
+		ZIndex:              1,
+		Title:               "Title",
 		QuadPoints: []Point{
 			Point{X: 10, Y: 10},
 			Point{X: 20, Y: 10},
@@ -126,7 +126,6 @@ func TestPostPageHighlightAnnotations(t *testing.T) {
 		},
 		Modified: "02/02/2018 00:00:00.000 AM",
 	}
-
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostPageHighlightAnnotations(name, pageNumber, []HighlightAnnotation{annotation}, args)
 	if err != nil {
@@ -145,19 +144,19 @@ func TestPutHighlightAnnotation(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	annotation := HighlightAnnotation {
-		Name: "Name Updated",
-		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
-		Flags: []AnnotationFlags{AnnotationFlagsDefault},
+	annotation := HighlightAnnotation{
+		Name:                "Name Updated",
+		Rect:                &Rectangle{LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Flags:               []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		RichText: "Rich Text Updated",
-		Subject: "Text Box Subj Updated",
-		ZIndex: 1,
-		Title: "Title Updated",
+		RichText:            "Rich Text Updated",
+		Subject:             "Text Box Subj Updated",
+		ZIndex:              1,
+		Title:               "Title Updated",
 		QuadPoints: []Point{
 			Point{X: 10, Y: 10},
 			Point{X: 20, Y: 10},

@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,28 +18,28 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
 
- import (
-	 "fmt"
-	 "testing"
- )
- 
- func TestPutPriveleges(t *testing.T) {
+import (
+	"fmt"
+	"testing"
+)
 
-	name := "4pages.pdf"	
+func TestPutPriveleges(t *testing.T) {
+
+	name := "4pages.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
 	documentPrivilege := DocumentPrivilege{
-		AllowCopy: false,
+		AllowCopy:  false,
 		AllowPrint: false,
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPrivileges(name, documentPrivilege, args)
 	if err != nil {

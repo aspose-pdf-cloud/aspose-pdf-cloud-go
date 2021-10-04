@@ -29,7 +29,6 @@ Method | HTTP request | Description
 [**DeleteStamp**](PdfApi.md#DeleteStamp) | **Delete** /pdf/{name}/stamps/{stampId} | Delete document stamp by ID
 [**DeleteTable**](PdfApi.md#DeleteTable) | **Delete** /pdf/{name}/tables/{tableId} | Delete document table by ID
 [**DownloadFile**](PdfApi.md#DownloadFile) | **Get** /pdf/storage/file/{path} | Download file
-[**GetApiInfo**](PdfApi.md#GetApiInfo) | **Get** /pdf/info | 
 [**GetBookmark**](PdfApi.md#GetBookmark) | **Get** /pdf/{name}/bookmarks/bookmark/{bookmarkPath} | Read document bookmark.
 [**GetBookmarks**](PdfApi.md#GetBookmarks) | **Get** /pdf/{name}/bookmarks/list/{bookmarkPath} | Read document bookmarks node list.
 [**GetCaretAnnotation**](PdfApi.md#GetCaretAnnotation) | **Get** /pdf/{name}/annotations/caret/{annotationId} | Read document page caret annotation by ID.
@@ -150,8 +149,7 @@ Method | HTTP request | Description
 [**GetPdfInStorageToDoc**](PdfApi.md#GetPdfInStorageToDoc) | **Get** /pdf/{name}/convert/doc | Converts PDF document (located on storage) to DOC format and returns resulting file in response content
 [**GetPdfInStorageToEpub**](PdfApi.md#GetPdfInStorageToEpub) | **Get** /pdf/{name}/convert/epub | Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
 [**GetPdfInStorageToHtml**](PdfApi.md#GetPdfInStorageToHtml) | **Get** /pdf/{name}/convert/html | Converts PDF document (located on storage) to Html format and returns resulting file in response content
-[**GetPdfInStorageToLaTeX**](PdfApi.md#GetPdfInStorageToLaTeX) | **Get** /pdf/{name}/convert/latex | Converts PDF document (located on storage) to TeX format and returns resulting file in response content
-[**GetPdfInStorageToMobiXml**](PdfApi.md#GetPdfInStorageToMobiXml) | **Get** /pdf/{name}/convert/mobixml | Converts PDF document (located on storage) to MOBIXML format and returns resulting file in response content
+[**GetPdfInStorageToMobiXml**](PdfApi.md#GetPdfInStorageToMobiXml) | **Get** /pdf/{name}/convert/mobixml | Converts PDF document (located on storage) to MOBIXML format and returns resulting ZIP archive file in response content.
 [**GetPdfInStorageToPdfA**](PdfApi.md#GetPdfInStorageToPdfA) | **Get** /pdf/{name}/convert/pdfa | Converts PDF document (located on storage) to PdfA format and returns resulting file in response content
 [**GetPdfInStorageToPptx**](PdfApi.md#GetPdfInStorageToPptx) | **Get** /pdf/{name}/convert/pptx | Converts PDF document (located on storage) to PPTX format and returns resulting file in response content
 [**GetPdfInStorageToSvg**](PdfApi.md#GetPdfInStorageToSvg) | **Get** /pdf/{name}/convert/svg | Converts PDF document (located on storage) to SVG format and returns resulting file in response content
@@ -306,8 +304,7 @@ Method | HTTP request | Description
 [**PutPdfInRequestToDoc**](PdfApi.md#PutPdfInRequestToDoc) | **Put** /pdf/convert/doc | Converts PDF document (in request content) to DOC format and uploads resulting file to storage.
 [**PutPdfInRequestToEpub**](PdfApi.md#PutPdfInRequestToEpub) | **Put** /pdf/convert/epub | Converts PDF document (in request content) to EPUB format and uploads resulting file to storage.
 [**PutPdfInRequestToHtml**](PdfApi.md#PutPdfInRequestToHtml) | **Put** /pdf/convert/html | Converts PDF document (in request content) to Html format and uploads resulting file to storage.
-[**PutPdfInRequestToLaTeX**](PdfApi.md#PutPdfInRequestToLaTeX) | **Put** /pdf/convert/latex | Converts PDF document (in request content) to TeX format and uploads resulting file to storage.
-[**PutPdfInRequestToMobiXml**](PdfApi.md#PutPdfInRequestToMobiXml) | **Put** /pdf/convert/mobixml | Converts PDF document (in request content) to MOBIXML format and uploads resulting file to storage.
+[**PutPdfInRequestToMobiXml**](PdfApi.md#PutPdfInRequestToMobiXml) | **Put** /pdf/convert/mobixml | Converts PDF document (in request content) to MOBIXML format and uploads resulting ZIP archive file to storage.
 [**PutPdfInRequestToPdfA**](PdfApi.md#PutPdfInRequestToPdfA) | **Put** /pdf/convert/pdfa | Converts PDF document (in request content) to PdfA format and uploads resulting file to storage.
 [**PutPdfInRequestToPptx**](PdfApi.md#PutPdfInRequestToPptx) | **Put** /pdf/convert/pptx | Converts PDF document (in request content) to PPTX format and uploads resulting file to storage.
 [**PutPdfInRequestToSvg**](PdfApi.md#PutPdfInRequestToSvg) | **Put** /pdf/convert/svg | Converts PDF document (in request content) to SVG format and uploads resulting file to storage.
@@ -320,8 +317,7 @@ Method | HTTP request | Description
 [**PutPdfInStorageToDoc**](PdfApi.md#PutPdfInStorageToDoc) | **Put** /pdf/{name}/convert/doc | Converts PDF document (located on storage) to DOC format and uploads resulting file to storage
 [**PutPdfInStorageToEpub**](PdfApi.md#PutPdfInStorageToEpub) | **Put** /pdf/{name}/convert/epub | Converts PDF document (located on storage) to EPUB format and uploads resulting file to storage
 [**PutPdfInStorageToHtml**](PdfApi.md#PutPdfInStorageToHtml) | **Put** /pdf/{name}/convert/html | Converts PDF document (located on storage) to Html format and uploads resulting file to storage
-[**PutPdfInStorageToLaTeX**](PdfApi.md#PutPdfInStorageToLaTeX) | **Put** /pdf/{name}/convert/latex | Converts PDF document (located on storage) to TeX format and uploads resulting file to storage
-[**PutPdfInStorageToMobiXml**](PdfApi.md#PutPdfInStorageToMobiXml) | **Put** /pdf/{name}/convert/mobixml | Converts PDF document (located on storage) to MOBIXML format and uploads resulting file to storage
+[**PutPdfInStorageToMobiXml**](PdfApi.md#PutPdfInStorageToMobiXml) | **Put** /pdf/{name}/convert/mobixml | Converts PDF document (located on storage) to MOBIXML format and uploads resulting ZIP archive file to storage
 [**PutPdfInStorageToPdfA**](PdfApi.md#PutPdfInStorageToPdfA) | **Put** /pdf/{name}/convert/pdfa | Converts PDF document (located on storage) to PdfA format and uploads resulting file to storage
 [**PutPdfInStorageToPptx**](PdfApi.md#PutPdfInStorageToPptx) | **Put** /pdf/{name}/convert/pptx | Converts PDF document (located on storage) to PPTX format and uploads resulting file to storage
 [**PutPdfInStorageToSvg**](PdfApi.md#PutPdfInStorageToSvg) | **Put** /pdf/{name}/convert/svg | Converts PDF document (located on storage) to SVG format and uploads resulting file to storage
@@ -1171,24 +1167,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **GetApiInfo**
-> ApiInfo GetApiInfo()
-
-
-### Required Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ApiInfo**](ApiInfo.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5116,40 +5094,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetPdfInStorageToLaTeX**
-> []byte GetPdfInStorageToLaTeX(name, optional)
-Converts PDF document (located on storage) to TeX format and returns resulting file in response content
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| The document name. | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| The document name. | 
- **folder** | **string**| The document folder. | 
- **storage** | **string**| The document storage. | 
-
-### Return type
-
-**[]byte**
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: multipart/form-data
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **GetPdfInStorageToMobiXml**
 > []byte GetPdfInStorageToMobiXml(name, optional)
-Converts PDF document (located on storage) to MOBIXML format and returns resulting file in response content
+Converts PDF document (located on storage) to MOBIXML format and returns resulting ZIP archive file in response content.
 
 ### Required Parameters
 
@@ -10491,40 +10438,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **PutPdfInRequestToLaTeX**
-> AsposeResponse PutPdfInRequestToLaTeX(outPath, optional)
-Converts PDF document (in request content) to TeX format and uploads resulting file to storage.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.tex) | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.tex) | 
- **storage** | **string**| The document storage. | 
- **file** | ***os.File**| A file to be converted. | 
-
-### Return type
-
-[**AsposeResponse**](AsposeResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **PutPdfInRequestToMobiXml**
 > AsposeResponse PutPdfInRequestToMobiXml(outPath, optional)
-Converts PDF document (in request content) to MOBIXML format and uploads resulting file to storage.
+Converts PDF document (in request content) to MOBIXML format and uploads resulting ZIP archive file to storage.
 
 ### Required Parameters
 
@@ -10997,42 +10913,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **PutPdfInStorageToLaTeX**
-> AsposeResponse PutPdfInStorageToLaTeX(name, outPath, optional)
-Converts PDF document (located on storage) to TeX format and uploads resulting file to storage
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| The document name. | 
-  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.tex) | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| The document name. | 
- **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.tex) | 
- **folder** | **string**| The document folder. | 
- **storage** | **string**| The document storage. | 
-
-### Return type
-
-[**AsposeResponse**](AsposeResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **PutPdfInStorageToMobiXml**
 > AsposeResponse PutPdfInStorageToMobiXml(name, outPath, optional)
-Converts PDF document (located on storage) to MOBIXML format and uploads resulting file to storage
+Converts PDF document (located on storage) to MOBIXML format and uploads resulting ZIP archive file to storage
 
 ### Required Parameters
 

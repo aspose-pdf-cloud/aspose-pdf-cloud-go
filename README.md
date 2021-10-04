@@ -1,7 +1,7 @@
-# Aspose.PDF Cloud
-- API version: 3.0
-- Package version: 20.12.0
+![](https://img.shields.io/badge/api-v3.0-lightgrey) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aspose-pdf-cloud/aspose-pdf-cloud-go)   [![GitHub license](https://img.shields.io/github/license/aspose-pdf-cloud/aspose-pdf-cloud-go)](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/blob/master/LICENSE)
 
+
+# Go SDK for Aspose.PDF Cloud REST API
 [Aspose.PDF Cloud](https://products.aspose.cloud/pdf) is a true REST API that enables you to perform a wide range of document processing operations including creation, manipulation, conversion and rendering of PDF documents in the cloud.
 
 Our Cloud SDKs are wrappers around REST API in various programming languages, allowing you to process documents in language of your choice quickly and easily, gaining all benefits of strong types and IDE highlights. This repository contains new generation SDKs for Aspose.PDF Cloud and examples.
@@ -19,18 +19,20 @@ Put the package under your project folder and add the following in import:
 ## Getting Started
 
 Please follow the [installation](#installation) instruction and execute the following Java code:
+## Get PDF Page Circle Annotations in GO
 
-```go
-func GetDocumentCircleAnnotations() (CircleAnnotationsResponse, *http.Response, error) {
-    pdfAPI := NewPdfApiService("AppSid", "AppKey", "")
-	name := "PdfWithAnnotations.pdf"	
+```
+	// Get your ClientId and ClientSecret from https://dashboard.aspose.cloud (free registration required).
+
+	config, _ := models.NewConfiguration("MY_CLIENT_ID", "MY_CLIENT_SECRET", "https://api.aspose.cloud")
+	pdfAPI, ctx, _ := api.CreatePdf(config)
+	name := "PdfWithAnnotations.pdf"
 
 	args := map[string]interface{} {
 		"folder": "path/to/remote/folder",
 	}
 
 	return pdfAPI.GetDocumentCircleAnnotations(name, args)
-}
 ```
 
 ## Unit Tests
@@ -38,14 +40,6 @@ Aspose PDF Cloud SDK includes a suite of unit tests within the "test" subdirecto
 
 ## Licensing
 All Aspose.PDF Cloud SDKs are licensed under [MIT License](LICENSE).
-
-## Resources
-+ [**Website**](https://www.aspose.cloud)
-+ [**Product Home**](https://products.aspose.cloud/pdf/cloud)
-+ [**Documentation**](https://docs.aspose.cloud/display/pdfcloud/Home)
-+ [**Free Support Forum**](https://forum.aspose.cloud/c/pdf)
-+ [**Paid Support Helpdesk**](https://helpdesk.aspose.cloud/)
-+ [**Blog**](https://blog.aspose.cloud/category/aspose-products/aspose-pdf-product-family/)
 
 ## Documentation for API Endpoints
 

@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,13 +18,13 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
 
- import (
-	 "fmt"
-	 "testing"
- )
- 
+import (
+	"fmt"
+	"testing"
+)
+
 func TestGetText(t *testing.T) {
 
 	name := "4pages.pdf"
@@ -33,8 +33,8 @@ func TestGetText(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	llx := float64(0)
@@ -60,10 +60,10 @@ func TestGetPageText(t *testing.T) {
 		t.Error(err)
 	}
 	pageNumber := int32(1)
-	format := []string {"First Page", "Second Page"}
-	
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	format := []string{"First Page", "Second Page"}
+
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 		"format": format,
 	}
 
@@ -96,43 +96,42 @@ func TestPutAddText(t *testing.T) {
 	}
 
 	pageNumber := int32(1)
-	paragraph := Paragraph {
-		Rectangle: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
-		LeftMargin: 10,
-		RightMargin: 10,
-		TopMargin: 20,
-		BottomMargin: 20,
-		HorizontalAlignment: TextHorizontalAlignmentFullJustify,
-		LineSpacing: LineSpacingFontSize,
-		Rotation: 10,
+	paragraph := Paragraph{
+		Rectangle:             &Rectangle{LLX: 100, LLY: 100, URX: 200, URY: 200},
+		LeftMargin:            10,
+		RightMargin:           10,
+		TopMargin:             20,
+		BottomMargin:          20,
+		HorizontalAlignment:   TextHorizontalAlignmentFullJustify,
+		LineSpacing:           LineSpacingFontSize,
+		Rotation:              10,
 		SubsequentLinesIndent: 20,
-		VerticalAlignment: VerticalAlignmentCenter,
-		WrapMode: WrapModeByWords,
+		VerticalAlignment:     VerticalAlignmentCenter,
+		WrapMode:              WrapModeByWords,
 
-		Lines: []TextLine {
-			TextLine {
+		Lines: []TextLine{
+			TextLine{
 				HorizontalAlignment: TextHorizontalAlignmentRight,
-				Segments: []Segment {
-					Segment {
+				Segments: []Segment{
+					Segment{
 						Value: "segment 1",
-						TextState: &TextState {
-							Font: "Arial",
-							FontSize: 10,
-							ForegroundColor: &Color {A: 0x00, R: 0x00, G: 0xFF, B: 0x00 },
-							BackgroundColor: &Color {A: 0x00, R: 0xFF, G: 0x00, B: 0x00},
-							FontStyle: FontStylesBold,
-							FontFile: GetBaseTest().remoteFolder + "/" + fontName,
+						TextState: &TextState{
+							Font:            "Arial",
+							FontSize:        10,
+							ForegroundColor: &Color{A: 0x00, R: 0x00, G: 0xFF, B: 0x00},
+							BackgroundColor: &Color{A: 0x00, R: 0xFF, G: 0x00, B: 0x00},
+							FontStyle:       FontStylesBold,
+							FontFile:        GetBaseTest().remoteFolder + "/" + fontName,
 						},
 					},
 				},
 			},
 		},
 	}
-	
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
-	}
 
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
+	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutAddText(name, pageNumber, paragraph, args)
 	if err != nil {

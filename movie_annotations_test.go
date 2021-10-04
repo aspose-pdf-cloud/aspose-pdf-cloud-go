@@ -1,6 +1,6 @@
- /**
+/**
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,23 +18,23 @@
  * SOFTWARE.
  *
  */
- package asposepdfcloud
+package asposepdfcloud
 
- import (
-	 "fmt"
-	 "testing"
- )
- 
- func TestGetDocumentMovieAnnotations(t *testing.T) {
+import (
+	"fmt"
+	"testing"
+)
 
-	name := "PdfWithAnnotations1.pdf"	
-	
+func TestGetDocumentMovieAnnotations(t *testing.T) {
+
+	name := "PdfWithAnnotations1.pdf"
+
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentMovieAnnotations(name, args)
@@ -49,14 +49,14 @@
 
 func TestGetPageMovieAnnotations(t *testing.T) {
 
-	name := "PdfWithAnnotations1.pdf"	
+	name := "PdfWithAnnotations1.pdf"
 	var pageNumber int32 = 2
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPageMovieAnnotations(name, pageNumber, args)
@@ -70,15 +70,15 @@ func TestGetPageMovieAnnotations(t *testing.T) {
 }
 
 func TestGetMovieAnnotation(t *testing.T) {
- 
+
 	name := "PdfWithAnnotations1.pdf"
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
 	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentMovieAnnotations(name, args)
@@ -91,7 +91,7 @@ func TestGetMovieAnnotation(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			t.Fail()
+		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestGetMovieAnnotation - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
@@ -99,7 +99,7 @@ func TestGetMovieAnnotation(t *testing.T) {
 
 func TestPostPageMovieAnnotations(t *testing.T) {
 
-	name := "PdfWithAnnotations1.pdf"	
+	name := "PdfWithAnnotations1.pdf"
 	var pageNumber int32 = 2
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
@@ -110,20 +110,19 @@ func TestPostPageMovieAnnotations(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	annotation := MovieAnnotation {
-		Name: "Name",
-		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
-		Flags: []AnnotationFlags{AnnotationFlagsDefault},
+	annotation := MovieAnnotation{
+		Name:                "Name",
+		Rect:                &Rectangle{LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Flags:               []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		ZIndex: 1,
-		FilePath: GetBaseTest().remoteFolder + "/" + attachmentFile,
-		Modified: "02/02/2018 12:00:00.000 AM",
+		ZIndex:              1,
+		FilePath:            GetBaseTest().remoteFolder + "/" + attachmentFile,
+		Modified:            "02/02/2018 12:00:00.000 AM",
 	}
-
 
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostPageMovieAnnotations(name, pageNumber, []MovieAnnotation{annotation}, args)
 	if err != nil {
@@ -147,18 +146,18 @@ func TestPutMovieAnnotation(t *testing.T) {
 		t.Error(err)
 	}
 
-	args := map[string]interface{} {
-		"folder":  GetBaseTest().remoteFolder,
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
 	}
 
-	annotation := MovieAnnotation {
-		Name: "Name Updated",
-		Rect: &Rectangle{ LLX: 100, LLY: 100, URX: 200, URY: 200},
-		Flags: []AnnotationFlags{AnnotationFlagsDefault},
+	annotation := MovieAnnotation{
+		Name:                "Name Updated",
+		Rect:                &Rectangle{LLX: 100, LLY: 100, URX: 200, URY: 200},
+		Flags:               []AnnotationFlags{AnnotationFlagsDefault},
 		HorizontalAlignment: HorizontalAlignmentCenter,
-		ZIndex: 1,
-		FilePath: GetBaseTest().remoteFolder + "/" + attachmentFile,
-		Modified: "02/02/2018 12:02:03.000 AM",
+		ZIndex:              1,
+		FilePath:            GetBaseTest().remoteFolder + "/" + attachmentFile,
+		Modified:            "02/02/2018 12:02:03.000 AM",
 	}
 
 	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentMovieAnnotations(name, args)

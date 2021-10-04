@@ -1,6 +1,6 @@
  /*
  *
- *   Copyright (c) 2020 Aspose.PDF Cloud
+ * Copyright (c) 2021 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -25,7 +25,7 @@ type TextReplace struct {
 	// Original text.
 	OldValue string `json:"OldValue"`
 	// New text.
-	NewValue string `json:"NewValue"`
+	NewValue string `json:"NewValue,omitempty"`
 	// Gets or sets a value indicating whether search text is regular expression.
 	Regex bool `json:"Regex"`
 	// Text properties of a new text.
