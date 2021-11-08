@@ -1,3 +1,3 @@
-module github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v21
+module github.com/aspose-pdf-cloud/aspose-pdf-cloud-go
 
-go 1.17
+go 1.16
