@@ -10,14 +10,13 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
 ## Installation
-Put the package under your project folder and add the following in import:
 ```
-    "./asposepdfcloud"
+    go get github.com/aspose-pdf-cloud/aspose-pdf-cloud-go
 ```
 
 ## Getting Started
+Please follow the [installation](#installation) instruction and execute the following Go code:
 
-Please follow the [installation](#installation) instruction and execute the following Java code:
 ## Get PDF Page Circle Annotations in GO
 
 ```
