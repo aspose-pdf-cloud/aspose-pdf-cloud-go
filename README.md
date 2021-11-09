@@ -11,14 +11,13 @@ Extract Text & Images of a PDF document online https://products.aspose.app/pdf/p
 
 ## Installation
 ```
-    go get github.com/aspose-pdf-cloud/aspose-pdf-cloud-go
+    go get -u github.com/aspose-pdf-cloud/aspose-pdf-cloud-go
 ```
 
 ## Getting Started
 Please follow the [installation](#installation) instruction and execute the following Go code:
 
 ## Get PDF Page Circle Annotations in GO
-
 ```
 	// Get your ClientId and ClientSecret from https://dashboard.aspose.cloud (free registration required).
 
