@@ -13,11 +13,10 @@ Extract Text & Images of a PDF document online https://products.aspose.app/pdf/p
 ```
     go get -u github.com/aspose-pdf-cloud/aspose-pdf-cloud-go
 ```
-
 ## Getting Started
 Please follow the [installation](#installation) instruction and execute the following Go code:
 
-## Get PDF Page Circle Annotations in GO
+## Get PDF Page Circle Annotations in Go
 ```
 	// Get your ClientId and ClientSecret from https://dashboard.aspose.cloud (free registration required).
 
@@ -31,7 +30,6 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 	return pdfAPI.GetDocumentCircleAnnotations(name, args)
 ```
-
 ## Unit Tests
 Aspose PDF Cloud SDK includes a suite of unit tests within the "test" subdirectory. These Unit Tests also serves as examples of how to use the Aspose PDF Cloud SDK.
 
