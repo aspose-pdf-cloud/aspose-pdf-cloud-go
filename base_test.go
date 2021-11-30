@@ -21,7 +21,9 @@
 package asposepdfcloud
 
 import (
+	"encoding/json"
 	"os"
+	"path/filepath"
 )
 
 var BaseTestInstance *BaseTest
@@ -50,15 +52,56 @@ func (bt *BaseTest) GetTestNumber() int {
 	return bt.TestNumber
 }
 
+func getServercredsJson() string {
+	wd, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
+	dir := filepath.Dir(wd)
+	for !(dir[len(dir)-1] == filepath.Separator || dir == ".") {
+		servercreds_json := filepath.Join(dir, "Settings", "servercreds.json")
+		if _, err := os.Stat(servercreds_json); err == nil {
+			// fmt.Println(`Settings\servercreds.json found: ` + servercreds_json)
+			return servercreds_json
+		}
+		dir = filepath.Dir(dir)
+	}
+	panic(`Settings\servercreds.json not found`)
+}
+
+type Creds struct {
+	AppSID string
+	AppKey string
+}
+
+func getCreds() (appSID, appKey string) {
+	bbCreds, err := os.ReadFile(getServercredsJson())
+	if err != nil {
+		panic(err)
+	}
+	var creds Creds
+	if err := json.Unmarshal(bbCreds, &creds); err != nil {
+		panic(err)
+	}
+	if len(creds.AppSID) == 0 {
+		panic("no AppSID")
+	}
+	if len(creds.AppKey) == 0 {
+		panic("no AppKey")
+	}
+	return creds.AppSID, creds.AppKey
+}
+
 func NewBaseTest() *BaseTest {
-	bt := &BaseTest{
+	appSID, appKey := getCreds()
+	bt := BaseTest{
 		remoteFolder:        "TempPdfCloud",
 		localTestDataFolder: "test_data",
 		TestNumber:          0,
 		// Get App key and App SID from https://aspose.cloud
-		PdfAPI: NewPdfApiService("AppSID", "AppKey", "https://api.aspose.cloud/v3.0"),
+		PdfAPI: NewPdfApiService(appSID, appKey, "https://api.aspose.cloud/v3.0"),
 	}
-	return bt
+	return &bt
 }
 
 func GetBaseTest() *BaseTest {
