@@ -9,10 +9,14 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
+## Enhancements in Version 21.11
+- A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
+
 ## Installation
 ```
     go get -u github.com/aspose-pdf-cloud/aspose-pdf-cloud-go
 ```
+
 ## Getting Started
 Please follow the [installation](#installation) instruction and execute the following Go code:
 
@@ -30,6 +34,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 	return pdfAPI.GetDocumentCircleAnnotations(name, args)
 ```
+
 ## Unit Tests
 Aspose PDF Cloud SDK includes a suite of unit tests within the "test" subdirectory. These Unit Tests also serves as examples of how to use the Aspose PDF Cloud SDK.
 
