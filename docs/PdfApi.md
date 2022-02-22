@@ -97,7 +97,6 @@ Method | HTTP request | Description
 [**GetImportFieldsFromXfdfInStorage**](PdfApi.md#GetImportFieldsFromXfdfInStorage) | **Get** /pdf/{name}/import/xfdf | Update fields from XFDF file in storage.
 [**GetImportFieldsFromXmlInStorage**](PdfApi.md#GetImportFieldsFromXmlInStorage) | **Get** /pdf/{name}/import/xml | Import from XML file (located on storage) to PDF format and return resulting file in response. 
 [**GetInkAnnotation**](PdfApi.md#GetInkAnnotation) | **Get** /pdf/{name}/annotations/ink/{annotationId} | Read document page ink annotation by ID.
-[**GetLaTeXInStorageToPdf**](PdfApi.md#GetLaTeXInStorageToPdf) | **Get** /pdf/create/latex | Convert TeX file (located on storage) to PDF format and return resulting file in response. 
 [**GetLineAnnotation**](PdfApi.md#GetLineAnnotation) | **Get** /pdf/{name}/annotations/line/{annotationId} | Read document page line annotation by ID.
 [**GetLinkAnnotation**](PdfApi.md#GetLinkAnnotation) | **Get** /pdf/{name}/links/{linkId} | Read document link annotation by ID.
 [**GetListBoxField**](PdfApi.md#GetListBoxField) | **Get** /pdf/{name}/fields/listbox/{fieldName} | Read document listbox field by name.
@@ -284,7 +283,6 @@ Method | HTTP request | Description
 [**PutImportFieldsFromXfdfInStorage**](PdfApi.md#PutImportFieldsFromXfdfInStorage) | **Put** /pdf/{name}/import/xfdf | Update fields from XFDF file in storage.
 [**PutImportFieldsFromXmlInStorage**](PdfApi.md#PutImportFieldsFromXmlInStorage) | **Put** /pdf/{name}/import/xml | Update fields from XML file in storage.
 [**PutInkAnnotation**](PdfApi.md#PutInkAnnotation) | **Put** /pdf/{name}/annotations/ink/{annotationId} | Replace document ink annotation
-[**PutLaTeXInStorageToPdf**](PdfApi.md#PutLaTeXInStorageToPdf) | **Put** /pdf/{name}/create/latex | Convert TeX file (located on storage) to PDF format and upload resulting file to storage. 
 [**PutLineAnnotation**](PdfApi.md#PutLineAnnotation) | **Put** /pdf/{name}/annotations/line/{annotationId} | Replace document line annotation
 [**PutLinkAnnotation**](PdfApi.md#PutLinkAnnotation) | **Put** /pdf/{name}/links/{linkId} | Replace document page link annotations
 [**PutListBoxField**](PdfApi.md#PutListBoxField) | **Put** /pdf/{name}/fields/listbox/{fieldName} | Replace document listbox field
@@ -3337,36 +3335,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetLaTeXInStorageToPdf**
-> []byte GetLaTeXInStorageToPdf(srcPath, optional)
-Convert TeX file (located on storage) to PDF format and return resulting file in response. 
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.tex) | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.tex) | 
- **storage** | **string**| The document storage. | 
-
-### Return type
-
-**[]byte**
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: multipart/form-data
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **GetLineAnnotation**
 > LineAnnotationResponse GetLineAnnotation(name, annotationId, optional)
 Read document page line annotation by ID.
@@ -5319,7 +5287,7 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **insertBlankColumnAtFirst** | **bool**| Insert blank column at first | 
  **minimizeTheNumberOfWorksheets** | **bool**| Minimize the number of worksheets | 
- **scaleFactor** | **float64**| Scale factor | 
+ **scaleFactor** | **float64**| Scale factor (Obsolete) | 
  **uniformWorksheets** | **bool**| Uniform worksheets | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
@@ -5354,7 +5322,7 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **insertBlankColumnAtFirst** | **bool**| Insert blank column at first | 
  **minimizeTheNumberOfWorksheets** | **bool**| Minimize the number of worksheets | 
- **scaleFactor** | **float64**| Scale factor | 
+ **scaleFactor** | **float64**| Scale factor (Obsolete) | 
  **uniformWorksheets** | **bool**| Uniform worksheets | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
@@ -9710,39 +9678,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **PutLaTeXInStorageToPdf**
-> AsposeResponse PutLaTeXInStorageToPdf(name, srcPath, optional)
-Convert TeX file (located on storage) to PDF format and upload resulting file to storage. 
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| The document name. | 
-  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.tex) | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string**| The document name. | 
- **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.tex) | 
- **dstFolder** | **string**| The destination document folder. | 
- **storage** | **string**| The document storage. | 
-
-### Return type
-
-[**AsposeResponse**](AsposeResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **PutLineAnnotation**
 > LineAnnotationResponse PutLineAnnotation(name, annotationId, annotation, optional)
 Replace document line annotation
@@ -10662,7 +10597,7 @@ Name | Type | Description  | Notes
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xls) | 
  **insertBlankColumnAtFirst** | **bool**| Insert blank column at first | 
  **minimizeTheNumberOfWorksheets** | **bool**| Minimize the number of worksheets | 
- **scaleFactor** | **float64**| Scale factor | 
+ **scaleFactor** | **float64**| Scale factor (Obsolete) | 
  **uniformWorksheets** | **bool**| Uniform worksheets | 
  **storage** | **string**| The document storage. | 
  **file** | ***os.File**| A file to be converted. | 
@@ -10697,7 +10632,7 @@ Name | Type | Description  | Notes
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xlsx) | 
  **insertBlankColumnAtFirst** | **bool**| Insert blank column at first | 
  **minimizeTheNumberOfWorksheets** | **bool**| Minimize the number of worksheets | 
- **scaleFactor** | **float64**| Scale factor | 
+ **scaleFactor** | **float64**| Scale factor (Obsolete) | 
  **uniformWorksheets** | **bool**| Uniform worksheets | 
  **storage** | **string**| The document storage. | 
  **file** | ***os.File**| A file to be converted. | 
@@ -11151,7 +11086,7 @@ Name | Type | Description  | Notes
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xls) | 
  **insertBlankColumnAtFirst** | **bool**| Insert blank column at first | 
  **minimizeTheNumberOfWorksheets** | **bool**| Minimize the number of worksheets | 
- **scaleFactor** | **float64**| Scale factor | 
+ **scaleFactor** | **float64**| Scale factor (Obsolete) | 
  **uniformWorksheets** | **bool**| Uniform worksheets | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
@@ -11188,7 +11123,7 @@ Name | Type | Description  | Notes
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.xlsx) | 
  **insertBlankColumnAtFirst** | **bool**| Insert blank column at first | 
  **minimizeTheNumberOfWorksheets** | **bool**| Minimize the number of worksheets | 
- **scaleFactor** | **float64**| Scale factor | 
+ **scaleFactor** | **float64**| Scale factor (Obsolete) | 
  **uniformWorksheets** | **bool**| Uniform worksheets | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 

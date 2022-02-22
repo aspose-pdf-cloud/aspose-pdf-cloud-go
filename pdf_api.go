@@ -7335,76 +7335,6 @@ func (a *PdfApiService) GetInkAnnotation(name string, annotationId string, local
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PdfApiService Convert TeX file (located on storage) to PDF format and return resulting file in response. 
- @param srcPath Full source filename (ex. /folder1/folder2/template.tex)
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "storage" (string) The document storage.
- @return []byte*/
-func (a *PdfApiService) GetLaTeXInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
-	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload []byte
-	)
-
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pdf/create/latex"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _url.Values{}
-	localVarFormParams := _url.Values{}
-
-	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
-		return successPayload, nil, err
-	}
-
-	localVarQueryParams.Add("srcPath", parameterToString(srcPath, ""))
-	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
-		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
-	}
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{
-		"multipart/form-data",
-		}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return successPayload, nil, err
-	}
-
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	defer localVarHttpResponse.Body.Close()
-	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
-		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
-	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
-    if err != nil {
-        return successPayload, localVarHttpResponse, err
-    }
-
-	return successPayload, localVarHttpResponse, err
-}
-
 /* PdfApiService Read document page line annotation by ID.
  @param name The document name.
  @param annotationId The annotation ID.
@@ -12367,7 +12297,7 @@ func (a *PdfApiService) GetPdfInStorageToTiff(name string, localVarOptionals map
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "insertBlankColumnAtFirst" (bool) Insert blank column at first
      @param "minimizeTheNumberOfWorksheets" (bool) Minimize the number of worksheets
-     @param "scaleFactor" (float64) Scale factor
+     @param "scaleFactor" (float64) Scale factor (Obsolete)
      @param "uniformWorksheets" (bool) Uniform worksheets
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
@@ -12472,7 +12402,7 @@ func (a *PdfApiService) GetPdfInStorageToXls(name string, localVarOptionals map[
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "insertBlankColumnAtFirst" (bool) Insert blank column at first
      @param "minimizeTheNumberOfWorksheets" (bool) Minimize the number of worksheets
-     @param "scaleFactor" (float64) Scale factor
+     @param "scaleFactor" (float64) Scale factor (Obsolete)
      @param "uniformWorksheets" (bool) Uniform worksheets
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
@@ -23279,85 +23209,6 @@ func (a *PdfApiService) PutInkAnnotation(name string, annotationId string, annot
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PdfApiService Convert TeX file (located on storage) to PDF format and upload resulting file to storage. 
- @param name The document name.
- @param srcPath Full source filename (ex. /folder1/folder2/template.tex)
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dstFolder" (string) The destination document folder.
-     @param "storage" (string) The document storage.
- @return AsposeResponse*/
-func (a *PdfApiService) PutLaTeXInStorageToPdf(name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
-	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload AsposeResponse
-	)
-
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/pdf/{name}/create/latex"
-	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", name), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _url.Values{}
-	localVarFormParams := _url.Values{}
-
-	if err := typeCheckParameter(localVarOptionals["dstFolder"], "string", "dstFolder"); err != nil {
-		return successPayload, nil, err
-	}
-	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
-		return successPayload, nil, err
-	}
-
-	localVarQueryParams.Add("srcPath", parameterToString(srcPath, ""))
-	if localVarTempParam, localVarOk := localVarOptionals["dstFolder"].(string); localVarOk {
-		localVarQueryParams.Add("dstFolder", parameterToString(localVarTempParam, ""))
-	}
-	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
-		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
-	}
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{
-		"application/json",
-		}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return successPayload, nil, err
-	}
-
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	defer localVarHttpResponse.Body.Close()
-	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
-		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
-	}
-    
-	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
-	return successPayload, localVarHttpResponse, err
-}
-
 /* PdfApiService Replace document line annotation
  @param name The document name.
  @param annotationId The annotation ID.
@@ -25866,7 +25717,7 @@ func (a *PdfApiService) PutPdfInRequestToTiff(outPath string, localVarOptionals 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "insertBlankColumnAtFirst" (bool) Insert blank column at first
      @param "minimizeTheNumberOfWorksheets" (bool) Minimize the number of worksheets
-     @param "scaleFactor" (float64) Scale factor
+     @param "scaleFactor" (float64) Scale factor (Obsolete)
      @param "uniformWorksheets" (bool) Uniform worksheets
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
@@ -25975,7 +25826,7 @@ func (a *PdfApiService) PutPdfInRequestToXls(outPath string, localVarOptionals m
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "insertBlankColumnAtFirst" (bool) Insert blank column at first
      @param "minimizeTheNumberOfWorksheets" (bool) Minimize the number of worksheets
-     @param "scaleFactor" (float64) Scale factor
+     @param "scaleFactor" (float64) Scale factor (Obsolete)
      @param "uniformWorksheets" (bool) Uniform worksheets
      @param "storage" (string) The document storage.
      @param "file" (*os.File) A file to be converted.
@@ -27349,7 +27200,7 @@ func (a *PdfApiService) PutPdfInStorageToTiff(name string, outPath string, local
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "insertBlankColumnAtFirst" (bool) Insert blank column at first
      @param "minimizeTheNumberOfWorksheets" (bool) Minimize the number of worksheets
-     @param "scaleFactor" (float64) Scale factor
+     @param "scaleFactor" (float64) Scale factor (Obsolete)
      @param "uniformWorksheets" (bool) Uniform worksheets
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
@@ -27456,7 +27307,7 @@ func (a *PdfApiService) PutPdfInStorageToXls(name string, outPath string, localV
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "insertBlankColumnAtFirst" (bool) Insert blank column at first
      @param "minimizeTheNumberOfWorksheets" (bool) Minimize the number of worksheets
-     @param "scaleFactor" (float64) Scale factor
+     @param "scaleFactor" (float64) Scale factor (Obsolete)
      @param "uniformWorksheets" (bool) Uniform worksheets
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
