@@ -35,4 +35,12 @@ type TextState struct {
 	FontStyle FontStyles `json:"FontStyle"`
 	// Sets path of font file in storage.
 	FontFile string `json:"FontFile,omitempty"`
+	// Gets or sets underline of the text.
+	Underline bool `json:"Underline,omitempty"`
+	// Gets or sets strikeout of the text.
+	StrikeOut bool `json:"StrikeOut,omitempty"`
+	// Gets or sets superscript mode of the text.
+	Superscript bool `json:"Superscript,omitempty"`
+	// Gets or sets subscript mode of the text.
+	Subscript bool `json:"Subscript,omitempty"`
 }
