@@ -81,7 +81,7 @@ func TestGetCaretAnnotation(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentCaretAnnotations(name, args)
+	responseAnnotations, _, err := GetBaseTest().PdfAPI.GetDocumentCaretAnnotations(name, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -156,7 +156,7 @@ func TestPutCaretAnnotation(t *testing.T) {
 		Modified:            "02/02/2018 00:00:00.000 AM",
 	}
 
-	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentCaretAnnotations(name, args)
+	responseAnnotations, _, err := GetBaseTest().PdfAPI.GetDocumentCaretAnnotations(name, args)
 	if err != nil {
 		t.Error(err)
 	}

@@ -81,7 +81,7 @@ func TestGetCircleAnnotation(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentCircleAnnotations(name, args)
+	responseAnnotations, _, err := GetBaseTest().PdfAPI.GetDocumentCircleAnnotations(name, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -152,7 +152,7 @@ func TestPutCircleAnnotation(t *testing.T) {
 		Title:               "Title Updated",
 	}
 
-	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentCircleAnnotations(name, args)
+	responseAnnotations, _, err := GetBaseTest().PdfAPI.GetDocumentCircleAnnotations(name, args)
 	if err != nil {
 		t.Error(err)
 	}
