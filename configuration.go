@@ -75,7 +75,7 @@ type Configuration struct {
 
 func NewConfiguration(appSid string, appKey string, basePath string) *Configuration {
     cfg := &Configuration{
-        BasePath:      "https://api.aspose.cloud/v2.0",
+        BasePath:      "https://api.aspose.cloud/v3.0",
         DefaultHeader: make(map[string]string),
         UserAgent:     "aspose pdf cloud go sdk",
         AppKey: appKey,

@@ -127,7 +127,7 @@ func TestPostCreateDocument(t *testing.T) {
 		PagesCount: 2,
 		DocumentProperties: &DocumentProperties{
 			List: []DocumentProperty{
-				DocumentProperty{
+				{
 					BuiltIn: false,
 					Name:    "prop1",
 					Value:   "Val1",

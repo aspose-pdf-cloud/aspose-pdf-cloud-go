@@ -125,7 +125,7 @@ func TestDeleteAnnotation(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentAnnotations(name, args)
+	responseAnnotations, _, err := GetBaseTest().PdfAPI.GetDocumentAnnotations(name, args)
 	if err != nil {
 		t.Error(err)
 	}

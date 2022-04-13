@@ -158,15 +158,15 @@ func TestPutUnderlineAnnotation(t *testing.T) {
 		ZIndex:              1,
 		Title:               "Title Updated",
 		QuadPoints: []Point{
-			Point{X: 10, Y: 10},
-			Point{X: 20, Y: 10},
-			Point{X: 10, Y: 20},
-			Point{X: 10, Y: 10},
+			{X: 10, Y: 10},
+			{X: 20, Y: 10},
+			{X: 10, Y: 20},
+			{X: 10, Y: 10},
 		},
 		Modified: "02/02/2018 00:00:00.000 AM",
 	}
 
-	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentUnderlineAnnotations(name, args)
+	responseAnnotations, _, err := GetBaseTest().PdfAPI.GetDocumentUnderlineAnnotations(name, args)
 	if err != nil {
 		t.Error(err)
 	}
