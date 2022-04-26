@@ -9,18 +9,12 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 22.3
-- PDFCLOUD-2729: Add StrikeOut, Superscript, Subscript properties to TextState.
-- PDFCLOUD-2623: Underline property is missing in TextState.
+## Enhancements in Version 22.4
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
-
-## Bugs fixed in Version 22.3
-- PDFCLOUD-2714: GetFields API method not extracting PDF form fields.
-- PDFCLOUD-2641: PostSplitDocument returns wrong path.
 
 ## Installation
 ```
-    go get -u github.com/aspose-pdf-cloud/aspose-pdf-cloud-go
+    go get -u github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v22
 ```
 
 ## Getting Started
@@ -28,17 +22,16 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ## Get PDF Page Circle Annotations in Go
 ```
+        import asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v22"
+
+        ...
+
 	// Get your ClientId and ClientSecret from https://dashboard.aspose.cloud (free registration required).
-
-	config, _ := models.NewConfiguration("MY_CLIENT_ID", "MY_CLIENT_SECRET", "https://api.aspose.cloud")
-	pdfAPI, ctx, _ := api.CreatePdf(config)
-	name := "PdfWithAnnotations.pdf"
-
+	pdfApi := asposepdfcloud.NewPdfApiService("MY_CLIENT_ID", "MY_CLIENT_SECRET", "")
 	args := map[string]interface{} {
 		"folder": "path/to/remote/folder",
 	}
-
-	return pdfAPI.GetDocumentCircleAnnotations(name, args)
+	return pdfApi.GetDocumentCircleAnnotations("PdfWithAnnotations.pdf", args)
 ```
 
 ## Unit Tests
