@@ -9,8 +9,11 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 22.5
+## Enhancements in Version 22.7
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
+
+## Bugs fixed in Version 22.7
+- Text Replace API method changes background of the elements.
 
 ## Installation
 ```
