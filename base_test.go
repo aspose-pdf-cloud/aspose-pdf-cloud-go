@@ -70,11 +70,12 @@ func getServercredsJson() string {
 }
 
 type Creds struct {
-	AppSID string
-	AppKey string
+	AppSID     string `json:"AppSID"`
+	AppKey     string `json:"AppKey"`
+	ProductUri string `json:"ProductUri"`
 }
 
-func getCreds() (appSID, appKey string) {
+func getCreds() Creds {
 	bbCreds, err := os.ReadFile(getServercredsJson())
 	if err != nil {
 		panic(err)
@@ -89,17 +90,19 @@ func getCreds() (appSID, appKey string) {
 	if len(creds.AppKey) == 0 {
 		panic("no AppKey")
 	}
-	return creds.AppSID, creds.AppKey
+	if len(creds.ProductUri) == 0 {
+		panic("no ProductUri")
+	}
+	return creds
 }
 
 func NewBaseTest() *BaseTest {
-	appSID, appKey := getCreds()
+	creds := getCreds()
 	bt := BaseTest{
 		remoteFolder:        "TempPdfCloud",
 		localTestDataFolder: "test_data",
 		TestNumber:          0,
-		// Get App key and App SID from https://aspose.cloud
-		PdfAPI: NewPdfApiService(appSID, appKey, "https://api.aspose.cloud/v3.0"),
+		PdfAPI:              NewPdfApiService(creds.AppSID, creds.AppKey, creds.ProductUri),
 	}
 	return &bt
 }
