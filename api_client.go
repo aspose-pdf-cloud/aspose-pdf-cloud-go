@@ -176,7 +176,7 @@ func (c *APIClient) prepareRequest (
     
     // set custom header
     headerParams["x-aspose-client"] = "go sdk"
-    headerParams["x-aspose-client-version"] = "22.7.0"
+    headerParams["x-aspose-client-version"] = "22.8.0"
 
     // Detect postBody type and post.
     if postBody != nil {
@@ -420,24 +420,30 @@ func (a *APIClient) addAuth(request *http.Request) (err error) {
 }
 
 // RequestOauthToken function for requests OAuth token
-func (a *APIClient) RequestOauthToken() (error) {
-
-       resp, err := http.PostForm(strings.Replace(a.cfg.BasePath, "/v3.0", "/connect/token", -1), url.Values{
-               "grant_type": {"client_credentials"},
-               "client_id": {a.cfg.AppSid},
-               "client_secret": {a.cfg.AppKey}})
-
-       if err != nil {
-               return err
-       }
-       defer resp.Body.Close()
-
-       var tr TokenResp
-       if err = json.NewDecoder(resp.Body).Decode(&tr); err != nil {
-               return err
-       }
-       a.cfg.AccessToken = tr.AccessToken
-       return nil
+func (a *APIClient) RequestOauthToken() error {
+	resp, err := http.PostForm(
+		strings.Replace(a.cfg.BasePath, "/v3.0", "/connect/token", -1),
+		// a.cfg.BasePath+"/pdf/connect/token",
+		url.Values{
+			"grant_type":    {"client_credentials"},
+			"client_id":     {a.cfg.AppSid},
+			"client_secret": {a.cfg.AppKey},
+		},
+	)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	bodyBytes, _ := io.ReadAll(resp.Body)
+	var tr TokenResp
+	if err = json.NewDecoder(bytes.NewReader(bodyBytes)).Decode(&tr); err != nil {
+		return fmt.Errorf("%s (wrapped error: %w)", bodyBytes, err)
+	}
+	if len(tr.AccessToken) == 0 {
+		return fmt.Errorf("empty token (%s)", bodyBytes)
+	}
+	a.cfg.AccessToken = tr.AccessToken
+	return nil
 }
 
 func deserializeDTO(readCloser io.Reader, successPayload interface{}) error {
