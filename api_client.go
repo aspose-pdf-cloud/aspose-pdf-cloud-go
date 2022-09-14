@@ -176,7 +176,7 @@ func (c *APIClient) prepareRequest (
     
     // set custom header
     headerParams["x-aspose-client"] = "go sdk"
-    headerParams["x-aspose-client-version"] = "22.8.0"
+    headerParams["x-aspose-client-version"] = "22.9.0"
 
     // Detect postBody type and post.
     if postBody != nil {
@@ -421,9 +421,11 @@ func (a *APIClient) addAuth(request *http.Request) (err error) {
 
 // RequestOauthToken function for requests OAuth token
 func (a *APIClient) RequestOauthToken() error {
+	tokenUrl := strings.Replace(a.cfg.BasePath, "/v3.0", "/connect/token", -1)
+	// tokenUrl := a.cfg.BasePath + "/pdf/connect/token"
+	fmt.Println("tokenUrl: " + tokenUrl)
 	resp, err := http.PostForm(
-		strings.Replace(a.cfg.BasePath, "/v3.0", "/connect/token", -1),
-		// a.cfg.BasePath+"/pdf/connect/token",
+		tokenUrl,
 		url.Values{
 			"grant_type":    {"client_credentials"},
 			"client_id":     {a.cfg.AppSid},
