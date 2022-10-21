@@ -145,7 +145,7 @@ Method | HTTP request | Description
 [**GetPages**](PdfApi.md#GetPages) | **Get** /pdf/{name}/pages | Read document pages info.
 [**GetPclInStorageToPdf**](PdfApi.md#GetPclInStorageToPdf) | **Get** /pdf/create/pcl | Convert PCL file (located on storage) to PDF format and return resulting file in response. 
 [**GetPdfAInStorageToPdf**](PdfApi.md#GetPdfAInStorageToPdf) | **Get** /pdf/create/pdfa | Convert PDFA file (located on storage) to PDF format and return resulting file in response. 
-[**GetPdfInStorageToDoc**](PdfApi.md#GetPdfInStorageToDoc) | **Get** /pdf/{name}/convert/doc | Converts PDF document (located on storage) to DOC format and returns resulting file in response content
+[**GetPdfInStorageToDoc**](PdfApi.md#GetPdfInStorageToDoc) | **Get** /pdf/{name}/convert/doc | Converts PDF document (located on storage) to DOC format and returns resulting file in response content.
 [**GetPdfInStorageToEpub**](PdfApi.md#GetPdfInStorageToEpub) | **Get** /pdf/{name}/convert/epub | Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
 [**GetPdfInStorageToHtml**](PdfApi.md#GetPdfInStorageToHtml) | **Get** /pdf/{name}/convert/html | Converts PDF document (located on storage) to Html format and returns resulting file in response content
 [**GetPdfInStorageToMobiXml**](PdfApi.md#GetPdfInStorageToMobiXml) | **Get** /pdf/{name}/convert/mobixml | Converts PDF document (located on storage) to MOBIXML format and returns resulting ZIP archive file in response content.
@@ -246,6 +246,7 @@ Method | HTTP request | Description
 [**PostSignPage**](PdfApi.md#PostSignPage) | **Post** /pdf/{name}/pages/{pageNumber}/sign | Sign page.
 [**PostSignatureField**](PdfApi.md#PostSignatureField) | **Post** /pdf/{name}/fields/signature | Add document signature field.
 [**PostSplitDocument**](PdfApi.md#PostSplitDocument) | **Post** /pdf/{name}/split | Split document to parts.
+[**PostSplitRangePdfDocument**](PdfApi.md#PostSplitRangePdfDocument) | **Post** /pdf/{name}/splitrangepdf | 
 [**PostTextBoxFields**](PdfApi.md#PostTextBoxFields) | **Post** /pdf/{name}/fields/textbox | Add document text box fields.
 [**PutAddNewPage**](PdfApi.md#PutAddNewPage) | **Put** /pdf/{name}/pages | Add new page to end of the document.
 [**PutAddText**](PdfApi.md#PutAddText) | **Put** /pdf/{name}/pages/{pageNumber}/text | Add text to PDF document page.
@@ -312,7 +313,7 @@ Method | HTTP request | Description
 [**PutPdfInRequestToXlsx**](PdfApi.md#PutPdfInRequestToXlsx) | **Put** /pdf/convert/xlsx | Converts PDF document (in request content) to XLSX format and uploads resulting file to storage.
 [**PutPdfInRequestToXml**](PdfApi.md#PutPdfInRequestToXml) | **Put** /pdf/convert/xml | Converts PDF document (in request content) to XML format and uploads resulting file to storage.
 [**PutPdfInRequestToXps**](PdfApi.md#PutPdfInRequestToXps) | **Put** /pdf/convert/xps | Converts PDF document (in request content) to XPS format and uploads resulting file to storage.
-[**PutPdfInStorageToDoc**](PdfApi.md#PutPdfInStorageToDoc) | **Put** /pdf/{name}/convert/doc | Converts PDF document (located on storage) to DOC format and uploads resulting file to storage
+[**PutPdfInStorageToDoc**](PdfApi.md#PutPdfInStorageToDoc) | **Put** /pdf/{name}/convert/doc | Converts PDF document (located on storage) to DOC format and uploads resulting file to storage.
 [**PutPdfInStorageToEpub**](PdfApi.md#PutPdfInStorageToEpub) | **Put** /pdf/{name}/convert/epub | Converts PDF document (located on storage) to EPUB format and uploads resulting file to storage
 [**PutPdfInStorageToHtml**](PdfApi.md#PutPdfInStorageToHtml) | **Put** /pdf/{name}/convert/html | Converts PDF document (located on storage) to Html format and uploads resulting file to storage
 [**PutPdfInStorageToMobiXml**](PdfApi.md#PutPdfInStorageToMobiXml) | **Put** /pdf/{name}/convert/mobixml | Converts PDF document (located on storage) to MOBIXML format and uploads resulting ZIP archive file to storage
@@ -3748,6 +3749,7 @@ Name | Type | Description  | Notes
  **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -3783,6 +3785,7 @@ Name | Type | Description  | Notes
  **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -3818,6 +3821,7 @@ Name | Type | Description  | Notes
  **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -3853,6 +3857,7 @@ Name | Type | Description  | Notes
  **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -3888,6 +3893,7 @@ Name | Type | Description  | Notes
  **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -3923,6 +3929,7 @@ Name | Type | Description  | Notes
  **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -4933,7 +4940,7 @@ Name | Type | Description  | Notes
 
 # **GetPdfInStorageToDoc**
 > []byte GetPdfInStorageToDoc(name, optional)
-Converts PDF document (located on storage) to DOC format and returns resulting file in response content
+Converts PDF document (located on storage) to DOC format and returns resulting file in response content.
 
 ### Required Parameters
 
@@ -4958,6 +4965,7 @@ Name | Type | Description  | Notes
  **relativeHorizontalProximity** | **float64**| Relative horizontal proximity. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -8399,6 +8407,39 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PostSplitRangePdfDocument**
+> SplitResultResponse PostSplitRangePdfDocument(name, options, optional)
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**|  | 
+  **options** | [**SplitRangePdfOptions**](SplitRangePdfOptions.md)|  | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**|  | 
+ **options** | [**SplitRangePdfOptions**](SplitRangePdfOptions.md)|  | 
+ **storage** | **string**|  | 
+ **folder** | **string**|  | 
+
+### Return type
+
+[**SplitResultResponse**](SplitResultResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **PostTextBoxFields**
 > AsposeResponse PostTextBoxFields(name, fields, optional)
 Add document text box fields.
@@ -9977,6 +10018,7 @@ Name | Type | Description  | Notes
  **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -10014,6 +10056,7 @@ Name | Type | Description  | Notes
  **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -10051,6 +10094,7 @@ Name | Type | Description  | Notes
  **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -10088,6 +10132,7 @@ Name | Type | Description  | Notes
  **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -10125,6 +10170,7 @@ Name | Type | Description  | Notes
  **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -10162,6 +10208,7 @@ Name | Type | Description  | Notes
  **height** | **int32**| The converted image height. | [default to 0]
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -10267,6 +10314,7 @@ Name | Type | Description  | Notes
  **recognizeBullets** | **bool**| Recognize bullets. | 
  **relativeHorizontalProximity** | **float64**| Relative horizontal proximity. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
  **file** | ***os.File**| A file to be converted. | 
 
 ### Return type
@@ -10712,7 +10760,7 @@ Name | Type | Description  | Notes
 
 # **PutPdfInStorageToDoc**
 > AsposeResponse PutPdfInStorageToDoc(name, outPath, optional)
-Converts PDF document (located on storage) to DOC format and uploads resulting file to storage
+Converts PDF document (located on storage) to DOC format and uploads resulting file to storage.
 
 ### Required Parameters
 
@@ -10739,6 +10787,7 @@ Name | Type | Description  | Notes
  **relativeHorizontalProximity** | **float64**| Relative horizontal proximity. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
