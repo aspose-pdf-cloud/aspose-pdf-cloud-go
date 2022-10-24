@@ -10,7 +10,14 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
 ## Enhancements in Version 22.10
+- Convert password protected PDF to DOC.
+- Support to convert password protected document to graphic formats.
+- Support to convert pages of password protected PDF to JPEG using GetPageConvertToJpeg.
+- Add new REST API endpoint to parse PDF document into PDF parts containing specified page ranges.
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
+
+## Bugs fixed in Version 22.10
+- The PostSplitDocument API method is throwing 504 Gateway Error.
 
 ## Installation
 ```
