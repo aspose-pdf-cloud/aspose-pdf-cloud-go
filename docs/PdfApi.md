@@ -246,7 +246,7 @@ Method | HTTP request | Description
 [**PostSignPage**](PdfApi.md#PostSignPage) | **Post** /pdf/{name}/pages/{pageNumber}/sign | Sign page.
 [**PostSignatureField**](PdfApi.md#PostSignatureField) | **Post** /pdf/{name}/fields/signature | Add document signature field.
 [**PostSplitDocument**](PdfApi.md#PostSplitDocument) | **Post** /pdf/{name}/split | Split document to parts.
-[**PostSplitRangePdfDocument**](PdfApi.md#PostSplitRangePdfDocument) | **Post** /pdf/{name}/splitrangepdf | 
+[**PostSplitRangePdfDocument**](PdfApi.md#PostSplitRangePdfDocument) | **Post** /pdf/{name}/splitrangepdf | Split document into ranges.
 [**PostTextBoxFields**](PdfApi.md#PostTextBoxFields) | **Post** /pdf/{name}/fields/textbox | Add document text box fields.
 [**PutAddNewPage**](PdfApi.md#PutAddNewPage) | **Put** /pdf/{name}/pages | Add new page to end of the document.
 [**PutAddText**](PdfApi.md#PutAddText) | **Put** /pdf/{name}/pages/{pageNumber}/text | Add text to PDF document page.
@@ -8409,14 +8409,14 @@ Name | Type | Description  | Notes
 
 # **PostSplitRangePdfDocument**
 > SplitResultResponse PostSplitRangePdfDocument(name, options, optional)
-
+Split document into ranges.
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**|  | 
-  **options** | [**SplitRangePdfOptions**](SplitRangePdfOptions.md)|  | 
+ **name** | **string**| The document name. | 
+  **options** | [**SplitRangePdfOptions**](SplitRangePdfOptions.md)| The splitting options. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -8424,10 +8424,10 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**|  | 
- **options** | [**SplitRangePdfOptions**](SplitRangePdfOptions.md)|  | 
- **storage** | **string**|  | 
- **folder** | **string**|  | 
+ **name** | **string**| The document name. | 
+ **options** | [**SplitRangePdfOptions**](SplitRangePdfOptions.md)| The splitting options. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
 
 ### Return type
 

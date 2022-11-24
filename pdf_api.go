@@ -20030,12 +20030,12 @@ func (a *PdfApiService) PostSplitDocument(name string, localVarOptionals map[str
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PdfApiService 
- @param name 
- @param options 
+/* PdfApiService Split document into ranges.
+ @param name The document name.
+ @param options The splitting options.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "storage" (string) 
-     @param "folder" (string) 
+     @param "storage" (string) The document storage.
+     @param "folder" (string) The document folder.
  @return SplitResultResponse*/
 func (a *PdfApiService) PostSplitRangePdfDocument(name string, options SplitRangePdfOptions, localVarOptionals map[string]interface{}) (SplitResultResponse,  *http.Response, error) {
 	var (

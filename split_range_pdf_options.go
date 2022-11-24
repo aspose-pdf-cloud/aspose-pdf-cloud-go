@@ -21,6 +21,7 @@
 
 package asposepdfcloud
 
+// Represents Pdf split into ranges options.
 type SplitRangePdfOptions struct {
 	PageRanges []PageRange `json:"PageRanges,omitempty"`
 }
