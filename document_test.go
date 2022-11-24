@@ -80,17 +80,13 @@ func TestPostOptimizeDocument(t *testing.T) {
 }
 
 func TestPostSplitDocument(t *testing.T) {
-
 	name := "4pages.pdf"
-
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
-
 	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
 	}
-
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostSplitDocument(name, args)
 	if err != nil {
 		t.Error(err)
@@ -98,6 +94,33 @@ func TestPostSplitDocument(t *testing.T) {
 		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPostSplitDocument - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPostSplitRangePdfDocument(t *testing.T) {
+	name := "4pages.pdf"
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	options := SplitRangePdfOptions{
+		PageRanges: []PageRange{
+			{To: 2},
+			{From: 3},
+			{From: 2, To: 3},
+		},
+	}
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
+	}
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostSplitRangePdfDocument(name, options, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else if len(response.Result.Documents) != 3 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPostSplitRangePdfDocument - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
 
