@@ -33,4 +33,6 @@ type TextReplace struct {
 	TextState *TextState `json:"TextState,omitempty"`
 	// Rectangle area where searched original text.
 	Rect *Rectangle `json:"Rect,omitempty"`
+	// The text after replacement is centered horizontally relative to the text being replaced.
+	CenterTextHorizontally bool `json:"CenterTextHorizontally"`
 }
