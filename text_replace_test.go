@@ -1,6 +1,6 @@
 /**
  *
- * Copyright (c) 2022 Aspose.PDF Cloud
+ * Copyright (c) 2023 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -35,7 +35,7 @@ func TestPostDocumentTextReplace(t *testing.T) {
 
 	textReplaceListRequest := TextReplaceListRequest{
 		TextReplaces: []TextReplace{
-			TextReplace{
+			{
 				OldValue: "market",
 				NewValue: "m_a_r_k_e_t",
 				Rect:     &Rectangle{LLX: 100, LLY: 100, URX: 200, URY: 200},
@@ -71,7 +71,7 @@ func TestPostPageTextReplace(t *testing.T) {
 	pageNumber := int32(1)
 	textReplaceListRequest := TextReplaceListRequest{
 		TextReplaces: []TextReplace{
-			TextReplace{
+			{
 				OldValue: "market",
 				NewValue: "m_a_r_k_e_t",
 				Rect:     &Rectangle{LLX: 100, LLY: 100, URX: 200, URY: 200},

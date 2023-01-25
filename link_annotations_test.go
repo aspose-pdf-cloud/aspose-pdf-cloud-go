@@ -1,6 +1,6 @@
 /**
  *
- * Copyright (c) 2022 Aspose.PDF Cloud
+ * Copyright (c) 2023 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -38,7 +38,7 @@ func TestGetPageLinkAnnotation(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseLinks, httpResponse, err := GetBaseTest().PdfAPI.GetPageLinkAnnotations(name, pageNumber, args)
+	responseLinks, _, err := GetBaseTest().PdfAPI.GetPageLinkAnnotations(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -67,7 +67,7 @@ func TestDeleteLinkAnnotation(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseLinks, httpResponse, err := GetBaseTest().PdfAPI.GetPageLinkAnnotations(name, pageNumber, args)
+	responseLinks, _, err := GetBaseTest().PdfAPI.GetPageLinkAnnotations(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -158,7 +158,7 @@ func TestPutLinkAnnotation(t *testing.T) {
 		Color:        &Color{A: 0xFF, R: 0xAA, G: 0xAA, B: 0xAA},
 	}
 
-	responseLinks, httpResponse, err := GetBaseTest().PdfAPI.GetPageLinkAnnotations(name, pageNumber, args)
+	responseLinks, _, err := GetBaseTest().PdfAPI.GetPageLinkAnnotations(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -232,7 +232,7 @@ func TestGetLinkAnnotation(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseLinks, httpResponse, err := GetBaseTest().PdfAPI.GetPageLinkAnnotations(name, pageNumber, args)
+	responseLinks, _, err := GetBaseTest().PdfAPI.GetPageLinkAnnotations(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}

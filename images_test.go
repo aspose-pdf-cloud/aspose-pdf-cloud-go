@@ -1,6 +1,6 @@
 /**
  *
- * Copyright (c) 2022 Aspose.PDF Cloud
+ * Copyright (c) 2023 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -38,7 +38,7 @@ func TestGetImage(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseImages, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
+	responseImages, _, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -90,7 +90,7 @@ func TestDeleteImage(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseImages, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
+	responseImages, _, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -125,7 +125,7 @@ func TestPutReplaceImage(t *testing.T) {
 		"imageFilePath": GetBaseTest().remoteFolder + "/" + imageFileName,
 	}
 
-	responseImages, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
+	responseImages, _, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -294,7 +294,7 @@ func TestPutImageExtractAsJpeg(t *testing.T) {
 		"destFolder": GetBaseTest().remoteFolder + "/" + destFolder,
 	}
 
-	responseImages, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
+	responseImages, _, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -323,7 +323,7 @@ func TestGetImageExtractAsJpeg(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseImages, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
+	responseImages, _, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -355,7 +355,7 @@ func TestPutImageExtractAsTiff(t *testing.T) {
 		"destFolder": GetBaseTest().remoteFolder + "/" + destFolder,
 	}
 
-	responseImages, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
+	responseImages, _, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -384,7 +384,7 @@ func TestGetImageExtractAsTiff(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseImages, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
+	responseImages, _, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -416,7 +416,7 @@ func TestPutImageExtractAsGif(t *testing.T) {
 		"destFolder": GetBaseTest().remoteFolder + "/" + destFolder,
 	}
 
-	responseImages, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
+	responseImages, _, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -445,7 +445,7 @@ func TestGetImageExtractAsGif(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseImages, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
+	responseImages, _, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -477,7 +477,7 @@ func TestPutImageExtractAsPng(t *testing.T) {
 		"destFolder": GetBaseTest().remoteFolder + "/" + destFolder,
 	}
 
-	responseImages, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
+	responseImages, _, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -506,7 +506,7 @@ func TestGetImageExtractAsPng(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseImages, httpResponse, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
+	responseImages, _, err := GetBaseTest().PdfAPI.GetImages(name, pageNumber, args)
 	if err != nil {
 		t.Error(err)
 	}
