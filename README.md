@@ -9,7 +9,8 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 22.12
+## Enhancements in Version 23.1
+- PDFCLOUD-2973 Add support to optimize password protected PDF using PostOptimizeDocument.
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
 
 ## Installation

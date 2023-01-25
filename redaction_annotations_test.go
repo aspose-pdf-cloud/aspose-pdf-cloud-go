@@ -1,6 +1,6 @@
 /**
  *
- * Copyright (c) 2022 Aspose.PDF Cloud
+ * Copyright (c) 2023 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -81,7 +81,7 @@ func TestGetRedactionAnnotation(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentRedactionAnnotations(name, args)
+	responseAnnotations, _, err := GetBaseTest().PdfAPI.GetDocumentRedactionAnnotations(name, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -116,8 +116,8 @@ func TestPostPageRedactionAnnotations(t *testing.T) {
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		ZIndex:              1,
 		QuadPoint: []Point{
-			Point{X: 10, Y: 40},
-			Point{X: 30, Y: 40},
+			{X: 10, Y: 40},
+			{X: 30, Y: 40},
 		},
 		Modified: "02/02/2018 12:00:00.000 AM",
 	}
@@ -150,13 +150,13 @@ func TestPutRedactionAnnotation(t *testing.T) {
 		HorizontalAlignment: HorizontalAlignmentCenter,
 		ZIndex:              1,
 		QuadPoint: []Point{
-			Point{X: 10, Y: 40},
-			Point{X: 30, Y: 40},
+			{X: 10, Y: 40},
+			{X: 30, Y: 40},
 		},
 		Modified: "02/02/2018 12:02:03.000 AM",
 	}
 
-	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentRedactionAnnotations(name, args)
+	responseAnnotations, _, err := GetBaseTest().PdfAPI.GetDocumentRedactionAnnotations(name, args)
 	if err != nil {
 		t.Error(err)
 	}

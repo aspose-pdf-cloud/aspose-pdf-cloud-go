@@ -1,6 +1,6 @@
 /**
  *
- * Copyright (c) 2022 Aspose.PDF Cloud
+ * Copyright (c) 2023 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -258,7 +258,7 @@ func TestDeleteStamp(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseStamps, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentStamps(name, args)
+	responseStamps, _, err := GetBaseTest().PdfAPI.GetDocumentStamps(name, args)
 	if err != nil {
 		t.Error(err)
 	}

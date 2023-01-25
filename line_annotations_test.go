@@ -1,6 +1,6 @@
 /**
  *
- * Copyright (c) 2022 Aspose.PDF Cloud
+ * Copyright (c) 2023 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -81,7 +81,7 @@ func TestGetLineAnnotation(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentLineAnnotations(name, args)
+	responseAnnotations, _, err := GetBaseTest().PdfAPI.GetDocumentLineAnnotations(name, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -158,7 +158,7 @@ func TestPutLineAnnotation(t *testing.T) {
 		Modified:            "02/02/2018 00:00:00.000 AM",
 	}
 
-	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentLineAnnotations(name, args)
+	responseAnnotations, _, err := GetBaseTest().PdfAPI.GetDocumentLineAnnotations(name, args)
 	if err != nil {
 		t.Error(err)
 	}

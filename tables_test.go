@@ -1,6 +1,6 @@
 /**
  *
- * Copyright (c) 2022 Aspose.PDF Cloud
+ * Copyright (c) 2023 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -127,7 +127,7 @@ func TestGetTable(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseTables, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentTables(name, args)
+	responseTables, _, err := GetBaseTest().PdfAPI.GetDocumentTables(name, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -155,7 +155,7 @@ func TestDeleteTable(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseTables, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentTables(name, args)
+	responseTables, _, err := GetBaseTest().PdfAPI.GetDocumentTables(name, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -208,7 +208,7 @@ func TestPutTable(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseTables, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentTables(name, args)
+	responseTables, _, err := GetBaseTest().PdfAPI.GetDocumentTables(name, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -267,7 +267,7 @@ func DrawTable() Table {
 				BackgroundColor:      &Color{A: int32(0xFF), R: int32(0x88), G: int32(0xFF), B: 0},
 				DefaultCellTextState: &textState,
 				Paragraphs: []TextRect{
-					TextRect{Text: "value"},
+					{Text: "value"},
 				},
 			}
 

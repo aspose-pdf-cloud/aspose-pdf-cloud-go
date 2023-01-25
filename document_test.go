@@ -1,6 +1,6 @@
 /**
  *
- * Copyright (c) 2022 Aspose.PDF Cloud
+ * Copyright (c) 2023 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -21,6 +21,7 @@
 package asposepdfcloud
 
 import (
+	"encoding/base64"
 	"fmt"
 	"testing"
 )
@@ -48,13 +49,10 @@ func TestGetDocument(t *testing.T) {
 }
 
 func TestPostOptimizeDocument(t *testing.T) {
-
 	name := "4pages.pdf"
-
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
-
 	optimizeOptions := OptimizeOptions{
 		AllowReusePageContent: false,
 		CompressImages:        true,
@@ -64,11 +62,9 @@ func TestPostOptimizeDocument(t *testing.T) {
 		RemoveUnusedStreams:   true,
 		UnembedFonts:          true,
 	}
-
 	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
 	}
-
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostOptimizeDocument(name, optimizeOptions, args)
 	if err != nil {
 		t.Error(err)
@@ -76,6 +72,34 @@ func TestPostOptimizeDocument(t *testing.T) {
 		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPostOptimizeDocument - %db\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPostOptimizeDocumentWithPassword(t *testing.T) {
+	name := "4pagesEncrypted.pdf"
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	optimizeOptions := OptimizeOptions{
+		Password:              base64.StdEncoding.EncodeToString([]byte("user $^Password!&")),
+		AllowReusePageContent: false,
+		CompressImages:        true,
+		ImageQuality:          int32(100),
+		LinkDuplcateStreams:   true,
+		RemoveUnusedObjects:   true,
+		RemoveUnusedStreams:   true,
+		UnembedFonts:          true,
+	}
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
+	}
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostOptimizeDocument(name, optimizeOptions, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPostOptimizeDocumentWithPassword - %db\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
 

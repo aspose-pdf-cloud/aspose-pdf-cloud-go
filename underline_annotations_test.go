@@ -1,6 +1,6 @@
 /**
  *
- * Copyright (c) 2022 Aspose.PDF Cloud
+ * Copyright (c) 2023 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -81,7 +81,7 @@ func TestGetUnderlineAnnotation(t *testing.T) {
 		"folder": GetBaseTest().remoteFolder,
 	}
 
-	responseAnnotations, httpResponse, err := GetBaseTest().PdfAPI.GetDocumentUnderlineAnnotations(name, args)
+	responseAnnotations, _, err := GetBaseTest().PdfAPI.GetDocumentUnderlineAnnotations(name, args)
 	if err != nil {
 		t.Error(err)
 	}
@@ -119,10 +119,10 @@ func TestPostPageUnderlineAnnotations(t *testing.T) {
 		ZIndex:              1,
 		Title:               "Title",
 		QuadPoints: []Point{
-			Point{X: 10, Y: 10},
-			Point{X: 20, Y: 10},
-			Point{X: 10, Y: 20},
-			Point{X: 10, Y: 10},
+			{X: 10, Y: 10},
+			{X: 20, Y: 10},
+			{X: 10, Y: 20},
+			{X: 10, Y: 10},
 		},
 		Modified: "02/02/2018 00:00:00.000 AM",
 	}

@@ -1,6 +1,6 @@
 /*
 *
-* Copyright (c) 2022 Aspose.PDF Cloud
+* Copyright (c) 2023 Aspose.PDF Cloud
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
 * in the Software without restriction, including without limitation the rights
@@ -23,6 +23,8 @@ package asposepdfcloud
 
 // Represents Pdf optimize options.
 type OptimizeOptions struct {
+	// Specifies document password (if any) encoded with base-64.
+	Password string `json:"Password,omitempty"`
 	// If true page contents will be reused when document is optimized for equal pages.
 	AllowReusePageContent bool `json:"AllowReusePageContent,omitempty"`
 	// If this flag is set to true images will be compressed in the document. Compression level is specified with ImageQuality property.
