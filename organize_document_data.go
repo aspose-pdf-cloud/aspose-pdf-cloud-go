@@ -21,7 +21,10 @@
 
 package asposepdfcloud
 
-type PageRange struct {
-	From int32 `json:"From,omitempty"`
-	To int32 `json:"To,omitempty"`
+// Data for document organizing.
+type OrganizeDocumentData struct {
+	// Full filename of the document for organizing.
+	Path string `json:"Path"`
+	// 1-based page numbers of the document that make up the resulting document.
+	Pages string `json:"Pages"`
 }

@@ -214,6 +214,8 @@ Method | HTTP request | Description
 [**PostListBoxFields**](PdfApi.md#PostListBoxFields) | **Post** /pdf/{name}/fields/listbox | Add document listbox fields.
 [**PostMovePage**](PdfApi.md#PostMovePage) | **Post** /pdf/{name}/pages/{pageNumber}/movePage | Move page to new position.
 [**PostOptimizeDocument**](PdfApi.md#PostOptimizeDocument) | **Post** /pdf/{name}/optimize | Optimize document.
+[**PostOrganizeDocument**](PdfApi.md#PostOrganizeDocument) | **Post** /pdf/{name}/organize | Merge selected pages of a document.
+[**PostOrganizeDocuments**](PdfApi.md#PostOrganizeDocuments) | **Post** /pdf/organize | Merge selected pages of different documents.
 [**PostPageCaretAnnotations**](PdfApi.md#PostPageCaretAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/caret | Add document page caret annotations.
 [**PostPageCertify**](PdfApi.md#PostPageCertify) | **Post** /pdf/{name}/pages/{pageNumber}/certify | Certify document page.
 [**PostPageCircleAnnotations**](PdfApi.md#PostPageCircleAnnotations) | **Post** /pdf/{name}/pages/{pageNumber}/annotations/circle | Add document page circle annotations.
@@ -7279,6 +7281,73 @@ Name | Type | Description  | Notes
  **options** | [**OptimizeOptions**](OptimizeOptions.md)| The optimization options. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostOrganizeDocument**
+> AsposeResponse PostOrganizeDocument(name, pages, outPath, optional)
+Merge selected pages of a document.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The original document name. | 
+  **pages** | **string**| 1-based page numbers of the source document that make up the resulting document. | 
+  **outPath** | **string**| Full filename of the resulting document. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The original document name. | 
+ **pages** | **string**| 1-based page numbers of the source document that make up the resulting document. | 
+ **outPath** | **string**| Full filename of the resulting document. | 
+ **storage** | **string**| The documents storage. | 
+ **folder** | **string**| The source document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostOrganizeDocuments**
+> AsposeResponse PostOrganizeDocuments(organizeDocuments, outPath, optional)
+Merge selected pages of different documents.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizeDocuments** | [**OrganizeDocumentRequest**](OrganizeDocumentRequest.md)| Array of OrganizeDocumentData to make up the resulting document. | 
+  **outPath** | **string**| Full filename of the resulting document. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizeDocuments** | [**OrganizeDocumentRequest**](OrganizeDocumentRequest.md)| Array of OrganizeDocumentData to make up the resulting document. | 
+ **outPath** | **string**| Full filename of the resulting document. | 
+ **storage** | **string**| The documents storage. | 
 
 ### Return type
 

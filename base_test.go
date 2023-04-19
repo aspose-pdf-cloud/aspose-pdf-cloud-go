@@ -37,13 +37,11 @@ type BaseTest struct {
 
 func (bt *BaseTest) UploadFile(name string) (err error) {
 	args := make(map[string]interface{})
-
-	file, err := os.Open(bt.localTestDataFolder + "/" + name)
+	file, err := os.Open(filepath.Join(bt.localTestDataFolder, name))
 	if err != nil {
 		return err
 	}
-
-	_, _, err = GetBaseTest().PdfAPI.UploadFile(GetBaseTest().remoteFolder+"/"+name, file, args)
+	_, _, err = GetBaseTest().PdfAPI.UploadFile(filepath.Join(GetBaseTest().remoteFolder, name), file, args)
 	return err
 }
 
