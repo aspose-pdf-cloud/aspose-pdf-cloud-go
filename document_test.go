@@ -23,6 +23,7 @@ package asposepdfcloud
 import (
 	"encoding/base64"
 	"fmt"
+	"path/filepath"
 	"testing"
 )
 
@@ -254,5 +255,52 @@ func TestPutDocumentDisplayProperties(t *testing.T) {
 		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPutDocumentDisplayProperties - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPostOrganizeDocument(t *testing.T) {
+	name := "4pages.pdf"
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
+	}
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostOrganizeDocument(
+		name, "1,4-2", filepath.Join(GetBaseTest().remoteFolder, name), args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPostOrganizeDocument - %db\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPostOrganizeDocuments(t *testing.T) {
+	name1 := "4pages.pdf"
+	if err := GetBaseTest().UploadFile(name1); err != nil {
+		t.Error(err)
+	}
+	name2 := "marketing.pdf"
+	if err := GetBaseTest().UploadFile(name2); err != nil {
+		t.Error(err)
+	}
+	request := OrganizeDocumentRequest{
+		List: []OrganizeDocumentData{
+			{Path: filepath.Join(GetBaseTest().remoteFolder, name1), Pages: "4-2"},
+			{Path: filepath.Join(GetBaseTest().remoteFolder, name2), Pages: "2"},
+			{Path: filepath.Join(GetBaseTest().remoteFolder, name1), Pages: "3,1"},
+		},
+	}
+	args := make(map[string]interface{})
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostOrganizeDocuments(
+		request, filepath.Join(GetBaseTest().remoteFolder, "OrganizeMany.pdf"), args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPostOrganizeDocuments - %db\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
