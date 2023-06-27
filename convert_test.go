@@ -21,6 +21,7 @@
 package asposepdfcloud
 
 import (
+	"encoding/base64"
 	"fmt"
 	"os"
 	"testing"
@@ -686,17 +687,13 @@ func TestPutPdfInRequestToEpub(t *testing.T) {
 
 // To PPTX
 func TestGetPdfInStorageToPptx(t *testing.T) {
-
 	name := "4pages.pdf"
-
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
-
 	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
 	}
-
 	response, httpResponse, err := GetBaseTest().PdfAPI.GetPdfInStorageToPptx(name, args)
 	if err != nil {
 		t.Error(err)
@@ -707,21 +704,35 @@ func TestGetPdfInStorageToPptx(t *testing.T) {
 	}
 }
 
-func TestPutPdfInStorageToPptx(t *testing.T) {
-
-	name := "4pages.pdf"
-
+func TestGetPdfInStorageToPptxWithPassword(t *testing.T) {
+	name := "4pagesEncrypted.pdf"
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)
 	}
+	args := map[string]interface{}{
+		"folder":   GetBaseTest().remoteFolder,
+		"password": base64.StdEncoding.EncodeToString([]byte("user $^Password!&")),
+	}
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetPdfInStorageToPptx(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetPdfInStorageToPptxWithPassword - %db\n", GetBaseTest().GetTestNumber(), len(response))
+	}
+}
 
+func TestPutPdfInStorageToPptx(t *testing.T) {
+	name := "4pages.pdf"
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
 	resFileName := "result.pptx"
 	outPath := GetBaseTest().remoteFolder + "/" + resFileName
-
 	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
 	}
-
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInStorageToPptx(name, outPath, args)
 	if err != nil {
 		t.Error(err)
@@ -732,21 +743,39 @@ func TestPutPdfInStorageToPptx(t *testing.T) {
 	}
 }
 
+func TestPutPdfInStorageToPptxWithPassword(t *testing.T) {
+	name := "4pagesEncrypted.pdf"
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	resFileName := "result.pptx"
+	outPath := GetBaseTest().remoteFolder + "/" + resFileName
+	args := map[string]interface{}{
+		"folder":   GetBaseTest().remoteFolder,
+		"password": base64.StdEncoding.EncodeToString([]byte("user $^Password!&")),
+	}
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInStorageToPptx(name, outPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutPdfInStorageToPptxWithPassword - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
 func TestPutPdfInRequestToPptx(t *testing.T) {
 	name := "4pages.pdf"
 	resFileName := "result.pptx"
 	outPath := GetBaseTest().remoteFolder + "/" + resFileName
-
 	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + name)
 	if err != nil {
 		t.Error(err)
 	}
-
 	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
 		"file":   file,
 	}
-
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInRequestToPptx(outPath, args)
 	if err != nil {
 		t.Error(err)
@@ -754,6 +783,29 @@ func TestPutPdfInRequestToPptx(t *testing.T) {
 		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPutPdfInRequestToPptx - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPutPdfInRequestToPptxWithPassword(t *testing.T) {
+	name := "4pagesEncrypted.pdf"
+	resFileName := "result.pptx"
+	outPath := GetBaseTest().remoteFolder + "/" + resFileName
+	file, err := os.Open(GetBaseTest().localTestDataFolder + "/" + name)
+	if err != nil {
+		t.Error(err)
+	}
+	args := map[string]interface{}{
+		"folder":   GetBaseTest().remoteFolder,
+		"file":     file,
+		"password": base64.StdEncoding.EncodeToString([]byte("user $^Password!&")),
+	}
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutPdfInRequestToPptx(outPath, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutPdfInRequestToPptxWithPassword - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
 

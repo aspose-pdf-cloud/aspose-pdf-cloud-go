@@ -5157,6 +5157,7 @@ Name | Type | Description  | Notes
  **slidesAsImages** | **bool**| Slides as images. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| Base64 encoded password. | 
 
 ### Return type
 
@@ -10574,6 +10575,7 @@ Name | Type | Description  | Notes
  **separateImages** | **bool**| Separate images. | 
  **slidesAsImages** | **bool**| Slides as images. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| Base64 encoded password. | 
  **file** | ***os.File**| A file to be converted. | 
 
 ### Return type
@@ -11057,6 +11059,7 @@ Name | Type | Description  | Notes
  **slidesAsImages** | **bool**| Slides as images. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| Base64 encoded password. | 
 
 ### Return type
 
