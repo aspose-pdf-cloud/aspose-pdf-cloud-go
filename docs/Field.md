@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Links** | [**[]Link**](Link.md) | Link to the document. | [optional] [default to null]
 **Name** | **string** | Field name. | [optional] [default to null]
+**MappingName** | **string** | Mapping name. | [optional] [default to null]
 **SelectedItems** | **[]int32** | Selected items. | [optional] [default to null]
 **Type_** | [***FieldType**](FieldType.md) | Field type. | [optional] [default to null]
 **Rect** | [***Rectangle**](Rectangle.md) | Field rectangle. | [optional] [default to null]

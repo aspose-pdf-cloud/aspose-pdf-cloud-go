@@ -27,6 +27,8 @@ type Field struct {
 	Links []Link `json:"Links,omitempty"`
 	// Field name.
 	Name string `json:"Name,omitempty"`
+	// Mapping name.
+	MappingName string `json:"MappingName,omitempty"`
 	// Selected items.
 	SelectedItems []int32 `json:"SelectedItems,omitempty"`
 	// Field type.
