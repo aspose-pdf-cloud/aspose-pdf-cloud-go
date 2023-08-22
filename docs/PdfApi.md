@@ -11621,7 +11621,7 @@ Replace document multiple image.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
-  **imageIds** | **[]string**| The image IDs. | 
+  **imageIds** | [**[]string**](string.md)| The image IDs. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -11630,7 +11630,7 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
- **imageIds** | **[]string**| The image IDs. | 
+ **imageIds** | [**[]string**](string.md)| The image IDs. | 
  **imageFilePath** | **string**| Path to image file if specified. Request content is used otherwise. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 

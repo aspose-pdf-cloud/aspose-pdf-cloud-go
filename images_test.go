@@ -141,6 +141,30 @@ func TestPutReplaceImage(t *testing.T) {
 	}
 }
 
+func TestPutReplaceMultipleImage(t *testing.T) {
+	name := "PdfWithImages.pdf"
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	imageFileName := "butterfly.jpg"
+	if err := GetBaseTest().UploadFile(imageFileName); err != nil {
+		t.Error(err)
+	}
+	args := map[string]interface{}{
+		"folder":        GetBaseTest().remoteFolder,
+		"imageFilePath": GetBaseTest().remoteFolder + "/" + imageFileName,
+	}
+	response, httpResponse, err := GetBaseTest().PdfAPI.PutReplaceMultipleImage(name,
+		[]string{"GE5TENJVGQZTWMJYGQWDINRUFQ2DCMRMGY4TC", "GE5TIMJSGY3TWMJXG4WDIMBZFQ2DCOJMGQ3DK"}, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPutReplaceMultipleImage - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
 func TestPostInsertImage(t *testing.T) {
 
 	name := "PdfWithImages2.pdf"

@@ -28700,6 +28700,7 @@ func (a *PdfApiService) PutReplaceMultipleImage(name string, imageIds []string, 
 		return successPayload, nil, err
 	}
 
+	localVarQueryParams.Add("imageIds", parameterToString(imageIds, "csv"))
 	if localVarTempParam, localVarOk := localVarOptionals["imageFilePath"].(string); localVarOk {
 		localVarQueryParams.Add("imageFilePath", parameterToString(localVarTempParam, ""))
 	}
@@ -28738,8 +28739,6 @@ func (a *PdfApiService) PutReplaceMultipleImage(name string, imageIds []string, 
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	// body params
-	localVarPostBody = &imageIds
 	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
