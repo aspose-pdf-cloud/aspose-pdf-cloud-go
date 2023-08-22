@@ -145,7 +145,7 @@ func TestPutAnnotationsFlatten(t *testing.T) {
 
 	name := "PdfWithAnnotations.pdf"
 	var endPage int32 = 2
-	annotationTypes := []AnnotationType{AnnotationTypeStamp}
+	annotationTypes := []AnnotationType{AnnotationTypeStamp, AnnotationTypeCircle}
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
 		t.Error(err)

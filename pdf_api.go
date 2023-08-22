@@ -12357,6 +12357,7 @@ func (a *PdfApiService) GetPdfInStorageToTiff(name string, localVarOptionals map
      @param "uniformWorksheets" (bool) Uniform worksheets
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
  @return []byte*/
 func (a *PdfApiService) GetPdfInStorageToXls(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
@@ -12393,6 +12394,9 @@ func (a *PdfApiService) GetPdfInStorageToXls(name string, localVarOptionals map[
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["insertBlankColumnAtFirst"].(bool); localVarOk {
 		localVarQueryParams.Add("insertBlankColumnAtFirst", parameterToString(localVarTempParam, ""))
@@ -12411,6 +12415,9 @@ func (a *PdfApiService) GetPdfInStorageToXls(name string, localVarOptionals map[
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -12462,6 +12469,7 @@ func (a *PdfApiService) GetPdfInStorageToXls(name string, localVarOptionals map[
      @param "uniformWorksheets" (bool) Uniform worksheets
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
  @return []byte*/
 func (a *PdfApiService) GetPdfInStorageToXlsx(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
@@ -12498,6 +12506,9 @@ func (a *PdfApiService) GetPdfInStorageToXlsx(name string, localVarOptionals map
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["insertBlankColumnAtFirst"].(bool); localVarOk {
 		localVarQueryParams.Add("insertBlankColumnAtFirst", parameterToString(localVarTempParam, ""))
@@ -12516,6 +12527,9 @@ func (a *PdfApiService) GetPdfInStorageToXlsx(name string, localVarOptionals map
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -20110,6 +20124,7 @@ func (a *PdfApiService) PostSignatureField(name string, field SignatureField, lo
      @param "to" (int32) End page if defined.
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
+     @param "password" (string) Base64 encoded password.
  @return SplitResultResponse*/
 func (a *PdfApiService) PostSplitDocument(name string, localVarOptionals map[string]interface{}) (SplitResultResponse,  *http.Response, error) {
 	var (
@@ -20143,6 +20158,9 @@ func (a *PdfApiService) PostSplitDocument(name string, localVarOptionals map[str
 	if err := typeCheckParameter(localVarOptionals["folder"], "string", "folder"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["format"].(string); localVarOk {
 		localVarQueryParams.Add("format", parameterToString(localVarTempParam, ""))
@@ -20158,6 +20176,9 @@ func (a *PdfApiService) PostSplitDocument(name string, localVarOptionals map[str
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -20206,6 +20227,7 @@ func (a *PdfApiService) PostSplitDocument(name string, localVarOptionals map[str
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
      @param "folder" (string) The document folder.
+     @param "password" (string) Base64 encoded password.
  @return SplitResultResponse*/
 func (a *PdfApiService) PostSplitRangePdfDocument(name string, options SplitRangePdfOptions, localVarOptionals map[string]interface{}) (SplitResultResponse,  *http.Response, error) {
 	var (
@@ -20230,12 +20252,18 @@ func (a *PdfApiService) PostSplitRangePdfDocument(name string, options SplitRang
 	if err := typeCheckParameter(localVarOptionals["folder"], "string", "folder"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -26075,6 +26103,7 @@ func (a *PdfApiService) PutPdfInRequestToTiff(outPath string, localVarOptionals 
      @param "scaleFactor" (float64) Scale factor (Obsolete)
      @param "uniformWorksheets" (bool) Uniform worksheets
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
 func (a *PdfApiService) PutPdfInRequestToXls(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
@@ -26108,6 +26137,9 @@ func (a *PdfApiService) PutPdfInRequestToXls(outPath string, localVarOptionals m
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	localVarQueryParams.Add("outPath", parameterToString(outPath, ""))
 	if localVarTempParam, localVarOk := localVarOptionals["insertBlankColumnAtFirst"].(bool); localVarOk {
@@ -26124,6 +26156,9 @@ func (a *PdfApiService) PutPdfInRequestToXls(outPath string, localVarOptionals m
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "multipart/form-data",  }
@@ -26184,6 +26219,7 @@ func (a *PdfApiService) PutPdfInRequestToXls(outPath string, localVarOptionals m
      @param "scaleFactor" (float64) Scale factor (Obsolete)
      @param "uniformWorksheets" (bool) Uniform worksheets
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
 func (a *PdfApiService) PutPdfInRequestToXlsx(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
@@ -26217,6 +26253,9 @@ func (a *PdfApiService) PutPdfInRequestToXlsx(outPath string, localVarOptionals 
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	localVarQueryParams.Add("outPath", parameterToString(outPath, ""))
 	if localVarTempParam, localVarOk := localVarOptionals["insertBlankColumnAtFirst"].(bool); localVarOk {
@@ -26233,6 +26272,9 @@ func (a *PdfApiService) PutPdfInRequestToXlsx(outPath string, localVarOptionals 
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "multipart/form-data",  }
@@ -27573,6 +27615,7 @@ func (a *PdfApiService) PutPdfInStorageToTiff(name string, outPath string, local
      @param "uniformWorksheets" (bool) Uniform worksheets
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
  @return AsposeResponse*/
 func (a *PdfApiService) PutPdfInStorageToXls(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
@@ -27609,6 +27652,9 @@ func (a *PdfApiService) PutPdfInStorageToXls(name string, outPath string, localV
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	localVarQueryParams.Add("outPath", parameterToString(outPath, ""))
 	if localVarTempParam, localVarOk := localVarOptionals["insertBlankColumnAtFirst"].(bool); localVarOk {
@@ -27628,6 +27674,9 @@ func (a *PdfApiService) PutPdfInStorageToXls(name string, outPath string, localV
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -27680,6 +27729,7 @@ func (a *PdfApiService) PutPdfInStorageToXls(name string, outPath string, localV
      @param "uniformWorksheets" (bool) Uniform worksheets
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
  @return AsposeResponse*/
 func (a *PdfApiService) PutPdfInStorageToXlsx(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
@@ -27716,6 +27766,9 @@ func (a *PdfApiService) PutPdfInStorageToXlsx(name string, outPath string, local
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	localVarQueryParams.Add("outPath", parameterToString(outPath, ""))
 	if localVarTempParam, localVarOk := localVarOptionals["insertBlankColumnAtFirst"].(bool); localVarOk {
@@ -27735,6 +27788,9 @@ func (a *PdfApiService) PutPdfInStorageToXlsx(name string, outPath string, local
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -28548,6 +28604,103 @@ func (a *PdfApiService) PutReplaceImage(name string, imageId string, localVarOpt
 		return successPayload, nil, err
 	}
 
+	if localVarTempParam, localVarOk := localVarOptionals["imageFilePath"].(string); localVarOk {
+		localVarQueryParams.Add("imageFilePath", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
+		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
+		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "multipart/form-data",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	var localVarFile (*os.File)
+	if localVarTempParam, localVarOk := localVarOptionals["image"].(*os.File); localVarOk {
+		localVarFile = localVarTempParam
+	}
+	if localVarFile != nil {
+		fbs, _ := ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
+	}
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	defer localVarHttpResponse.Body.Close()
+	if localVarHttpResponse.StatusCode >= 300 {
+		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
+	}
+    
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* PdfApiService Replace document multiple image.
+ @param name The document name.
+ @param imageIds The image IDs.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "imageFilePath" (string) Path to image file if specified. Request content is used otherwise.
+     @param "storage" (string) The document storage.
+     @param "folder" (string) The document folder.
+     @param "image" (*os.File) Image file.
+ @return ImagesResponse*/
+func (a *PdfApiService) PutReplaceMultipleImage(name string, imageIds []string, localVarOptionals map[string]interface{}) (ImagesResponse,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload ImagesResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/pdf/{name}/images/replace"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", name), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _url.Values{}
+	localVarFormParams := _url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["imageFilePath"], "string", "imageFilePath"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["folder"], "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("imageIds", parameterToString(imageIds, "csv"))
 	if localVarTempParam, localVarOk := localVarOptionals["imageFilePath"].(string); localVarOk {
 		localVarQueryParams.Add("imageFilePath", parameterToString(localVarTempParam, ""))
 	}

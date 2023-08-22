@@ -336,6 +336,7 @@ Method | HTTP request | Description
 [**PutRadioButtonField**](PdfApi.md#PutRadioButtonField) | **Put** /pdf/{name}/fields/radiobutton/{fieldName} | Replace document RadioButton field
 [**PutRedactionAnnotation**](PdfApi.md#PutRedactionAnnotation) | **Put** /pdf/{name}/annotations/redaction/{annotationId} | Replace document redaction annotation
 [**PutReplaceImage**](PdfApi.md#PutReplaceImage) | **Put** /pdf/{name}/images/{imageId} | Replace document image.
+[**PutReplaceMultipleImage**](PdfApi.md#PutReplaceMultipleImage) | **Put** /pdf/{name}/images/replace | Replace document multiple image.
 [**PutScreenAnnotation**](PdfApi.md#PutScreenAnnotation) | **Put** /pdf/{name}/annotations/screen/{annotationId} | Replace document screen annotation
 [**PutScreenAnnotationDataExtract**](PdfApi.md#PutScreenAnnotationDataExtract) | **Put** /pdf/{name}/annotations/screen/{annotationId}/data/extract | Extract document screen annotation content to storage
 [**PutSearchableDocument**](PdfApi.md#PutSearchableDocument) | **Put** /pdf/{name}/ocr | Create searchable PDF document. Generate OCR layer for images in input PDF document.
@@ -5302,6 +5303,7 @@ Name | Type | Description  | Notes
  **uniformWorksheets** | **bool**| Uniform worksheets | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -5337,6 +5339,7 @@ Name | Type | Description  | Notes
  **uniformWorksheets** | **bool**| Uniform worksheets | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -8465,6 +8468,7 @@ Name | Type | Description  | Notes
  **to** | **int32**| End page if defined. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
+ **password** | **string**| Base64 encoded password. | 
 
 ### Return type
 
@@ -8498,6 +8502,7 @@ Name | Type | Description  | Notes
  **options** | [**SplitRangePdfOptions**](SplitRangePdfOptions.md)| The splitting options. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
+ **password** | **string**| Base64 encoded password. | 
 
 ### Return type
 
@@ -10719,6 +10724,7 @@ Name | Type | Description  | Notes
  **scaleFactor** | **float64**| Scale factor (Obsolete) | 
  **uniformWorksheets** | **bool**| Uniform worksheets | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
  **file** | ***os.File**| A file to be converted. | 
 
 ### Return type
@@ -10754,6 +10760,7 @@ Name | Type | Description  | Notes
  **scaleFactor** | **float64**| Scale factor (Obsolete) | 
  **uniformWorksheets** | **bool**| Uniform worksheets | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
  **file** | ***os.File**| A file to be converted. | 
 
 ### Return type
@@ -11211,6 +11218,7 @@ Name | Type | Description  | Notes
  **uniformWorksheets** | **bool**| Uniform worksheets | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -11248,6 +11256,7 @@ Name | Type | Description  | Notes
  **uniformWorksheets** | **bool**| Uniform worksheets | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -11595,6 +11604,41 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ImageResponse**](ImageResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutReplaceMultipleImage**
+> ImagesResponse PutReplaceMultipleImage(name, imageIds, optional)
+Replace document multiple image.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **imageIds** | [**[]string**](string.md)| The image IDs. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **imageIds** | [**[]string**](string.md)| The image IDs. | 
+ **imageFilePath** | **string**| Path to image file if specified. Request content is used otherwise. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+ **image** | ***os.File**| Image file. | 
+
+### Return type
+
+[**ImagesResponse**](ImagesResponse.md)
 
 ### HTTP request headers
 
