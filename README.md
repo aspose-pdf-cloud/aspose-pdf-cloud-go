@@ -9,16 +9,13 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 23.8
-- Support to split password protected PDF documents.
-- Support to convert password Protected PDF to Xlsx.
-- Support to convert password Protected PDF to Excel.
-- Replace a single image using multiple Image Ids.
+## Enhancements in Version 23.9
+- Support to convert password protected PDF documents to PDFA.
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
 
-## Bugs fixed in Version 23.8
-- The putMergeDocuments API method in Node.js Throws Gateway Error.
-- Text Replacement Changes the Background.
+## Bugs fixed in Version 23.9
+- Rotate Property not working with FreeTextAnnotation.
+- PutAnnotationsFlatten not working correctly when passing multiple annotation types.
 
 ## Installation
 ```

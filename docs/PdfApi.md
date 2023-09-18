@@ -5125,6 +5125,7 @@ Name | Type | Description  | Notes
  **type_** | **string**| Type of PdfA format. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -10547,6 +10548,7 @@ Name | Type | Description  | Notes
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.pdf) | 
  **type_** | **string**| Type of PdfA format. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
  **file** | ***os.File**| A file to be converted. | 
 
 ### Return type
@@ -11031,6 +11033,7 @@ Name | Type | Description  | Notes
  **type_** | **string**| Type of PdfA format. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
