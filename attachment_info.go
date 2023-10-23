@@ -21,12 +21,14 @@
 
 package asposepdfcloud
 
-// Provides link to page.
-type Page struct {
-	// Link to the document.
-	Links []Link `json:"Links,omitempty"`
-	// Page's id.
-	Id int32 `json:"Id"`
-	// Page's rectangle
-	Rectangle *Rectangle `json:"Rectangle,omitempty"`
+// Attachment Info.
+type AttachmentInfo struct {
+	// Attachment file path.
+	Path string `json:"Path"`
+	// Attachment file description.
+	Description string `json:"Description,omitempty"`
+	// Attachment file name.
+	Name string `json:"Name,omitempty"`
+	// Attachment file MIME type.
+	MimeType string `json:"MimeType,omitempty"`
 }
