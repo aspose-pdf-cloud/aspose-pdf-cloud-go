@@ -9,23 +9,9 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 23.10
-- Support of reading common info of password protected PDF in GetDocument API.
-- Support stamp password protected document using DeleteDocumentStamps API method.
-- Support stamp password protected document using DeleteStamp API method.
-- Support stamp password protected document using PostDocumentPageNumberStamps API method.
-- Support stamp password protected document using PostPageImageStamps API method.
-- Support stamp password protected document using PostPageTextStamps API method.
-- Support stamp password protected document using GetPageStamps API method.
-- Support stamp password protected document using GetDocumentStamps API method.
-- Support stamp password protected document using PostPagePdfPageStamps API method.
-- Support stamp password protected document using DeletePageStamps API method.
-- Develop a method to add an attachment file to a PDF document.
+## Enhancements in Version 23.11
+- Support to Convert Password Protected PDF Documents.
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
-
-## Bugs fixed in Version 23.10
-- Aspose.PDF Cloud PostFlattenDocument API Issue.
-- The GetPages API throws timeout error for PDF files larger than 10 Mb.
 
 ## Installation
 ```
