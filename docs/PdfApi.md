@@ -519,6 +519,7 @@ Name | Type | Description  | Notes
  **bookmarkPath** | **string**| The bookmark path. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -581,6 +582,7 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -1022,7 +1024,7 @@ Delete custom document properties.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**|  | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1030,9 +1032,10 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**|  | 
- **storage** | **string**|  | 
- **folder** | **string**|  | 
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -1053,8 +1056,8 @@ Delete document property.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**|  | 
-  **propertyName** | **string**|  | 
+ **name** | **string**| The document name. | 
+  **propertyName** | **string**| Property name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -1062,10 +1065,11 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**|  | 
- **propertyName** | **string**|  | 
- **storage** | **string**|  | 
- **folder** | **string**|  | 
+ **name** | **string**| The document name. | 
+ **propertyName** | **string**| Property name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -1197,6 +1201,7 @@ Name | Type | Description  | Notes
  **bookmarkPath** | **string**| The bookmark path. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -1230,6 +1235,7 @@ Name | Type | Description  | Notes
  **bookmarkPath** | **string**| The bookmark path. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -1548,6 +1554,7 @@ Name | Type | Description  | Notes
  **name** | **string**| The document name. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -2066,7 +2073,7 @@ Read document properties.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**|  | 
+ **name** | **string**| The document name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -2074,9 +2081,10 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**|  | 
- **storage** | **string**|  | 
- **folder** | **string**|  | 
+ **name** | **string**| The document name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -2097,8 +2105,8 @@ Read document property by name.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**|  | 
-  **propertyName** | **string**|  | 
+ **name** | **string**| The document name. | 
+  **propertyName** | **string**| Property name. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -2106,10 +2114,11 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**|  | 
- **propertyName** | **string**|  | 
- **storage** | **string**|  | 
- **folder** | **string**|  | 
+ **name** | **string**| The document name. | 
+ **propertyName** | **string**| Property name. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -6600,6 +6609,7 @@ Name | Type | Description  | Notes
  **bookmarks** | [**[]Bookmark**](Bookmark.md)| The array of bookmark. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -8715,6 +8725,7 @@ Name | Type | Description  | Notes
  **bookmark** | [**Bookmark**](Bookmark.md)| The bookmark. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -11803,9 +11814,9 @@ Add/update document property.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**|  | 
-  **propertyName** | **string**|  | 
-  **value** | **string**|  | 
+ **name** | **string**| The document name. | 
+  **propertyName** | **string**| Property name. | 
+  **value** | **string**| Property value. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -11813,11 +11824,12 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**|  | 
- **propertyName** | **string**|  | 
- **value** | **string**|  | 
- **storage** | **string**|  | 
- **folder** | **string**|  | 
+ **name** | **string**| The document name. | 
+ **propertyName** | **string**| Property name. | 
+ **value** | **string**| Property value. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 

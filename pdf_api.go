@@ -349,6 +349,7 @@ func (a *PdfApiService) DeleteAnnotation(name string, annotationId string, local
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
  @return AsposeResponse*/
 func (a *PdfApiService) DeleteBookmark(name string, bookmarkPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
@@ -374,12 +375,18 @@ func (a *PdfApiService) DeleteBookmark(name string, bookmarkPath string, localVa
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -504,6 +511,7 @@ func (a *PdfApiService) DeleteDocumentAnnotations(name string, localVarOptionals
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
  @return AsposeResponse*/
 func (a *PdfApiService) DeleteDocumentBookmarks(name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
@@ -528,12 +536,18 @@ func (a *PdfApiService) DeleteDocumentBookmarks(name string, localVarOptionals m
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -1598,10 +1612,11 @@ func (a *PdfApiService) DeletePageTables(name string, pageNumber int32, localVar
 }
 
 /* PdfApiService Delete custom document properties.
- @param name 
+ @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "storage" (string) 
-     @param "folder" (string) 
+     @param "storage" (string) The document storage.
+     @param "folder" (string) The document folder.
+     @param "password" (string) The password (Base64).
  @return AsposeResponse*/
 func (a *PdfApiService) DeleteProperties(name string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
@@ -1626,12 +1641,18 @@ func (a *PdfApiService) DeleteProperties(name string, localVarOptionals map[stri
 	if err := typeCheckParameter(localVarOptionals["folder"], "string", "folder"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -1675,11 +1696,12 @@ func (a *PdfApiService) DeleteProperties(name string, localVarOptionals map[stri
 }
 
 /* PdfApiService Delete document property.
- @param name 
- @param propertyName 
+ @param name The document name.
+ @param propertyName Property name.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "storage" (string) 
-     @param "folder" (string) 
+     @param "storage" (string) The document storage.
+     @param "folder" (string) The document folder.
+     @param "password" (string) The password (Base64).
  @return AsposeResponse*/
 func (a *PdfApiService) DeleteProperty(name string, propertyName string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
@@ -1705,12 +1727,18 @@ func (a *PdfApiService) DeleteProperty(name string, propertyName string, localVa
 	if err := typeCheckParameter(localVarOptionals["folder"], "string", "folder"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -2001,6 +2029,7 @@ func (a *PdfApiService) DownloadFile(path string, localVarOptionals map[string]i
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
  @return BookmarkResponse*/
 func (a *PdfApiService) GetBookmark(name string, bookmarkPath string, localVarOptionals map[string]interface{}) (BookmarkResponse,  *http.Response, error) {
 	var (
@@ -2026,12 +2055,18 @@ func (a *PdfApiService) GetBookmark(name string, bookmarkPath string, localVarOp
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -2080,6 +2115,7 @@ func (a *PdfApiService) GetBookmark(name string, bookmarkPath string, localVarOp
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
  @return BookmarksResponse*/
 func (a *PdfApiService) GetBookmarks(name string, bookmarkPath string, localVarOptionals map[string]interface{}) (BookmarksResponse,  *http.Response, error) {
 	var (
@@ -2105,12 +2141,18 @@ func (a *PdfApiService) GetBookmarks(name string, bookmarkPath string, localVarO
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -2859,6 +2901,7 @@ func (a *PdfApiService) GetDocumentAttachments(name string, localVarOptionals ma
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
  @return BookmarksResponse*/
 func (a *PdfApiService) GetDocumentBookmarks(name string, localVarOptionals map[string]interface{}) (BookmarksResponse,  *http.Response, error) {
 	var (
@@ -2883,12 +2926,18 @@ func (a *PdfApiService) GetDocumentBookmarks(name string, localVarOptionals map[
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -4166,10 +4215,11 @@ func (a *PdfApiService) GetDocumentPopupAnnotationsByParent(name string, annotat
 }
 
 /* PdfApiService Read document properties.
- @param name 
+ @param name The document name.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "storage" (string) 
-     @param "folder" (string) 
+     @param "storage" (string) The document storage.
+     @param "folder" (string) The document folder.
+     @param "password" (string) The password (Base64).
  @return DocumentPropertiesResponse*/
 func (a *PdfApiService) GetDocumentProperties(name string, localVarOptionals map[string]interface{}) (DocumentPropertiesResponse,  *http.Response, error) {
 	var (
@@ -4194,12 +4244,18 @@ func (a *PdfApiService) GetDocumentProperties(name string, localVarOptionals map
 	if err := typeCheckParameter(localVarOptionals["folder"], "string", "folder"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -4243,11 +4299,12 @@ func (a *PdfApiService) GetDocumentProperties(name string, localVarOptionals map
 }
 
 /* PdfApiService Read document property by name.
- @param name 
- @param propertyName 
+ @param name The document name.
+ @param propertyName Property name.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "storage" (string) 
-     @param "folder" (string) 
+     @param "storage" (string) The document storage.
+     @param "folder" (string) The document folder.
+     @param "password" (string) The password (Base64).
  @return DocumentPropertyResponse*/
 func (a *PdfApiService) GetDocumentProperty(name string, propertyName string, localVarOptionals map[string]interface{}) (DocumentPropertyResponse,  *http.Response, error) {
 	var (
@@ -4273,12 +4330,18 @@ func (a *PdfApiService) GetDocumentProperty(name string, propertyName string, lo
 	if err := typeCheckParameter(localVarOptionals["folder"], "string", "folder"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -15619,6 +15682,7 @@ func (a *PdfApiService) PostAppendDocument(name string, appendFile string, local
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
  @return BookmarksResponse*/
 func (a *PdfApiService) PostBookmark(name string, bookmarkPath string, bookmarks []Bookmark, localVarOptionals map[string]interface{}) (BookmarksResponse,  *http.Response, error) {
 	var (
@@ -15644,12 +15708,18 @@ func (a *PdfApiService) PostBookmark(name string, bookmarkPath string, bookmarks
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -20799,6 +20869,7 @@ func (a *PdfApiService) PutAnnotationsFlatten(name string, localVarOptionals map
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
  @return BookmarkResponse*/
 func (a *PdfApiService) PutBookmark(name string, bookmarkPath string, bookmark Bookmark, localVarOptionals map[string]interface{}) (BookmarkResponse,  *http.Response, error) {
 	var (
@@ -20824,12 +20895,18 @@ func (a *PdfApiService) PutBookmark(name string, bookmarkPath string, bookmark B
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -29173,12 +29250,13 @@ func (a *PdfApiService) PutSearchableDocument(name string, localVarOptionals map
 }
 
 /* PdfApiService Add/update document property.
- @param name 
- @param propertyName 
- @param value 
+ @param name The document name.
+ @param propertyName Property name.
+ @param value Property value.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "storage" (string) 
-     @param "folder" (string) 
+     @param "storage" (string) The document storage.
+     @param "folder" (string) The document folder.
+     @param "password" (string) The password (Base64).
  @return DocumentPropertyResponse*/
 func (a *PdfApiService) PutSetProperty(name string, propertyName string, value string, localVarOptionals map[string]interface{}) (DocumentPropertyResponse,  *http.Response, error) {
 	var (
@@ -29204,6 +29282,9 @@ func (a *PdfApiService) PutSetProperty(name string, propertyName string, value s
 	if err := typeCheckParameter(localVarOptionals["folder"], "string", "folder"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	localVarQueryParams.Add("value", parameterToString(value, ""))
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
@@ -29211,6 +29292,9 @@ func (a *PdfApiService) PutSetProperty(name string, propertyName string, value s
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
