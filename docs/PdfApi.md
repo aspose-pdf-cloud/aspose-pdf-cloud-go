@@ -5207,6 +5207,7 @@ Name | Type | Description  | Notes
  **compressOutputToZipArchive** | **bool**| Specifies whether output will be created as one zip-archive. | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 
@@ -10668,6 +10669,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.svg) | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
  **file** | ***os.File**| A file to be converted. | 
 
 ### Return type
@@ -11157,6 +11159,7 @@ Name | Type | Description  | Notes
  **outPath** | **string**| Full resulting filename (ex. /folder1/folder2/result.svg) | 
  **folder** | **string**| The document folder. | 
  **storage** | **string**| The document storage. | 
+ **password** | **string**| The password (Base64). | 
 
 ### Return type
 

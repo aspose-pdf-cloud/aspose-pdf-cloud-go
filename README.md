@@ -9,18 +9,10 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 23.12
-- Support to update bookmark in password protected PDF document.
-- Support to delete bookmarks from password protected PDF document.
-- Support to add bookmarks to password protected PDF document.
-- Support to delete properties of password protected PDF document.
-- Support to add properties of password protected PDF document.
-- Support to read properties of password protected PDF document.
+## Enhancements in Version 24.1
+- Add support to convert password protected PDF to SVG in PutPdfInRequestToSvg API.
+- Add support to convert password protected PDF to SVG in PutPdfInStorageToSvg API.
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
-
-## Bugs fixed in Version 23.12
-- PDF to XLSX Conversion clubs data in one cell.
-- GetDocumentBookmarks does not get bookmarks from protected PDF.
 
 ## Installation
 ```
