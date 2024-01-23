@@ -1,6 +1,6 @@
 /*
 *
-* Copyright (c) 2023 Aspose.PDF Cloud
+* Copyright (c) 2024 Aspose.PDF Cloud
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
 * in the Software without restriction, including without limitation the rights
@@ -12116,6 +12116,7 @@ func (a *PdfApiService) GetPdfInStorageToPptx(name string, localVarOptionals map
      @param "compressOutputToZipArchive" (bool) Specifies whether output will be created as one zip-archive.
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
  @return []byte*/
 func (a *PdfApiService) GetPdfInStorageToSvg(name string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
@@ -12143,6 +12144,9 @@ func (a *PdfApiService) GetPdfInStorageToSvg(name string, localVarOptionals map[
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["compressOutputToZipArchive"].(bool); localVarOk {
 		localVarQueryParams.Add("compressOutputToZipArchive", parameterToString(localVarTempParam, ""))
@@ -12152,6 +12156,9 @@ func (a *PdfApiService) GetPdfInStorageToSvg(name string, localVarOptionals map[
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -25985,6 +25992,7 @@ func (a *PdfApiService) PutPdfInRequestToPptx(outPath string, localVarOptionals 
  @param outPath Full resulting filename (ex. /folder1/folder2/result.svg)
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
      @param "file" (*os.File) A file to be converted.
  @return AsposeResponse*/
 func (a *PdfApiService) PutPdfInRequestToSvg(outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
@@ -26006,10 +26014,16 @@ func (a *PdfApiService) PutPdfInRequestToSvg(outPath string, localVarOptionals m
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	localVarQueryParams.Add("outPath", parameterToString(outPath, ""))
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "multipart/form-data",  }
@@ -27510,6 +27524,7 @@ func (a *PdfApiService) PutPdfInStorageToPptx(name string, outPath string, local
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "folder" (string) The document folder.
      @param "storage" (string) The document storage.
+     @param "password" (string) The password (Base64).
  @return AsposeResponse*/
 func (a *PdfApiService) PutPdfInStorageToSvg(name string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
@@ -27534,6 +27549,9 @@ func (a *PdfApiService) PutPdfInStorageToSvg(name string, outPath string, localV
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
 
 	localVarQueryParams.Add("outPath", parameterToString(outPath, ""))
 	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
@@ -27541,6 +27559,9 @@ func (a *PdfApiService) PutPdfInStorageToSvg(name string, outPath string, localV
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
