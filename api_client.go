@@ -176,7 +176,7 @@ func (c *APIClient) prepareRequest (
     
     // set custom header
     headerParams["x-aspose-client"] = "go sdk"
-    headerParams["x-aspose-client-version"] = "24.1.0"
+    headerParams["x-aspose-client-version"] = "24.2.0"
 
     // Detect postBody type and post.
     if postBody != nil {
@@ -268,10 +268,11 @@ func (c *APIClient) prepareRequest (
     // Add the user agent to the request.
     localVarRequest.Header.Add("User-Agent", c.cfg.UserAgent)
     
-    // Add auth
-    err = c.addAuth(localVarRequest)
-    if err != nil {
-        return nil, err
+    if !c.cfg.SelfHost {
+        // Add auth        
+        if err := c.addAuth(localVarRequest); err != nil {
+            return nil, err
+        }
     }
 
     for header, value := range c.cfg.DefaultHeader {

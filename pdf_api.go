@@ -22,23 +22,33 @@
 package asposepdfcloud
 
 import (
-	"io/ioutil"
-	_url "net/url"
-	"net/http"
-	"strings"
-	"os"
 	"fmt"
+	"io"
+	"net/http"
+	_url "net/url"
+	"os"
+	"strings"
 )
 
 type PdfApiService service
 
-/* Create Instance of PdfApiService
- @param appSid string Application SID
- @param appKey string Application Key
- @param basePath string Base service path. Set "" for default
- @return *PdfApiService */
- func NewPdfApiService(appSid string, appKey string, basePath string) *PdfApiService {
-	config := NewConfiguration(appSid, appKey, basePath)
+/*
+NewPdfApiService creates PdfApiService instance to connect with public Aspose.PDF Cloud.
+
+@param appSid string Application SID
+@param appKey string Application Key
+@param basePath string Base service path. Set "" for default
+@return *PdfApiService
+*/
+func NewPdfApiService(appSid, appKey, basePath string) *PdfApiService {
+	config := NewConfiguration(appSid, appKey, basePath, false)
+	client := NewAPIClient(config)
+	return client.PdfApi
+}
+
+// NewSelfHostPdfApiService creates PdfApiService instance to connect with SelfHost Aspose.PDF Cloud.
+func NewSelfHostPdfApiService(basePath string) *PdfApiService {
+	config := NewConfiguration("", "", basePath, true)
 	client := NewAPIClient(config)
 	return client.PdfApi
 }
@@ -118,7 +128,7 @@ func (a *PdfApiService) CopyFile(srcPath string, destPath string, localVarOption
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
 
@@ -192,7 +202,7 @@ func (a *PdfApiService) CopyFolder(srcPath string, destPath string, localVarOpti
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
 
@@ -257,7 +267,7 @@ func (a *PdfApiService) CreateFolder(path string, localVarOptionals map[string]i
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
 
@@ -332,7 +342,7 @@ func (a *PdfApiService) DeleteAnnotation(name string, annotationId string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -418,7 +428,7 @@ func (a *PdfApiService) DeleteBookmark(name string, bookmarkPath string, localVa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -495,7 +505,7 @@ func (a *PdfApiService) DeleteDocumentAnnotations(name string, localVarOptionals
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -579,7 +589,7 @@ func (a *PdfApiService) DeleteDocumentBookmarks(name string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -656,7 +666,7 @@ func (a *PdfApiService) DeleteDocumentLinkAnnotations(name string, localVarOptio
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -740,7 +750,7 @@ func (a *PdfApiService) DeleteDocumentStamps(name string, localVarOptionals map[
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -817,7 +827,7 @@ func (a *PdfApiService) DeleteDocumentTables(name string, localVarOptionals map[
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -896,7 +906,7 @@ func (a *PdfApiService) DeleteField(name string, fieldName string, localVarOptio
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -972,7 +982,7 @@ func (a *PdfApiService) DeleteFile(path string, localVarOptionals map[string]int
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
 
@@ -1044,7 +1054,7 @@ func (a *PdfApiService) DeleteFolder(path string, localVarOptionals map[string]i
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
 
@@ -1119,7 +1129,7 @@ func (a *PdfApiService) DeleteImage(name string, imageId string, localVarOptiona
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -1198,7 +1208,7 @@ func (a *PdfApiService) DeleteLinkAnnotation(name string, linkId string, localVa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -1277,7 +1287,7 @@ func (a *PdfApiService) DeletePage(name string, pageNumber int32, localVarOption
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -1356,7 +1366,7 @@ func (a *PdfApiService) DeletePageAnnotations(name string, pageNumber int32, loc
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -1435,7 +1445,7 @@ func (a *PdfApiService) DeletePageLinkAnnotations(name string, pageNumber int32,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -1521,7 +1531,7 @@ func (a *PdfApiService) DeletePageStamps(name string, pageNumber int32, localVar
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -1600,7 +1610,7 @@ func (a *PdfApiService) DeletePageTables(name string, pageNumber int32, localVar
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -1684,7 +1694,7 @@ func (a *PdfApiService) DeleteProperties(name string, localVarOptionals map[stri
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -1770,7 +1780,7 @@ func (a *PdfApiService) DeleteProperty(name string, propertyName string, localVa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -1856,7 +1866,7 @@ func (a *PdfApiService) DeleteStamp(name string, stampId string, localVarOptiona
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -1935,7 +1945,7 @@ func (a *PdfApiService) DeleteTable(name string, tableId string, localVarOptiona
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -2012,10 +2022,10 @@ func (a *PdfApiService) DownloadFile(path string, localVarOptionals map[string]i
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -2098,7 +2108,7 @@ func (a *PdfApiService) GetBookmark(name string, bookmarkPath string, localVarOp
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -2184,7 +2194,7 @@ func (a *PdfApiService) GetBookmarks(name string, bookmarkPath string, localVarO
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -2263,7 +2273,7 @@ func (a *PdfApiService) GetCaretAnnotation(name string, annotationId string, loc
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -2342,7 +2352,7 @@ func (a *PdfApiService) GetCheckBoxField(name string, fieldName string, localVar
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -2421,7 +2431,7 @@ func (a *PdfApiService) GetCircleAnnotation(name string, annotationId string, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -2500,7 +2510,7 @@ func (a *PdfApiService) GetComboBoxField(name string, fieldName string, localVar
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -2568,7 +2578,7 @@ func (a *PdfApiService) GetDiscUsage(localVarOptionals map[string]interface{}) (
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -2652,7 +2662,7 @@ func (a *PdfApiService) GetDocument(name string, localVarOptionals map[string]in
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -2729,7 +2739,7 @@ func (a *PdfApiService) GetDocumentAnnotations(name string, localVarOptionals ma
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -2808,7 +2818,7 @@ func (a *PdfApiService) GetDocumentAttachmentByIndex(name string, attachmentInde
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -2885,7 +2895,7 @@ func (a *PdfApiService) GetDocumentAttachments(name string, localVarOptionals ma
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -2969,7 +2979,7 @@ func (a *PdfApiService) GetDocumentBookmarks(name string, localVarOptionals map[
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -3046,7 +3056,7 @@ func (a *PdfApiService) GetDocumentCaretAnnotations(name string, localVarOptiona
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -3123,7 +3133,7 @@ func (a *PdfApiService) GetDocumentCheckBoxFields(name string, localVarOptionals
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -3200,7 +3210,7 @@ func (a *PdfApiService) GetDocumentCircleAnnotations(name string, localVarOption
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -3277,7 +3287,7 @@ func (a *PdfApiService) GetDocumentComboBoxFields(name string, localVarOptionals
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -3354,7 +3364,7 @@ func (a *PdfApiService) GetDocumentDisplayProperties(name string, localVarOption
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -3431,7 +3441,7 @@ func (a *PdfApiService) GetDocumentFileAttachmentAnnotations(name string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -3508,7 +3518,7 @@ func (a *PdfApiService) GetDocumentFreeTextAnnotations(name string, localVarOpti
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -3585,7 +3595,7 @@ func (a *PdfApiService) GetDocumentHighlightAnnotations(name string, localVarOpt
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -3662,7 +3672,7 @@ func (a *PdfApiService) GetDocumentInkAnnotations(name string, localVarOptionals
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -3739,7 +3749,7 @@ func (a *PdfApiService) GetDocumentLineAnnotations(name string, localVarOptional
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -3816,7 +3826,7 @@ func (a *PdfApiService) GetDocumentListBoxFields(name string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -3893,7 +3903,7 @@ func (a *PdfApiService) GetDocumentMovieAnnotations(name string, localVarOptiona
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -3970,7 +3980,7 @@ func (a *PdfApiService) GetDocumentPolyLineAnnotations(name string, localVarOpti
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -4047,7 +4057,7 @@ func (a *PdfApiService) GetDocumentPolygonAnnotations(name string, localVarOptio
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -4124,7 +4134,7 @@ func (a *PdfApiService) GetDocumentPopupAnnotations(name string, localVarOptiona
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -4203,7 +4213,7 @@ func (a *PdfApiService) GetDocumentPopupAnnotationsByParent(name string, annotat
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -4287,7 +4297,7 @@ func (a *PdfApiService) GetDocumentProperties(name string, localVarOptionals map
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -4373,7 +4383,7 @@ func (a *PdfApiService) GetDocumentProperty(name string, propertyName string, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -4450,7 +4460,7 @@ func (a *PdfApiService) GetDocumentRadioButtonFields(name string, localVarOption
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -4527,7 +4537,7 @@ func (a *PdfApiService) GetDocumentRedactionAnnotations(name string, localVarOpt
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -4604,7 +4614,7 @@ func (a *PdfApiService) GetDocumentScreenAnnotations(name string, localVarOption
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -4681,7 +4691,7 @@ func (a *PdfApiService) GetDocumentSignatureFields(name string, localVarOptional
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -4758,7 +4768,7 @@ func (a *PdfApiService) GetDocumentSoundAnnotations(name string, localVarOptiona
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -4835,7 +4845,7 @@ func (a *PdfApiService) GetDocumentSquareAnnotations(name string, localVarOption
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -4912,7 +4922,7 @@ func (a *PdfApiService) GetDocumentSquigglyAnnotations(name string, localVarOpti
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -4989,7 +4999,7 @@ func (a *PdfApiService) GetDocumentStampAnnotations(name string, localVarOptiona
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -5066,7 +5076,7 @@ func (a *PdfApiService) GetDocumentStamps(name string, localVarOptionals map[str
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -5143,7 +5153,7 @@ func (a *PdfApiService) GetDocumentStrikeOutAnnotations(name string, localVarOpt
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -5220,7 +5230,7 @@ func (a *PdfApiService) GetDocumentTables(name string, localVarOptionals map[str
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -5297,7 +5307,7 @@ func (a *PdfApiService) GetDocumentTextAnnotations(name string, localVarOptional
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -5374,7 +5384,7 @@ func (a *PdfApiService) GetDocumentTextBoxFields(name string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -5451,7 +5461,7 @@ func (a *PdfApiService) GetDocumentUnderlineAnnotations(name string, localVarOpt
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -5530,10 +5540,10 @@ func (a *PdfApiService) GetDownloadDocumentAttachmentByIndex(name string, attach
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -5600,10 +5610,10 @@ func (a *PdfApiService) GetEpubInStorageToPdf(srcPath string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -5677,10 +5687,10 @@ func (a *PdfApiService) GetExportFieldsFromPdfToFdfInStorage(name string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -5754,10 +5764,10 @@ func (a *PdfApiService) GetExportFieldsFromPdfToXfdfInStorage(name string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -5831,10 +5841,10 @@ func (a *PdfApiService) GetExportFieldsFromPdfToXmlInStorage(name string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -5910,7 +5920,7 @@ func (a *PdfApiService) GetField(name string, fieldName string, localVarOptional
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -5987,7 +5997,7 @@ func (a *PdfApiService) GetFields(name string, localVarOptionals map[string]inte
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -6066,7 +6076,7 @@ func (a *PdfApiService) GetFileAttachmentAnnotation(name string, annotationId st
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -6145,10 +6155,10 @@ func (a *PdfApiService) GetFileAttachmentAnnotationData(name string, annotationI
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -6215,7 +6225,7 @@ func (a *PdfApiService) GetFileVersions(path string, localVarOptionals map[strin
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -6285,7 +6295,7 @@ func (a *PdfApiService) GetFilesList(path string, localVarOptionals map[string]i
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -6364,7 +6374,7 @@ func (a *PdfApiService) GetFreeTextAnnotation(name string, annotationId string, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -6443,7 +6453,7 @@ func (a *PdfApiService) GetHighlightAnnotation(name string, annotationId string,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -6569,10 +6579,10 @@ func (a *PdfApiService) GetHtmlInStorageToPdf(srcPath string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -6648,7 +6658,7 @@ func (a *PdfApiService) GetImage(name string, imageId string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -6741,10 +6751,10 @@ func (a *PdfApiService) GetImageExtractAsGif(name string, imageId string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -6834,10 +6844,10 @@ func (a *PdfApiService) GetImageExtractAsJpeg(name string, imageId string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -6927,10 +6937,10 @@ func (a *PdfApiService) GetImageExtractAsPng(name string, imageId string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -7020,10 +7030,10 @@ func (a *PdfApiService) GetImageExtractAsTiff(name string, imageId string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -7099,7 +7109,7 @@ func (a *PdfApiService) GetImages(name string, pageNumber int32, localVarOptiona
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -7178,10 +7188,10 @@ func (a *PdfApiService) GetImportFieldsFromFdfInStorage(name string, fdfFilePath
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -7257,10 +7267,10 @@ func (a *PdfApiService) GetImportFieldsFromXfdfInStorage(name string, xfdfFilePa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -7336,10 +7346,10 @@ func (a *PdfApiService) GetImportFieldsFromXmlInStorage(name string, xmlFilePath
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -7415,7 +7425,7 @@ func (a *PdfApiService) GetInkAnnotation(name string, annotationId string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -7494,7 +7504,7 @@ func (a *PdfApiService) GetLineAnnotation(name string, annotationId string, loca
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -7573,7 +7583,7 @@ func (a *PdfApiService) GetLinkAnnotation(name string, linkId string, localVarOp
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -7652,7 +7662,7 @@ func (a *PdfApiService) GetListBoxField(name string, fieldName string, localVarO
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -7722,10 +7732,10 @@ func (a *PdfApiService) GetMarkdownInStorageToPdf(srcPath string, localVarOption
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -7792,10 +7802,10 @@ func (a *PdfApiService) GetMhtInStorageToPdf(srcPath string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -7871,7 +7881,7 @@ func (a *PdfApiService) GetMovieAnnotation(name string, annotationId string, loc
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -7950,7 +7960,7 @@ func (a *PdfApiService) GetPage(name string, pageNumber int32, localVarOptionals
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -8029,7 +8039,7 @@ func (a *PdfApiService) GetPageAnnotations(name string, pageNumber int32, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -8108,7 +8118,7 @@ func (a *PdfApiService) GetPageCaretAnnotations(name string, pageNumber int32, l
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -8187,7 +8197,7 @@ func (a *PdfApiService) GetPageCheckBoxFields(name string, pageNumber int32, loc
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -8266,7 +8276,7 @@ func (a *PdfApiService) GetPageCircleAnnotations(name string, pageNumber int32, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -8345,7 +8355,7 @@ func (a *PdfApiService) GetPageComboBoxFields(name string, pageNumber int32, loc
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -8445,10 +8455,10 @@ func (a *PdfApiService) GetPageConvertToBmp(name string, pageNumber int32, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -8545,10 +8555,10 @@ func (a *PdfApiService) GetPageConvertToEmf(name string, pageNumber int32, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -8645,10 +8655,10 @@ func (a *PdfApiService) GetPageConvertToGif(name string, pageNumber int32, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -8745,10 +8755,10 @@ func (a *PdfApiService) GetPageConvertToJpeg(name string, pageNumber int32, loca
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -8845,10 +8855,10 @@ func (a *PdfApiService) GetPageConvertToPng(name string, pageNumber int32, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -8945,10 +8955,10 @@ func (a *PdfApiService) GetPageConvertToTiff(name string, pageNumber int32, loca
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -9024,7 +9034,7 @@ func (a *PdfApiService) GetPageFileAttachmentAnnotations(name string, pageNumber
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -9103,7 +9113,7 @@ func (a *PdfApiService) GetPageFreeTextAnnotations(name string, pageNumber int32
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -9182,7 +9192,7 @@ func (a *PdfApiService) GetPageHighlightAnnotations(name string, pageNumber int3
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -9261,7 +9271,7 @@ func (a *PdfApiService) GetPageInkAnnotations(name string, pageNumber int32, loc
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -9340,7 +9350,7 @@ func (a *PdfApiService) GetPageLineAnnotations(name string, pageNumber int32, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -9421,7 +9431,7 @@ func (a *PdfApiService) GetPageLinkAnnotation(name string, pageNumber int32, lin
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -9500,7 +9510,7 @@ func (a *PdfApiService) GetPageLinkAnnotations(name string, pageNumber int32, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -9579,7 +9589,7 @@ func (a *PdfApiService) GetPageListBoxFields(name string, pageNumber int32, loca
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -9658,7 +9668,7 @@ func (a *PdfApiService) GetPageMovieAnnotations(name string, pageNumber int32, l
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -9737,7 +9747,7 @@ func (a *PdfApiService) GetPagePolyLineAnnotations(name string, pageNumber int32
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -9816,7 +9826,7 @@ func (a *PdfApiService) GetPagePolygonAnnotations(name string, pageNumber int32,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -9895,7 +9905,7 @@ func (a *PdfApiService) GetPagePopupAnnotations(name string, pageNumber int32, l
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -9974,7 +9984,7 @@ func (a *PdfApiService) GetPageRadioButtonFields(name string, pageNumber int32, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -10053,7 +10063,7 @@ func (a *PdfApiService) GetPageRedactionAnnotations(name string, pageNumber int3
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -10132,7 +10142,7 @@ func (a *PdfApiService) GetPageScreenAnnotations(name string, pageNumber int32, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -10211,7 +10221,7 @@ func (a *PdfApiService) GetPageSignatureFields(name string, pageNumber int32, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -10290,7 +10300,7 @@ func (a *PdfApiService) GetPageSoundAnnotations(name string, pageNumber int32, l
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -10369,7 +10379,7 @@ func (a *PdfApiService) GetPageSquareAnnotations(name string, pageNumber int32, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -10448,7 +10458,7 @@ func (a *PdfApiService) GetPageSquigglyAnnotations(name string, pageNumber int32
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -10527,7 +10537,7 @@ func (a *PdfApiService) GetPageStampAnnotations(name string, pageNumber int32, l
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -10613,7 +10623,7 @@ func (a *PdfApiService) GetPageStamps(name string, pageNumber int32, localVarOpt
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -10692,7 +10702,7 @@ func (a *PdfApiService) GetPageStrikeOutAnnotations(name string, pageNumber int3
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -10771,7 +10781,7 @@ func (a *PdfApiService) GetPageTables(name string, pageNumber int32, localVarOpt
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -10876,7 +10886,7 @@ func (a *PdfApiService) GetPageText(name string, pageNumber int32, lLX float64, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -10955,7 +10965,7 @@ func (a *PdfApiService) GetPageTextAnnotations(name string, pageNumber int32, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -11034,7 +11044,7 @@ func (a *PdfApiService) GetPageTextBoxFields(name string, pageNumber int32, loca
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -11113,7 +11123,7 @@ func (a *PdfApiService) GetPageUnderlineAnnotations(name string, pageNumber int3
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -11190,7 +11200,7 @@ func (a *PdfApiService) GetPages(name string, localVarOptionals map[string]inter
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -11260,10 +11270,10 @@ func (a *PdfApiService) GetPclInStorageToPdf(srcPath string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -11337,10 +11347,10 @@ func (a *PdfApiService) GetPdfAInStorageToPdf(srcPath string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -11477,10 +11487,10 @@ func (a *PdfApiService) GetPdfInStorageToDoc(name string, localVarOptionals map[
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -11561,10 +11571,10 @@ func (a *PdfApiService) GetPdfInStorageToEpub(name string, localVarOptionals map
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -11838,10 +11848,10 @@ func (a *PdfApiService) GetPdfInStorageToHtml(name string, localVarOptionals map
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -11915,10 +11925,10 @@ func (a *PdfApiService) GetPdfInStorageToMobiXml(name string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -12001,10 +12011,10 @@ func (a *PdfApiService) GetPdfInStorageToPdfA(name string, type_ string, localVa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -12099,10 +12109,10 @@ func (a *PdfApiService) GetPdfInStorageToPptx(name string, localVarOptionals map
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -12190,10 +12200,10 @@ func (a *PdfApiService) GetPdfInStorageToSvg(name string, localVarOptionals map[
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -12267,10 +12277,10 @@ func (a *PdfApiService) GetPdfInStorageToTeX(name string, localVarOptionals map[
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -12449,10 +12459,10 @@ func (a *PdfApiService) GetPdfInStorageToTiff(name string, localVarOptionals map
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -12561,10 +12571,10 @@ func (a *PdfApiService) GetPdfInStorageToXls(name string, localVarOptionals map[
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -12673,10 +12683,10 @@ func (a *PdfApiService) GetPdfInStorageToXlsx(name string, localVarOptionals map
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -12750,10 +12760,10 @@ func (a *PdfApiService) GetPdfInStorageToXml(name string, localVarOptionals map[
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -12827,10 +12837,10 @@ func (a *PdfApiService) GetPdfInStorageToXps(name string, localVarOptionals map[
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -12906,7 +12916,7 @@ func (a *PdfApiService) GetPolyLineAnnotation(name string, annotationId string, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -12985,7 +12995,7 @@ func (a *PdfApiService) GetPolygonAnnotation(name string, annotationId string, l
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -13064,7 +13074,7 @@ func (a *PdfApiService) GetPopupAnnotation(name string, annotationId string, loc
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -13134,10 +13144,10 @@ func (a *PdfApiService) GetPsInStorageToPdf(srcPath string, localVarOptionals ma
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -13213,7 +13223,7 @@ func (a *PdfApiService) GetRadioButtonField(name string, fieldName string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -13292,7 +13302,7 @@ func (a *PdfApiService) GetRedactionAnnotation(name string, annotationId string,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -13371,7 +13381,7 @@ func (a *PdfApiService) GetScreenAnnotation(name string, annotationId string, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -13450,10 +13460,10 @@ func (a *PdfApiService) GetScreenAnnotationData(name string, annotationId string
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -13529,7 +13539,7 @@ func (a *PdfApiService) GetSignatureField(name string, fieldName string, localVa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -13608,7 +13618,7 @@ func (a *PdfApiService) GetSoundAnnotation(name string, annotationId string, loc
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -13687,10 +13697,10 @@ func (a *PdfApiService) GetSoundAnnotationData(name string, annotationId string,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -13766,7 +13776,7 @@ func (a *PdfApiService) GetSquareAnnotation(name string, annotationId string, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -13845,7 +13855,7 @@ func (a *PdfApiService) GetSquigglyAnnotation(name string, annotationId string, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -13924,7 +13934,7 @@ func (a *PdfApiService) GetStampAnnotation(name string, annotationId string, loc
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -14003,10 +14013,10 @@ func (a *PdfApiService) GetStampAnnotationData(name string, annotationId string,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -14082,7 +14092,7 @@ func (a *PdfApiService) GetStrikeOutAnnotation(name string, annotationId string,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -14208,10 +14218,10 @@ func (a *PdfApiService) GetSvgInStorageToPdf(srcPath string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -14287,7 +14297,7 @@ func (a *PdfApiService) GetTable(name string, tableId string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -14357,10 +14367,10 @@ func (a *PdfApiService) GetTeXInStorageToPdf(srcPath string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -14460,7 +14470,7 @@ func (a *PdfApiService) GetText(name string, lLX float64, lLY float64, uRX float
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -14539,7 +14549,7 @@ func (a *PdfApiService) GetTextAnnotation(name string, annotationId string, loca
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -14618,7 +14628,7 @@ func (a *PdfApiService) GetTextBoxField(name string, fieldName string, localVarO
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -14697,7 +14707,7 @@ func (a *PdfApiService) GetUnderlineAnnotation(name string, annotationId string,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -14776,7 +14786,7 @@ func (a *PdfApiService) GetVerifySignature(name string, signName string, localVa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -14895,10 +14905,10 @@ func (a *PdfApiService) GetWebInStorageToPdf(url string, localVarOptionals map[s
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -14972,7 +14982,7 @@ func (a *PdfApiService) GetWordsPerPage(name string, localVarOptionals map[strin
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -15049,10 +15059,10 @@ func (a *PdfApiService) GetXfaPdfInStorageToAcroForm(name string, localVarOption
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -15126,10 +15136,10 @@ func (a *PdfApiService) GetXmlInStorageToPdf(srcPath string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -15196,10 +15206,10 @@ func (a *PdfApiService) GetXpsInStorageToPdf(srcPath string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -15266,10 +15276,10 @@ func (a *PdfApiService) GetXslFoInStorageToPdf(srcPath string, localVarOptionals
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
-    successPayload, err = ioutil.ReadAll(localVarHttpResponse.Body)
+    successPayload, err = io.ReadAll(localVarHttpResponse.Body)
     if err != nil {
         return successPayload, localVarHttpResponse, err
     }
@@ -15351,7 +15361,7 @@ func (a *PdfApiService) MoveFile(srcPath string, destPath string, localVarOption
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
 
@@ -15425,7 +15435,7 @@ func (a *PdfApiService) MoveFolder(srcPath string, destPath string, localVarOpti
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
 
@@ -15498,7 +15508,7 @@ func (a *PdfApiService) ObjectExists(path string, localVarOptionals map[string]i
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -15578,7 +15588,7 @@ func (a *PdfApiService) PostAddDocumentAttachment(name string, attachmentInfo At
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -15671,7 +15681,7 @@ func (a *PdfApiService) PostAppendDocument(name string, appendFile string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -15760,7 +15770,7 @@ func (a *PdfApiService) PostBookmark(name string, bookmarkPath string, bookmarks
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -15843,7 +15853,7 @@ func (a *PdfApiService) PostChangePasswordDocumentInStorage(name string, ownerPa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -15923,7 +15933,7 @@ func (a *PdfApiService) PostCheckBoxFields(name string, fields []CheckBoxField, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -16003,7 +16013,7 @@ func (a *PdfApiService) PostComboBoxFields(name string, fields []ComboBoxField, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -16083,7 +16093,7 @@ func (a *PdfApiService) PostCreateDocument(name string, documentConfig DocumentC
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -16165,7 +16175,7 @@ func (a *PdfApiService) PostCreateField(name string, page int32, field Field, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -16244,7 +16254,7 @@ func (a *PdfApiService) PostDecryptDocumentInStorage(name string, password strin
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -16338,7 +16348,7 @@ func (a *PdfApiService) PostDocumentImageFooter(name string, imageFooter ImageFo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -16432,7 +16442,7 @@ func (a *PdfApiService) PostDocumentImageHeader(name string, imageHeader ImageHe
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -16533,7 +16543,7 @@ func (a *PdfApiService) PostDocumentPageNumberStamps(name string, stamp PageNumb
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -16627,7 +16637,7 @@ func (a *PdfApiService) PostDocumentTextFooter(name string, textFooter TextFoote
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -16721,7 +16731,7 @@ func (a *PdfApiService) PostDocumentTextHeader(name string, textHeader TextHeade
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -16801,7 +16811,7 @@ func (a *PdfApiService) PostDocumentTextReplace(name string, textReplace TextRep
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -16895,7 +16905,7 @@ func (a *PdfApiService) PostEncryptDocumentInStorage(name string, userPassword s
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -16993,7 +17003,7 @@ func (a *PdfApiService) PostFlattenDocument(name string, localVarOptionals map[s
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -17065,7 +17075,7 @@ func (a *PdfApiService) PostImportFieldsFromFdf(name string, localVarOptionals m
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -17081,7 +17091,7 @@ func (a *PdfApiService) PostImportFieldsFromFdf(name string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -17153,7 +17163,7 @@ func (a *PdfApiService) PostImportFieldsFromXfdf(name string, localVarOptionals 
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -17169,7 +17179,7 @@ func (a *PdfApiService) PostImportFieldsFromXfdf(name string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -17241,7 +17251,7 @@ func (a *PdfApiService) PostImportFieldsFromXml(name string, localVarOptionals m
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -17257,7 +17267,7 @@ func (a *PdfApiService) PostImportFieldsFromXml(name string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -17346,7 +17356,7 @@ func (a *PdfApiService) PostInsertImage(name string, pageNumber int32, llx float
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -17362,7 +17372,7 @@ func (a *PdfApiService) PostInsertImage(name string, pageNumber int32, llx float
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -17442,7 +17452,7 @@ func (a *PdfApiService) PostListBoxFields(name string, fields []ListBoxField, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -17523,7 +17533,7 @@ func (a *PdfApiService) PostMovePage(name string, pageNumber int32, newIndex int
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -17603,7 +17613,7 @@ func (a *PdfApiService) PostOptimizeDocument(name string, options OptimizeOption
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -17690,7 +17700,7 @@ func (a *PdfApiService) PostOrganizeDocument(name string, pages string, outPath 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -17766,7 +17776,7 @@ func (a *PdfApiService) PostOrganizeDocuments(organizeDocuments OrganizeDocument
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -17848,7 +17858,7 @@ func (a *PdfApiService) PostPageCaretAnnotations(name string, pageNumber int32, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -17932,7 +17942,7 @@ func (a *PdfApiService) PostPageCertify(name string, pageNumber int32, sign Sign
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -18014,7 +18024,7 @@ func (a *PdfApiService) PostPageCircleAnnotations(name string, pageNumber int32,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -18096,7 +18106,7 @@ func (a *PdfApiService) PostPageFileAttachmentAnnotations(name string, pageNumbe
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -18178,7 +18188,7 @@ func (a *PdfApiService) PostPageFreeTextAnnotations(name string, pageNumber int3
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -18260,7 +18270,7 @@ func (a *PdfApiService) PostPageHighlightAnnotations(name string, pageNumber int
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -18349,7 +18359,7 @@ func (a *PdfApiService) PostPageImageStamps(name string, pageNumber int32, stamp
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -18431,7 +18441,7 @@ func (a *PdfApiService) PostPageInkAnnotations(name string, pageNumber int32, an
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -18513,7 +18523,7 @@ func (a *PdfApiService) PostPageLineAnnotations(name string, pageNumber int32, a
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -18595,7 +18605,7 @@ func (a *PdfApiService) PostPageLinkAnnotations(name string, pageNumber int32, l
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -18677,7 +18687,7 @@ func (a *PdfApiService) PostPageMovieAnnotations(name string, pageNumber int32, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -18766,7 +18776,7 @@ func (a *PdfApiService) PostPagePdfPageStamps(name string, pageNumber int32, sta
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -18848,7 +18858,7 @@ func (a *PdfApiService) PostPagePolyLineAnnotations(name string, pageNumber int3
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -18930,7 +18940,7 @@ func (a *PdfApiService) PostPagePolygonAnnotations(name string, pageNumber int32
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -19019,7 +19029,7 @@ func (a *PdfApiService) PostPageRedactionAnnotations(name string, pageNumber int
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -19101,7 +19111,7 @@ func (a *PdfApiService) PostPageScreenAnnotations(name string, pageNumber int32,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -19183,7 +19193,7 @@ func (a *PdfApiService) PostPageSoundAnnotations(name string, pageNumber int32, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -19265,7 +19275,7 @@ func (a *PdfApiService) PostPageSquareAnnotations(name string, pageNumber int32,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -19347,7 +19357,7 @@ func (a *PdfApiService) PostPageSquigglyAnnotations(name string, pageNumber int3
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -19429,7 +19439,7 @@ func (a *PdfApiService) PostPageStampAnnotations(name string, pageNumber int32, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -19511,7 +19521,7 @@ func (a *PdfApiService) PostPageStrikeOutAnnotations(name string, pageNumber int
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -19593,7 +19603,7 @@ func (a *PdfApiService) PostPageTables(name string, pageNumber int32, tables []T
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -19675,7 +19685,7 @@ func (a *PdfApiService) PostPageTextAnnotations(name string, pageNumber int32, a
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -19757,7 +19767,7 @@ func (a *PdfApiService) PostPageTextReplace(name string, pageNumber int32, textR
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -19846,7 +19856,7 @@ func (a *PdfApiService) PostPageTextStamps(name string, pageNumber int32, stamps
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -19928,7 +19938,7 @@ func (a *PdfApiService) PostPageUnderlineAnnotations(name string, pageNumber int
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -20010,7 +20020,7 @@ func (a *PdfApiService) PostPopupAnnotation(name string, annotationId string, an
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -20090,7 +20100,7 @@ func (a *PdfApiService) PostRadioButtonFields(name string, fields []RadioButtonF
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -20170,7 +20180,7 @@ func (a *PdfApiService) PostSignDocument(name string, sign Signature, localVarOp
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -20252,7 +20262,7 @@ func (a *PdfApiService) PostSignPage(name string, pageNumber int32, sign Signatu
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -20332,7 +20342,7 @@ func (a *PdfApiService) PostSignatureField(name string, field SignatureField, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -20437,7 +20447,7 @@ func (a *PdfApiService) PostSplitDocument(name string, localVarOptionals map[str
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -20524,7 +20534,7 @@ func (a *PdfApiService) PostSplitRangePdfDocument(name string, options SplitRang
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -20604,7 +20614,7 @@ func (a *PdfApiService) PostTextBoxFields(name string, fields []TextBoxField, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -20681,7 +20691,7 @@ func (a *PdfApiService) PutAddNewPage(name string, localVarOptionals map[string]
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -20763,7 +20773,7 @@ func (a *PdfApiService) PutAddText(name string, pageNumber int32, paragraph Para
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -20858,7 +20868,7 @@ func (a *PdfApiService) PutAnnotationsFlatten(name string, localVarOptionals map
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -20947,7 +20957,7 @@ func (a *PdfApiService) PutBookmark(name string, bookmarkPath string, bookmark B
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -21029,7 +21039,7 @@ func (a *PdfApiService) PutCaretAnnotation(name string, annotationId string, ann
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -21100,7 +21110,7 @@ func (a *PdfApiService) PutChangePasswordDocument(outPath string, ownerPassword 
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -21116,7 +21126,7 @@ func (a *PdfApiService) PutChangePasswordDocument(outPath string, ownerPassword 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -21198,7 +21208,7 @@ func (a *PdfApiService) PutCheckBoxField(name string, fieldName string, field Ch
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -21280,7 +21290,7 @@ func (a *PdfApiService) PutCircleAnnotation(name string, annotationId string, an
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -21362,7 +21372,7 @@ func (a *PdfApiService) PutComboBoxField(name string, fieldName string, field Co
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -21439,7 +21449,7 @@ func (a *PdfApiService) PutCreateDocument(name string, localVarOptionals map[str
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -21506,7 +21516,7 @@ func (a *PdfApiService) PutDecryptDocument(outPath string, password string, loca
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -21522,7 +21532,7 @@ func (a *PdfApiService) PutDecryptDocument(outPath string, password string, loca
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -21602,7 +21612,7 @@ func (a *PdfApiService) PutDocumentDisplayProperties(name string, displayPropert
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -21684,7 +21694,7 @@ func (a *PdfApiService) PutEncryptDocument(outPath string, userPassword string, 
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -21700,7 +21710,7 @@ func (a *PdfApiService) PutEncryptDocument(outPath string, userPassword string, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -21779,7 +21789,7 @@ func (a *PdfApiService) PutEpubInStorageToPdf(name string, srcPath string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -21858,7 +21868,7 @@ func (a *PdfApiService) PutExportFieldsFromPdfToFdfInStorage(name string, fdfOut
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -21937,7 +21947,7 @@ func (a *PdfApiService) PutExportFieldsFromPdfToXfdfInStorage(name string, xfdfO
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -22016,7 +22026,7 @@ func (a *PdfApiService) PutExportFieldsFromPdfToXmlInStorage(name string, xmlOut
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -22093,7 +22103,7 @@ func (a *PdfApiService) PutFieldsFlatten(name string, localVarOptionals map[stri
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -22175,7 +22185,7 @@ func (a *PdfApiService) PutFileAttachmentAnnotation(name string, annotationId st
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -22261,7 +22271,7 @@ func (a *PdfApiService) PutFileAttachmentAnnotationDataExtract(name string, anno
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -22343,7 +22353,7 @@ func (a *PdfApiService) PutFreeTextAnnotation(name string, annotationId string, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -22425,7 +22435,7 @@ func (a *PdfApiService) PutHighlightAnnotation(name string, annotationId string,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -22560,7 +22570,7 @@ func (a *PdfApiService) PutHtmlInStorageToPdf(name string, srcPath string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -22660,7 +22670,7 @@ func (a *PdfApiService) PutImageExtractAsGif(name string, imageId string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -22760,7 +22770,7 @@ func (a *PdfApiService) PutImageExtractAsJpeg(name string, imageId string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -22860,7 +22870,7 @@ func (a *PdfApiService) PutImageExtractAsPng(name string, imageId string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -22960,7 +22970,7 @@ func (a *PdfApiService) PutImageExtractAsTiff(name string, imageId string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -23040,7 +23050,7 @@ func (a *PdfApiService) PutImageInStorageToPdf(name string, imageTemplates Image
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -23140,7 +23150,7 @@ func (a *PdfApiService) PutImagesExtractAsGif(name string, pageNumber int32, loc
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -23240,7 +23250,7 @@ func (a *PdfApiService) PutImagesExtractAsJpeg(name string, pageNumber int32, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -23340,7 +23350,7 @@ func (a *PdfApiService) PutImagesExtractAsPng(name string, pageNumber int32, loc
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -23440,7 +23450,7 @@ func (a *PdfApiService) PutImagesExtractAsTiff(name string, pageNumber int32, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -23519,7 +23529,7 @@ func (a *PdfApiService) PutImportFieldsFromFdfInStorage(name string, fdfFilePath
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -23598,7 +23608,7 @@ func (a *PdfApiService) PutImportFieldsFromXfdfInStorage(name string, xfdfFilePa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -23677,7 +23687,7 @@ func (a *PdfApiService) PutImportFieldsFromXmlInStorage(name string, xmlFilePath
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -23759,7 +23769,7 @@ func (a *PdfApiService) PutInkAnnotation(name string, annotationId string, annot
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -23841,7 +23851,7 @@ func (a *PdfApiService) PutLineAnnotation(name string, annotationId string, anno
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -23923,7 +23933,7 @@ func (a *PdfApiService) PutLinkAnnotation(name string, linkId string, link LinkA
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -24005,7 +24015,7 @@ func (a *PdfApiService) PutListBoxField(name string, fieldName string, field Lis
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -24084,7 +24094,7 @@ func (a *PdfApiService) PutMarkdownInStorageToPdf(name string, srcPath string, l
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -24164,7 +24174,7 @@ func (a *PdfApiService) PutMergeDocuments(name string, mergeDocuments MergeDocum
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -24243,7 +24253,7 @@ func (a *PdfApiService) PutMhtInStorageToPdf(name string, srcPath string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -24325,7 +24335,7 @@ func (a *PdfApiService) PutMovieAnnotation(name string, annotationId string, ann
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -24407,7 +24417,7 @@ func (a *PdfApiService) PutPageAddStamp(name string, pageNumber int32, stamp Sta
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -24509,7 +24519,7 @@ func (a *PdfApiService) PutPageConvertToBmp(name string, pageNumber int32, outPa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -24611,7 +24621,7 @@ func (a *PdfApiService) PutPageConvertToEmf(name string, pageNumber int32, outPa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -24713,7 +24723,7 @@ func (a *PdfApiService) PutPageConvertToGif(name string, pageNumber int32, outPa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -24815,7 +24825,7 @@ func (a *PdfApiService) PutPageConvertToJpeg(name string, pageNumber int32, outP
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -24917,7 +24927,7 @@ func (a *PdfApiService) PutPageConvertToPng(name string, pageNumber int32, outPa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -25019,7 +25029,7 @@ func (a *PdfApiService) PutPageConvertToTiff(name string, pageNumber int32, outP
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -25098,7 +25108,7 @@ func (a *PdfApiService) PutPclInStorageToPdf(name string, srcPath string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -25184,7 +25194,7 @@ func (a *PdfApiService) PutPdfAInStorageToPdf(name string, srcPath string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -25312,7 +25322,7 @@ func (a *PdfApiService) PutPdfInRequestToDoc(outPath string, localVarOptionals m
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -25328,7 +25338,7 @@ func (a *PdfApiService) PutPdfInRequestToDoc(outPath string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -25400,7 +25410,7 @@ func (a *PdfApiService) PutPdfInRequestToEpub(outPath string, localVarOptionals 
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -25416,7 +25426,7 @@ func (a *PdfApiService) PutPdfInRequestToEpub(outPath string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -25688,7 +25698,7 @@ func (a *PdfApiService) PutPdfInRequestToHtml(outPath string, localVarOptionals 
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -25704,7 +25714,7 @@ func (a *PdfApiService) PutPdfInRequestToHtml(outPath string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -25769,7 +25779,7 @@ func (a *PdfApiService) PutPdfInRequestToMobiXml(outPath string, localVarOptiona
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -25785,7 +25795,7 @@ func (a *PdfApiService) PutPdfInRequestToMobiXml(outPath string, localVarOptiona
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -25859,7 +25869,7 @@ func (a *PdfApiService) PutPdfInRequestToPdfA(outPath string, type_ string, loca
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -25875,7 +25885,7 @@ func (a *PdfApiService) PutPdfInRequestToPdfA(outPath string, type_ string, loca
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -25961,7 +25971,7 @@ func (a *PdfApiService) PutPdfInRequestToPptx(outPath string, localVarOptionals 
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -25977,7 +25987,7 @@ func (a *PdfApiService) PutPdfInRequestToPptx(outPath string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -26049,7 +26059,7 @@ func (a *PdfApiService) PutPdfInRequestToSvg(outPath string, localVarOptionals m
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -26065,7 +26075,7 @@ func (a *PdfApiService) PutPdfInRequestToSvg(outPath string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -26130,7 +26140,7 @@ func (a *PdfApiService) PutPdfInRequestToTeX(outPath string, localVarOptionals m
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -26146,7 +26156,7 @@ func (a *PdfApiService) PutPdfInRequestToTeX(outPath string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -26316,7 +26326,7 @@ func (a *PdfApiService) PutPdfInRequestToTiff(outPath string, localVarOptionals 
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -26332,7 +26342,7 @@ func (a *PdfApiService) PutPdfInRequestToTiff(outPath string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -26432,7 +26442,7 @@ func (a *PdfApiService) PutPdfInRequestToXls(outPath string, localVarOptionals m
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -26448,7 +26458,7 @@ func (a *PdfApiService) PutPdfInRequestToXls(outPath string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -26548,7 +26558,7 @@ func (a *PdfApiService) PutPdfInRequestToXlsx(outPath string, localVarOptionals 
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -26564,7 +26574,7 @@ func (a *PdfApiService) PutPdfInRequestToXlsx(outPath string, localVarOptionals 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -26629,7 +26639,7 @@ func (a *PdfApiService) PutPdfInRequestToXml(outPath string, localVarOptionals m
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -26645,7 +26655,7 @@ func (a *PdfApiService) PutPdfInRequestToXml(outPath string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -26710,7 +26720,7 @@ func (a *PdfApiService) PutPdfInRequestToXps(outPath string, localVarOptionals m
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -26726,7 +26736,7 @@ func (a *PdfApiService) PutPdfInRequestToXps(outPath string, localVarOptionals m
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -26868,7 +26878,7 @@ func (a *PdfApiService) PutPdfInStorageToDoc(name string, outPath string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -26954,7 +26964,7 @@ func (a *PdfApiService) PutPdfInStorageToEpub(name string, outPath string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -27240,7 +27250,7 @@ func (a *PdfApiService) PutPdfInStorageToHtml(name string, outPath string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -27319,7 +27329,7 @@ func (a *PdfApiService) PutPdfInStorageToMobiXml(name string, outPath string, lo
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -27407,7 +27417,7 @@ func (a *PdfApiService) PutPdfInStorageToPdfA(name string, outPath string, type_
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -27507,7 +27517,7 @@ func (a *PdfApiService) PutPdfInStorageToPptx(name string, outPath string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -27593,7 +27603,7 @@ func (a *PdfApiService) PutPdfInStorageToSvg(name string, outPath string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -27672,7 +27682,7 @@ func (a *PdfApiService) PutPdfInStorageToTeX(name string, outPath string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -27856,7 +27866,7 @@ func (a *PdfApiService) PutPdfInStorageToTiff(name string, outPath string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -27970,7 +27980,7 @@ func (a *PdfApiService) PutPdfInStorageToXls(name string, outPath string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -28084,7 +28094,7 @@ func (a *PdfApiService) PutPdfInStorageToXlsx(name string, outPath string, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -28163,7 +28173,7 @@ func (a *PdfApiService) PutPdfInStorageToXml(name string, outPath string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -28242,7 +28252,7 @@ func (a *PdfApiService) PutPdfInStorageToXps(name string, outPath string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -28324,7 +28334,7 @@ func (a *PdfApiService) PutPolyLineAnnotation(name string, annotationId string, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -28406,7 +28416,7 @@ func (a *PdfApiService) PutPolygonAnnotation(name string, annotationId string, a
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -28488,7 +28498,7 @@ func (a *PdfApiService) PutPopupAnnotation(name string, annotationId string, ann
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -28568,7 +28578,7 @@ func (a *PdfApiService) PutPrivileges(name string, privileges DocumentPrivilege,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -28647,7 +28657,7 @@ func (a *PdfApiService) PutPsInStorageToPdf(name string, srcPath string, localVa
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -28729,7 +28739,7 @@ func (a *PdfApiService) PutRadioButtonField(name string, fieldName string, field
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -28818,7 +28828,7 @@ func (a *PdfApiService) PutRedactionAnnotation(name string, annotationId string,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -28899,7 +28909,7 @@ func (a *PdfApiService) PutReplaceImage(name string, imageId string, localVarOpt
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -28915,7 +28925,7 @@ func (a *PdfApiService) PutReplaceImage(name string, imageId string, localVarOpt
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -28996,7 +29006,7 @@ func (a *PdfApiService) PutReplaceMultipleImage(name string, imageIds []string, 
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -29012,7 +29022,7 @@ func (a *PdfApiService) PutReplaceMultipleImage(name string, imageIds []string, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -29094,7 +29104,7 @@ func (a *PdfApiService) PutScreenAnnotation(name string, annotationId string, an
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -29175,7 +29185,7 @@ func (a *PdfApiService) PutScreenAnnotationDataExtract(name string, annotationId
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -29259,7 +29269,7 @@ func (a *PdfApiService) PutSearchableDocument(name string, localVarOptionals map
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -29347,7 +29357,7 @@ func (a *PdfApiService) PutSetProperty(name string, propertyName string, value s
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -29429,7 +29439,7 @@ func (a *PdfApiService) PutSignatureField(name string, fieldName string, field S
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -29511,7 +29521,7 @@ func (a *PdfApiService) PutSoundAnnotation(name string, annotationId string, ann
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -29592,7 +29602,7 @@ func (a *PdfApiService) PutSoundAnnotationDataExtract(name string, annotationId 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -29674,7 +29684,7 @@ func (a *PdfApiService) PutSquareAnnotation(name string, annotationId string, an
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -29756,7 +29766,7 @@ func (a *PdfApiService) PutSquigglyAnnotation(name string, annotationId string, 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -29838,7 +29848,7 @@ func (a *PdfApiService) PutStampAnnotation(name string, annotationId string, ann
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -29919,7 +29929,7 @@ func (a *PdfApiService) PutStampAnnotationDataExtract(name string, annotationId 
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -30001,7 +30011,7 @@ func (a *PdfApiService) PutStrikeOutAnnotation(name string, annotationId string,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -30136,7 +30146,7 @@ func (a *PdfApiService) PutSvgInStorageToPdf(name string, srcPath string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -30218,7 +30228,7 @@ func (a *PdfApiService) PutTable(name string, tableId string, table Table, local
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -30297,7 +30307,7 @@ func (a *PdfApiService) PutTeXInStorageToPdf(name string, srcPath string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -30379,7 +30389,7 @@ func (a *PdfApiService) PutTextAnnotation(name string, annotationId string, anno
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -30461,7 +30471,7 @@ func (a *PdfApiService) PutTextBoxField(name string, fieldName string, field Tex
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -30543,7 +30553,7 @@ func (a *PdfApiService) PutUnderlineAnnotation(name string, annotationId string,
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -30625,7 +30635,7 @@ func (a *PdfApiService) PutUpdateField(name string, fieldName string, field Fiel
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -30705,7 +30715,7 @@ func (a *PdfApiService) PutUpdateFields(name string, fields Fields, localVarOpti
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -30833,7 +30843,7 @@ func (a *PdfApiService) PutWebInStorageToPdf(name string, url string, localVarOp
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -30898,7 +30908,7 @@ func (a *PdfApiService) PutXfaPdfInRequestToAcroForm(outPath string, localVarOpt
 		localVarFile = localVarTempParam
 	}
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -30914,7 +30924,7 @@ func (a *PdfApiService) PutXfaPdfInRequestToAcroForm(outPath string, localVarOpt
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -30993,7 +31003,7 @@ func (a *PdfApiService) PutXfaPdfInStorageToAcroForm(name string, outPath string
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -31079,7 +31089,7 @@ func (a *PdfApiService) PutXmlInStorageToPdf(name string, srcPath string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -31158,7 +31168,7 @@ func (a *PdfApiService) PutXpsInStorageToPdf(name string, srcPath string, localV
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -31237,7 +31247,7 @@ func (a *PdfApiService) PutXslFoInStorageToPdf(name string, srcPath string, loca
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -31299,7 +31309,7 @@ func (a *PdfApiService) StorageExists(storageName string) (StorageExist,  *http.
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     
@@ -31361,7 +31371,7 @@ func (a *PdfApiService) UploadFile(path string, file *os.File, localVarOptionals
 	}
 	var localVarFile (*os.File) = file
 	if localVarFile != nil {
-		fbs, _ := ioutil.ReadAll(localVarFile)
+		fbs, _ := io.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
@@ -31377,7 +31387,7 @@ func (a *PdfApiService) UploadFile(path string, file *os.File, localVarOptionals
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
     

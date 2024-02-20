@@ -68,9 +68,10 @@ func getServercredsJson() string {
 }
 
 type Creds struct {
+	ProductUri string `json:"ProductUri"`
 	AppSID     string `json:"AppSID"`
 	AppKey     string `json:"AppKey"`
-	ProductUri string `json:"ProductUri"`
+	SelfHost   bool   `json:"SelfHost"`
 }
 
 func getCreds() Creds {
@@ -82,27 +83,36 @@ func getCreds() Creds {
 	if err := json.Unmarshal(bbCreds, &creds); err != nil {
 		panic(err)
 	}
-	if len(creds.AppSID) == 0 {
-		panic("no AppSID")
-	}
-	if len(creds.AppKey) == 0 {
-		panic("no AppKey")
-	}
-	if len(creds.ProductUri) == 0 {
-		panic("no ProductUri")
+	if creds.SelfHost {
+		if len(creds.ProductUri) == 0 {
+			panic("no ProductUri")
+		}
+	} else {
+		if len(creds.AppSID) == 0 {
+			panic("no AppSID")
+		}
+		if len(creds.AppKey) == 0 {
+			panic("no AppKey")
+		}
 	}
 	return creds
 }
 
 func NewBaseTest() *BaseTest {
 	creds := getCreds()
-	bt := BaseTest{
+	var pdfApiService *PdfApiService
+	if creds.SelfHost {
+		pdfApiService = NewSelfHostPdfApiService(creds.ProductUri)
+	} else {
+		pdfApiService = NewPdfApiService(creds.AppSID, creds.AppKey, creds.ProductUri)
+	}
+	baseTest := BaseTest{
 		remoteFolder:        "TempPdfCloud",
 		localTestDataFolder: "test_data",
 		TestNumber:          0,
-		PdfAPI:              NewPdfApiService(creds.AppSID, creds.AppKey, creds.ProductUri),
+		PdfAPI:              pdfApiService,
 	}
-	return &bt
+	return &baseTest
 }
 
 func GetBaseTest() *BaseTest {
