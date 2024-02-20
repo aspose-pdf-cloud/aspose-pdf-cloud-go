@@ -9,22 +9,21 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 24.1
-- Add support to convert password protected PDF to SVG in PutPdfInRequestToSvg API.
-- Add support to convert password protected PDF to SVG in PutPdfInStorageToSvg API.
+## Enhancements in Version 24.2
+- Memory leak when converting PDF to DOCX.
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
 
 ## Installation
 ```
-    go get -u github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v23
+    go get -u github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v24
 ```
 
 ## Getting Started
 Please follow the [installation](#installation) instruction and execute the following Go code:
 
-## Get PDF Page Circle Annotations in Go
+## Get PDF Page Circle Annotations
 ```
-        import asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v23"
+        import "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v24"
 
         ...
 
@@ -34,6 +33,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 		"folder": "path/to/remote/folder",
 	}
 	return pdfApi.GetDocumentCircleAnnotations("PdfWithAnnotations.pdf", args)
+```
+
+## SelfHost Aspose.PDF Cloud
+Instead of **NewPdfApiService** use **NewSelfHostPdfApiService** function to create PdfApiService instance:
+```
+	pdfApi := asposepdfcloud.NewSelfHostPdfApiService(<base URL of SelfHost Aspose.PDF Cloud>)
 ```
 
 ## Unit Tests
