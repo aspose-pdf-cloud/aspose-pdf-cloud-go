@@ -24,6 +24,7 @@ import (
 	"encoding/base64"
 	"fmt"
 	"os"
+	"path/filepath"
 	"testing"
 )
 
@@ -535,6 +536,25 @@ func TestPutPdfInRequestToXlsx(t *testing.T) {
 		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPutPdfInRequestToXlsx - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPostPdfToXlsx(t *testing.T) {
+	name := "4pages.pdf"
+	file, err := os.Open(filepath.Join(GetBaseTest().localTestDataFolder, name))
+	if err != nil {
+		t.Error(err)
+	}
+	args := map[string]interface{}{
+		"file": file,
+	}
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostPdfToXlsx(args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestPostPdfToXlsx - %db\n", GetBaseTest().GetTestNumber(), len(response))
 	}
 }
 
@@ -1098,5 +1118,24 @@ func TestPutPdfInRequestToXml(t *testing.T) {
 		t.Fail()
 	} else {
 		fmt.Printf("%d\tTestPutPdfInRequestToXml - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+// To Text
+func TestGetPdfInStorageToText(t *testing.T) {
+	name := "4pages.pdf"
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
+	}
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetPdfInStorageToText(name, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tGetPdfInStorageToText - %db\n", GetBaseTest().GetTestNumber(), len(response))
 	}
 }
