@@ -9,10 +9,11 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 24.4
-- Convert PDF to optimized Text.
-- Convert PDF to EXCEL without Cloud Storage.
+## Enhancements in Version 24.5
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
+
+## Bugs fixed in Version 24.5
+- Aspose.PDF Cloud Service Throws Bad Gateway Error intermittently.
 
 ## Installation
 ```
