@@ -9,8 +9,12 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 24.6
+## Enhancements in Version 24.7
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
+
+## Bugs fixed in Version 24.7
+- PutPsInStorageToPdf throws: Cannot find resource ‘Aspose.PDF.dependencies.ZapfDingbats.ttf.
+- Ocr method is not working.
 
 ## Installation
 ```
