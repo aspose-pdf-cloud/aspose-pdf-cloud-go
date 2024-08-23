@@ -25,7 +25,7 @@ package asposepdfcloud
 type OptimizeOptions struct {
 	// Specifies document password (if any) encoded with base-64.
 	Password string `json:"Password,omitempty"`
-	// If true page contents will be reused when document is optimized for equal pages.
+	// If true page contents will be reused when document is optimized for equal pages. LinkDuplcateStreams option must be set to true.
 	AllowReusePageContent bool `json:"AllowReusePageContent,omitempty"`
 	// If this flag is set to true images will be compressed in the document. Compression level is specified with ImageQuality property.
 	CompressImages bool `json:"CompressImages,omitempty"`
@@ -37,13 +37,13 @@ type OptimizeOptions struct {
 	RemoveUnusedObjects bool `json:"RemoveUnusedObjects,omitempty"`
 	// If this flag set to true, every resource is checked on it's usage. If resource is never used, then resources is removed. This may decrease document size for example when pages were extracted from document. 
 	RemoveUnusedStreams bool `json:"RemoveUnusedStreams,omitempty"`
-	// Make fonts not embedded if set to true. 
+	// Make fonts not embedded if set to true. Unembedding a font means removing the embedded byte stream data of the font included in a PDF document.
 	UnembedFonts bool `json:"UnembedFonts,omitempty"`
 	// If this flag set to true and CompressImages is true images will be resized if image resolution is greater then specified MaxResolution parameter.
 	ResizeImages bool `json:"ResizeImages,omitempty"`
 	// Specifies maximum resolution of images. If image has higher resolution it will be scaled.
 	MaxResolution int32 `json:"MaxResolution,omitempty"`
-	// Fonts will be converted into subsets if set to true.
+	// Fonts will be converted into subsets if set to true. Only those characters that are actually used in the layout are stored in the PDF. 
 	SubsetFonts bool `json:"SubsetFonts,omitempty"`
 	// Remove private information (page piece info).
 	RemovePrivateInfo bool `json:"RemovePrivateInfo,omitempty"`

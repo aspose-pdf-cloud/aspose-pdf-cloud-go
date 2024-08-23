@@ -176,7 +176,7 @@ func (c *APIClient) prepareRequest (
     
     // set custom header
     headerParams["x-aspose-client"] = "go sdk"
-    headerParams["x-aspose-client-version"] = "24.7.0"
+    headerParams["x-aspose-client-version"] = "24.8.0"
 
     // Detect postBody type and post.
     if postBody != nil {
@@ -440,9 +440,13 @@ func (a *APIClient) RequestOauthToken() error {
 	bodyBytes, _ := io.ReadAll(resp.Body)
 	var tr TokenResp
 	if err = json.NewDecoder(bytes.NewReader(bodyBytes)).Decode(&tr); err != nil {
-		return fmt.Errorf("%s (wrapped error: %w)", bodyBytes, err)
+		if len(bytes.Trim(bodyBytes, " ")) > 0 {
+			return fmt.Errorf("%s (wrapped error: %w)", bodyBytes, err)
+		} else {
+			return fmt.Errorf("empty token (%s)", bodyBytes)
+		}
 	}
-	if len(tr.AccessToken) == 0 {
+	if len(strings.Trim(tr.AccessToken, " ")) == 0 {
 		return fmt.Errorf("empty token (%s)", bodyBytes)
 	}
 	a.cfg.AccessToken = tr.AccessToken

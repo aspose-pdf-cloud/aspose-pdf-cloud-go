@@ -157,6 +157,47 @@ func TestPostPageTextStamps(t *testing.T) {
 	}
 }
 
+func TestPostDocumentTextStamps(t *testing.T) {
+
+	name := "PageNumberStamp.pdf"
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
+	}
+
+	stamp := TextStamp{
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		TopMargin:           3,
+		BottomMargin:        4,
+		HorizontalAlignment: HorizontalAlignmentCenter,
+		VerticalAlignment:   VerticalAlignmentCenter,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		TextAlignment:       HorizontalAlignmentCenter,
+		Value:               "Text Stamp",
+		TextState:           &TextState{FontSize: 14, FontStyle: FontStylesRegular, Font: "Arial"},
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentTextStamps(name, []TextStamp{stamp}, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tPostDocumentTextStamps - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
 func TestPostPageImageStamps(t *testing.T) {
 
 	name := "PageNumberStamp.pdf"
@@ -198,6 +239,49 @@ func TestPostPageImageStamps(t *testing.T) {
 		t.Fail()
 	} else {
 		fmt.Printf("%d\tPostPageImageStamps - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPostDocumentImageStamps(t *testing.T) {
+
+	name := "PageNumberStamp.pdf"
+	image := "Koala.jpg"
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	if err := GetBaseTest().UploadFile(image); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
+	}
+
+	stamp := ImageStamp{
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		TopMargin:           3,
+		BottomMargin:        4,
+		HorizontalAlignment: HorizontalAlignmentCenter,
+		VerticalAlignment:   VerticalAlignmentCenter,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		FileName:            GetBaseTest().remoteFolder + "/" + image,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentImageStamps(name, []ImageStamp{stamp}, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tPostDocumentImageStamps - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
 
