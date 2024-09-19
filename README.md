@@ -9,9 +9,10 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 24.8
-- Adding Text stamps to multiple pages.
-- Adding Image stamps to multiple pages.
+## Enhancements in Version 24.9
+- Develop DeleteDocumentLayer Method.
+- Develop GetDocumentLayers Method.
+- How to extract PDF layer elements and create a new PDF
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
 
 ## Installation
