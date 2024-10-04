@@ -11009,8 +11009,10 @@ func (a *PdfApiService) GetPageText(name string, pageNumber int32, lLX float64, 
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam, localVarOk := localVarOptionals["format"].([]string); localVarOk {
-		localVarQueryParams.Add("format", parameterToString(localVarTempParam, "csv"))
+	if localVarTempParams, localVarOk := localVarOptionals["format"].([]string); localVarOk {
+		for _, localVarTempParam := range localVarTempParams {
+			localVarQueryParams.Add("format", parameterToString(localVarTempParam, "multi"))
+		}
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["regex"].(string); localVarOk {
 		localVarQueryParams.Add("regex", parameterToString(localVarTempParam, ""))
@@ -11939,8 +11941,10 @@ func (a *PdfApiService) GetPdfInStorageToHtml(name string, localVarOptionals map
 	if localVarTempParam, localVarOk := localVarOptionals["cssClassNamesPrefix"].(string); localVarOk {
 		localVarQueryParams.Add("cssClassNamesPrefix", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam, localVarOk := localVarOptionals["explicitListOfSavedPages"].([]int32); localVarOk {
-		localVarQueryParams.Add("explicitListOfSavedPages", parameterToString(localVarTempParam, "csv"))
+	if localVarTempParams, localVarOk := localVarOptionals["explicitListOfSavedPages"].([]int32); localVarOk {
+		for _, localVarTempParam := range localVarTempParams {
+			localVarQueryParams.Add("explicitListOfSavedPages", parameterToString(localVarTempParam, "multi"))
+		}
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["fontEncodingStrategy"].(string); localVarOk {
 		localVarQueryParams.Add("fontEncodingStrategy", parameterToString(localVarTempParam, ""))
@@ -14670,8 +14674,10 @@ func (a *PdfApiService) GetText(name string, lLX float64, lLY float64, uRX float
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam, localVarOk := localVarOptionals["format"].([]string); localVarOk {
-		localVarQueryParams.Add("format", parameterToString(localVarTempParam, "csv"))
+	if localVarTempParams, localVarOk := localVarOptionals["format"].([]string); localVarOk {
+		for _, localVarTempParam := range localVarTempParams {
+			localVarQueryParams.Add("format", parameterToString(localVarTempParam, "multi"))
+		}
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["regex"].(string); localVarOk {
 		localVarQueryParams.Add("regex", parameterToString(localVarTempParam, ""))
@@ -17286,8 +17292,10 @@ func (a *PdfApiService) PostEncryptDocumentInStorage(name string, userPassword s
 	localVarQueryParams.Add("userPassword", parameterToString(userPassword, ""))
 	localVarQueryParams.Add("ownerPassword", parameterToString(ownerPassword, ""))
 	localVarQueryParams.Add("cryptoAlgorithm", parameterToString(cryptoAlgorithm, ""))
-	if localVarTempParam, localVarOk := localVarOptionals["permissionsFlags"].([]PermissionsFlags); localVarOk {
-		localVarQueryParams.Add("permissionsFlags", parameterToString(localVarTempParam, "csv"))
+	if localVarTempParams, localVarOk := localVarOptionals["permissionsFlags"].([]PermissionsFlags); localVarOk {
+		for _, localVarTempParam := range localVarTempParams {
+			localVarQueryParams.Add("permissionsFlags", parameterToString(localVarTempParam, "multi"))
+		}
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["usePdf20"].(bool); localVarOk {
 		localVarQueryParams.Add("usePdf20", parameterToString(localVarTempParam, ""))
@@ -21469,8 +21477,10 @@ func (a *PdfApiService) PutAnnotationsFlatten(name string, localVarOptionals map
 	if localVarTempParam, localVarOk := localVarOptionals["endPage"].(int32); localVarOk {
 		localVarQueryParams.Add("endPage", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam, localVarOk := localVarOptionals["annotationTypes"].([]AnnotationType); localVarOk {
-		localVarQueryParams.Add("annotationTypes", parameterToString(localVarTempParam, "csv"))
+	if localVarTempParams, localVarOk := localVarOptionals["annotationTypes"].([]AnnotationType); localVarOk {
+		for _, localVarTempParam := range localVarTempParams {
+			localVarQueryParams.Add("annotationTypes", parameterToString(localVarTempParam, "multi"))
+		}
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
@@ -22391,8 +22401,10 @@ func (a *PdfApiService) PutEncryptDocument(outPath string, userPassword string, 
 	localVarQueryParams.Add("userPassword", parameterToString(userPassword, ""))
 	localVarQueryParams.Add("ownerPassword", parameterToString(ownerPassword, ""))
 	localVarQueryParams.Add("cryptoAlgorithm", parameterToString(cryptoAlgorithm, ""))
-	if localVarTempParam, localVarOk := localVarOptionals["permissionsFlags"].([]PermissionsFlags); localVarOk {
-		localVarQueryParams.Add("permissionsFlags", parameterToString(localVarTempParam, "csv"))
+	if localVarTempParams, localVarOk := localVarOptionals["permissionsFlags"].([]PermissionsFlags); localVarOk {
+		for _, localVarTempParam := range localVarTempParams {
+			localVarQueryParams.Add("permissionsFlags", parameterToString(localVarTempParam, "multi"))
+		}
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["usePdf20"].(bool); localVarOk {
 		localVarQueryParams.Add("usePdf20", parameterToString(localVarTempParam, ""))
@@ -26353,8 +26365,10 @@ func (a *PdfApiService) PutPdfInRequestToHtml(outPath string, localVarOptionals 
 	if localVarTempParam, localVarOk := localVarOptionals["cssClassNamesPrefix"].(string); localVarOk {
 		localVarQueryParams.Add("cssClassNamesPrefix", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam, localVarOk := localVarOptionals["explicitListOfSavedPages"].([]int32); localVarOk {
-		localVarQueryParams.Add("explicitListOfSavedPages", parameterToString(localVarTempParam, "csv"))
+	if localVarTempParams, localVarOk := localVarOptionals["explicitListOfSavedPages"].([]int32); localVarOk {
+		for _, localVarTempParam := range localVarTempParams {
+			localVarQueryParams.Add("explicitListOfSavedPages", parameterToString(localVarTempParam, "multi"))
+		}
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["fontEncodingStrategy"].(string); localVarOk {
 		localVarQueryParams.Add("fontEncodingStrategy", parameterToString(localVarTempParam, ""))
@@ -27896,8 +27910,10 @@ func (a *PdfApiService) PutPdfInStorageToHtml(name string, outPath string, local
 	if localVarTempParam, localVarOk := localVarOptionals["cssClassNamesPrefix"].(string); localVarOk {
 		localVarQueryParams.Add("cssClassNamesPrefix", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam, localVarOk := localVarOptionals["explicitListOfSavedPages"].([]int32); localVarOk {
-		localVarQueryParams.Add("explicitListOfSavedPages", parameterToString(localVarTempParam, "csv"))
+	if localVarTempParams, localVarOk := localVarOptionals["explicitListOfSavedPages"].([]int32); localVarOk {
+		for _, localVarTempParam := range localVarTempParams {
+			localVarQueryParams.Add("explicitListOfSavedPages", parameterToString(localVarTempParam, "multi"))
+		}
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["fontEncodingStrategy"].(string); localVarOk {
 		localVarQueryParams.Add("fontEncodingStrategy", parameterToString(localVarTempParam, ""))
@@ -29702,7 +29718,9 @@ func (a *PdfApiService) PutReplaceMultipleImage(name string, imageIds []string, 
 		return successPayload, nil, err
 	}
 
-	localVarQueryParams.Add("imageIds", parameterToString(imageIds, "csv"))
+	for _, localVarTempParam := range imageIds {
+		localVarQueryParams.Add("imageIds", parameterToString(localVarTempParam, "multi"))
+	}
 	if localVarTempParam, localVarOk := localVarOptionals["imageFilePath"].(string); localVarOk {
 		localVarQueryParams.Add("imageFilePath", parameterToString(localVarTempParam, ""))
 	}
