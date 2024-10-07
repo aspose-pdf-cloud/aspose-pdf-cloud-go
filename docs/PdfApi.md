@@ -1,4 +1,4 @@
-﻿# PdfApi
+# PdfApi
 
 All URIs are relative to *https://api.aspose.cloud/v3.0*
 
@@ -189,6 +189,8 @@ Method | HTTP request | Description
 [**GetWordsPerPage**](PdfApi.md#GetWordsPerPage) | **Get** /pdf/{name}/pages/wordCount | Get number of words per document page.
 [**GetXfaPdfInStorageToAcroForm**](PdfApi.md#GetXfaPdfInStorageToAcroForm) | **Get** /pdf/{name}/convert/xfatoacroform | Converts PDF document which contains XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
 [**GetXmlInStorageToPdf**](PdfApi.md#GetXmlInStorageToPdf) | **Get** /pdf/create/xml | Convert XML file (located on storage) to PDF format and return resulting file in response. 
+[**GetXmpMetadataJson**](PdfApi.md#GetXmpMetadataJson) | **Get** /pdf/{name}/xmpmetadata/json | Gets document XMP Metadata as JSON.
+[**GetXmpMetadataXml**](PdfApi.md#GetXmpMetadataXml) | **Get** /pdf/{name}/xmpmetadata/xml | Gets document XMP Metadata as XML file.
 [**GetXpsInStorageToPdf**](PdfApi.md#GetXpsInStorageToPdf) | **Get** /pdf/create/xps | Convert XPS file (located on storage) to PDF format and return resulting file in response. 
 [**GetXslFoInStorageToPdf**](PdfApi.md#GetXslFoInStorageToPdf) | **Get** /pdf/create/xslfo | Convert XslFo file (located on storage) to PDF format and return resulting file in response. 
 [**MoveFile**](PdfApi.md#MoveFile) | **Put** /pdf/storage/file/move/{srcPath} | Move file
@@ -258,6 +260,7 @@ Method | HTTP request | Description
 [**PostSplitDocument**](PdfApi.md#PostSplitDocument) | **Post** /pdf/{name}/split | Split document to parts.
 [**PostSplitRangePdfDocument**](PdfApi.md#PostSplitRangePdfDocument) | **Post** /pdf/{name}/splitrangepdf | Split document into ranges.
 [**PostTextBoxFields**](PdfApi.md#PostTextBoxFields) | **Post** /pdf/{name}/fields/textbox | Add document text box fields.
+[**PostXmpMetadata**](PdfApi.md#PostXmpMetadata) | **Post** /pdf/{name}/xmpmetadata | Add or remove XMP Metadata properties.
 [**PutAddNewPage**](PdfApi.md#PutAddNewPage) | **Put** /pdf/{name}/pages | Add new page to end of the document.
 [**PutAddText**](PdfApi.md#PutAddText) | **Put** /pdf/{name}/pages/{pageNumber}/text | Add text to PDF document page.
 [**PutAnnotationsFlatten**](PdfApi.md#PutAnnotationsFlatten) | **Put** /pdf/{name}/annotations/flatten | Flattens the annotations of the specified types
@@ -6468,6 +6471,70 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetXmpMetadataJson**
+> XmpMetadata GetXmpMetadataJson(name, optional)
+Gets document XMP Metadata as JSON.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **folder** | **string**| The document folder. | 
+ **storage** | **string**| The document storage. | 
+ **passBase64** | **string**| The password (Base64). | 
+
+### Return type
+
+[**XmpMetadata**](XmpMetadata.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetXmpMetadataXml**
+> []byte GetXmpMetadataXml(name, optional)
+Gets document XMP Metadata as XML file.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **folder** | **string**| The document folder. | 
+ **storage** | **string**| The document storage. | 
+ **passBase64** | **string**| The password (Base64). | 
+
+### Return type
+
+**[]byte**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetXpsInStorageToPdf**
 > []byte GetXpsInStorageToPdf(srcPath, optional)
 Convert XPS file (located on storage) to PDF format and return resulting file in response. 
@@ -8833,6 +8900,40 @@ Name | Type | Description  | Notes
  **fields** | [**[]TextBoxField**](TextBoxField.md)| The array of field. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostXmpMetadata**
+> AsposeResponse PostXmpMetadata(name, metadata, optional)
+Add or remove XMP Metadata properties.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **metadata** | [**XmpMetadata**](XmpMetadata.md)| XmpMetadata instance. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **metadata** | [**XmpMetadata**](XmpMetadata.md)| XmpMetadata instance. | 
+ **folder** | **string**| The document folder. | 
+ **storage** | **string**| The document storage. | 
+ **passBase64** | **string**| The password (Base64). | 
 
 ### Return type
 
