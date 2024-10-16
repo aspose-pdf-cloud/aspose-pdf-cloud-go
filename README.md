@@ -9,11 +9,14 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 24.9
-- Develop DeleteDocumentLayer Method.
-- Develop GetDocumentLayers Method.
-- How to extract PDF layer elements and create a new PDF
+## Enhancements in Version 24.10
+- Develop a method to add XMP metadata.
+- Develop a method to obtain XMP metadata in the XML form.
+- Develop a method to obtain XMP metadata in the JSON form.
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
+
+## Bugs fixed in Version 24.10
+- PDF XFA form to Acro from conversion API results corrupt PDF.
 
 ## Installation
 ```

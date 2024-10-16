@@ -1,4 +1,4 @@
-# PdfApi
+﻿# PdfApi
 
 All URIs are relative to *https://api.aspose.cloud/v3.0*
 
