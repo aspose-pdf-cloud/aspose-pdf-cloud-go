@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **Subject** | **string** | Get the annotation subject. | [optional] [default to null]
 **Title** | **string** | Get the annotation title. | [optional] [default to null]
 **RichText** | **string** | Get the annotation RichText. | [optional] [default to null]
-**InteriorColor** | [***Color**](Color.md) | Gets or sets the interior color with which to fill the annotation???s line endings. | [optional] [default to null]
+**InteriorColor** | [***Color**](Color.md) | Gets or sets the interior color with which to fill the annotation’s line endings. | [optional] [default to null]
 **StartingStyle** | [***LineEnding**](LineEnding.md) | Gets or sets the style of first line ending. | [optional] [default to null]
 **EndingStyle** | [***LineEnding**](LineEnding.md) | Gets or sets the style of second line ending. | [optional] [default to null]
 **Intent** | [***PolyIntent**](PolyIntent.md) | Gets or sets the intent of the polygon or polyline annotation. | [optional] [default to null]
