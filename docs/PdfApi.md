@@ -95,6 +95,7 @@ Method | HTTP request | Description
 [**GetImageExtractAsPng**](PdfApi.md#GetImageExtractAsPng) | **Get** /pdf/{name}/images/{imageId}/extract/png | Extract document image in PNG format
 [**GetImageExtractAsTiff**](PdfApi.md#GetImageExtractAsTiff) | **Get** /pdf/{name}/images/{imageId}/extract/tiff | Extract document image in TIFF format
 [**GetImages**](PdfApi.md#GetImages) | **Get** /pdf/{name}/pages/{pageNumber}/images | Read document images.
+[**GetImagesExtractSvg**](PdfApi.md#GetImagesExtractSvg) | **Get** /pdf/{name}/pages/{pageNumber}/images/extract/svg | Extract SVG images from document page.
 [**GetImportFieldsFromFdfInStorage**](PdfApi.md#GetImportFieldsFromFdfInStorage) | **Get** /pdf/{name}/import/fdf | Update fields from FDF file in storage.
 [**GetImportFieldsFromXfdfInStorage**](PdfApi.md#GetImportFieldsFromXfdfInStorage) | **Get** /pdf/{name}/import/xfdf | Update fields from XFDF file in storage.
 [**GetImportFieldsFromXmlInStorage**](PdfApi.md#GetImportFieldsFromXmlInStorage) | **Get** /pdf/{name}/import/xml | Import from XML file (located on storage) to PDF format and return resulting file in response. 
@@ -3292,6 +3293,40 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ImagesResponse**](ImagesResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetImagesExtractSvg**
+> SvgImages GetImagesExtractSvg(name, pageNumber, optional)
+Extract SVG images from document page.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **pageNumber** | **int32**| The page number. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **pageNumber** | **int32**| The page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+ **passBase64** | **string**| The password (Base64). | 
+
+### Return type
+
+[**SvgImages**](SvgImages.md)
 
 ### HTTP request headers
 

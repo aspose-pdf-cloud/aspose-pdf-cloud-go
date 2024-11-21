@@ -20,12 +20,13 @@
 */
 
 package asposepdfcloud
-// DocRecognitionMode : Allows to control how a PDF document is converted into a word processing document.
-type DocRecognitionMode string
 
-// List of DocRecognitionMode
-const (
-	DocRecognitionModeTextbox DocRecognitionMode = "Textbox"
-	DocRecognitionModeFlow DocRecognitionMode = "Flow"
-	DocRecognitionModeEnhancedFlow DocRecognitionMode = "EnhancedFlow"
-)
+// SvgImages class
+type SvgImages struct {
+	// Response status code.
+	Code int32 `json:"Code"`
+	// Response status.
+	Status string `json:"Status,omitempty"`
+	// List of SVG images
+	List []string `json:"List,omitempty"`
+}

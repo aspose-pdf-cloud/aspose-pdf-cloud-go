@@ -7292,6 +7292,92 @@ func (a *PdfApiService) GetImages(name string, pageNumber int32, localVarOptiona
 	return successPayload, localVarHttpResponse, err
 }
 
+/* PdfApiService Extract SVG images from document page.
+ @param name The document name.
+ @param pageNumber The page number.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "storage" (string) The document storage.
+     @param "folder" (string) The document folder.
+     @param "passBase64" (string) The password (Base64).
+ @return SvgImages*/
+func (a *PdfApiService) GetImagesExtractSvg(name string, pageNumber int32, localVarOptionals map[string]interface{}) (SvgImages,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload SvgImages
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/pdf/{name}/pages/{pageNumber}/images/extract/svg"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"pageNumber"+"}", fmt.Sprintf("%v", pageNumber), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _url.Values{}
+	localVarFormParams := _url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["folder"], "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["passBase64"], "string", "passBase64"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
+		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["folder"].(string); localVarOk {
+		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["passBase64"].(string); localVarOk {
+		localVarQueryParams.Add("passBase64", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	defer localVarHttpResponse.Body.Close()
+	if localVarHttpResponse.StatusCode >= 300 {
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
+		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
+	}
+    
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
 /* PdfApiService Update fields from FDF file in storage.
  @param name The document name.
  @param fdfFilePath The Fdf file path.
