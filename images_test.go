@@ -545,3 +545,28 @@ func TestGetImageExtractAsPng(t *testing.T) {
 		fmt.Printf("%d\tTestGetImageExtractAsPng - %db\n", GetBaseTest().GetTestNumber(), len(response))
 	}
 }
+
+func TestGetImagesExtractSvg(t *testing.T) {
+
+	name := "Alfa.pdf"
+	pageNumber := int32(1)
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.GetImagesExtractSvg(name, pageNumber, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else if len(response.List) == 0 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tTestGetImagesExtractSvg - %db\n", GetBaseTest().GetTestNumber(), len(response.List))
+	}
+}
