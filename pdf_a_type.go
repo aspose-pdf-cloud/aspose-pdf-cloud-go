@@ -28,4 +28,5 @@ const (
 	PdfATypePDFA1A PdfAType = "PDFA1A"
 	PdfATypePDFA1B PdfAType = "PDFA1B"
 	PdfATypePDFA3A PdfAType = "PDFA3A"
+	PdfATypePDFA3B PdfAType = "PDFA3B"
 )
