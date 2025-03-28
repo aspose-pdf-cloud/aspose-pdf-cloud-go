@@ -56,7 +56,9 @@ func getServercredsJson() string {
 		panic(err)
 	}
 	dir := filepath.Dir(wd)
-	for !(dir[len(dir)-1] == filepath.Separator || dir == ".") {
+	ok := true
+	for ok && dir != "." {
+		ok = dir[len(dir)-1] != filepath.Separator
 		servercreds_json := filepath.Join(dir, "Settings", "servercreds.json")
 		if _, err := os.Stat(servercreds_json); err == nil {
 			// fmt.Println(`Settings\servercreds.json found: ` + servercreds_json)
@@ -64,6 +66,7 @@ func getServercredsJson() string {
 		}
 		dir = filepath.Dir(dir)
 	}
+
 	panic(`Settings\servercreds.json not found`)
 }
 

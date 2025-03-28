@@ -1,0 +1,9 @@
+{
+	"name": "Go",
+	"image": "mcr.microsoft.com/devcontainers/go:1-1.23-bookworm",
+	"workspaceFolder": "/SDKs/Go",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/SDKs/Go,type=bind,consistency=cached",
+	"mounts": [
+		"source=${localWorkspaceFolder}/../../Settings,target=/Settings,type=bind,consistency=cached"
+	]
+}

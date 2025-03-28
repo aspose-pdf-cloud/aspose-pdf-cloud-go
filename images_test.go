@@ -548,7 +548,7 @@ func TestGetImageExtractAsPng(t *testing.T) {
 
 func TestGetImagesExtractSvg(t *testing.T) {
 
-	name := "Alfa.pdf"
+	name := "alfa.pdf"
 	pageNumber := int32(1)
 
 	if err := GetBaseTest().UploadFile(name); err != nil {
