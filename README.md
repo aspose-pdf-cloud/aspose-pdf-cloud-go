@@ -14,7 +14,7 @@ Extract Text & Images of a PDF document online https://products.aspose.app/pdf/p
 
 ## Installation
 ```
-    go get -u github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v24
+    go get -u github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25
 ```
 
 ## Getting Started
@@ -22,7 +22,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ## Get PDF Page Circle Annotations
 ```
-        import "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v24"
+        import "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
 
         ...
 
