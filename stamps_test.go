@@ -198,6 +198,68 @@ func TestPostDocumentTextStamps(t *testing.T) {
 	}
 }
 
+func TestPostDocumentTextStampsPageSpecified(t *testing.T) {
+
+	name := "PageNumberStamp.pdf"
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
+	}
+
+	stamp1 := TextStampPageSpecified{
+		PageNumber:          2,
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		TopMargin:           3,
+		BottomMargin:        4,
+		HorizontalAlignment: HorizontalAlignmentCenter,
+		VerticalAlignment:   VerticalAlignmentCenter,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		TextAlignment:       HorizontalAlignmentCenter,
+		Value:               "Text Stamp 1",
+		TextState:           &TextState{FontSize: 14, FontStyle: FontStylesRegular, Font: "Arial"},
+	}
+
+	stamp2 := TextStampPageSpecified{
+		PageNumber:          4,
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		TopMargin:           3,
+		BottomMargin:        4,
+		HorizontalAlignment: HorizontalAlignmentCenter,
+		VerticalAlignment:   VerticalAlignmentCenter,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		TextAlignment:       HorizontalAlignmentCenter,
+		Value:               "Text Stamp 2",
+		TextState:           &TextState{FontSize: 14, FontStyle: FontStylesRegular, Font: "Arial"},
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentTextStampsPageSpecified(name, []TextStampPageSpecified{stamp1, stamp2}, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tPostDocumentTextStampsPageSpecified - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
 func TestPostPageImageStamps(t *testing.T) {
 
 	name := "PageNumberStamp.pdf"
@@ -282,6 +344,68 @@ func TestPostDocumentImageStamps(t *testing.T) {
 		t.Fail()
 	} else {
 		fmt.Printf("%d\tPostDocumentImageStamps - %d\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
+
+func TestPostDocumentImageStampsPageSpecified(t *testing.T) {
+
+	name := "PageNumberStamp.pdf"
+	image := "Koala.jpg"
+
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	if err := GetBaseTest().UploadFile(image); err != nil {
+		t.Error(err)
+	}
+
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
+	}
+
+	stamp1 := ImageStampPageSpecified{
+		PageNumber:          2,
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		TopMargin:           3,
+		BottomMargin:        4,
+		HorizontalAlignment: HorizontalAlignmentCenter,
+		VerticalAlignment:   VerticalAlignmentCenter,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		FileName:            GetBaseTest().remoteFolder + "/" + image,
+	}
+
+	stamp2 := ImageStampPageSpecified{
+		PageNumber:          4,
+		Background:          true,
+		LeftMargin:          1,
+		RightMargin:         2,
+		TopMargin:           3,
+		BottomMargin:        4,
+		HorizontalAlignment: HorizontalAlignmentCenter,
+		VerticalAlignment:   VerticalAlignmentCenter,
+		Opacity:             1,
+		Rotate:              RotationNone,
+		RotateAngle:         0,
+		XIndent:             0,
+		YIndent:             0,
+		Zoom:                1,
+		FileName:            GetBaseTest().remoteFolder + "/" + image,
+	}
+
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentImageStampsPageSpecified(name, []ImageStampPageSpecified{stamp1, stamp2}, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tPostDocumentImageStampsPageSpecified - %d\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
 
