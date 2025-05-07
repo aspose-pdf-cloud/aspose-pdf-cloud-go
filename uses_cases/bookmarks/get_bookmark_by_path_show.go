@@ -10,6 +10,12 @@ func extractBookmark(pdf_api *asposepdfcloud.PdfApiService, document_name string
 	args := map[string]interface{}{
 		"folder": remote_folder,
 	}
-	result, _, _ := pdf_api.GetBookmarks(document_name, bookmark_path, args)
-	fmt.Println(result.Bookmarks)
+	result, httpResponse, err := pdf_api.GetBookmarks(document_name, bookmark_path, args)
+	if err != nil {
+		fmt.Println(err.Error())
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		fmt.Println("Unexpected error!")
+	} else {
+		fmt.Println(result.Bookmarks)
+	}
 }
