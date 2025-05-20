@@ -8003,10 +8003,16 @@ func (a *PdfApiService) GetMarkdownInStorageToPdf(srcPath string, localVarOption
 
 /* PdfApiService Convert MHT file (located on storage) to PDF format and return resulting file in response. 
  @param srcPath Full source filename (ex. /folder1/folder2/template.mht)
+ @param height Page height
+ @param width Page width
+ @param marginLeft Page margin left
+ @param marginBottom Page margin bottom
+ @param marginRight Page margin right
+ @param marginTop Page margin top
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storage" (string) The document storage.
  @return []byte*/
-func (a *PdfApiService) GetMhtInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
+func (a *PdfApiService) GetMhtInStorageToPdf(srcPath string, height float64, width float64, marginLeft float64, marginBottom float64, marginRight float64, marginTop float64, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -8027,6 +8033,12 @@ func (a *PdfApiService) GetMhtInStorageToPdf(srcPath string, localVarOptionals m
 	}
 
 	localVarQueryParams.Add("srcPath", parameterToString(srcPath, ""))
+	localVarQueryParams.Add("height", parameterToString(height, ""))
+	localVarQueryParams.Add("width", parameterToString(width, ""))
+	localVarQueryParams.Add("marginLeft", parameterToString(marginLeft, ""))
+	localVarQueryParams.Add("marginBottom", parameterToString(marginBottom, ""))
+	localVarQueryParams.Add("marginRight", parameterToString(marginRight, ""))
+	localVarQueryParams.Add("marginTop", parameterToString(marginTop, ""))
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
@@ -16511,6 +16523,80 @@ func (a *PdfApiService) PostComboBoxFields(name string, fields []ComboBoxField, 
 	}
 	// body params
 	localVarPostBody = &fields
+	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	defer localVarHttpResponse.Body.Close()
+	if localVarHttpResponse.StatusCode >= 300 {
+		bodyBytes, _ := io.ReadAll(localVarHttpResponse.Body)
+		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
+	}
+    
+	if err = deserializeDTO(localVarHttpResponse.Body, &successPayload); err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* PdfApiService Compare two PDF documents.
+ @param path1 Path to first PDF document.
+ @param path2 Path to second PDF document.
+ @param outPath Full filename of the resulting document.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "storage" (string) The documents storage.
+ @return AsposeResponse*/
+func (a *PdfApiService) PostComparePdf(path1 string, path2 string, outPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload AsposeResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/pdf/compare"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _url.Values{}
+	localVarFormParams := _url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("path1", parameterToString(path1, ""))
+	localVarQueryParams.Add("path2", parameterToString(path2, ""))
+	localVarQueryParams.Add("outPath", parameterToString(outPath, ""))
+	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
+		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
 	r, err := a.client.prepareRequest(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
@@ -25445,11 +25531,17 @@ func (a *PdfApiService) PutMergeDocuments(name string, mergeDocuments MergeDocum
 /* PdfApiService Convert MHT file (located on storage) to PDF format and upload resulting file to storage. 
  @param name The document name.
  @param srcPath Full source filename (ex. /folder1/folder2/template.mht)
+ @param height Page height
+ @param width Page width
+ @param marginLeft Page margin left
+ @param marginBottom Page margin bottom
+ @param marginRight Page margin right
+ @param marginTop Page margin top
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "dstFolder" (string) The destination document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutMhtInStorageToPdf(name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutMhtInStorageToPdf(name string, srcPath string, height float64, width float64, marginLeft float64, marginBottom float64, marginRight float64, marginTop float64, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -25474,6 +25566,12 @@ func (a *PdfApiService) PutMhtInStorageToPdf(name string, srcPath string, localV
 	}
 
 	localVarQueryParams.Add("srcPath", parameterToString(srcPath, ""))
+	localVarQueryParams.Add("height", parameterToString(height, ""))
+	localVarQueryParams.Add("width", parameterToString(width, ""))
+	localVarQueryParams.Add("marginLeft", parameterToString(marginLeft, ""))
+	localVarQueryParams.Add("marginBottom", parameterToString(marginBottom, ""))
+	localVarQueryParams.Add("marginRight", parameterToString(marginRight, ""))
+	localVarQueryParams.Add("marginTop", parameterToString(marginTop, ""))
 	if localVarTempParam, localVarOk := localVarOptionals["dstFolder"].(string); localVarOk {
 		localVarQueryParams.Add("dstFolder", parameterToString(localVarTempParam, ""))
 	}

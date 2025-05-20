@@ -203,6 +203,7 @@ Method | HTTP request | Description
 [**PostChangePasswordDocumentInStorage**](PdfApi.md#PostChangePasswordDocumentInStorage) | **Post** /pdf/{name}/changepassword | Change document password in storage.
 [**PostCheckBoxFields**](PdfApi.md#PostCheckBoxFields) | **Post** /pdf/{name}/fields/checkbox | Add document checkbox fields.
 [**PostComboBoxFields**](PdfApi.md#PostComboBoxFields) | **Post** /pdf/{name}/fields/combobox | Add document combobox fields.
+[**PostComparePdf**](PdfApi.md#PostComparePdf) | **Post** /pdf/compare | Compare two PDF documents.
 [**PostCreateDocument**](PdfApi.md#PostCreateDocument) | **Post** /pdf/{name} | Create empty document.
 [**PostCreateField**](PdfApi.md#PostCreateField) | **Post** /pdf/{name}/fields | Create field.
 [**PostDecryptDocumentInStorage**](PdfApi.md#PostDecryptDocumentInStorage) | **Post** /pdf/{name}/decrypt | Decrypt document in storage.
@@ -3599,7 +3600,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetMhtInStorageToPdf**
-> []byte GetMhtInStorageToPdf(srcPath, optional)
+> []byte GetMhtInStorageToPdf(srcPath, height, width, marginLeft, marginBottom, marginRight, marginTop, optional)
 Convert MHT file (located on storage) to PDF format and return resulting file in response. 
 
 ### Required Parameters
@@ -3607,6 +3608,12 @@ Convert MHT file (located on storage) to PDF format and return resulting file in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.mht) | 
+  **height** | **float64**| Page height | 
+  **width** | **float64**| Page width | 
+  **marginLeft** | **float64**| Page margin left | 
+  **marginBottom** | **float64**| Page margin bottom | 
+  **marginRight** | **float64**| Page margin right | 
+  **marginTop** | **float64**| Page margin top | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -3615,6 +3622,12 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.mht) | 
+ **height** | **float64**| Page height | 
+ **width** | **float64**| Page width | 
+ **marginLeft** | **float64**| Page margin left | 
+ **marginBottom** | **float64**| Page margin bottom | 
+ **marginRight** | **float64**| Page margin right | 
+ **marginTop** | **float64**| Page margin top | 
  **storage** | **string**| The document storage. | 
 
 ### Return type
@@ -6925,6 +6938,40 @@ Name | Type | Description  | Notes
  **fields** | [**[]ComboBoxField**](ComboBoxField.md)| The array of field. | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostComparePdf**
+> AsposeResponse PostComparePdf(path1, path2, outPath, optional)
+Compare two PDF documents.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path1** | **string**| Path to first PDF document. | 
+  **path2** | **string**| Path to second PDF document. | 
+  **outPath** | **string**| Full filename of the resulting document. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path1** | **string**| Path to first PDF document. | 
+ **path2** | **string**| Path to second PDF document. | 
+ **outPath** | **string**| Full filename of the resulting document. | 
+ **storage** | **string**| The documents storage. | 
 
 ### Return type
 
@@ -10508,7 +10555,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutMhtInStorageToPdf**
-> AsposeResponse PutMhtInStorageToPdf(name, srcPath, optional)
+> AsposeResponse PutMhtInStorageToPdf(name, srcPath, height, width, marginLeft, marginBottom, marginRight, marginTop, optional)
 Convert MHT file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
@@ -10517,6 +10564,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.mht) | 
+  **height** | **float64**| Page height | 
+  **width** | **float64**| Page width | 
+  **marginLeft** | **float64**| Page margin left | 
+  **marginBottom** | **float64**| Page margin bottom | 
+  **marginRight** | **float64**| Page margin right | 
+  **marginTop** | **float64**| Page margin top | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -10526,6 +10579,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.mht) | 
+ **height** | **float64**| Page height | 
+ **width** | **float64**| Page width | 
+ **marginLeft** | **float64**| Page margin left | 
+ **marginBottom** | **float64**| Page margin bottom | 
+ **marginRight** | **float64**| Page margin right | 
+ **marginTop** | **float64**| Page margin top | 
  **dstFolder** | **string**| The destination document folder. | 
  **storage** | **string**| The document storage. | 
 
