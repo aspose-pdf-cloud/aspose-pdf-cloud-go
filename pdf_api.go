@@ -8003,16 +8003,16 @@ func (a *PdfApiService) GetMarkdownInStorageToPdf(srcPath string, localVarOption
 
 /* PdfApiService Convert MHT file (located on storage) to PDF format and return resulting file in response. 
  @param srcPath Full source filename (ex. /folder1/folder2/template.mht)
- @param height Page height
- @param width Page width
- @param marginLeft Page margin left
- @param marginBottom Page margin bottom
- @param marginRight Page margin right
- @param marginTop Page margin top
  @param optional (nil or map[string]interface{}) with one or more of:
+     @param "height" (float64) Page height
+     @param "width" (float64) Page width
+     @param "marginLeft" (float64) Page margin left
+     @param "marginBottom" (float64) Page margin bottom
+     @param "marginRight" (float64) Page margin right
+     @param "marginTop" (float64) Page margin top
      @param "storage" (string) The document storage.
  @return []byte*/
-func (a *PdfApiService) GetMhtInStorageToPdf(srcPath string, height float64, width float64, marginLeft float64, marginBottom float64, marginRight float64, marginTop float64, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
+func (a *PdfApiService) GetMhtInStorageToPdf(srcPath string, localVarOptionals map[string]interface{}) ([]byte,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -8028,17 +8028,47 @@ func (a *PdfApiService) GetMhtInStorageToPdf(srcPath string, height float64, wid
 	localVarQueryParams := _url.Values{}
 	localVarFormParams := _url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["height"], "float64", "height"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["width"], "float64", "width"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["marginLeft"], "float64", "marginLeft"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["marginBottom"], "float64", "marginBottom"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["marginRight"], "float64", "marginRight"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["marginTop"], "float64", "marginTop"); err != nil {
+		return successPayload, nil, err
+	}
 	if err := typeCheckParameter(localVarOptionals["storage"], "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
 
 	localVarQueryParams.Add("srcPath", parameterToString(srcPath, ""))
-	localVarQueryParams.Add("height", parameterToString(height, ""))
-	localVarQueryParams.Add("width", parameterToString(width, ""))
-	localVarQueryParams.Add("marginLeft", parameterToString(marginLeft, ""))
-	localVarQueryParams.Add("marginBottom", parameterToString(marginBottom, ""))
-	localVarQueryParams.Add("marginRight", parameterToString(marginRight, ""))
-	localVarQueryParams.Add("marginTop", parameterToString(marginTop, ""))
+	if localVarTempParam, localVarOk := localVarOptionals["height"].(float64); localVarOk {
+		localVarQueryParams.Add("height", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["width"].(float64); localVarOk {
+		localVarQueryParams.Add("width", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["marginLeft"].(float64); localVarOk {
+		localVarQueryParams.Add("marginLeft", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["marginBottom"].(float64); localVarOk {
+		localVarQueryParams.Add("marginBottom", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["marginRight"].(float64); localVarOk {
+		localVarQueryParams.Add("marginRight", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["marginTop"].(float64); localVarOk {
+		localVarQueryParams.Add("marginTop", parameterToString(localVarTempParam, ""))
+	}
 	if localVarTempParam, localVarOk := localVarOptionals["storage"].(string); localVarOk {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
@@ -25531,17 +25561,17 @@ func (a *PdfApiService) PutMergeDocuments(name string, mergeDocuments MergeDocum
 /* PdfApiService Convert MHT file (located on storage) to PDF format and upload resulting file to storage. 
  @param name The document name.
  @param srcPath Full source filename (ex. /folder1/folder2/template.mht)
- @param height Page height
- @param width Page width
- @param marginLeft Page margin left
- @param marginBottom Page margin bottom
- @param marginRight Page margin right
- @param marginTop Page margin top
  @param optional (nil or map[string]interface{}) with one or more of:
+     @param "height" (float64) Page height
+     @param "width" (float64) Page width
+     @param "marginLeft" (float64) Page margin left
+     @param "marginBottom" (float64) Page margin bottom
+     @param "marginRight" (float64) Page margin right
+     @param "marginTop" (float64) Page margin top
      @param "dstFolder" (string) The destination document folder.
      @param "storage" (string) The document storage.
  @return AsposeResponse*/
-func (a *PdfApiService) PutMhtInStorageToPdf(name string, srcPath string, height float64, width float64, marginLeft float64, marginBottom float64, marginRight float64, marginTop float64, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
+func (a *PdfApiService) PutMhtInStorageToPdf(name string, srcPath string, localVarOptionals map[string]interface{}) (AsposeResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -25558,6 +25588,24 @@ func (a *PdfApiService) PutMhtInStorageToPdf(name string, srcPath string, height
 	localVarQueryParams := _url.Values{}
 	localVarFormParams := _url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["height"], "float64", "height"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["width"], "float64", "width"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["marginLeft"], "float64", "marginLeft"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["marginBottom"], "float64", "marginBottom"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["marginRight"], "float64", "marginRight"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["marginTop"], "float64", "marginTop"); err != nil {
+		return successPayload, nil, err
+	}
 	if err := typeCheckParameter(localVarOptionals["dstFolder"], "string", "dstFolder"); err != nil {
 		return successPayload, nil, err
 	}
@@ -25566,12 +25614,24 @@ func (a *PdfApiService) PutMhtInStorageToPdf(name string, srcPath string, height
 	}
 
 	localVarQueryParams.Add("srcPath", parameterToString(srcPath, ""))
-	localVarQueryParams.Add("height", parameterToString(height, ""))
-	localVarQueryParams.Add("width", parameterToString(width, ""))
-	localVarQueryParams.Add("marginLeft", parameterToString(marginLeft, ""))
-	localVarQueryParams.Add("marginBottom", parameterToString(marginBottom, ""))
-	localVarQueryParams.Add("marginRight", parameterToString(marginRight, ""))
-	localVarQueryParams.Add("marginTop", parameterToString(marginTop, ""))
+	if localVarTempParam, localVarOk := localVarOptionals["height"].(float64); localVarOk {
+		localVarQueryParams.Add("height", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["width"].(float64); localVarOk {
+		localVarQueryParams.Add("width", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["marginLeft"].(float64); localVarOk {
+		localVarQueryParams.Add("marginLeft", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["marginBottom"].(float64); localVarOk {
+		localVarQueryParams.Add("marginBottom", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["marginRight"].(float64); localVarOk {
+		localVarQueryParams.Add("marginRight", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["marginTop"].(float64); localVarOk {
+		localVarQueryParams.Add("marginTop", parameterToString(localVarTempParam, ""))
+	}
 	if localVarTempParam, localVarOk := localVarOptionals["dstFolder"].(string); localVarOk {
 		localVarQueryParams.Add("dstFolder", parameterToString(localVarTempParam, ""))
 	}

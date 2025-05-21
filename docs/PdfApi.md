@@ -3600,7 +3600,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetMhtInStorageToPdf**
-> []byte GetMhtInStorageToPdf(srcPath, height, width, marginLeft, marginBottom, marginRight, marginTop, optional)
+> []byte GetMhtInStorageToPdf(srcPath, optional)
 Convert MHT file (located on storage) to PDF format and return resulting file in response. 
 
 ### Required Parameters
@@ -3608,12 +3608,6 @@ Convert MHT file (located on storage) to PDF format and return resulting file in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.mht) | 
-  **height** | **float64**| Page height | 
-  **width** | **float64**| Page width | 
-  **marginLeft** | **float64**| Page margin left | 
-  **marginBottom** | **float64**| Page margin bottom | 
-  **marginRight** | **float64**| Page margin right | 
-  **marginTop** | **float64**| Page margin top | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -10555,7 +10549,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PutMhtInStorageToPdf**
-> AsposeResponse PutMhtInStorageToPdf(name, srcPath, height, width, marginLeft, marginBottom, marginRight, marginTop, optional)
+> AsposeResponse PutMhtInStorageToPdf(name, srcPath, optional)
 Convert MHT file (located on storage) to PDF format and upload resulting file to storage. 
 
 ### Required Parameters
@@ -10564,12 +10558,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **string**| The document name. | 
   **srcPath** | **string**| Full source filename (ex. /folder1/folder2/template.mht) | 
-  **height** | **float64**| Page height | 
-  **width** | **float64**| Page width | 
-  **marginLeft** | **float64**| Page margin left | 
-  **marginBottom** | **float64**| Page margin bottom | 
-  **marginRight** | **float64**| Page margin right | 
-  **marginTop** | **float64**| Page margin top | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
