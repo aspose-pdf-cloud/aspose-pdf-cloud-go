@@ -154,8 +154,20 @@ func TestPutReplaceMultipleImage(t *testing.T) {
 		"folder":        GetBaseTest().remoteFolder,
 		"imageFilePath": GetBaseTest().remoteFolder + "/" + imageFileName,
 	}
+	
+	responseImages1, _, err := GetBaseTest().PdfAPI.GetImages(name, 1, args)
+	if err != nil {
+		t.Error(err)
+	}
+	imageID1 := responseImages1.Images.List[0].Id	
+	responseImages2, _, err := GetBaseTest().PdfAPI.GetImages(name, 16, args)
+	if err != nil {
+		t.Error(err)
+	}
+	imageID2 := responseImages2.Images.List[0].Id
+
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutReplaceMultipleImage(name,
-		[]string{"GE5TENJVGQZTWMJYGQWDINRUFQ2DCMRMGY4TC", "GE5TIMJSGY3TWMJXG4WDIMBZFQ2DCOJMGQ3DK"}, args)
+		[]string{imageID1, imageID2}, args)
 	if err != nil {
 		t.Error(err)
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {

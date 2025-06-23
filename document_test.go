@@ -304,3 +304,22 @@ func TestPostOrganizeDocuments(t *testing.T) {
 		fmt.Printf("%d\tTestPostOrganizeDocuments - %db\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
+
+func TestPostDocumentPagesRotate(t *testing.T) {
+	name := "4pages.pdf"
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
+	}
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentPagesRotate(
+		name, string(Rotationon90), "2-3", args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tPostDocumentPagesRotate - %db\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
