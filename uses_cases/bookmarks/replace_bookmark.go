@@ -7,6 +7,8 @@ import (
 )
 
 func replaceBookmark(pdf_api *asposepdfcloud.PdfApiService, document_name string, bookmark_path string, title string, remote_folder string) {
+	uploadFile(pdf_api, document_name)
+
 	args := map[string]interface{}{
 		"folder": remote_folder,
 	}
@@ -26,12 +28,12 @@ func replaceBookmark(pdf_api *asposepdfcloud.PdfApiService, document_name string
 		Color:             &asposepdfcloud.Color{A: 0x00, R: 0x00, G: 0xFF, B: 0x00},
 	}
 
-	result, httpResponse, err := pdf_api.PutBookmark(document_name, bookmark_path, bookmark, args)
+	_, httpResponse, err := pdf_api.PutBookmark(document_name, bookmark_path, bookmark, args)
 	if err != nil {
 		fmt.Println(err.Error())
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		fmt.Println("Unexpected error!")
 	} else {
-		fmt.Println(result.Bookmark)
+		downloadFile(pdf_api, document_name, "replaced_bookmark_")
 	}
 }

@@ -7,6 +7,8 @@ import (
 )
 
 func removeBookmark(pdf_api *asposepdfcloud.PdfApiService, document_name string, bookmark_path string, remote_folder string) {
+	uploadFile(pdf_api, document_name)
+
 	args := map[string]interface{}{
 		"folder": remote_folder,
 	}
@@ -16,4 +18,6 @@ func removeBookmark(pdf_api *asposepdfcloud.PdfApiService, document_name string,
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		fmt.Println("Unexpected error!")
 	}
+
+	downloadFile(pdf_api, document_name, "removed_bookmark_")
 }

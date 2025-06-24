@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"path"
 	"path/filepath"
@@ -18,8 +19,10 @@ const (
 )
 
 func initPdfApi() *asposepdfcloud.PdfApiService {
-	AppSID := "*************"
-	AppKey := "*************"
+	// Initialize Credentials and create Pdf.Cloud service object
+	AppSID := "******" // Your Application SID
+	AppKey := "******" // Your Application Key
+
 	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
 	return pdfApi
 }
@@ -31,23 +34,13 @@ func uploadFile(pdf_api *asposepdfcloud.PdfApiService, name string) {
 	file, _ := os.Open(filepath.Join(LOCAL_FOLDER, name))
 	_, _, _ = pdf_api.UploadFile(filepath.Join(REMOTE_FOLDER, name), file, args)
 }
-func downloadFile(pdf_api *asposepdfcloud.PdfApiService, name string) {
+func downloadFile(pdf_api *asposepdfcloud.PdfApiService, name string, output_prefix string) {
 	args := map[string]interface{}{
 		"folder": REMOTE_FOLDER,
 	}
 	result_data, _, _ := pdf_api.DownloadFile(path.Join(REMOTE_FOLDER, name), args)
-	fileName := path.Join(LOCAL_FOLDER, PDF_OUTPUT)
+	fileName := path.Join(LOCAL_FOLDER, output_prefix+PDF_OUTPUT)
 	f, _ := os.Create(fileName)
 	_, _ = f.Write(result_data)
-}
-
-func main() {
-	pdfApi := initPdfApi()
-	uploadFile(pdfApi, PDF_DOCUMENT)
-	extractDocumentBookmarks(pdfApi, PDF_DOCUMENT, REMOTE_FOLDER)
-	extractBookmark(pdfApi, PDF_DOCUMENT, BOOKMARK_PATH, REMOTE_FOLDER)
-	appendBookmark(pdfApi, PDF_DOCUMENT, BOOKMARK_PATH, BOOKMARK_TITLE, REMOTE_FOLDER)
-	replaceBookmark(pdfApi, PDF_DOCUMENT, BOOKMARK_PATH, BOOKMARK_TITLE, REMOTE_FOLDER)
-	removeBookmark(pdfApi, PDF_DOCUMENT, BOOKMARK_PATH, REMOTE_FOLDER)
-	downloadFile(pdfApi, PDF_DOCUMENT)
+	fmt.Println("Result file'" + fileName + "' successfully downloaded!")
 }

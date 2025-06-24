@@ -7,6 +7,8 @@ import (
 )
 
 func extractDocumentBookmarks(pdf_api *asposepdfcloud.PdfApiService, document_name string, remote_folder string) {
+	uploadFile(pdf_api, document_name)
+
 	args := map[string]interface{}{
 		"folder": remote_folder,
 	}

@@ -63,17 +63,3 @@ func downloadFile(pdf_api *asposepdfcloud.PdfApiService, name string) {
 	result_data, _, _ := pdf_api.DownloadFile(path.Join(REMOTE_FOLDER, name), args)
 	saveByteArrayToFile(LOCAL_FOLDER, PDF_OUTPUT, result_data)
 }
-
-func main() {
-	pdfApi := initPdfApi()
-
-	uploadFile(pdfApi, PDF_DOCUMENT_WITH_ATTACH)
-	getDocumentAttachments(pdfApi, PDF_DOCUMENT_WITH_ATTACH, REMOTE_FOLDER)
-	getAttachmentByIndex(pdfApi, PDF_DOCUMENT_WITH_ATTACH, 1, REMOTE_FOLDER, LOCAL_FOLDER)
-
-	uploadFile(pdfApi, PDF_DOCUMENT)
-	uploadFile(pdfApi, NEW_ATTACHMENT_FILE)
-	appendAttachment(pdfApi, PDF_DOCUMENT, NEW_ATTACHMENT_FILE, NEW_ATTACHMENT_DECRIPTION, NEW_ATTACHMENT_MIME, REMOTE_FOLDER)
-
-	downloadFile(pdfApi, PDF_DOCUMENT)
-}

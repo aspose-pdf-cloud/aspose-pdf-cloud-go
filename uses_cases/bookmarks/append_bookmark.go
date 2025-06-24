@@ -7,6 +7,8 @@ import (
 )
 
 func appendBookmark(pdf_api *asposepdfcloud.PdfApiService, document_name string, bookmark_path string, title string, remote_folder string) {
+	uploadFile(pdf_api, document_name)
+
 	args := map[string]interface{}{
 		"folder": remote_folder,
 	}
@@ -26,12 +28,12 @@ func appendBookmark(pdf_api *asposepdfcloud.PdfApiService, document_name string,
 		Color:             &asposepdfcloud.Color{A: 0x00, R: 0x00, G: 0xFF, B: 0x00},
 	}
 
-	result, httpResponse, err := pdf_api.PostBookmark(document_name, bookmark_path, []asposepdfcloud.Bookmark{bookmark}, args)
+	_, httpResponse, err := pdf_api.PostBookmark(document_name, bookmark_path, []asposepdfcloud.Bookmark{bookmark}, args)
 	if err != nil {
 		fmt.Println(err.Error())
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		fmt.Println("Unexpected error!")
 	} else {
-		fmt.Println(result.Bookmarks)
+		downloadFile(pdf_api, document_name, "appended_attachment_")
 	}
 }
