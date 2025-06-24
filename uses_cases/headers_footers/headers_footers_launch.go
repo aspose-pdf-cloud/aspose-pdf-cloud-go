@@ -1,0 +1,11 @@
+package main
+
+func main() {
+	pdfApi := initPdfApi()
+
+	appendImageFooter(pdfApi, PDF_DOCUMENT, IMAGE_FILE, PAGE_NUMBER, PAGE_NUMBER+1, REMOTE_FOLDER)
+	appendImageHeader(pdfApi, PDF_DOCUMENT, IMAGE_FILE, PAGE_NUMBER+2, PAGE_NUMBER+3, REMOTE_FOLDER)
+
+	appendTextFooter(pdfApi, PDF_DOCUMENT, TEXT_FOOTER, PAGE_NUMBER, PAGE_NUMBER+1, REMOTE_FOLDER)
+	appendTextHeader(pdfApi, PDF_DOCUMENT, TEXT_HEADER, PAGE_NUMBER+2, PAGE_NUMBER+3, REMOTE_FOLDER)
+}
