@@ -10,124 +10,109 @@ import (
 )
 
 const (
-	REMOTE_FOLDER        = "Your_Temp_Pdf_Cloud"
-	LOCAL_FOLDER         = "c:\\Samples"
-	PDF_DOCUMENT         = "sample.pdf"
-	PDF_OUTPUT_HIGHLIGHT = "output_highlight.pdf"
-	PDF_OUTPUT_STRIKEOUT = "output_strikeout.pdf"
-	PDF_OUTPUT_FREETEXT  = "output_freetext.pdf"
-	PDF_OUTPUT_UNDERLINE = "output_underline.pdf"
+	LOCAL_FOLDER      = "C:\\Samples"
+	REMOTE_FOLDER     = "Your_Temp_Pdf_Cloud"
+	PDF_DOCUMENT_NAME = "sample.pdf"
+	PDF_OUTPUT        = "output_sample.pdf"
+	PAGE_NUMBER       = 1
 
-	NEW_HIGHLIGHT_TEXT        = "NEW HIGHLIGHT TEXT ANNOTATION"
-	NEW_HIGHLIGHT_DESCRIPTION = "This is a sample highlight annotation"
-	NEW_HIGHLIGHT_SUBJECT     = "Highlight Text Box Subject"
-	NEW_HIGHLIGHT_CONTENTS    = "Highlight annotation sample contents"
+	ANNOTATION_ID = "GE5TAOZTHA2CYMRZGUWDIMBZFQZTEMA"
 
-	NEW_STRIKEOUT_TEXT        = "NEW STRIKEOUT TEXT ANNOTATION"
-	NEW_STRIKEOUT_DESCRIPTION = "This is a sample strikeout annotation"
-	NEW_STRIKEOUT_SUBJECT     = "Strikeout Text Box Subject"
-	NEW_STRIKEOUT_CONTENTS    = "Strikeout annotation sample contents"
+	NEW_HL_ANNOTATION_TEXT        = "NEW HIGHLIGHT TEXT ANNOTATION"
+	NEW_HL_ANNOTATION_DESCRIPTION = "This is a sample highlight annotation"
+	NEW_HL_ANNOTATION_SUBJECT     = "Highlight Text Box Subject"
+	NEW_HL_ANNOTATION_CONTENTS    = "Highlight annotation sample contents"
 
-	NEW_FREETEXT_TEXT        = "NEW FREE TEXT ANNOTATION"
-	NEW_FREETEXT_DESCRIPTION = "This is a sample free text annotation"
-	NEW_FREETEXT_SUBJECT     = "Free Text Box Subject"
-	NEW_FREETEXT_CONTENTS    = "Free text annotation sample contents"
+	NEW_SO_ANNOTATION_TEXT        = "NEW STRIKEOUT TEXT ANNOTATION"
+	NEW_SO_ANNOTATION_DESCRIPTION = "This is a sample strikeout annotation"
+	NEW_SO_ANNOTATION_SUBJECT     = "Strikeout Text Box Subject"
+	NEW_SO_ANNOTATION_CONTENTS    = "Strikeout annotation sample contents"
 
-	NEW_UNDERLINE_TEXT        = "NEW UNDERLINE TEXT ANNOTATION"
-	NEW_UNDERLINE_DESCRIPTION = "This is a sample underline annotation"
-	NEW_UNDERLINE_SUBJECT     = "Underline Text Box Subject"
-	NEW_UNDERLINE_CONTENTS    = "Underline annotation sample contents"
+	NEW_UL_ANNOTATION_TEXT        = "NEW UNDERLINE TEXT ANNOTATION"
+	NEW_UL_ANNOTATION_DESCRIPTION = "This is a sample underline annotation"
+	NEW_UL_ANNOTATION_SUBJECT     = "Underline Text Box Subject"
+	NEW_UL_ANNOTATION_CONTENTS    = "Underline annotation sample contents"
 
-	ANNOTATION_ID = "GI5TAOZVG42CYOBRG4WDKOJVFQ4DGOA"
+	NEW_FT_ANNOTATION_TEXT        = "NEW FREE TEXT ANNOTATION"
+	NEW_FT_ANNOTATION_DESCRIPTION = "This is a sample annotation"
+	NEW_FT_ANNOTATION_SUBJECT     = "Free Text Box Subject"
+	NEW_FT_ANNOTATION_CONTENTS    = "Free Text annotation sample contents"
 
-	PAGE_NUMBER         = 1
-	PAGE_NUMBER_EXTRACT = 2
+	REPLACED_CONTENT = "This is a replaced sample annotation"
 )
 
-var (
-	LINK_RECT = asposepdfcloud.Rectangle{LLX: 270, LLY: 510, URX: 380, URY: 530}
-)
-
-func initPdfApi() *asposepdfcloud.PdfApiService {
+func InitPdfApi() *asposepdfcloud.PdfApiService {
 	// Initialize Credentials and create Pdf.Cloud service object
-	AppSID := "******" // Your Application SID
-	AppKey := "******" // Your Application Key
+	AppSID := "*********" // Your Application SID
+	AppKey := "*********" // Your Application Key
 
 	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
 	return pdfApi
 }
 
-// Upload local file to the remote folder with check errors
-func uploadFile(pdf_api *asposepdfcloud.PdfApiService, name string) {
+func UploadFile(pdf_api *asposepdfcloud.PdfApiService, name string) {
+	// Upload local file to the Pdf.Cloud folder
 	args := map[string]interface{}{
 		"folder": REMOTE_FOLDER,
 	}
-	file, err := os.Open(filepath.Join(LOCAL_FOLDER, name))
-	if err != nil {
-		fmt.Println(err.Error())
-	} else {
-		result, httpResponse, err := pdf_api.UploadFile(path.Join(REMOTE_FOLDER, name), file, args)
-		if err != nil {
-			fmt.Println(err.Error())
-		} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-			fmt.Println("Unexpected error!")
-		} else {
-			fmt.Println(result)
-		}
-	}
-}
-
-// Download file from remote folder and save it locally with check errors
-func downloadFile(pdf_api *asposepdfcloud.PdfApiService, name string, output_name string) {
-	args := map[string]interface{}{
-		"folder": REMOTE_FOLDER,
-	}
-	result_data, httpResponse, err := pdf_api.DownloadFile(path.Join(REMOTE_FOLDER, name), args)
+	file, _ := os.Open(filepath.Join(LOCAL_FOLDER, name))
+	_, httpResponse, err := pdf_api.UploadFile(filepath.Join(REMOTE_FOLDER, name), file, args)
 	if err != nil {
 		fmt.Println(err.Error())
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		fmt.Println("Unexpected error!")
 	} else {
-		fileName := path.Join(LOCAL_FOLDER, output_name)
-		f, _ := os.Create(fileName)
-		_, _ = f.Write(result_data)
-		fmt.Println("File '" + fileName + "'successfully downloaded.")
+		fmt.Println("Result file'" + name + "' successfully uploaded!")
 	}
 }
 
-// Show Annotations from array
-func showAnnotations(links *[]asposepdfcloud.AnnotationInfo) {
-	for i := 0; i < len(*links); i++ {
-		fmt.Print("annotation #")
-		fmt.Println(i)
-		fmt.Print("\tId == '")
-		fmt.Print((*links)[i].Id)
-		fmt.Println("'")
-		fmt.Print("\tName == '")
-		fmt.Print((*links)[i].Name)
-		fmt.Println("'")
-		fmt.Print("\tContents == '")
-		fmt.Print((*links)[i].Contents)
-		fmt.Println("'")
+func SaveByteArrayToFile(local_folder string, file_name string, data []byte) {
+	// Save byte array data to the local folder
+	fileName := path.Join(local_folder, file_name)
+	f, err := os.Create(fileName)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		size, err := f.Write(data)
+		if err != nil || size == 0 {
+			fmt.Println("Failures in downloading result!")
+		} else {
+			fmt.Println("Result file'" + fileName + "' successfully downloaded!")
+		}
 	}
 }
 
-// Show Annotation
-func showAnnotation(annotation *asposepdfcloud.TextAnnotation) {
-	fmt.Print("annotation '")
-	fmt.Println(annotation.Title)
-	fmt.Println("'")
-	fmt.Print("\tId == '")
-	fmt.Print(annotation.Id)
-	fmt.Println("'")
-	fmt.Print("\tName == '")
-	fmt.Print(annotation.Name)
-	fmt.Println("'")
-	fmt.Print("\tContents == '")
-	fmt.Print(annotation.Contents)
-	fmt.Println("'")
+func DownloadFile(pdf_api *asposepdfcloud.PdfApiService, name string, output_name string, prefix string) {
+	// Download modified Pdf document to local folder from the Pdf.Cloud folder
+	args := map[string]interface{}{
+		"folder": REMOTE_FOLDER,
+	}
+	result_data, _, _ := pdf_api.DownloadFile(path.Join(REMOTE_FOLDER, name), args)
+	SaveByteArrayToFile(LOCAL_FOLDER, prefix+output_name, result_data)
+}
 
-	fmt.Print("\tIcon == '")
-	fmt.Print(annotation.Icon)
-	fmt.Println("'")
+func DeletePopupAnnotations(pdf_api *asposepdfcloud.PdfApiService, document_name string, parent_annotation string) {
+	// Delete popup annotations for typed parent annotation in the page in the PDF document.
+	args := map[string]interface{}{
+		"folder": REMOTE_FOLDER,
+	}
+	result, httpResponse, err := pdf_api.GetDocumentPopupAnnotations(document_name, args)
+	if err != nil {
+		fmt.Println(err.Error())
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		fmt.Println("Unexpected error!")
+	} else {
+		for _, annotation := range result.Annotations.List {
+			if annotation.Parent.Id == parent_annotation {
+				_, response, err2 := pdf_api.DeleteAnnotation(document_name, annotation.Id, args)
+				if err2 != nil {
+					fmt.Println(err2)
+				} else if response.StatusCode < 200 || response.StatusCode > 299 {
+					fmt.Println("delete_popup_annotations(): Failed to delete popup annotation in the document.")
+				} else {
+					fmt.Println("delete_popup_annotations(): popup annotation id = '" + annotation.Id + "' for '" + annotation.Contents + "' deleted in the document '" + PDF_DOCUMENT_NAME + "'.")
+				}
+			}
+		}
+	}
 }
