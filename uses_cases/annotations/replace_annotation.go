@@ -7,7 +7,7 @@ import (
 )
 
 func getAnnotation(pdf_api *asposepdfcloud.PdfApiService, document_name string, annotation_id string, remote_folder string) *asposepdfcloud.TextAnnotation {
-	// Get annotation from the page in the PDF document.
+	// Get annotation by Id in the PDF document.
 	args := map[string]interface{}{
 		"folder": remote_folder,
 	}
@@ -25,7 +25,7 @@ func getAnnotation(pdf_api *asposepdfcloud.PdfApiService, document_name string, 
 }
 
 func ModifyAnnotation(pdf_api *asposepdfcloud.PdfApiService, document_name string, output_document string, annotation_id string, remote_folder string) {
-	// Change annotation on the page in the PDF document.
+	// Change annotation by Id in the PDF document.
 	UploadFile(pdf_api, document_name)
 	args := map[string]interface{}{
 		"folder": remote_folder,
