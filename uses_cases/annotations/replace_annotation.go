@@ -6,19 +6,41 @@ import (
 	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
 )
 
-func replaceAnnotation(pdf_api *asposepdfcloud.PdfApiService, document string, annotation_id string, remote_folder string) {
-	uploadFile(pdf_api, document)
-
+func getAnnotation(pdf_api *asposepdfcloud.PdfApiService, document_name string, annotation_id string, remote_folder string) *asposepdfcloud.TextAnnotation {
+	// Get annotation from the page in the PDF document.
 	args := map[string]interface{}{
 		"folder": remote_folder,
 	}
+	result, httpResponse, err := pdf_api.GetTextAnnotation(document_name, annotation_id, args)
+	if err != nil {
+		fmt.Println(err.Error())
+		return nil
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		fmt.Println("getAnnotation(): Failed to get annotation in the document.")
+		return nil
+	} else {
+		fmt.Println("getAnnotation(): nnotation '" + annotation_id + "' successfully found '" + result.Annotation.Contents + "' in the document '" + document_name + "'.")
+		return result.Annotation
+	}
+}
 
-	result, httpResponse, err := pdf_api.GetDocumentAnnotations(document, args)
+func ModifyAnnotation(pdf_api *asposepdfcloud.PdfApiService, document_name string, output_document string, annotation_id string, remote_folder string) {
+	// Change annotation on the page in the PDF document.
+	UploadFile(pdf_api, document_name)
+	args := map[string]interface{}{
+		"folder": remote_folder,
+	}
+	annotation := getAnnotation(pdf_api, document_name, annotation_id, remote_folder)
+	annotation.Contents = REPLACED_CONTENT
+	annotation.Icon = asposepdfcloud.TextIconStar
+
+	_, httpResponse, err := pdf_api.PutTextAnnotation(document_name, annotation_id, *annotation, args)
 	if err != nil {
 		fmt.Println(err.Error())
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
-		fmt.Println("Unexpected error!")
+		fmt.Println("ModifyAnnotation(): Failed to modify annotation in the document.")
 	} else {
-		showAnnotations(&result.Annotations.List)
+		fmt.Println("ModifyAnnotation(): annotation '" + annotation.Id + "' successfully modified in the document '" + document_name + "'.")
+		DownloadFile(pdf_api, document_name, output_document, "replaced_annotatiom_")
 	}
 }
