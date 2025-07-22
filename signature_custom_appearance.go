@@ -26,7 +26,9 @@ type SignatureCustomAppearance struct {
 	// Gets/sets font family name. It should be existed in the document. Default value: Arial.
 	FontFamilyName string `json:"FontFamilyName,omitempty"`
 	// Gets/sets font size. Default value: 10.
-	FontSize float64 `json:"FontSize"`
+	FontSize float64 `json:"FontSize,omitempty"`
+	// Gets or sets signature rotation.
+	Rotation Rotation `json:"Rotation"`
 	// Gets/sets contact info visibility. Default value: true.
 	ShowContactInfo bool `json:"ShowContactInfo"`
 	// Gets/sets reason visibility. Default value: true.
@@ -47,4 +49,12 @@ type SignatureCustomAppearance struct {
 	DateTimeLocalFormat string `json:"DateTimeLocalFormat,omitempty"`
 	// Gets/sets datetime format. Default value: \"yyyy.MM.dd HH:mm:ss\".
 	DateTimeFormat string `json:"DateTimeFormat,omitempty"`
+	// Gets/sets background color.
+	BackgroundColor *Color `json:"BackgroundColor,omitempty"`
+	// Gets/sets foreground color.
+	ForegroundColor *Color `json:"ForegroundColor,omitempty"`
+	// Gets/sets subject format usage.
+	UseDigitalSubjectFormat bool `json:"UseDigitalSubjectFormat"`
+	// Gets/sets subject format.
+	DigitalSubjectFormat []SignatureSubjectNameElements `json:"DigitalSubjectFormat,omitempty"`
 }
