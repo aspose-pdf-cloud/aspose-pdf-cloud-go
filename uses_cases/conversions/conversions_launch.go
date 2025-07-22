@@ -1,0 +1,53 @@
+package main
+
+func main() {
+	pdfApi := initPdfApi()
+
+	convertMarkdownToPdf(pdfApi, MD_FILE_NAME, PDF_MD_OUTPUT, REMOTE_FOLDER)
+
+	convertEpubToPdf(pdfApi, EPUB_FILE_NAME, PDF_EPUB_OUTPUT, REMOTE_FOLDER)
+
+	convertHtmlToPdf(pdfApi, HTML_FILE_NAME, HTML_ZIP_FILE, PDF_HTML_OUTPUT, REMOTE_FOLDER)
+
+	convertMhtmlToPdf(pdfApi, MHTML_FILE_NAME, PDF_MHTML_OUTPUT, REMOTE_FOLDER)
+
+	convertPclToPdf(pdfApi, PCL_FILE_NAME, PDF_PCL_OUTPUT, REMOTE_FOLDER)
+
+	images := []string{BMP_FILE, JPEG_FILE, PNG_FILE}
+	converImagesToPdf(pdfApi, images, PDF_IMAGES_OUTPUT, REMOTE_FOLDER)
+
+	converBmpToPdf(pdfApi, BMP_FILE, PDF_BMP_OUTPUT, REMOTE_FOLDER)
+
+	converJpegToPdf(pdfApi, JPEG_FILE, PDF_JPEG_OUTPUT, REMOTE_FOLDER)
+
+	converPngToPdf(pdfApi, PNG_FILE, PDF_PNG_OUTPUT, REMOTE_FOLDER)
+
+	convertPsToPdf(pdfApi, PS_FILE_NAME, PDF_PS_OUTPUT, REMOTE_FOLDER)
+
+	converGifToPdf(pdfApi, GIF_FILE, PDF_GIF_OUTPUT, REMOTE_FOLDER)
+
+	convertPdfToDoc(pdfApi, PDF_DOCUMENT, DOC_OUTPUT, REMOTE_FOLDER)
+
+	convertPdfToWord(pdfApi, PDF_DOCUMENT, DOCX_OUTPUT, REMOTE_FOLDER)
+
+	convertPdfToEpub(pdfApi, PDF_DOCUMENT, EPUB_OUTPUT, REMOTE_FOLDER)
+
+	convertPdfToHtml(pdfApi, PDF_DOCUMENT, HTML_ZIP_OUTPUT, REMOTE_FOLDER)
+
+	convertPdfToTiff(pdfApi, PDF_DOCUMENT, TIFF_OUTPUT, REMOTE_FOLDER)
+
+	convertPdfToSvg(pdfApi, PDF_DOCUMENT, SVG_ZIP_OUTPUT, REMOTE_FOLDER)
+
+	convertPdfToXls(pdfApi, PDF_DOCUMENT, XLS_OUTPUT, REMOTE_FOLDER)
+
+	convertPdfToExcel(pdfApi, PDF_DOCUMENT, XLSX_OUTPUT, REMOTE_FOLDER)
+
+	convertPdfToPowerpoint(pdfApi, PDF_DOCUMENT, PPTX_OUTPUT, REMOTE_FOLDER)
+
+	convertPdfToMobi(pdfApi, PDF_DOCUMENT, MXML_OUTPUT, REMOTE_FOLDER)
+
+	convertPdfToTex(pdfApi, PDF_DOCUMENT, TEX_OUTPUT, REMOTE_FOLDER)
+
+	convertPdfToXps(pdfApi, PDF_DOCUMENT, XPS_OUTPUT, REMOTE_FOLDER)
+
+}

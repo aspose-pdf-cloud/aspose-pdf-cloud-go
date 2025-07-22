@@ -28,12 +28,12 @@ func converPngToPdf(pdf_api *asposepdfcloud.PdfApiService, png_file string, pdf_
 		"folder": remote_folder,
 	}
 
-	result, httpResponse, err := pdf_api.PutImageInStorageToPdf(pdf_name, imageTemplatesRequest, args)
+	_, httpResponse, err := pdf_api.PutImageInStorageToPdf(pdf_name, imageTemplatesRequest, args)
 	if err != nil {
 		fmt.Println(err.Error())
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		fmt.Println("Unexpected error!")
 	} else {
-		fmt.Println(result)
+		downloadFile(pdf_api, pdf_name, "")
 	}
 }

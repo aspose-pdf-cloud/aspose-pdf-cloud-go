@@ -7,6 +7,8 @@ import (
 )
 
 func appendTextHeader(pdf_api *asposepdfcloud.PdfApiService, document_name string, text string, startPage int32, end_page int32, remote_folder string) {
+	uploadFile(pdf_api, document_name)
+
 	args := map[string]interface{}{
 		"folder":          remote_folder,
 		"startPageNumber": startPage,
@@ -28,12 +30,12 @@ func appendTextHeader(pdf_api *asposepdfcloud.PdfApiService, document_name strin
 		Value:               text,
 	}
 
-	result, httpResponse, err := pdf_api.PostDocumentTextHeader(document_name, header, args)
+	_, httpResponse, err := pdf_api.PostDocumentTextHeader(document_name, header, args)
 	if err != nil {
 		fmt.Println(err.Error())
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		fmt.Println("Unexpected error!")
 	} else {
-		fmt.Println(result)
+		downloadFile(pdf_api, document_name)
 	}
 }

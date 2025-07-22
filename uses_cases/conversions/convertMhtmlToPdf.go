@@ -8,19 +8,21 @@ import (
 )
 
 func convertMhtmlToPdf(pdf_api *asposepdfcloud.PdfApiService, mht_document string, pdf_name string, remote_folder string) {
+	uploadFile(pdf_api, mht_document)
+
 	args := map[string]interface{}{
 		"folder": remote_folder,
 	}
 
 	src_path := path.Join(remote_folder, mht_document)
 
-	result, httpResponse, err := pdf_api.PutMhtInStorageToPdf(pdf_name, src_path, args)
+	_, httpResponse, err := pdf_api.PutMhtInStorageToPdf(pdf_name, src_path, args)
 
 	if err != nil {
 		fmt.Println(err.Error())
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		fmt.Println("Unexpected error!")
 	} else {
-		fmt.Println(result)
+		downloadFile(pdf_api, pdf_name, "")
 	}
 }

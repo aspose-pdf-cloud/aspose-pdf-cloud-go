@@ -8,6 +8,8 @@ import (
 )
 
 func converJpegToPdf(pdf_api *asposepdfcloud.PdfApiService, jpg_file string, pdf_name string, remote_folder string) {
+	uploadFile(pdf_api, jpg_file)
+
 	imageTemplateList := []asposepdfcloud.ImageTemplate{}
 
 	imageTemplate := asposepdfcloud.ImageTemplate{
@@ -15,8 +17,6 @@ func converJpegToPdf(pdf_api *asposepdfcloud.PdfApiService, jpg_file string, pdf
 		ImageSrcType: asposepdfcloud.ImageSrcTypeCommon,
 	}
 	imageTemplateList = append(imageTemplateList, imageTemplate)
-
-	uploadFile(pdf_api, jpg_file)
 
 	imageTemplatesRequest := asposepdfcloud.ImageTemplatesRequest{
 		IsOCR:      true,
@@ -28,12 +28,12 @@ func converJpegToPdf(pdf_api *asposepdfcloud.PdfApiService, jpg_file string, pdf
 		"folder": remote_folder,
 	}
 
-	result, httpResponse, err := pdf_api.PutImageInStorageToPdf(pdf_name, imageTemplatesRequest, args)
+	_, httpResponse, err := pdf_api.PutImageInStorageToPdf(pdf_name, imageTemplatesRequest, args)
 	if err != nil {
 		fmt.Println(err.Error())
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		fmt.Println("Unexpected error!")
 	} else {
-		fmt.Println(result)
+		downloadFile(pdf_api, pdf_name, "")
 	}
 }

@@ -25,8 +25,8 @@ const (
 )
 
 func initPdfApi() *asposepdfcloud.PdfApiService {
-	AppSID := "********"
-	AppKey := "********"
+	AppSID := "******"
+	AppKey := "******"
 
 	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
 	return pdfApi

@@ -23,13 +23,13 @@ func mergeDocuments(pdf_api *asposepdfcloud.PdfApiService, output_name string, r
 		"folder": remote_folder,
 	}
 
-	result, httpResponse, err := pdf_api.PutMergeDocuments(output_name, mergeDocuments, args)
+	_, httpResponse, err := pdf_api.PutMergeDocuments(output_name, mergeDocuments, args)
 
 	if err != nil {
 		fmt.Println(err.Error())
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		fmt.Println("Unexpected error!")
 	} else {
-		fmt.Println(result)
+		downloadFile(pdf_api, output_name)
 	}
 }

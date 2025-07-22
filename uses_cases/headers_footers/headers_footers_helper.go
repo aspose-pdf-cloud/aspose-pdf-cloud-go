@@ -21,8 +21,8 @@ const (
 )
 
 func initPdfApi() *asposepdfcloud.PdfApiService {
-	AppSID := "********"
-	AppKey := "********"
+	AppSID := "******"
+	AppKey := "******"
 
 	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
 	return pdfApi
@@ -64,15 +64,4 @@ func downloadFile(pdf_api *asposepdfcloud.PdfApiService, name string) {
 		f, _ := os.Create(fileName)
 		_, _ = f.Write(result_data)
 	}
-}
-
-func main() {
-	pdfApi := initPdfApi()
-	uploadFile(pdfApi, PDF_DOCUMENT)
-	appendImageFooter(pdfApi, PDF_DOCUMENT, IMAGE_FILE, PAGE_NUMBER, PAGE_NUMBER+1, REMOTE_FOLDER)
-	appendImageHeader(pdfApi, PDF_DOCUMENT, IMAGE_FILE, PAGE_NUMBER+2, PAGE_NUMBER+3, REMOTE_FOLDER)
-
-	appendTextFooter(pdfApi, PDF_DOCUMENT, TEXT_FOOTER, PAGE_NUMBER, PAGE_NUMBER+1, REMOTE_FOLDER)
-	appendTextHeader(pdfApi, PDF_DOCUMENT, TEXT_HEADER, PAGE_NUMBER+2, PAGE_NUMBER+3, REMOTE_FOLDER)
-	downloadFile(pdfApi, PDF_DOCUMENT)
 }

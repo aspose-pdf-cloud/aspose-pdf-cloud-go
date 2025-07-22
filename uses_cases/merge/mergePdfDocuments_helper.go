@@ -21,8 +21,8 @@ const (
 
 // Initialize credentials and Rest API service
 func initPdfApi() *asposepdfcloud.PdfApiService {
-	AppSID := "********"
-	AppKey := "********"
+	AppSID := "*****"
+	AppKey := "*****"
 
 	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
 	return pdfApi
@@ -64,10 +64,4 @@ func downloadFile(pdf_api *asposepdfcloud.PdfApiService, name string) {
 		f, _ := os.Create(fileName)
 		_, _ = f.Write(result_data)
 	}
-}
-
-func main() {
-	pdfApi := initPdfApi()
-	mergeDocuments(pdfApi, PDF_DOCUMENT, REMOTE_FOLDER)
-	downloadFile(pdfApi, PDF_DOCUMENT)
 }

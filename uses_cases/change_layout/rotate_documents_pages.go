@@ -2,27 +2,23 @@ package main
 
 import (
 	"fmt"
-	"path"
 
 	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
 )
 
-func convertPclToPdf(pdf_api *asposepdfcloud.PdfApiService, pcl_document string, pdf_name string, remote_folder string) {
-	uploadFile(pdf_api, pcl_document)
+func rotateDocumentPages(pdf_api *asposepdfcloud.PdfApiService, document_name string, rotate_angle string, pages string, remote_folder string) {
+	uploadFile(pdf_api, document_name)
 
 	args := map[string]interface{}{
 		"folder": remote_folder,
 	}
 
-	src_path := path.Join(remote_folder, pcl_document)
-
-	_, httpResponse, err := pdf_api.PutPclInStorageToPdf(pdf_name, src_path, args)
-
+	_, httpResponse, err := pdf_api.PostDocumentPagesRotate(document_name, rotate_angle, pages, args)
 	if err != nil {
 		fmt.Println(err.Error())
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		fmt.Println("Unexpected error!")
 	} else {
-		downloadFile(pdf_api, pdf_name, "")
+		downloadFile(pdf_api, document_name, "rotated_")
 	}
 }

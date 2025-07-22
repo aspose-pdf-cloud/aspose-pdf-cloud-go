@@ -8,6 +8,7 @@ import (
 )
 
 func appendImageHeader(pdf_api *asposepdfcloud.PdfApiService, document_name string, image_name string, startPage int32, end_page int32, remote_folder string) {
+	uploadFile(pdf_api, document_name)
 	uploadFile(pdf_api, image_name)
 
 	args := map[string]interface{}{
@@ -33,12 +34,12 @@ func appendImageHeader(pdf_api *asposepdfcloud.PdfApiService, document_name stri
 		FileName:            path.Join(remote_folder, image_name),
 	}
 
-	result, httpResponse, err := pdf_api.PostDocumentImageHeader(document_name, header, args)
+	_, httpResponse, err := pdf_api.PostDocumentImageHeader(document_name, header, args)
 	if err != nil {
 		fmt.Println(err.Error())
 	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
 		fmt.Println("Unexpected error!")
 	} else {
-		fmt.Println(result)
+		downloadFile(pdf_api, document_name)
 	}
 }
