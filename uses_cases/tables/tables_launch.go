@@ -1,0 +1,19 @@
+package main
+
+func main() {
+	pdfApi := initPdfApi()
+
+	//AppendTable(pdfApi, PDF_DOCUMENT, PAGE_NUMBER, PDF_OUTPUT, REMOTE_FOLDER)
+
+	//ExtractTables(pdfApi, PDF_DOCUMENT, REMOTE_FOLDER)
+
+	//ExtractTableById(pdfApi, PDF_DOCUMENT, TABLE_ID, REMOTE_FOLDER)
+
+	//ExtractTablesOnPage(pdfApi, PDF_DOCUMENT, PAGE_NUMBER, REMOTE_FOLDER)
+
+	//DeleteTables(pdfApi, PDF_DOCUMENT, PDF_OUTPUT, REMOTE_FOLDER)
+	//DeleteTableById(pdfApi, PDF_DOCUMENT, TABLE_ID, PDF_OUTPUT, REMOTE_FOLDER)
+	//DeleteTablesOnPage(pdfApi, PDF_DOCUMENT, PAGE_NUMBER, PDF_OUTPUT, REMOTE_FOLDER)
+
+	ReplaceTable(pdfApi, PDF_DOCUMENT, TABLE_ID, PDF_OUTPUT, REMOTE_FOLDER)
+}
