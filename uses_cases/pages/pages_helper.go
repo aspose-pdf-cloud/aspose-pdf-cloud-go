@@ -24,8 +24,8 @@ const (
 	IMAGE_STAMP_WIDTH  = 24
 	IMAGE_STAMP_HEIGHT = 24
 
-	PDF_API_SID = "****************"
-	PDF_API_KEY = "****************"
+	API_SID = "****************"   // Your Application SID
+	API_KEY = "****************"   // Your Application Key
 )
 
 func initPdfApi(appSID string, appKey string) *asposepdfcloud.PdfApiService {
