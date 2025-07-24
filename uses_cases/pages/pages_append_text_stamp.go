@@ -7,6 +7,7 @@ import (
 )
 
 func AppendPageStampText(pdf_api *asposepdfcloud.PdfApiService, documentName string, pageNumber int32, outputDocument string, text_value string, remoteFolder string) {
+	// Append text stamp to page of the PDF document.
 	uploadFile(pdf_api, documentName)
 
 	args := map[string]interface{}{
