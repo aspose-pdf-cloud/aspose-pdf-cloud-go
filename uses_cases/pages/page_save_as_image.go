@@ -9,7 +9,7 @@ import (
 )
 
 func SavePageAsPNG(pdf_api *asposepdfcloud.PdfApiService, document string, pageNumber int32, outputPNG string, remoteFolder string) {
-	// Get page information of the PDF document.
+	// Show page information of the PDF document.
 	uploadFile(pdf_api, document)
 
 	args := map[string]interface{}{
