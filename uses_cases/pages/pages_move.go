@@ -7,6 +7,7 @@ import (
 )
 
 func MovePage(pdf_api *asposepdfcloud.PdfApiService, document string, pageNumber int32, newPageNumber int32, outputDocument string, remoteFolder string) {
+	// Move page to new position in the PDF document.
 	uploadFile(pdf_api, document)
 
 	args := map[string]interface{}{
