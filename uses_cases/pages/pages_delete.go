@@ -7,6 +7,7 @@ import (
 )
 
 func DeletePage(pdf_api *asposepdfcloud.PdfApiService, document string, pageNumber int32, outputDocument string, remoteFolder string) {
+	// Delete page of the PDF document.
 	uploadFile(pdf_api, document)
 
 	args := map[string]interface{}{
