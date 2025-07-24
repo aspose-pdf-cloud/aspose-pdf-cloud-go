@@ -7,6 +7,7 @@ import (
 )
 
 func AppendNewPage(pdf_api *asposepdfcloud.PdfApiService, document string, outputDocument string, remoteFolder string) {
+	// Append page to the PDF document.
 	uploadFile(pdf_api, document)
 
 	args := map[string]interface{}{
