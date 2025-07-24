@@ -8,6 +8,7 @@ import (
 )
 
 func AppendPageStampImage(pdf_api *asposepdfcloud.PdfApiService, documentName string, outputDocument string, imageFileName string, pageNumber int32, width float64, height float64, remoteFolder string) {
+	// Append image stamp to page of the PDF document.
 	uploadFile(pdf_api, documentName)
 	uploadFile(pdf_api, imageFileName)
 
