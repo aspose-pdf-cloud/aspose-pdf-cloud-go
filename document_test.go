@@ -323,3 +323,22 @@ func TestPostDocumentPagesRotate(t *testing.T) {
 		fmt.Printf("%d\tPostDocumentPagesRotate - %db\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
+
+func TestPostDocumentPagesResize(t *testing.T) {
+	name := "4pages.pdf"
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
+	}
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentPagesResize(
+		name, 100, 200, "2-3", args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tPostDocumentPagesResize - %db\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}

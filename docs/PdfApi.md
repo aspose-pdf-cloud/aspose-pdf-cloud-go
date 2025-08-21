@@ -212,6 +212,7 @@ Method | HTTP request | Description
 [**PostDocumentImageStamps**](PdfApi.md#PostDocumentImageStamps) | **Post** /pdf/{name}/stamps/image | Add document pages image stamps.
 [**PostDocumentImageStampsPageSpecified**](PdfApi.md#PostDocumentImageStampsPageSpecified) | **Post** /pdf/{name}/stamps/image/pagespecified | Add document image stamps to specified pages.
 [**PostDocumentPageNumberStamps**](PdfApi.md#PostDocumentPageNumberStamps) | **Post** /pdf/{name}/stamps/pagenumber | Add document page number stamps.
+[**PostDocumentPagesResize**](PdfApi.md#PostDocumentPagesResize) | **Post** /pdf/{name}/resize | Rsize PDF document.
 [**PostDocumentPagesRotate**](PdfApi.md#PostDocumentPagesRotate) | **Post** /pdf/{name}/rotate | Rotate PDF document.
 [**PostDocumentTextFooter**](PdfApi.md#PostDocumentTextFooter) | **Post** /pdf/{name}/footer/text | Add document text footer.
 [**PostDocumentTextHeader**](PdfApi.md#PostDocumentTextHeader) | **Post** /pdf/{name}/header/text | Add document text header.
@@ -7239,6 +7240,44 @@ Name | Type | Description  | Notes
  **stamp** | [**PageNumberStamp**](PageNumberStamp.md)| The stamp. | 
  **startPageNumber** | **int32**| The start page number. | 
  **endPageNumber** | **int32**| The end page number. | 
+ **storage** | **string**| The document storage. | 
+ **folder** | **string**| The document folder. | 
+ **password** | **string**| Base64 encoded password. | 
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostDocumentPagesResize**
+> AsposeResponse PostDocumentPagesResize(name, height, width, pages, optional)
+Rsize PDF document.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+  **height** | **float64**| Page Height | 
+  **width** | **float64**| Page width | 
+  **pages** | **string**| Comma separated list of pages and page ranges. (Example: 1,3-5,8) | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**| The document name. | 
+ **height** | **float64**| Page Height | 
+ **width** | **float64**| Page width | 
+ **pages** | **string**| Comma separated list of pages and page ranges. (Example: 1,3-5,8) | 
  **storage** | **string**| The document storage. | 
  **folder** | **string**| The document folder. | 
  **password** | **string**| Base64 encoded password. | 
