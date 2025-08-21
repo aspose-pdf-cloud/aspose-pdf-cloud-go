@@ -9,12 +9,12 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 25.7
-- Add possibility to hide subject field in signature appearance.
+## Enhancements in Version 25.8
+- Implement document page resize functionality using the Pdf.Cloud API library.
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
 
-## Bugs fixed in Version 25.7
-- PostDeleteStamps removing stamps from PDF page is incorrect.
+## Bugs fixed in Version 25.8
+- Implement delete watermark from PDF document using the Pdf.Cloud API library.
 
 ## Installation
 ```
