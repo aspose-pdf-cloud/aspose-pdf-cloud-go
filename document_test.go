@@ -342,3 +342,22 @@ func TestPostDocumentPagesResize(t *testing.T) {
 		fmt.Printf("%d\tPostDocumentPagesResize - %db\n", GetBaseTest().GetTestNumber(), response.Code)
 	}
 }
+
+func TestPostDocumentPagesCrop(t *testing.T) {
+	name := "4pages.pdf"
+	if err := GetBaseTest().UploadFile(name); err != nil {
+		t.Error(err)
+	}
+	args := map[string]interface{}{
+		"folder": GetBaseTest().remoteFolder,
+	}
+	response, httpResponse, err := GetBaseTest().PdfAPI.PostDocumentPagesCrop(
+		name, "2-3", Rectangle{LLX: 0, LLY: 0, URX: 800, URY: 400}, args)
+	if err != nil {
+		t.Error(err)
+	} else if httpResponse.StatusCode < 200 || httpResponse.StatusCode > 299 {
+		t.Fail()
+	} else {
+		fmt.Printf("%d\tPostDocumentPagesCrop - %db\n", GetBaseTest().GetTestNumber(), response.Code)
+	}
+}
