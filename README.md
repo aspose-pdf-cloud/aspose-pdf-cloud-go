@@ -9,9 +9,12 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 25.9
-- Implement PDF document page crop functionality using the Pdf.Cloud API library.
+## Enhancements in Version 25.10
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
+
+## Bugs fixed in Version 25.10
+- Method PutBookmark does not change bookmark color.
+- TextReplace shows hidden text in the output file.
 
 ## Installation
 ```
