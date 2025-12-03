@@ -11,22 +11,22 @@ import (
 
 const (
 	REMOTE_FOLDER             = "Your_Temp_Pdf_Cloud"
-	LOCAL_FOLDER              = "c:\\Samples"
+	LOCAL_FOLDER              = "test_data"
 	PDF_DOCUMENT              = "sample.pdf"
-	PDF_DOCUMENT_WITH_ATTACH  = "sample_file_with_attachment.pdf"
+	PDF_DOCUMENT_WITH_ATTACH  = "PdfWithEmbeddedFiles.pdf"
 	PDF_OUTPUT                = "output_sample.pdf"
-	NEW_ATTACHMENT_FILE       = "sample_video.mp4"
-	NEW_ATTACHMENT_MIME       = "video/mp4"
+	NEW_ATTACHMENT_FILE       = "sample.pdf"
+	NEW_ATTACHMENT_MIME       = "application/pdf"
 	NEW_ATTACHMENT_DECRIPTION = "This is a sample attachment"
 	PAGE_NUMBER               = 2
 )
 
 func initPdfApi() *asposepdfcloud.PdfApiService {
 	// Initialize Credentials and create Pdf.Cloud service object
-	AppSID := "******" // Your Application SID
-	AppKey := "******" // Your Application Key
+	ClientId := "******" // Your Application Client ID
+	ClientSecret := "******" // Your Application Client Secret
 
-	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
+	pdfApi := asposepdfcloud.NewPdfApiService(ClientId, ClientSecret, "")
 	return pdfApi
 }
 
@@ -35,8 +35,18 @@ func uploadFile(pdf_api *asposepdfcloud.PdfApiService, name string) {
 	args := map[string]interface{}{
 		"folder": REMOTE_FOLDER,
 	}
-	file, _ := os.Open(filepath.Join(LOCAL_FOLDER, name))
-	_, _, _ = pdf_api.UploadFile(filepath.Join(REMOTE_FOLDER, name), file, args)
+
+	path := filepath.Join(LOCAL_FOLDER, name)
+	abs, err := filepath.Abs(path)
+	println(abs)
+	file, err := os.Open(abs)
+	if err != nil {
+
+	}
+	res, a, b := pdf_api.UploadFile(filepath.Join(REMOTE_FOLDER, name), file, args)
+	if res.Errors != nil && a != nil && b != nil {
+
+	}
 }
 
 func saveByteArrayToFile(local_folder string, file_name string, data []byte) {

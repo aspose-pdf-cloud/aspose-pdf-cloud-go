@@ -12,19 +12,19 @@ import (
 // Set file names and folders
 const (
 	REMOTE_FOLDER  = "Merge_Temp_Pdf_Cloud"
-	LOCAL_FOLDER   = "c:\\Samples"
+	LOCAL_FOLDER   = "test_data"
 	PDF_DOCUMENT   = "sample.pdf"
-	PDF_DOCUMENT_2 = "sample_2.pdf"
-	PDF_DOCUMENT_3 = "sample_3.pdf"
+	PDF_DOCUMENT_2 = "PdfWithLayers.pdf"
+	PDF_DOCUMENT_3 = "PdfWithLinks.pdf"
 	PDF_OUTPUT     = "output_sample.pdf"
 )
 
 // Initialize credentials and Rest API service
 func initPdfApi() *asposepdfcloud.PdfApiService {
-	AppSID := "*****"
-	AppKey := "*****"
+	ClientId := "*****"
+	ClientSecret := "*****"
 
-	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
+	pdfApi := asposepdfcloud.NewPdfApiService(ClientId, ClientSecret, "")
 	return pdfApi
 }
 

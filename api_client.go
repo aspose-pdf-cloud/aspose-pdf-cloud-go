@@ -429,8 +429,8 @@ func (a *APIClient) RequestOauthToken() error {
 		tokenUrl,
 		url.Values{
 			"grant_type":    {"client_credentials"},
-			"client_id":     {a.cfg.AppSid},
-			"client_secret": {a.cfg.AppKey},
+			"client_id":     {a.cfg.ClientId},
+			"client_secret": {a.cfg.ClientSecret},
 		},
 	)
 	if err != nil {

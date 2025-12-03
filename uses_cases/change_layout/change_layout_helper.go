@@ -12,26 +12,26 @@ import (
 
 const (
 	REMOTE_FOLDER = "Your_Temp_Pdf_Cloud"
-	LOCAL_FOLDER  = "c:\\Samples"
-	PDF_DOCUMENT  = "sample.pdf"
+	LOCAL_FOLDER  = "test_data"
+	PDF_DOCUMENT  = "PdfWithScreenAnnotations.pdf"
 	PDF_OUTPUT    = "output_sample.pdf"
 
 	ROTATE_PAGES_ANGLE = asposepdfcloud.Rotationon90
-	ROTATE_PAGES       = "1-3"
+	ROTATE_PAGES       = "1-2"
 
-	CROP_PAGE_TEMP_FILE             = "sammple_temp_file.png"
+	CROP_PAGE_TEMP_FILE             = "sample_temp_file.png"
 	CROP_LOCAL_RESULT_DOCUMENT_NAME = "output_sample.pdf"
-	CROP_PAGE_NUMBER                = 3
+	CROP_PAGE_NUMBER                = 1
 	CROP_HEIGHT                     = 400
 	CROP_WIDTH                      = 300
 	CROP_LLX                        = 100
 	CROP_LLY                        = 200
 
-	RESIZE_PDF_HTML_FILE        = "sammple_temp_file.html"
+	RESIZE_PDF_HTML_FILE        = "sample_temp_file.html"
 	RESIZE_RESULT_DOCUMENT_NAME = "output_sample.pdf"
 	RESIZE_PAGE_NUMBER          = 2
-	RESIZE_NEW_PAGE_WIDTH       = 1000
-	RESIZE_NEW_PAGE_HEIGHT      = 500
+	RESIZE_NEW_PAGE_WIDTH       = 800
+	RESIZE_NEW_PAGE_HEIGHT      = 400
 )
 
 var (
@@ -41,10 +41,10 @@ var (
 
 func initPdfApi() *asposepdfcloud.PdfApiService {
 	// Initialize Credentials and create Pdf.Cloud service object
-	AppSID := "******" // Your Application SID
-	AppKey := "******" // Your Application Key
+	ClientId := "******"     // Your Application Client ID
+	ClientSecret := "******" // Your Application Client Secret
 
-	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
+	pdfApi := asposepdfcloud.NewPdfApiService(ClientId, ClientSecret, "")
 	return pdfApi
 }
 

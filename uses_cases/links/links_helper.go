@@ -11,25 +11,25 @@ import (
 
 const (
 	REMOTE_FOLDER      = "Your_Temp_Pdf_Cloud"
-	LOCAL_FOLDER       = "c:\\Samples"
-	PDF_DOCUMENT       = "sample.pdf"
+	LOCAL_FOLDER       = "test_data"
+	PDF_DOCUMENT       = "PdfWithLinks.pdf"
 	PDF_OUTPUT         = "output_sample_add_link.pdf"
 	PDF_OUTPUT_REMOVE  = "output_sample_rem_link.pdf"
 	PDF_OUTPUT_REPLACE = "output_sample_rep_link.pdf"
 	NEW_LINK_ACTION    = "https://reference.aspose.cloud/pdf/"
-	PAGE_NUMBER        = 2
-	LINK_ID            = "GI5UO32UN5KVESKBMN2GS33OHMYTINBMGQ4DQLBRHA2SYNBZHE"
+	PAGE_NUMBER        = 1
+	LINK_ID            = "GE5UO32UN5AWG5DJN5XDWOBYFQ3TGMJMGEZTMLBXGQ3A"
 )
 
 var (
-	LINK_RECT = asposepdfcloud.Rectangle{LLX: 238, LLY: 488.622, URX: 305, URY: 498.588}
+	LINK_RECT = asposepdfcloud.Rectangle{LLX: 70, LLY: 731.229, URX: 90, URY: 745.185}
 )
 
 func initPdfApi() *asposepdfcloud.PdfApiService {
-	AppSID := "******"
-	AppKey := "******"
+	ClientId := "******"
+	ClientSecret := "******"
 
-	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
+	pdfApi := asposepdfcloud.NewPdfApiService(ClientId, ClientSecret, "")
 	return pdfApi
 }
 

@@ -11,19 +11,19 @@ import (
 
 const (
 	REMOTE_FOLDER  = "Your_Temp_Pdf_Cloud"
-	LOCAL_FOLDER   = "c:\\Samples"
-	PDF_DOCUMENT   = "sample.pdf"
+	LOCAL_FOLDER   = "test_data"
+	PDF_DOCUMENT   = "PdfWithBookmarks.pdf"
 	PDF_OUTPUT     = "output_sample.pdf"
 	BOOKMARK_TITLE = "NEW Bookmark Title XYZ"
-	BOOKMARK_PATH  = "/1"
+	BOOKMARK_PATH  = "/5"
 )
 
 func initPdfApi() *asposepdfcloud.PdfApiService {
 	// Initialize Credentials and create Pdf.Cloud service object
-	AppSID := "******" // Your Application SID
-	AppKey := "******" // Your Application Key
+	ClientId := "******"     // Your Application Client ID
+	ClientSecret := "******" // Your Application Client Secret
 
-	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
+	pdfApi := asposepdfcloud.NewPdfApiService(ClientId, ClientSecret, "")
 	return pdfApi
 }
 

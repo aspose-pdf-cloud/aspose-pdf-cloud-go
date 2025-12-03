@@ -9,13 +9,13 @@ import (
 )
 
 func createPdfSimple() {
-	LOCAL_FOLDER := "c:\\Samples"
+	LOCAL_FOLDER := "test_data"
 	PDF_DOCUMENT := "output_created_simple.pdf"
 
-	AppSID := "*******"
-	AppKey := "*******"
+	ClientId := "*******"
+	ClientSecret := "*******"
 
-	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
+	pdfApi := asposepdfcloud.NewPdfApiService(ClientId, ClientSecret, "")
 	_, httpResponse, err := pdfApi.PutCreateDocument(PDF_DOCUMENT, nil)
 	if err != nil {
 		fmt.Println(err.Error())

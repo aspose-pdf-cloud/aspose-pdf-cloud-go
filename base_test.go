@@ -50,35 +50,15 @@ func (bt *BaseTest) GetTestNumber() int {
 	return bt.TestNumber
 }
 
-func getServercredsJson() string {
-	wd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
-	dir := filepath.Dir(wd)
-	ok := true
-	for ok && dir != "." {
-		ok = dir[len(dir)-1] != filepath.Separator
-		servercreds_json := filepath.Join(dir, "Settings", "servercreds.json")
-		if _, err := os.Stat(servercreds_json); err == nil {
-			// fmt.Println(`Settings\servercreds.json found: ` + servercreds_json)
-			return servercreds_json
-		}
-		dir = filepath.Dir(dir)
-	}
-
-	panic(`Settings\servercreds.json not found`)
-}
-
 type Creds struct {
-	ProductUri string `json:"ProductUri"`
-	AppSID     string `json:"AppSID"`
-	AppKey     string `json:"AppKey"`
-	SelfHost   bool   `json:"SelfHost"`
+	ProductUri   string `json:"api_url"`
+	ClientId     string `json:"client_id"`
+	ClientSecret string `json:"client_secret"`
+	SelfHost     bool   `json:"self_host"`
 }
 
 func getCreds() Creds {
-	bbCreds, err := os.ReadFile(getServercredsJson())
+	bbCreds, err := os.ReadFile("settings/credentials.json")
 	if err != nil {
 		panic(err)
 	}
@@ -91,11 +71,11 @@ func getCreds() Creds {
 			panic("no ProductUri")
 		}
 	} else {
-		if len(creds.AppSID) == 0 {
-			panic("no AppSID")
+		if len(creds.ClientId) == 0 {
+			panic("no ClientId")
 		}
-		if len(creds.AppKey) == 0 {
-			panic("no AppKey")
+		if len(creds.ClientSecret) == 0 {
+			panic("no ClientSecret")
 		}
 	}
 	return creds
@@ -107,7 +87,7 @@ func NewBaseTest() *BaseTest {
 	if creds.SelfHost {
 		pdfApiService = NewSelfHostPdfApiService(creds.ProductUri)
 	} else {
-		pdfApiService = NewPdfApiService(creds.AppSID, creds.AppKey, creds.ProductUri)
+		pdfApiService = NewPdfApiService(creds.ClientId, creds.ClientSecret, creds.ProductUri)
 	}
 	baseTest := BaseTest{
 		remoteFolder:        "TempPdfCloud",

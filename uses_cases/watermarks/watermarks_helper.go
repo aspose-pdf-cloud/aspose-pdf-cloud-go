@@ -11,7 +11,7 @@ import (
 
 const (
 	REMOTE_FOLDER = "Your_Temp_Pdf_Cloud"
-	LOCAL_FOLDER  = "c:\\Samples"
+	LOCAL_FOLDER  = "test_data"
 	PDF_DOCUMENT  = "sample.pdf"
 	PDF_OUTPUT    = "output_pages.pdf"
 
@@ -27,25 +27,25 @@ const (
 	IMAGE_WIDTH   = 64
 	IMAGE_HEIGHT  = 64
 
-	APP_SID = "************" // Your Application SID
-	APP_KEY = "************" // Your Application Key
+	CLIENT_ID     = "************" // Your Application Client ID
+	CLIENT_SECRET = "************" // Your Application Client Secret
 )
 
 var (
 	IMAGE_IDS_DEL = []string{
 		"GE5TKMBQGE4TWMRQGAWDIMBQFQZDSMJMGQ4TC",
+		"GE5TGOJVGQYDWNJQGQWDOMRQFQ2TANJMG4ZDC",
 		"GI5TKMBQGE4TWMRQGAWDIMBQFQZDSMJMGQ4TC",
+		"GI5TGOJVGQYDWNJQGQWDOMRQFQ2TANJMG4ZDC",
 		"GM5TKMBQGE4TWMRQGAWDIMBQFQZDSMJMGQ4TC",
+		"GM5TGOJVGQYDWNJQGQWDOMRQFQ2TANJMG4ZDC",
 		"GQ5TKMBQGE4TWMRQGAWDIMBQFQZDSMJMGQ4TC",
-		"GU5TKMBQGE4TWMRQGAWDIMBQFQZDSMJMGQ4TC",
-		"GY5TKMBQGE4TWMRQGAWDIMBQFQZDSMJMGQ4TC",
-		"G45TKMBQGE4TWMRQGAWDIMBQFQZDSMJMGQ4TC",
-		"HA5TKMBQGE4TWMRQGAWDIMBQFQZDSMJMGQ4TC",
+		"GQ5TGOJVGQYDWNJQGQWDOMRQFQ2TANJMG4ZDC",
 	}
 )
 
 func initPdfApi() *asposepdfcloud.PdfApiService {
-	pdfApi := asposepdfcloud.NewPdfApiService(APP_SID, APP_KEY, "")
+	pdfApi := asposepdfcloud.NewPdfApiService(CLIENT_ID, CLIENT_SECRET, "")
 	return pdfApi
 }
 

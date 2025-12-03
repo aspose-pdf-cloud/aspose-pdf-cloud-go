@@ -68,20 +68,20 @@ type Configuration struct {
     DefaultHeader map[string]string     `json:"defaultHeader,omitempty"`
     UserAgent     string                `json:"userAgent,omitempty"`
     HTTPClient    *http.Client
-    AppKey        string
-    AppSid        string
+    ClientSecret  string
+    ClientId      string
     AccessToken   string
     SelfHost      bool
 }
 
-func NewConfiguration(appSid, appKey, basePath string, selfHost bool) *Configuration {
+func NewConfiguration(clientId, clientSecret, basePath string, selfHost bool) *Configuration {
     cfg := &Configuration{
         BasePath:      "https://api.aspose.cloud/v3.0",
         DefaultHeader: make(map[string]string),
         UserAgent:     "aspose pdf cloud go sdk",
-        AppKey:        appKey,
-        AppSid:        appSid,
-	SelfHost:      selfHost,
+        ClientSecret:  clientSecret,
+        ClientId:      clientId,
+	    SelfHost:      selfHost,
     }
     if basePath != "" {
         cfg.BasePath = basePath
