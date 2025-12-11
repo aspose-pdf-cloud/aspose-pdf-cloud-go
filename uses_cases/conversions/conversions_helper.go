@@ -13,10 +13,10 @@ import (
 // Set file names and folders
 const (
 	REMOTE_FOLDER = "Your_Temp_Pdf_Cloud"
-	LOCAL_FOLDER  = "c:\\Samples"
+	LOCAL_FOLDER  = "test_data"
 	PDF_DOCUMENT  = "sample.pdf"
 
-	JPEG_FILE = "sample.jpg"
+	JPEG_FILE = "Koala.jpg"
 	BMP_FILE  = "sample.bmp"
 	PNG_FILE  = "sample.png"
 	GIF_FILE  = "sample.gif"
@@ -26,20 +26,20 @@ const (
 	PDF_PNG_OUTPUT  = "output_png.pdf"
 	PDF_GIF_OUTPUT  = "output_gif.pdf"
 
-	HTML_FILE_NAME  = "sample.html"
-	HTML_ZIP_FILE   = "sample_html.zip"
+	HTML_FILE_NAME  = "HtmlExample1.html"
+	HTML_ZIP_FILE   = "HtmlWithImage.zip"
 	PDF_HTML_OUTPUT = "output_html.pdf"
 
-	MHTML_FILE_NAME  = "sample.mht"
+	MHTML_FILE_NAME  = "MhtExample.mht"
 	PDF_MHTML_OUTPUT = "output_mht.pdf"
 
 	MD_FILE_NAME  = "sample.md"
 	PDF_MD_OUTPUT = "output_md.pdf"
 
-	EPUB_FILE_NAME  = "sample.epub"
+	EPUB_FILE_NAME  = "4pages.epub"
 	PDF_EPUB_OUTPUT = "output_epub.pdf"
 
-	PCL_FILE_NAME  = "sample.pcl"
+	PCL_FILE_NAME  = "template.pcl"
 	PDF_PCL_OUTPUT = "output_pcl.pdf"
 
 	PS_FILE_NAME  = "sample.ps"
@@ -64,10 +64,10 @@ const (
 
 // Initialize credentials and Rest API service
 func initPdfApi() *asposepdfcloud.PdfApiService {
-	AppSID := "*****"
-	AppKey := "*****"
+	ClientId := "*****"
+	ClientSecret := "*****"
 
-	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
+	pdfApi := asposepdfcloud.NewPdfApiService(ClientId, ClientSecret, "")
 	return pdfApi
 }
 

@@ -11,7 +11,7 @@ import (
 
 const (
 	REMOTE_FOLDER   = "Your_Temp_Pdf_Cloud"
-	LOCAL_FOLDER    = "c:\\Samples"
+	LOCAL_FOLDER    = "test_data"
 	PDF_DOCUMENT    = "sample.pdf"
 	PDF_OUTPUT      = "output_pages.pdf"
 	PNG_PAGE_OUTPUT = "output_sample_page.png"
@@ -24,15 +24,15 @@ const (
 	IMAGE_STAMP_WIDTH  = 24
 	IMAGE_STAMP_HEIGHT = 24
 
-	API_SID = "****************"   // Your Application SID
-	API_KEY = "****************"   // Your Application Key
+	API_CLIENT_ID     = "****************" // Your Application Client ID
+	API_CLIENT_SECRET = "****************" // Your Application Client Secret
 )
 
-func initPdfApi(appSID string, appKey string) *asposepdfcloud.PdfApiService {
-	AppSID := appSID
-	AppKey := appKey
+func initPdfApi(clientId string, clientSecret string) *asposepdfcloud.PdfApiService {
+	ClientId := clientId
+	ClientSecret := clientSecret
 
-	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
+	pdfApi := asposepdfcloud.NewPdfApiService(ClientId, ClientSecret, "")
 	return pdfApi
 }
 

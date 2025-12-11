@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"path/filepath"
 
 	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
 )
@@ -12,7 +13,7 @@ func appendAttachment(pdf_api *asposepdfcloud.PdfApiService, document_name strin
 	}
 
 	attachment := asposepdfcloud.AttachmentInfo{
-		Path:        attachment_path,
+		Path:        filepath.Join(remote_folder, attachment_path),
 		Description: description,
 		Name:        attachment_path,
 		MimeType:    mime_type,

@@ -9,13 +9,13 @@ import (
 
 const (
 	REMOTE_FOLDER  = "Your_Temp_Pdf_Cloud"
-	LOCAL_FOLDER   = "c:\\Samples"
-	PDF_DOCUMENT_1 = "sample_compare_1.pdf"
-	PDF_DOCUMENT_2 = "sample_compare_2.pdf"
+	LOCAL_FOLDER   = "test_data"
+	PDF_DOCUMENT_1 = "sample.pdf"
+	PDF_DOCUMENT_2 = "sample_edited.pdf"
 	PDF_OUTPUT     = "output_compare.pdf"
 
-	PDF_API_SID = "******"
-	PDF_API_KEY = "******"
+	PDF_API_CLIENT_ID     = "******"
+	PDF_API_CLIENT_SECRET = "******"
 )
 
 func СomparePdf(pdf_api *asposepdfcloud.PdfApiService, document1 string, document2 string, output_document string, remote_folder string) {

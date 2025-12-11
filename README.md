@@ -9,10 +9,19 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Enhancements in Version 25.9
-- Implement PDF document page crop functionality using the Pdf.Cloud API library.
+## Breaking Changes in Version 25.10
+**Authentication Parameter Changes**:
+
+    AppId → ClientId
+
+    AppSecret → ClientSecret
+
+## Enhancements in Version 25.10
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
 
+## Bugs fixed in Version 25.10
+- Method PutBookmark does not change bookmark color.
+- TextReplace shows hidden text in the output file.
 ## Installation
 ```
     go get -u github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25
@@ -39,6 +48,23 @@ Please follow the [installation](#installation) instruction and execute the foll
 Instead of **NewPdfApiService** use **NewSelfHostPdfApiService** function to create PdfApiService instance:
 ```
 	pdfApi := asposepdfcloud.NewSelfHostPdfApiService(<base URL of SelfHost Aspose.PDF Cloud>)
+```
+
+## Use cases
+
+The Aspose.PDF Cloud SDK includes a set of ready-to-run use cases in the "[uses_cases](uses_cases)" directory. These examples illustrate common operations such as managing annotations, attachments, text, and more.
+
+1. Add your API credentials **client_id** and **client_secret** into [settings/credentials.json](settings/credentials.json):
+
+```
+{
+  "client_secret": "YOUR_CLIENT_SECRET",
+  "client_id": "YOUR_CLIENT_ID"
+}
+```
+2. Launch use case:
+```
+go run uses_cases/annotations/*
 ```
 
 ## Unit Tests

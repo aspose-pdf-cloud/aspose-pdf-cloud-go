@@ -10,13 +10,13 @@ import (
 )
 
 const (
-	LOCAL_FOLDER      = "C:\\Samples"
+	LOCAL_FOLDER      = "test_data"
 	REMOTE_FOLDER     = "Your_Temp_Pdf_Cloud"
-	PDF_DOCUMENT_NAME = "sample.pdf"
+	PDF_DOCUMENT_NAME = "PdfWithAnnotations.pdf"
 	PDF_OUTPUT        = "output_sample.pdf"
-	PAGE_NUMBER       = 1
+	PAGE_NUMBER       = 2
 
-	ANNOTATION_ID = "GE5TAOZTHA2CYMRZGUWDIMBZFQZTEMA"
+	ANNOTATION_ID = "GI5TAOZRGU3CYNZSGEWDCNZWFQ3TGOI"
 
 	NEW_HL_ANNOTATION_TEXT        = "NEW HIGHLIGHT TEXT ANNOTATION"
 	NEW_HL_ANNOTATION_DESCRIPTION = "This is a sample highlight annotation"
@@ -43,10 +43,10 @@ const (
 
 func InitPdfApi() *asposepdfcloud.PdfApiService {
 	// Initialize Credentials and create Pdf.Cloud service object
-	AppSID := "*********" // Your Application SID
-	AppKey := "*********" // Your Application Key
+	ClientId := "*********"     // Your Application Client ID
+	ClientSecret := "*********" // Your Application Client Secret
 
-	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
+	pdfApi := asposepdfcloud.NewPdfApiService(ClientId, ClientSecret, "")
 	return pdfApi
 }
 

@@ -11,24 +11,24 @@ import (
 
 const (
 	REMOTE_FOLDER               = "Your_Temp_Pdf_Cloud"
-	LOCAL_FOLDER                = "c:\\Samples"
+	LOCAL_FOLDER                = "test_data"
 	PDF_DOCUMENT                = "sample.pdf"
-	PDF_DOCUMENT_ENCRYPTED      = "sample_encrypted.pdf"
+	PDF_DOCUMENT_ENCRYPTED      = "4pagesEncrypted.pdf"
 	PDF_OUTPUT                  = "output_sample_encrypt.pdf"
 	PDF_OUTPUT_DECRYPT          = "output_sample_decrypt.pdf"
 	PDF_OUTPUT_ENCRYPTED_CHANGE = "output_sample_encrypted_new.pdf"
 	ENCRYPT_ALGORITHM           = asposepdfcloud.CryptoAlgorithmAESx256
 	USER_PASSWORD               = "User-Password"
-	OWNER_PASSWORD              = "Owner-Password"
+	OWNER_PASSWORD              = "user $^Password!&"
 	NEW_USER_PASSWORD           = "NEW-User-Password"
 	NEW_OWNER_PASSWORD          = "NEW-Owner-Password"
 )
 
 func initPdfApi() *asposepdfcloud.PdfApiService {
-	AppSID := "******"
-	AppKey := "******"
+	ClientId := "******"
+	ClientSecret := "******"
 
-	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
+	pdfApi := asposepdfcloud.NewPdfApiService(ClientId, ClientSecret, "")
 	return pdfApi
 }
 

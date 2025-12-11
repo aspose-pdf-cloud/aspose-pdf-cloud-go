@@ -9,11 +9,11 @@ import (
 	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
 )
 
-func initPdfApi(appSID string, appKey string) *asposepdfcloud.PdfApiService {
-	AppSID := appSID
-	AppKey := appKey
+func initPdfApi(clientId string, clientSecret string) *asposepdfcloud.PdfApiService {
+	ClientId := clientId
+	ClientSecret := clientSecret
 
-	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
+	pdfApi := asposepdfcloud.NewPdfApiService(ClientId, ClientSecret, "")
 	return pdfApi
 }
 

@@ -35,13 +35,13 @@ type PdfApiService service
 /*
 NewPdfApiService creates PdfApiService instance to connect with public Aspose.PDF Cloud.
 
-@param appSid string Application SID
-@param appKey string Application Key
+@param clientId string Client Id
+@param clientSecret string Client Secret
 @param basePath string Base service path. Set "" for default
 @return *PdfApiService
 */
-func NewPdfApiService(appSid, appKey, basePath string) *PdfApiService {
-	config := NewConfiguration(appSid, appKey, basePath, false)
+func NewPdfApiService(clientId, clientSecret, basePath string) *PdfApiService {
+	config := NewConfiguration(clientId, clientSecret, basePath, false)
 	client := NewAPIClient(config)
 	return client.PdfApi
 }

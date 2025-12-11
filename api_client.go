@@ -176,7 +176,7 @@ func (c *APIClient) prepareRequest (
     
     // set custom header
     headerParams["x-aspose-client"] = "go sdk"
-    headerParams["x-aspose-client-version"] = "25.9.0"
+    headerParams["x-aspose-client-version"] = "25.10.0"
 
     // Detect postBody type and post.
     if postBody != nil {
@@ -429,8 +429,8 @@ func (a *APIClient) RequestOauthToken() error {
 		tokenUrl,
 		url.Values{
 			"grant_type":    {"client_credentials"},
-			"client_id":     {a.cfg.AppSid},
-			"client_secret": {a.cfg.AppKey},
+			"client_id":     {a.cfg.ClientId},
+			"client_secret": {a.cfg.ClientSecret},
 		},
 	)
 	if err != nil {

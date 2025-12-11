@@ -11,19 +11,19 @@ import (
 
 const (
 	REMOTE_FOLDER   = "Your_Temp_Pdf_Cloud"
-	LOCAL_FOLDER    = "c:\\Samples"
-	PDF_DOCUMENT    = "sample.pdf"
+	LOCAL_FOLDER    = "test_data"
+	PDF_DOCUMENT    = "FormData.pdf"
 	PDF_OUTPUT      = "output_pages.pdf"
 	XML_OUTPUT_FILE = "output_sample.xml"
 	FDF_OUTPUT_FILE = "output_sample.fdf"
 	PAGE_NUMBER     = 1
 
-	AppSID = "**********"     // Your Application SID
-	AppKey = "**********"     // Your Application Key
+	ClientId     = "**********" // Your Application Client ID
+	ClientSecret = "**********" // Your Application Client Secret
 )
 
 func initPdfApi() *asposepdfcloud.PdfApiService {
-	pdfApi := asposepdfcloud.NewPdfApiService(AppSID, AppKey, "")
+	pdfApi := asposepdfcloud.NewPdfApiService(ClientId, ClientSecret, "")
 	return pdfApi
 }
 
