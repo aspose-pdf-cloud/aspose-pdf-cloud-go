@@ -9,6 +9,13 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
+## Breaking Changes in Version 25.10
+**Authentication Parameter Changes**:
+
+    AppId → ClientId
+
+    AppSecret → ClientSecret
+
 ## Enhancements in Version 25.10
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
 
