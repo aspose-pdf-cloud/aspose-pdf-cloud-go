@@ -9,19 +9,8 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
 
-## Breaking Changes in Version 25.10
-**Authentication Parameter Changes**:
-
-    AppId → ClientId
-
-    AppSecret → ClientSecret
-
-## Enhancements in Version 25.10
+## Enhancements in Version 25.11
 - A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
-
-## Bugs fixed in Version 25.10
-- Method PutBookmark does not change bookmark color.
-- TextReplace shows hidden text in the output file.
 ## Installation
 ```
     go get -u github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v24
@@ -52,9 +41,9 @@ Instead of **NewPdfApiService** use **NewSelfHostPdfApiService** function to cre
 
 ## Use cases
 
-The Aspose.PDF Cloud SDK includes a set of ready-to-run use cases in the "[uses_cases](uses_cases)" directory. These examples illustrate common operations such as managing annotations, attachments, text, and more.
+The Aspose.PDF Cloud SDK includes a set of ready-to-run use cases in the "[uses_cases](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/tree/master/uses_cases)" directory. These examples illustrate common operations such as managing annotations, attachments, text, and more.
 
-1. Add your API credentials **client_id** and **client_secret** into [settings/credentials.json](settings/credentials.json):
+1. Add your API credentials **client_id** and **client_secret** into [settings/credentials.json](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/tree/master/settings/credentials.json):
 
 ```
 {
