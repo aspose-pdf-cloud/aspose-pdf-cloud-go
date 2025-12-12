@@ -132,7 +132,7 @@ func TestPutChangePasswordDocument(t *testing.T) {
 		"file": file,
 	}
 	outPath := GetBaseTest().remoteFolder + "/" + name
-	ownerPassword := "owner\\//? $12^Password!&"
+	ownerPassword := "user $^Password!&"
 	newUserPassword := "user new\\//? $12^Password!&"
 	newOwnerPassword := "owner new\\//? $12^Password!&"
 	response, httpResponse, err := GetBaseTest().PdfAPI.PutChangePasswordDocument(outPath,
@@ -157,7 +157,7 @@ func TestPostChangePasswordDocumentInStorage(t *testing.T) {
 	args := map[string]interface{}{
 		"folder": GetBaseTest().remoteFolder,
 	}
-	ownerPassword := "owner\\//? $12^Password!&"
+	ownerPassword := "user $^Password!&"
 	newUserPassword := "user new\\//? $12^Password!&"
 	newOwnerPassword := "owner new\\//? $12^Password!&"
 	response, httpResponse, err := GetBaseTest().PdfAPI.PostChangePasswordDocumentInStorage(name,
