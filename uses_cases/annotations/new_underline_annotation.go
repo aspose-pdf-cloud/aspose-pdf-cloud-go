@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func AppendUnderlineAnnotation(pdf_api *asposepdfcloud.PdfApiService, document_name string, page_num int32, output_document string, prefix string, remote_folder string) {
@@ -31,7 +31,7 @@ func AppendUnderlineAnnotation(pdf_api *asposepdfcloud.PdfApiService, document_n
 			{X: 10, Y: 20},
 			{X: 10, Y: 10},
 		},
-		Modified: "03/27/2025 00:00:00.000 AM",
+		Modified: "03/27/2026 00:00:00.000 AM",
 	}
 	_, httpResponse, err := pdf_api.PostPageUnderlineAnnotations(document_name, page_num, []asposepdfcloud.UnderlineAnnotation{new_annotation}, args)
 	if err != nil {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"path"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func convertHtmlToPdf(pdf_api *asposepdfcloud.PdfApiService, html_document string, html_zip string, pdf_name string, remote_folder string) {

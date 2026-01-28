@@ -5,7 +5,7 @@ import (
 	"os"
 	"path"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func ParseExtractImages(pdf_api *asposepdfcloud.PdfApiService, documentName string, pageNumber int32, localFolder string, remoteFolder string) {

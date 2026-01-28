@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func DeleteAnnotation(pdf_api *asposepdfcloud.PdfApiService, document_name string, annotation_id string, output_name string) {

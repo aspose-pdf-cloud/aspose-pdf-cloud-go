@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"fmt"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func changeDocumentPasswords(pdf_api *asposepdfcloud.PdfApiService, document string, output_document string, ownerPassword string, newUserPassword string, newOwnerPassword string, remote_folder string) {

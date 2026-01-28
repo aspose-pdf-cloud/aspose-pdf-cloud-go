@@ -1,6 +1,6 @@
 /*
 *
-* Copyright (c) 2025 Aspose.PDF Cloud
+* Copyright (c) 2026 Aspose.PDF Cloud
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
 * in the Software without restriction, including without limitation the rights
@@ -176,7 +176,7 @@ func (c *APIClient) prepareRequest (
     
     // set custom header
     headerParams["x-aspose-client"] = "go sdk"
-    headerParams["x-aspose-client-version"] = "25.12.0"
+    headerParams["x-aspose-client-version"] = "ASPOSE_RELEASE_VERSION"
 
     // Detect postBody type and post.
     if postBody != nil {

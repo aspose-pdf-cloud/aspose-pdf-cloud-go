@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"path"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func ParseExtractFormsAsXML(pdf_api *asposepdfcloud.PdfApiService, documentName string, outputXMLName string, remoteFolder string) {

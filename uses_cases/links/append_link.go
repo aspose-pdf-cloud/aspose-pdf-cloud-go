@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func appendLink(pdf_api *asposepdfcloud.PdfApiService, document string, output_document string, page_num int32, link_action string, rect *asposepdfcloud.Rectangle, remote_folder string) {

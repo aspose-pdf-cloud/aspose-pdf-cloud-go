@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func replaceBookmark(pdf_api *asposepdfcloud.PdfApiService, document_name string, bookmark_path string, title string, remote_folder string) {

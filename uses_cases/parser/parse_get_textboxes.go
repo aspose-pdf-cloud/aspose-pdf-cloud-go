@@ -6,7 +6,7 @@ import (
 	"os"
 	"path"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func ParseExtractTextBoxes(pdf_api *asposepdfcloud.PdfApiService, documentName string, localFolder string, remoteFolder string) {

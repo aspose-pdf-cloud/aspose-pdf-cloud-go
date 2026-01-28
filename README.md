@@ -8,9 +8,7 @@ Our Cloud SDKs are wrappers around REST API in various programming languages, al
 These SDKs are now fully supported. If you have any questions, see any bugs or have enhancement request, feel free to reach out to us at [Free Support Forums](https://forum.aspose.cloud/c/pdf).
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
-
-## Enhancements in Version 25.12
-- A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
+{ASPOSE_RELEASE_NOTES}
 
 ## Installation
 ```
