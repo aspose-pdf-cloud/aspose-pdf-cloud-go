@@ -8,11 +8,16 @@ Our Cloud SDKs are wrappers around REST API in various programming languages, al
 These SDKs are now fully supported. If you have any questions, see any bugs or have enhancement request, feel free to reach out to us at [Free Support Forums](https://forum.aspose.cloud/c/pdf).
 
 Extract Text & Images of a PDF document online https://products.aspose.app/pdf/parser.
-{ASPOSE_RELEASE_NOTES}
+
+## Enhancements in Version 26.1
+- A new version of Aspose.PDF Cloud was prepared using the latest version of Aspose.PDF for .NET.
+
+## Bugs fixed in Version 26.1
+- Swagger UI shows errors when opening the block TextBoxFieldResponse.
 
 ## Installation
 ```
-    go get -u github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v24
+    go get -u github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26
 ```
 
 ## Getting Started
@@ -20,7 +25,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ## Get PDF Page Circle Annotations
 ```
-        import "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v24"
+        import "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 
         ...
 
