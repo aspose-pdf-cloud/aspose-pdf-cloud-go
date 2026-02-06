@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"fmt"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func encryptDocument(pdf_api *asposepdfcloud.PdfApiService, document string, output_document string, userPassword string, ownerPassword string, encrypt_algorithm string, remote_folder string) {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"path/filepath"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func resizeAllPages(pdf_api *asposepdfcloud.PdfApiService, document_name string, htmlTempDoc string, width int, height int, outputDocument string, localFolder string, tempFolder string) {

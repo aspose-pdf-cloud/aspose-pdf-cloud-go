@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"path"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func AppendStampImage(pdf_api *asposepdfcloud.PdfApiService, documentName string, outputDocument string, imageFileName string, width float64, height float64, remoteFolder string) {

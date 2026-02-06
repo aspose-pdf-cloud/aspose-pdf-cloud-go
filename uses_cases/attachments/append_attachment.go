@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"path/filepath"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func appendAttachment(pdf_api *asposepdfcloud.PdfApiService, document_name string, attachment_path string, description string, mime_type string, remote_folder string) {

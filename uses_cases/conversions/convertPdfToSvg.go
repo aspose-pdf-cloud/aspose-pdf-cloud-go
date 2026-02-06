@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"path"
 
-	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v25"
+	asposepdfcloud "github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v26"
 )
 
 func convertPdfToSvg(pdf_api *asposepdfcloud.PdfApiService, pdf_name string, svg_name string, remote_folder string) {
